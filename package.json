@@ -2,7 +2,7 @@
     "author": "Victor Pishuk <victor.pishuk@gmail.com>",
     "type": "module",
     "bugs": {
-        "url": "https://github.com/vpishuk/react-firebase-hooks/issues"
+        "url": "https://github.com/vpishuk/react-query-firebase/issues"
     },
     "dependencies": {
         "firebase": "^11.0.1"
@@ -24,7 +24,7 @@
         "react": "^19.0.0",
         "typescript": "^5.2.2"
     },
-    "homepage": "https://github.com/vpishuk/react-firebase-hooks",
+    "homepage": "https://github.com/vpishuk/react-query-firebase",
     "keywords": [
         "firebase",
         "react",
@@ -33,10 +33,10 @@
     "license": "MIT",
     "main": "./dist/src/index.js",
     "types": "./dist/src/index.d.ts",
-    "name": "react-firebase-hooks",
+    "name": "react-query-firebase",
     "repository": {
         "type": "git",
-        "url": "https://github.com/vpishuk/react-firebase-hooks.git"
+        "url": "https://github.com/vpishuk/react-query-firebase.git"
     },
     "files": [
         "./dist/src/",

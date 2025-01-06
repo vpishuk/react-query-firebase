@@ -1,6 +1,6 @@
-[![Release Train](https://github.com/vpishuk/react-firebase-hooks/actions/workflows/main.yaml/badge.svg?branch=main)](https://github.com/vpishuk/react-firebase-hooks/actions/workflows/main.yaml)
+[![Release Train](https://github.com/vpishuk/react-query-firebase/actions/workflows/main.yaml/badge.svg?branch=main)](https://github.com/vpishuk/react-query-firebase/actions/workflows/main.yaml)
 
-# react-firebase-hooks
+# react-query-firebase
 
 This module offers a set of hooks to work with [Firebase](https://firebase.google.com/) platorrm.
 
@@ -9,7 +9,7 @@ This module offers a set of hooks to work with [Firebase](https://firebase.googl
 Run the following command to install:
 
 ```
-npm i react-firebase-hooks
+npm i react-query-firebase
 ```
 
 ## Usage
