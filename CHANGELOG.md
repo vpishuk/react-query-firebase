@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/vpishuk/react-query-firebase/compare/v1.0.0...v1.0.1) (2025-01-06)
+
+
+### Bug Fixes
+
+* fixes name of a package ([f9c13ad](https://github.com/vpishuk/react-query-firebase/commit/f9c13adab74a808a4d45f7f83d58eff13913b908))
+
 ## 1.0.0 (2025-01-06)
 
 
