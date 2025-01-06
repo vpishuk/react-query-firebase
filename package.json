@@ -2,10 +2,10 @@
     "author": "Victor Pishuk <victor.pishuk@gmail.com>",
     "type": "module",
     "bugs": {
-        "url": "https://github.com/vpishuk/react-imagekit-hooks/issues"
+        "url": "https://github.com/vpishuk/react-firebase-hooks/issues"
     },
     "dependencies": {
-        "imagekit-javascript": "^3.0.2"
+        "firebase": "^11.0.1"
     },
     "peerDependencies": {
         "react": "^19.0.0"
@@ -13,7 +13,7 @@
     "publishConfig": {
         "access": "public"
     },
-    "description": "This module offers react hooks to work with ImageKit platform",
+    "description": "This module offers react hooks to work with Firebase",
     "devDependencies": {
         "@laverve/eslint-utils": "^5.1.1",
         "@types/react": "^19.0.2",
@@ -23,19 +23,19 @@
         "react": "^19.0.0",
         "typescript": "^5.2.2"
     },
-    "homepage": "https://github.com/vpishuk/react-imagekit-hooks",
+    "homepage": "https://github.com/vpishuk/react-firebase-hooks",
     "keywords": [
-        "imagekit",
+        "firebase",
         "react",
         "hooks"
     ],
-    "license": "UNLICENSED",
+    "license": "MIT",
     "main": "./dist/src/index.js",
     "types": "./dist/src/index.d.ts",
-    "name": "react-imagekit-hooks",
+    "name": "react-firebase-hooks",
     "repository": {
         "type": "git",
-        "url": "https://github.com/vpishuk/react-imagekit-hooks.git"
+        "url": "https://github.com/vpishuk/react-firebase-hooks.git"
     },
     "files": [
         "./dist/src/",
@@ -52,5 +52,5 @@
         "lint:staged": "lint-staged",
         "prepare": "husky"
     },
-    "version": "0.2.1"
+    "version": "0.0.1"
 }
