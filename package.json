@@ -1,0 +1,56 @@
+{
+    "author": "Victor Pishuk <victor.pishuk@gmail.com>",
+    "type": "module",
+    "bugs": {
+        "url": "https://github.com/vpishuk/react-imagekit-hooks/issues"
+    },
+    "dependencies": {
+        "imagekit-javascript": "^3.0.2"
+    },
+    "peerDependencies": {
+        "react": "^19.0.0"
+    },
+    "publishConfig": {
+        "access": "public"
+    },
+    "description": "This module offers react hooks to work with ImageKit platform",
+    "devDependencies": {
+        "@laverve/eslint-utils": "^5.1.1",
+        "@types/react": "^19.0.2",
+        "husky": "^9.1.1",
+        "lint-staged": "^15.1.0",
+        "prettier": "^3.0.3",
+        "react": "^19.0.0",
+        "typescript": "^5.2.2"
+    },
+    "homepage": "https://github.com/vpishuk/react-imagekit-hooks",
+    "keywords": [
+        "imagekit",
+        "react",
+        "hooks"
+    ],
+    "license": "UNLICENSED",
+    "main": "./dist/src/index.js",
+    "types": "./dist/src/index.d.ts",
+    "name": "react-imagekit-hooks",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/vpishuk/react-imagekit-hooks.git"
+    },
+    "files": [
+        "./dist/src/",
+        "./src/",
+        "package.json",
+        "package-lock.json",
+        "README.md",
+        "LICENSE"
+    ],
+    "scripts": {
+        "build": "rm -rf ./dist/ && tsc -p tsconfig.build.json",
+        "lint": "eslint",
+        "lint:fix": "eslint  --fix",
+        "lint:staged": "lint-staged",
+        "prepare": "husky"
+    },
+    "version": "0.2.1"
+}

@@ -1,0 +1,9 @@
+{
+    "editor.formatOnSave": true,
+    "eslint.format.enable": true,
+    "eslint.validate": ["javascript", "javascriptreact", "json", "jsonc", "json5"],
+    "eslint.workingDirectories": ["."],
+    "jest.jestCommandLine": "",
+    "prettier.enable": false,
+    "typescript.preferences.importModuleSpecifier": "relative"
+}

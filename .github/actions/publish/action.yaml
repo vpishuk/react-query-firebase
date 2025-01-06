@@ -1,0 +1,7 @@
+name: "Publish"
+runs:
+  using: "composite"
+  steps:
+    - run: |
+        npm publish
+      shell: bash

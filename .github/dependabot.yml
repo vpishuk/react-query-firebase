@@ -1,0 +1,17 @@
+version: 2
+updates:
+  - package-ecosystem: 'npm'
+    directory: '/'
+    schedule:
+      interval: 'weekly'
+    groups:
+      uncategorized:
+        applies-to: version-updates
+        patterns:
+          - "*"
+      react:
+        applies-to: version-updates
+        patterns:
+          - "react*"
+          - "*react"
+          - "*react*"

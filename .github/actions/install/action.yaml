@@ -1,0 +1,7 @@
+name: 'Install dependencies'
+description: 'Installs dependencies'
+runs:
+  using: "composite"
+  steps:
+    - run: npm ci
+      shell: bash

@@ -1,0 +1,6 @@
+name: 'Lint'
+runs:
+  using: "composite"
+  steps:
+    - run: npm run lint
+      shell: bash
