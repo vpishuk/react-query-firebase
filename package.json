@@ -8,7 +8,8 @@
         "firebase": "^11.0.1"
     },
     "peerDependencies": {
-        "react": "^19.0.0"
+        "react": "^19.0.0",
+        "@tanstack/react-query": "^5.62.15"
     },
     "publishConfig": {
         "access": "public"
