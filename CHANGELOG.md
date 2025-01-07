@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.3](https://github.com/vpishuk/react-query-firebase/compare/v1.0.2...v1.0.3) (2025-01-07)
+
+
+### Bug Fixes
+
+* export useIdToken and remove unused file ([53957d6](https://github.com/vpishuk/react-query-firebase/commit/53957d6050ed112269d390faaefcea6a1ab123c3))
+
 ## [1.0.2](https://github.com/vpishuk/react-query-firebase/compare/v1.0.1...v1.0.2) (2025-01-07)
 
 
