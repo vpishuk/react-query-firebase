@@ -52,6 +52,13 @@ type UseInfiniteQueryOptions<
     converter?: FirestoreDataConverter<AppModelType, DbModelType>;
 };
 
+/**
+ * Custom hook that creates an infinite query using Firestore, allowing for query constraints, composite filters, and converters.
+ * It fetches data in pages and can load more as required.
+ *
+ * @param {UseInfiniteQueryOptions<AppModelType, DbModelType>} options - Configuration options for the infinite query, including Firestore query reference, query constraints, composite filter, and data converter.
+ * @returns {UseInfiniteQueryResult<InfiniteData<AppModelType[]>>} Result object containing the infinite data and methods for fetching more pages.
+ */
 export const useInfiniteQuery = <
     AppModelType extends DocumentData = DocumentData,
     DbModelType extends DocumentData = DocumentData
