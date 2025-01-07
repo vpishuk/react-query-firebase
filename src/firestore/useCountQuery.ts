@@ -25,6 +25,20 @@ type UseCountQueryOptions<
     compositeFilter?: QueryCompositeFilterConstraint;
 };
 
+/**
+ * Executes a query with specified constraints and returns the count of matched documents.
+ *
+ * This function utilizes React Query to asynchronously fetch the count of documents from a server database
+ * that match the provided query constraints and an optional composite filter.
+ *
+ * @param {UseCountQueryOptions<AppModelType, DbModelType>} options - Configuration options for the query.
+ * @param {AppModelType extends DocumentData = DocumentData} [options.options] - Additional options for the React Query.
+ * @param {unknown} [options.query] - Reference to the query object to be executed.
+ * @param {unknown[]} [options.queryConstraints=[]] - An array of constraints to apply to the query.
+ * @param {unknown} [options.compositeFilter] - An optional composite filter to apply to the query.
+ * @returns {UseQueryResult<number>} An object containing the number of documents that match the query.
+ */
+
 export const useCountQuery = <
     AppModelType extends DocumentData = DocumentData,
     DbModelType extends DocumentData = DocumentData
