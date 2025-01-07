@@ -7,3 +7,5 @@ export * from "./useAuthStateReady";
 export * from "./useSignInWitRedirectMutation";
 export * from "./useUpdateProfileMutation";
 export * from "./useSignOutMutation";
+export * from "./useReauthenticateWitCredentialMutation";
+export * from "./useReauthenticateWitRedirectMutation";
