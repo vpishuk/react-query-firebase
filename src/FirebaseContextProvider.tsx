@@ -31,6 +31,23 @@ type FirebaseContextProvider = PropsWithChildren & {
     remoteConfigEnabled?: boolean;
 };
 
+/**
+ * FirebaseContextProvider component configures and provides Firebase services to its children.
+ * Initializes Firebase app and enables optional Firebase services such as Firestore, Auth, Analytics,
+ * and Remote Config based on the provided configuration and parameters.
+ *
+ * @param {Object} emulators - Configurations for Firebase emulators.
+ * @param {Object} options - Configuration options for Firebase initialization.
+ * @param {ReactNode} children - Components to be rendered within the Firebase context.
+ * @param {boolean} [authEnabled=true] - Flag indicating whether Firebase Auth should be enabled.
+ * @param {boolean} [firestoreEnabled=true] - Flag indicating whether Firestore should be enabled.
+ * @param {boolean} [analyticsEnabled=true] - Flag indicating whether Analytics should be enabled.
+ * @param {boolean} [remoteConfigEnabled=true] - Flag indicating whether Remote Config should be enabled.
+ * @param {Object} remoteConfigSettings - Settings for Remote Config, if enabled.
+ * @param {Object} remoteConfigDefaults - Default configuration values for Remote Config.
+ *
+ * @returns {JSX.Element} A React Context Provider with configured Firebase context values.
+ */
 export const FirebaseContextProvider: React.FC<FirebaseContextProvider> = ({
     emulators,
     options,
