@@ -8,6 +8,14 @@ export type UseReauthenticateWitCredentialMutationVariables = {
     user: User;
 };
 
+/**
+ * Custom hook to create a mutation for re-authenticating a user with a given credential.
+ * This hook utilizes useMutation from React Query to manage the asynchronous re-authentication
+ * process with Firebase credentials. It omits the default "mutationKey" and "mutationFn" options.
+ *
+ * @param {Omit<UseMutationOptions<UserCredential, FirebaseError, UseReauthenticateWitCredentialMutationVariables, TContext>, "mutationKey" | "mutationFn">}  options - Optional mutation options excluding "mutationKey" and "mutationFn".
+ * @returns {UseMutationResult<UserCredential, FirebaseError, UseReauthenticateWitCredentialMutationVariables, TContext>} A useMutation result object managing the loading, error, and result state of the re-authentication mutation.
+ */
 export const useReauthenticateWitCredentialMutation = <TContext = unknown>(
     options: Omit<
         UseMutationOptions<UserCredential, FirebaseError, UseReauthenticateWitCredentialMutationVariables, TContext>,
