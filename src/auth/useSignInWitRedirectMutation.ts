@@ -10,6 +10,12 @@ export type UseSignInWitRedirectMutationVariables = {
     popupRedirectResolver?: PopupRedirectResolver;
 };
 
+/**
+ * Custom hook for handling Firebase authentication using sign-in with redirect functionality.
+ * This hook utilizes the `useMutation` mechanism to perform the sign-in operation.
+ * @param {Omit<UseMutationOptions<void, FirebaseError, UseSignInWitRedirectMutationVariables, TContext>, "mutationKey" | "mutationFn">} options - Optional configurations for the mutation, omitting the mutationKey and mutationFn properties.
+ * @returns {UseMutationResult<void, FirebaseError, UseSignInWitRedirectMutationVariables, TContext>} The result object from the useMutation hook, containing the mutation function and its current state.
+ */
 export const useSignInWitRedirectMutation = <TContext = unknown>(
     options: Omit<
         UseMutationOptions<void, FirebaseError, UseSignInWitRedirectMutationVariables, TContext>,
