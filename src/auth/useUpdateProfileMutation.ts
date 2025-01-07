@@ -8,6 +8,13 @@ export type UseUpdateProfileMutationVariables = {
     user: User;
 };
 
+/**
+ * Custom hook to manage the mutation for updating a user's profile.
+ * Utilizes Firebase for updating the user's display name.
+ *
+ * @param {Omit<UseMutationOptions<void, FirebaseError, UseUpdateProfileMutationVariables, TContext>, "mutationKey" | "mutationFn">} options - Configuration options for the mutation, excluding mutationKey and mutationFn.
+ * @returns {UseMutationResult<void, FirebaseError, UseUpdateProfileMutationVariables, TContext>} The result of the mutation operation including statuses, data, and error information.
+ */
 export const useUpdateProfileMutation = <TContext = unknown>(
     options: Omit<
         UseMutationOptions<void, FirebaseError, UseUpdateProfileMutationVariables, TContext>,
