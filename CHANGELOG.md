@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.6](https://github.com/vpishuk/react-query-firebase/compare/v1.0.5...v1.0.6) (2025-01-08)
+
+
+### Bug Fixes
+
+* adds base url to vitepress config ([7fbf9b6](https://github.com/vpishuk/react-query-firebase/commit/7fbf9b6c8d5aecd24bcbf362edabf19ee5b1c72c))
+
 ## [1.0.5](https://github.com/vpishuk/react-query-firebase/compare/v1.0.4...v1.0.5) (2025-01-08)
 
 
