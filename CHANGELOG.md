@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.5](https://github.com/vpishuk/react-query-firebase/compare/v1.0.4...v1.0.5) (2025-01-08)
+
+
+### Bug Fixes
+
+* add id-token: write permission to workflow ([f2ca638](https://github.com/vpishuk/react-query-firebase/commit/f2ca6382a932aea74f21b411db9d44e76cc10c1c))
+
 ## [1.0.4](https://github.com/vpishuk/react-query-firebase/compare/v1.0.3...v1.0.4) (2025-01-08)
 
 
