@@ -16,7 +16,7 @@ runs:
 
         - name: Grant permissions for a folder containing artifact (needed for upload-pages-artifact action)
           run: |
-              chmod -c -R +rX ".vitepress/dist/" | while read line; do
+              chmod -c -R +rX "docs/.vitepress/dist/" | while read line; do
                   echo "::warning title=Invalid file permissions automatically fixed::$line"
               done
           shell: bash
@@ -25,4 +25,4 @@ runs:
           uses: actions/upload-pages-artifact@v3
           with:
               name: "github-pages"
-              path: ".vitepress/dist"
+              path: "docs/.vitepress/dist"
