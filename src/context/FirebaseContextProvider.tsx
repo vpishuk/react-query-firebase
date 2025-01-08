@@ -1,33 +1,88 @@
 import React, { PropsWithChildren, useMemo } from "react";
-import { FirebaseContext, FirebaseContextValue } from "./FirebaseContext";
+import { FirebaseContext } from "./FirebaseContext";
 import { connectAuthEmulator, getAuth } from "firebase/auth";
 import { getAnalytics } from "firebase/analytics";
 import { getRemoteConfig, RemoteConfigSettings } from "firebase/remote-config";
 import { connectFirestoreEmulator, getFirestore } from "firebase/firestore";
 import { FirebaseOptions, initializeApp } from "firebase/app";
 
-type FirestorEmulatorConfig = {
+/**
+ * @inline
+ */
+export type FirebaseContextProviderFirestoreEmulatorConfig = {
+    /**
+     * Host to connect to Firebase Firestore Emulator
+     */
     host: string;
+    /**
+     * Port to connect to Firebase Firestore Emulator
+     */
     port: number;
 };
 
-type AuthEmulatorConfig = {
+/**
+ * @inline
+ */
+export type FirebaseContextProviderAuthEmulatorConfig = {
+    /**
+     * Host to connect to Firebase Auth Emulator
+     */
     host: string;
 };
 
-type Emulators = {
-    firestore?: FirestorEmulatorConfig;
-    auth?: AuthEmulatorConfig;
+/**
+ * @inline
+ */
+export type FirebaseContextProviderEmulators = {
+    /**
+     * Defines configuration for Firebase Firestore emulator. Optional.
+     */
+    firestore?: FirebaseContextProviderFirestoreEmulatorConfig;
+    /**
+     * Defines configuration for Firebase Auth emulator. Optional
+     */
+    auth?: FirebaseContextProviderAuthEmulatorConfig;
 };
 
-type FirebaseContextProvider = PropsWithChildren & {
-    emulators?: Emulators;
+/**
+ * @inline
+ */
+export type FirebaseContextProviderProps = PropsWithChildren & {
+    /**
+     * Defines configuration for firebase emulators
+     */
+    emulators?: FirebaseContextProviderEmulators;
+    /**
+     * Configuration options for Firebase initialization. {@link https://firebase.google.com/docs/web/setup#config-object | Learn about the Firebase config object}
+     */
     options: FirebaseOptions;
+    /**
+     * Flag indicating whether Firebase Auth should be enabled.
+     */
     authEnabled?: boolean;
+    /**
+     * Flag indicating whether Firebase Analytics should be enabled.
+     * @defaultValue `true`
+     */
     analyticsEnabled?: boolean;
+    /**
+     * Flag indicating whether Firebase Firestore should be enabled.
+     * @defaultValue `true`
+     */
     firestoreEnabled?: boolean;
+    /**
+     * Configuration options for Firebase Remote Config Settings. {@link https://firebase.google.com/docs/reference/js/remote-config.remoteconfigsettings | Learn about the Firebase Remote COnfig Settings object}
+     * @defaultValue `true`
+     */
     remoteConfigSettings?: RemoteConfigSettings;
+    /**
+     * Configuration options for Firebase Remote Config Defaults.
+     */
     remoteConfigDefaults?: { [key: string]: string | number | boolean };
+    /**
+     * Flag indicating whether Firebase Remote Config should be enabled.
+     * @defaultValue `true`
+     */
     remoteConfigEnabled?: boolean;
 };
 
@@ -36,19 +91,25 @@ type FirebaseContextProvider = PropsWithChildren & {
  * Initializes Firebase app and enables optional Firebase services such as Firestore, Auth, Analytics,
  * and Remote Config based on the provided configuration and parameters.
  *
- * @param {Object} emulators - Configurations for Firebase emulators.
- * @param {Object} options - Configuration options for Firebase initialization.
- * @param {ReactNode} children - Components to be rendered within the Firebase context.
- * @param {boolean} [authEnabled=true] - Flag indicating whether Firebase Auth should be enabled.
- * @param {boolean} [firestoreEnabled=true] - Flag indicating whether Firestore should be enabled.
- * @param {boolean} [analyticsEnabled=true] - Flag indicating whether Analytics should be enabled.
- * @param {boolean} [remoteConfigEnabled=true] - Flag indicating whether Remote Config should be enabled.
- * @param {Object} remoteConfigSettings - Settings for Remote Config, if enabled.
- * @param {Object} remoteConfigDefaults - Default configuration values for Remote Config.
+ * @group Component
  *
- * @returns {JSX.Element} A React Context Provider with configured Firebase context values.
+ * @param {FirebaseContextProviderProps} props
+ *
+ * @returns {FirebaseContextProvider<FirebaseContextProviderProps>}
+ *
+ * @example
+ * ```jsx
+ * const firebaseConfig = {};
+ * export const App = () => {
+ *  return (
+ *      <FirebaseContextProvider options={firebaseConfig}>
+ *          <ChildComponent />
+ *      </FirebaseContextProvider>
+ *  );
+ * };
+ * ```
  */
-export const FirebaseContextProvider: React.FC<FirebaseContextProvider> = ({
+export const FirebaseContextProvider: React.FC<FirebaseContextProviderProps> = ({
     emulators,
     options,
     children,
@@ -64,7 +125,7 @@ export const FirebaseContextProvider: React.FC<FirebaseContextProvider> = ({
     }, [options]);
 
     const contextValue = useMemo(() => {
-        const value: Partial<FirebaseContextValue> = {};
+        const value: Partial<React.ContextType<typeof FirebaseContext>> = {};
 
         if (firestoreEnabled) {
             const firestore = getFirestore(firebase);
@@ -104,5 +165,9 @@ export const FirebaseContextProvider: React.FC<FirebaseContextProvider> = ({
         return { firebase, ...value };
     }, [firebase]);
 
-    return <FirebaseContext.Provider value={contextValue}>{children}</FirebaseContext.Provider>;
+    return (
+        <FirebaseContext.Provider value={contextValue as React.ContextType<typeof FirebaseContext>}>
+            {children}
+        </FirebaseContext.Provider>
+    );
 };

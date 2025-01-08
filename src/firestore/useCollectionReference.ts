@@ -1,7 +1,7 @@
 import { collection, CollectionReference, DocumentData, DocumentReference } from "firebase/firestore";
 
 import { useMemo } from "react";
-import { useFirestore } from "../useFirestore";
+import { useFirestore } from "./useFirestore";
 
 export type UseCollectionReferenceOptions<AppModelType, DbModelType extends DocumentData = DocumentData> = {
     reference?: CollectionReference<AppModelType, DbModelType> | DocumentReference<AppModelType, DbModelType>;

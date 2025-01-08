@@ -1,7 +1,7 @@
 import { doc, CollectionReference, DocumentData, DocumentReference, Firestore } from "firebase/firestore";
 
 import { useEffect, useRef } from "react";
-import { useFirestore } from "../useFirestore";
+import { useFirestore } from "./useFirestore";
 
 export type UseDocReferenceOptions<AppModelType, DbModelType extends DocumentData = DocumentData> = {
     reference?: CollectionReference<AppModelType, DbModelType> | DocumentReference<AppModelType, DbModelType>;

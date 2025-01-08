@@ -2,7 +2,7 @@ import { useMutation, UseMutationOptions } from "@tanstack/react-query";
 import { writeBatch, WriteBatch } from "firebase/firestore";
 
 import { FirebaseError } from "firebase/app";
-import { useFirestore } from "../useFirestore";
+import { useFirestore } from "./useFirestore";
 
 export type UseBatchWriteVariables = (batch: WriteBatch) => Promise<void> | void;
 

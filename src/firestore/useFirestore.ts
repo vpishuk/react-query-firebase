@@ -1,5 +1,5 @@
-import { Context, useContext } from "react";
-import { FirebaseContext, FirebaseContextValue } from "./FirebaseContext";
+import { useContext } from "react";
+import { FirebaseContext } from "../context/FirebaseContext";
 
 /**
  * Provides a hook to access the Firestore instance from the Firebase context.
@@ -8,6 +8,6 @@ import { FirebaseContext, FirebaseContextValue } from "./FirebaseContext";
  * @returns {firestore.Firestore} The Firestore instance from the Firebase context.
  */
 export const useFirestore = () => {
-    const { firestore } = useContext<FirebaseContextValue>(FirebaseContext as Context<FirebaseContextValue>);
+    const { firestore } = useContext(FirebaseContext);
     return firestore;
 };

@@ -2,7 +2,7 @@ import { useMutation, UseMutationOptions } from "@tanstack/react-query";
 import { runTransaction, Transaction } from "firebase/firestore";
 
 import { FirebaseError } from "firebase/app";
-import { useFirestore } from "../useFirestore";
+import { useFirestore } from "./useFirestore";
 
 export type UseRunTransactionValues = <AppModelType = unknown>(transaction: Transaction) => AppModelType;
 

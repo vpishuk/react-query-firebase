@@ -1,6 +1,6 @@
 import { CollectionReference, DocumentData, DocumentReference } from "firebase/firestore";
 
-import { useFirestore } from "../useFirestore";
+import { useFirestore } from "./useFirestore";
 import { getDocData } from "./utils/getDocData";
 import { useQuery, UseQueryOptions } from "@tanstack/react-query";
 

@@ -1,7 +1,7 @@
 import { useMutation, UseMutationOptions } from "@tanstack/react-query";
 import { signInWithRedirect, AuthProvider, PopupRedirectResolver } from "firebase/auth";
 
-import { useAuth } from "../useAuth";
+import { useAuth } from "./useAuth";
 import { SIGN_IN_WITH_REDIRECT_MUTATION_KEY } from "./mutation-keys";
 import { FirebaseError } from "firebase/app";
 

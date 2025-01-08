@@ -8,8 +8,8 @@
         "firebase": "^11.0.1"
     },
     "peerDependencies": {
-        "react": "^19.0.0",
-        "@tanstack/react-query": "^5.62.15"
+        "@tanstack/react-query": "^5.62.15",
+        "react": "^19.0.0"
     },
     "publishConfig": {
         "access": "public"
@@ -22,7 +22,11 @@
         "lint-staged": "^15.1.0",
         "prettier": "^3.0.3",
         "react": "^19.0.0",
-        "typescript": "^5.2.2"
+        "typedoc": "^0.27.6",
+        "typedoc-plugin-markdown": "^4.4.1",
+        "typedoc-vitepress-theme": "^1.1.2",
+        "typescript": "^5.2.2",
+        "vitepress": "^1.5.0"
     },
     "homepage": "https://github.com/vpishuk/react-query-firebase",
     "keywords": [
@@ -51,7 +55,11 @@
         "lint": "eslint",
         "lint:fix": "eslint  --fix",
         "lint:staged": "lint-staged",
-        "prepare": "husky"
+        "prepare": "husky",
+        "docs:generate": "rm -rf docs/ && typedoc --plugin typedoc-plugin-markdown --plugin typedoc-vitepress-theme",
+        "docs:dev": "vitepress dev",
+        "docs:build": "vitepress build",
+        "docs:preview": "vitepress preview"
     },
     "version": "1.0.3"
 }

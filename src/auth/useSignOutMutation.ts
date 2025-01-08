@@ -3,7 +3,7 @@ import { signOut } from "firebase/auth";
 
 import { SIGN_OUT_MUTATION_KEY } from "./mutation-keys";
 import { FirebaseError } from "firebase/app";
-import { useAuth } from "../useAuth";
+import { useAuth } from "./useAuth";
 
 /**
  * Custom hook for handling the sign-out mutation using Firebase authentication.

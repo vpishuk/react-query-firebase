@@ -1,5 +1,5 @@
 import { getValue } from "firebase/remote-config";
-import { useRemoteConfig } from "../useRemoteConfig";
+import { useRemoteConfig } from "./useRemoteConfig";
 import { useMemo } from "react";
 
 /**

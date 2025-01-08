@@ -1,4 +1,5 @@
 export * from "./mutation-keys";
+export * from "./useAuth";
 export * from "./useCreateUserWitEmailAndPasswordMutation";
 export * from "./useSendEmailVerificationMutation";
 export * from "./useSignInWitEmailAndPasswordMutation";

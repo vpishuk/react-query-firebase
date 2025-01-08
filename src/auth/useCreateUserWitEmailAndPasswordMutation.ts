@@ -1,6 +1,6 @@
 import { useMutation, UseMutationOptions } from "@tanstack/react-query";
 import { createUserWithEmailAndPassword, UserCredential } from "firebase/auth";
-import { useAuth } from "../useAuth";
+import { useAuth } from "./useAuth";
 import { FirebaseError } from "firebase/app";
 import { CREATE_USER_WITH_EMAIL_AND_PASSWORD_MUTATION_KEY } from "./mutation-keys";
 
