@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.4](https://github.com/vpishuk/react-query-firebase/compare/v1.0.3...v1.0.4) (2025-01-08)
+
+
+### Bug Fixes
+
+* documentation ([#5](https://github.com/vpishuk/react-query-firebase/issues/5)) ([083106b](https://github.com/vpishuk/react-query-firebase/commit/083106bd42f99299ece45e547f1145542156232b))
+
 ## [1.0.3](https://github.com/vpishuk/react-query-firebase/compare/v1.0.2...v1.0.3) (2025-01-07)
 
 

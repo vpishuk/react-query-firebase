@@ -61,5 +61,5 @@
         "docs:build": "vitepress build",
         "docs:preview": "vitepress preview"
     },
-    "version": "1.0.3"
+    "version": "1.0.4"
 }
