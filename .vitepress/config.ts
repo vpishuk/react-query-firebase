@@ -6,6 +6,7 @@ export default defineConfig({
     title: "react-query-firebase",
     description: "This module offers react hooks to work with Firebase",
     srcDir: "./docs",
+    base: "/react-query-firebase",
     themeConfig: {
         nav: [{ text: "Home", link: "/" }],
 
