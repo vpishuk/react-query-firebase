@@ -1,11 +1,28 @@
-name: 'Build'
+name: "Build"
 inputs:
-  NODE_ENV:
-    description: 'Target env we are going to build assets'
-    required: true
-    default: 'production'
+    NODE_ENV:
+        description: "Target env we are going to build assets"
+        required: true
+        default: "production"
 runs:
-  using: "composite"
-  steps:
-    - run: NODE_ENV=${{ inputs.NODE_ENV }} npm run build
-      shell: bash
+    using: "composite"
+    steps:
+        - run: NODE_ENV=${{ inputs.NODE_ENV }} npm run build
+          shell: bash
+        - run: NODE_ENV=${{ inputs.NODE_ENV }} npm run docs:generate
+          shell: bash
+        - run: NODE_ENV=${{ inputs.NODE_ENV }} npm run docs:build
+          shell: bash
+
+        - name: Grant permissions for a folder containing artifact (needed for upload-pages-artifact action)
+          run: |
+              chmod -c -R +rX ".vitepress/dist/" | while read line; do
+                  echo "::warning title=Invalid file permissions automatically fixed::$line"
+              done
+          shell: bash
+
+        - name: Archive GitHub Pages Artifact
+          uses: actions/upload-pages-artifact@v3
+          with:
+              name: "github-pages"
+              path: ".vitepress/dist"

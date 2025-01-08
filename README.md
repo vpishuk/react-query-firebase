@@ -15,7 +15,7 @@ npm i react-query-firebase @tanstack/react-query --save
 ## Basic Example
 
 ```jsx
-import {useQuery, FirebaseContextProvider} from 'react-query-firebase';
+import { useQuery, FirebaseContextProvider } from "react-query-firebase";
 
 const firebaseConfig = {};
 export const App = () => {
@@ -28,21 +28,18 @@ export const App = () => {
             </FirebaseContextProvider>
         </QueryClientProvider>
     );
- };
-
+};
 
 export const ChildComponent = () => {
-    const {data, isFetching} = useQuery({});
+    const { data, isFetching } = useQuery({});
 
-    return (
-        <div>{JSON.stringify(data)}</div>
-    );
- };
- ```
+    return <div>{JSON.stringify(data)}</div>;
+};
+```
 
 ## Documentation
 
-TODO
+1. [All docs](https://vpishuk.github.io/react-query-firebase).
 
 ## Contribution guidelines
 
