@@ -1,4 +1,4 @@
-# react-query-firebase v1.0.3
+# react-query-firebase v1.0.5
 
 ## Modules
 

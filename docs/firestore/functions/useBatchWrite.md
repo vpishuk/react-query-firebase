@@ -6,7 +6,7 @@
 function useBatchWrite<TContext>(options): UseMutationResult<void, FirebaseError, UseBatchWriteVariables, TContext>
 ```
 
-Defined in: [src/firestore/useBatchWrite.ts:20](https://github.com/vpishuk/react-query-firebase/blob/1065ddd51f4c3a46c2f6510c1cc51259a3705cc2/src/firestore/useBatchWrite.ts#L20)
+Defined in: [src/firestore/useBatchWrite.ts:20](https://github.com/vpishuk/react-query-firebase/blob/7fbf9b6c8d5aecd24bcbf362edabf19ee5b1c72c/src/firestore/useBatchWrite.ts#L20)
 
 Custom hook to perform batch write operations using Firestore.
 Utilizes a mutation to carry out the batch write transaction.

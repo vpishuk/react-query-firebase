@@ -6,7 +6,7 @@
 function useUpdateDocMutation<AppModelType, DbModelType, TContext>(options): UseMutationResult<AppModelType, FirebaseError, UseUpdateDocMutationValues<DbModelType>, TContext>
 ```
 
-Defined in: [src/firestore/useUpdateDocMutation.ts:50](https://github.com/vpishuk/react-query-firebase/blob/1065ddd51f4c3a46c2f6510c1cc51259a3705cc2/src/firestore/useUpdateDocMutation.ts#L50)
+Defined in: [src/firestore/useUpdateDocMutation.ts:50](https://github.com/vpishuk/react-query-firebase/blob/7fbf9b6c8d5aecd24bcbf362edabf19ee5b1c72c/src/firestore/useUpdateDocMutation.ts#L50)
 
 Custom hook that sets up a mutation for updating a document in a Firestore database.
 

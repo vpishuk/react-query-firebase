@@ -56,10 +56,10 @@
         "lint:fix": "eslint  --fix",
         "lint:staged": "lint-staged",
         "prepare": "husky",
-        "docs:generate": "rm -rf docs/ && typedoc --plugin typedoc-plugin-markdown --plugin typedoc-vitepress-theme",
-        "docs:dev": "vitepress dev",
-        "docs:build": "vitepress build",
-        "docs:preview": "vitepress preview"
+        "docs:generate": "mv docs/.vitepress .vitepress && rm -rf docs && typedoc --plugin typedoc-plugin-markdown --plugin typedoc-vitepress-theme && mv .vitepress docs/.vitepress",
+        "docs:dev": "vitepress dev docs",
+        "docs:build": "vitepress build docs",
+        "docs:preview": "vitepress preview docs"
     },
     "version": "1.0.6"
 }

@@ -6,7 +6,7 @@
 type UseUpdateDocMutationOptions<AppModelType, DbModelType, TContext> = object;
 ```
 
-Defined in: [src/firestore/useUpdateDocMutation.ts:18](https://github.com/vpishuk/react-query-firebase/blob/1065ddd51f4c3a46c2f6510c1cc51259a3705cc2/src/firestore/useUpdateDocMutation.ts#L18)
+Defined in: [src/firestore/useUpdateDocMutation.ts:18](https://github.com/vpishuk/react-query-firebase/blob/7fbf9b6c8d5aecd24bcbf362edabf19ee5b1c72c/src/firestore/useUpdateDocMutation.ts#L18)
 
 ## Type Parameters
 

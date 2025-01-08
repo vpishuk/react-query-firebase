@@ -6,7 +6,7 @@
 function useAddDocMutation<AppModelType, DbModelType, TContext>(options): UseMutationResult<AppModelType, FirebaseError, UseAddDocMutationValues<AppModelType>, TContext>
 ```
 
-Defined in: [src/firestore/useAddDocMutation.ts:42](https://github.com/vpishuk/react-query-firebase/blob/1065ddd51f4c3a46c2f6510c1cc51259a3705cc2/src/firestore/useAddDocMutation.ts#L42)
+Defined in: [src/firestore/useAddDocMutation.ts:42](https://github.com/vpishuk/react-query-firebase/blob/7fbf9b6c8d5aecd24bcbf362edabf19ee5b1c72c/src/firestore/useAddDocMutation.ts#L42)
 
 Provides a mutation hook to add a document to a Firestore collection utilizing React Query's `useMutation`.
 It handles addition and optional conversion of the document data in Firestore.

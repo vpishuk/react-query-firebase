@@ -6,7 +6,7 @@
 function useSetDocMutation<AppModelType, DbModelType, TContext>(param0): UseMutationResult<void, FirebaseError, UseSetDocMutationValues<AppModelType>, TContext>
 ```
 
-Defined in: [src/firestore/useSetDocMutation.ts:32](https://github.com/vpishuk/react-query-firebase/blob/1065ddd51f4c3a46c2f6510c1cc51259a3705cc2/src/firestore/useSetDocMutation.ts#L32)
+Defined in: [src/firestore/useSetDocMutation.ts:32](https://github.com/vpishuk/react-query-firebase/blob/7fbf9b6c8d5aecd24bcbf362edabf19ee5b1c72c/src/firestore/useSetDocMutation.ts#L32)
 
 Custom hook to create a mutation for setting a document in a Firestore-like database.
 The mutation can be configured with options and reference to specific document path.

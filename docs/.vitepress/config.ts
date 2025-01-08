@@ -1,5 +1,5 @@
 import { defineConfig } from "vitepress";
-import sidebar from "../docs/typedoc-sidebar.json";
+import sidebar from "../typedoc-sidebar.json";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
