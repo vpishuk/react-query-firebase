@@ -11,6 +11,7 @@ export default defineConfig({
 
         sidebar: sidebar,
 
-        socialLinks: [{ icon: "github", link: "https://github.com/vuejs/vitepress" }]
+        socialLinks: [{ icon: "github", link: "https://github.com/vpishuk/react-query-firebase/" }],
+        footer: { message: "Released under the MIT License.", copyright: "Copyright © 2025-present Viktor Pishuk" }
     }
 });
