@@ -1,4 +1,5 @@
 "use client";
+
 import { createContext } from "react";
 
 import { Auth } from "firebase/auth";
@@ -7,7 +8,7 @@ import { Firestore } from "firebase/firestore";
 import { FirebaseApp } from "firebase/app";
 import { RemoteConfig } from "firebase/remote-config";
 
-export type FirebaseContextValue = {
+type FirebaseContextValue = {
     auth: Auth;
     analytics: Analytics;
     firebase: FirebaseApp;
@@ -15,4 +16,10 @@ export type FirebaseContextValue = {
     firestore: Firestore;
 };
 
-export const FirebaseContext = createContext<Partial<FirebaseContextValue>>({});
+/**
+ * FirebaseContext is a shared context across children that provides access to firebase features
+ *
+ * @internal
+ */
+
+export const FirebaseContext = createContext<FirebaseContextValue>({} as FirebaseContextValue);

@@ -3,8 +3,15 @@ import { signOut } from "firebase/auth";
 
 import { SIGN_OUT_MUTATION_KEY } from "./mutation-keys";
 import { FirebaseError } from "firebase/app";
-import { useAuth } from "../useAuth";
+import { useAuth } from "./useAuth";
 
+/**
+ * Custom hook for handling the sign-out mutation using Firebase authentication.
+ * It wraps the useMutation hook to provide a sign-out function with Firebase.
+ *
+ * @param {Omit<UseMutationOptions<void, FirebaseError, void, TContext>, "queryKey" | "queryFn">} options - Configuration options for the mutation, excluding "queryKey" and "queryFn".
+ * @returns {UseMutationResult<void, FirebaseError, void, TContext>} A mutation object for handling the sign-out process, including methods for mutating and state tracking.
+ */
 export const useSignOutMutation = <TContext = unknown>(
     options: Omit<UseMutationOptions<void, FirebaseError, void, TContext>, "queryKey" | "queryFn"> = {}
 ) => {

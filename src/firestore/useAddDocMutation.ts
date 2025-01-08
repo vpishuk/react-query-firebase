@@ -28,6 +28,17 @@ export type UseAddDocMutationOptions<
     >;
 };
 
+/**
+ * Provides a mutation hook to add a document to a Firestore collection utilizing React Query's `useMutation`.
+ * It handles addition and optional conversion of the document data in Firestore.
+ *
+ * @param {Object} options - Options for the mutation hook
+ * @param {FirebaseFirestore.CollectionReference<AppModelType>} options.reference - Firestore collection reference where the document should be added.
+ * @param {FirebaseFirestore.FirestoreDataConverter<DbModelType>} [options.converter] - Optional data converter for reading and writing Firestore documents.
+ * @param {UseMutationOptions<AppModelType, Error, { data: DbModelType }, TContext>} [options.options={}] - Optional configuration for the mutation.
+ *
+ * @returns {UseMutationResult<AppModelType, Error, { data: DbModelType }, TContext>} The mutation hook result containing status, error, and data of the mutation process.
+ */
 export const useAddDocMutation = <
     AppModelType extends DocumentData = DocumentData,
     DbModelType extends DocumentData = DocumentData,

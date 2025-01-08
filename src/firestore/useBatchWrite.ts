@@ -2,7 +2,7 @@ import { useMutation, UseMutationOptions } from "@tanstack/react-query";
 import { writeBatch, WriteBatch } from "firebase/firestore";
 
 import { FirebaseError } from "firebase/app";
-import { useFirestore } from "../useFirestore";
+import { useFirestore } from "./useFirestore";
 
 export type UseBatchWriteVariables = (batch: WriteBatch) => Promise<void> | void;
 
@@ -10,6 +10,13 @@ export type UseBatchWriteOptions<TContext = unknown> = {
     options?: Omit<UseMutationOptions<void, FirebaseError, UseBatchWriteVariables, TContext>, "mutationFn">;
 };
 
+/**
+ * Custom hook to perform batch write operations using Firestore.
+ * Utilizes a mutation to carry out the batch write transaction.
+ * @template TContext - The type of context that can be passed into the hook, defaults to unknown.
+ * @param {Object} options - The configuration options for the mutation operation.
+ * @returns {Object} Returns an object composed of elements returned by useMutation, including properties such as status, and functions to trigger and control the mutation process.
+ */
 export const useBatchWrite = <TContext = unknown>({ options = {} }: UseBatchWriteOptions<TContext> = {}) => {
     const db = useFirestore();
 

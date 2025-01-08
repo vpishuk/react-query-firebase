@@ -7,3 +7,5 @@ dist/
 !.envrc
 .vercel
 .env*.local
+.vitepress/dist
+.vitepress/cache

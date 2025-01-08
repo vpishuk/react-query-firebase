@@ -5,6 +5,7 @@ on:
         branches: ["main"]
 
 permissions:
+    pages: write
     contents: write
     pull-requests: write
 
@@ -20,14 +21,18 @@ jobs:
             - name: Use Node.js
               uses: actions/setup-node@v4
               with:
-                node-version-file: .nvmrc
-                cache: "npm"
+                  node-version-file: .nvmrc
+                  cache: "npm"
             - uses: ./.github/actions/install
             - uses: ./.github/actions/lint
             - uses: ./.github/actions/build
             - uses: googleapis/release-please-action@v4
               id: release
               with:
-                release-type: node
+                  release-type: node
             - uses: ./.github/actions/publish
               if: ${{ steps.release.outputs.release_created }}
+            - uses: actions/deploy-pages@v4
+              if: ${{ steps.release.outputs.release_created }}
+              with:
+                  artifact_name: "github-pages"

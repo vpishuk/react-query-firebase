@@ -1,3 +1,4 @@
+export * from "./useFirestore";
 export * from "./useAddDocMutation";
 export * from "./useBatchWrite";
 export * from "./useCollectionReference";

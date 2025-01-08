@@ -1,0 +1,15 @@
+{
+    "$schema": "https://typedoc.org/schema.json",
+    "entryPoints": [
+        "./src/context/index.ts",
+        "./src/analytics/index.ts",
+        "./src/auth/index.ts",
+        "./src/firestore/index.ts",
+        "./src/remoteConfig/index.ts"
+    ],
+    "includeVersion": true,
+    "out": "docs",
+    "plugin": ["typedoc-plugin-markdown", "typedoc-vitepress-theme"],
+    "readme": "./.vitepress/index.md",
+    "useCodeBlocks": true
+}

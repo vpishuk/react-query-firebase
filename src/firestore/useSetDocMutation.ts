@@ -20,6 +20,15 @@ export type UseSetDocMutationOptions<
     >;
 };
 
+/**
+ * Custom hook to create a mutation for setting a document in a Firestore-like database.
+ * The mutation can be configured with options and reference to specific document path.
+ *
+ * @param {UseSetDocMutationOptions<AppModelType, DbModelType, TContext>} param0 - The options for configuring the mutation, including the document reference and additional mutation options.
+ * @param {Object} param0.reference - The reference object that contains the path to the document.
+ * @param {Object} param0.options - Additional options for the mutation, can configure aspects like onSuccess or onError callbacks.
+ * @returns {MutationResult} The result of the mutation operation, which includes states like isLoading, isSuccess, isError, and methods to control the mutation process.
+ */
 export const useSetDocMutation = <
     AppModelType = unknown,
     DbModelType extends DocumentData = DocumentData,

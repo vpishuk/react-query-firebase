@@ -17,6 +17,13 @@ export type UseDeleteDocMutationOptions<
     options?: Omit<UseMutationOptions<void, FirebaseError, void, TContext>, "mutationFn" | "mutationKey">;
 };
 
+/**
+ * A custom hook that provides a mutation function to delete a document from the database.
+ * @param {UseDeleteDocMutationOptions<AppModelType, DbModelType, TContext>} options - An object containing the reference to the document and additional options for the mutation.
+ * @param {FirestoreReference<AppModelType, DbModelType>} options.reference - The reference to the document that needs to be deleted.
+ * @param {object} options.options - Additional options for the mutation, if any (default is an empty object).
+ * @returns {UseMutationResult} An object returned by the `useMutation` hook which includes properties and methods to control the mutation's execution and track its state.
+ */
 export const useDeleteDocMutation = <
     AppModelType extends DocumentData = DocumentData,
     DbModelType extends DocumentData = DocumentData,
