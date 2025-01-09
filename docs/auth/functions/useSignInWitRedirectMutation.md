@@ -6,7 +6,7 @@
 function useSignInWitRedirectMutation<TContext>(options): UseMutationResult<void, FirebaseError, UseSignInWitRedirectMutationVariables, TContext>
 ```
 
-Defined in: [src/auth/useSignInWitRedirectMutation.ts:19](https://github.com/vpishuk/react-query-firebase/blob/7fbf9b6c8d5aecd24bcbf362edabf19ee5b1c72c/src/auth/useSignInWitRedirectMutation.ts#L19)
+Defined in: [src/auth/useSignInWitRedirectMutation.ts:19](https://github.com/vpishuk/react-query-firebase/blob/2814a7f726829eb67b40b71ca1e3d6c86fc8bb8b/src/auth/useSignInWitRedirectMutation.ts#L19)
 
 Custom hook for handling Firebase authentication using sign-in with redirect functionality.
 This hook utilizes the `useMutation` mechanism to perform the sign-in operation.

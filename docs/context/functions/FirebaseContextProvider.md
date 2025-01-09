@@ -6,7 +6,7 @@
 function FirebaseContextProvider(props): ReactNode | Promise<ReactNode>
 ```
 
-Defined in: [src/context/FirebaseContextProvider.tsx:112](https://github.com/vpishuk/react-query-firebase/blob/7fbf9b6c8d5aecd24bcbf362edabf19ee5b1c72c/src/context/FirebaseContextProvider.tsx#L112)
+Defined in: [src/context/FirebaseContextProvider.tsx:112](https://github.com/vpishuk/react-query-firebase/blob/2814a7f726829eb67b40b71ca1e3d6c86fc8bb8b/src/context/FirebaseContextProvider.tsx#L112)
 
 FirebaseContextProvider component configures and provides Firebase services to its children.
 Initializes Firebase app and enables optional Firebase services such as Firestore, Auth, Analytics,

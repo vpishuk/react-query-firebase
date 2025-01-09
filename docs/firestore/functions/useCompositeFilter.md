@@ -6,7 +6,7 @@
 function useCompositeFilter<DbModelType>(query): undefined | QueryCompositeFilterConstraint
 ```
 
-Defined in: [src/firestore/useCompositeFilter.ts:72](https://github.com/vpishuk/react-query-firebase/blob/7fbf9b6c8d5aecd24bcbf362edabf19ee5b1c72c/src/firestore/useCompositeFilter.ts#L72)
+Defined in: [src/firestore/useCompositeFilter.ts:72](https://github.com/vpishuk/react-query-firebase/blob/2814a7f726829eb67b40b71ca1e3d6c86fc8bb8b/src/firestore/useCompositeFilter.ts#L72)
 
 A custom hook that generates a composite filter for database queries, using the provided query configuration.
 It applies either an 'OR' or 'AND' logical operation based on the type specified in the query.

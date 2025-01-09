@@ -6,4 +6,4 @@
 const REAUTHENTICATE_WITH_REDIRECT_MUTATION_KEY: readonly ["FIREBASE", "AUTH", "REAUTHENTICATE_WITH_REDIRECT"];
 ```
 
-Defined in: [src/auth/mutation-keys.ts:14](https://github.com/vpishuk/react-query-firebase/blob/7fbf9b6c8d5aecd24bcbf362edabf19ee5b1c72c/src/auth/mutation-keys.ts#L14)
+Defined in: [src/auth/mutation-keys.ts:14](https://github.com/vpishuk/react-query-firebase/blob/2814a7f726829eb67b40b71ca1e3d6c86fc8bb8b/src/auth/mutation-keys.ts#L14)

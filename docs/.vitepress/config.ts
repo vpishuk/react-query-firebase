@@ -5,7 +5,7 @@ import sidebar from "../typedoc-sidebar.json";
 export default defineConfig({
     title: "react-query-firebase",
     description: "This module offers react hooks to work with Firebase",
-    srcDir: "./docs",
+    srcDir: "./",
     base: "/react-query-firebase",
     themeConfig: {
         nav: [{ text: "Home", link: "/" }],
