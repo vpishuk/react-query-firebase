@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/vpishuk/react-query-firebase/compare/v1.1.0...v1.2.0) (2025-01-25)
+
+
+### Features
+
+* **analytics:** adds hook useSetAnalyticsCollectionEnabled ([#15](https://github.com/vpishuk/react-query-firebase/issues/15)) ([2ea95d7](https://github.com/vpishuk/react-query-firebase/commit/2ea95d710a19ca90844c94430318dfe825ea599a))
+
 ## [1.1.0](https://github.com/vpishuk/react-query-firebase/compare/v1.0.8...v1.1.0) (2025-01-15)
 
 
