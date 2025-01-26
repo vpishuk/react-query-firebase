@@ -1,4 +1,4 @@
-import React, { PropsWithChildren, useMemo } from "react";
+import React, { PropsWithChildren, useEffect, useMemo } from "react";
 import { FirebaseContext } from "./FirebaseContext";
 import { connectAuthEmulator, getAuth } from "firebase/auth";
 import { ConsentSettings, getAnalytics, setAnalyticsCollectionEnabled, setConsent } from "firebase/analytics";
@@ -77,7 +77,7 @@ export type FirebaseContextProviderProps = PropsWithChildren & {
      *                  security_storage: "denied"
      *              }
      */
-    defaultConsent?: ConsentSettings;
+    consentSettings?: ConsentSettings;
     /**
      * Flag indicating whether Firebase Firestore should be enabled.
      * @defaultValue `true`
@@ -129,7 +129,7 @@ export const FirebaseContextProvider: React.FC<FirebaseContextProviderProps> = (
     authEnabled = true,
     firestoreEnabled = true,
     analyticsEnabled = true,
-    defaultConsent = {},
+    consentSettings = {},
     remoteConfigEnabled = true,
     remoteConfigSettings,
     remoteConfigDefaults = {}
@@ -137,6 +137,19 @@ export const FirebaseContextProvider: React.FC<FirebaseContextProviderProps> = (
     const firebase = useMemo(() => {
         return initializeApp(options);
     }, [options]);
+
+    useEffect(() => {
+        setConsent({
+            ad_personalization: "denied",
+            ad_storage: "denied",
+            ad_user_data: "denied",
+            analytics_storage: "denied",
+            functionality_storage: "denied",
+            personalization_storage: "denied",
+            security_storage: "denied",
+            ...consentSettings
+        });
+    }, [consentSettings]);
 
     const contextValue = useMemo(() => {
         const value: Partial<React.ContextType<typeof FirebaseContext>> = {};
@@ -161,22 +174,9 @@ export const FirebaseContextProvider: React.FC<FirebaseContextProviderProps> = (
             value.auth = auth;
         }
 
-        setConsent({
-            ad_personalization: "denied",
-            ad_storage: "denied",
-            ad_user_data: "denied",
-            analytics_storage: "denied",
-            functionality_storage: "denied",
-            personalization_storage: "denied",
-            security_storage: "denied",
-            ...defaultConsent
-        });
-
         if (analyticsEnabled && options.measurementId && typeof window !== "undefined") {
             const analytics = getAnalytics(firebase);
             value.analytics = analytics;
-
-            setAnalyticsCollectionEnabled(analytics, defaultConsent?.analytics_storage === "granted");
         }
 
         if (remoteConfigEnabled && typeof window !== "undefined") {
@@ -191,6 +191,12 @@ export const FirebaseContextProvider: React.FC<FirebaseContextProviderProps> = (
 
         return { firebase, ...value };
     }, [firebase]);
+
+    useEffect(() => {
+        if (contextValue.analytics) {
+            setAnalyticsCollectionEnabled(contextValue.analytics, consentSettings?.analytics_storage === "granted");
+        }
+    }, [consentSettings]);
 
     return (
         <FirebaseContext.Provider value={contextValue as React.ContextType<typeof FirebaseContext>}>
