@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.1](https://github.com/vpishuk/react-query-firebase/compare/v1.2.0...v1.2.1) (2025-01-26)
+
+
+### Bug Fixes
+
+* sets default consent ([#17](https://github.com/vpishuk/react-query-firebase/issues/17)) ([a45ced2](https://github.com/vpishuk/react-query-firebase/commit/a45ced2fdc9e2b79c4c1a172465ecc478fd93510))
+
 ## [1.2.0](https://github.com/vpishuk/react-query-firebase/compare/v1.1.0...v1.2.0) (2025-01-25)
 
 
