@@ -12,8 +12,9 @@ import { useAuth } from "./useAuth";
  *   @returns {Function} refresh - A function to refresh the ID token.
  */
 export const useIdToken = () => {
-    const currentUser = useCurrentUser();
     const auth = useAuth();
+
+    const currentUser = useCurrentUser();
     const [idToken, setIdToken] = useState("");
 
     const callback = useCallback(async () => {
