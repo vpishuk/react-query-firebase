@@ -1,5 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { useCurrentUser } from "./useCurrentUser";
+import { onIdTokenChanged } from "firebase/auth";
+import { useAuth } from "./useAuth";
 
 /**
  * Custom hook to manage an ID token for the current user.
@@ -11,6 +13,7 @@ import { useCurrentUser } from "./useCurrentUser";
  */
 export const useIdToken = () => {
     const currentUser = useCurrentUser();
+    const auth = useAuth();
     const [idToken, setIdToken] = useState("");
 
     const callback = useCallback(async () => {
@@ -35,6 +38,20 @@ export const useIdToken = () => {
     useEffect(() => {
         callback();
     }, [currentUser?.uid ?? ""]);
+
+    useEffect(() => {
+        const unsubscribe = onIdTokenChanged(auth, (user) => {
+            if (user) {
+                user.getIdToken().then((idToken) => {
+                    setIdToken(idToken);
+                });
+            } else {
+                setIdToken("");
+            }
+        });
+
+        return () => unsubscribe();
+    }, [idToken]);
 
     return {
         idToken,
