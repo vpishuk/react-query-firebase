@@ -13,3 +13,4 @@ export * from "./useQuery";
 export * from "./useRunTransaction";
 export * from "./useSetDocMutation";
 export * from "./useUpdateDocMutation";
+export * from "./useGetRealtimeDocData";
