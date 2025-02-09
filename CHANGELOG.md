@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.0](https://github.com/vpishuk/react-query-firebase/compare/v1.2.3...v1.3.0) (2025-02-09)
+
+
+### Features
+
+* **firestore:** implements useGetRealtimeDocData hook ([#26](https://github.com/vpishuk/react-query-firebase/issues/26)) ([23b94f1](https://github.com/vpishuk/react-query-firebase/commit/23b94f155a6a2bd90667301f6d81e867319cfc85))
+
 ## [1.2.3](https://github.com/vpishuk/react-query-firebase/compare/v1.2.2...v1.2.3) (2025-02-06)
 
 
