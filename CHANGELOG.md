@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.2](https://github.com/vpishuk/react-query-firebase/compare/v1.3.1...v1.3.2) (2025-02-12)
+
+
+### Bug Fixes
+
+* **firestore:** add ability to provide custome settings for firestore through context provider ([#31](https://github.com/vpishuk/react-query-firebase/issues/31)) ([55bbca6](https://github.com/vpishuk/react-query-firebase/commit/55bbca6f1290cbaeb0efe50a1c2e6344873777b3))
+
 ## [1.3.1](https://github.com/vpishuk/react-query-firebase/compare/v1.3.0...v1.3.1) (2025-02-09)
 
 
