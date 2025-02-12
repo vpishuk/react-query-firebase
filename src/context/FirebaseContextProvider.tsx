@@ -3,7 +3,7 @@ import { FirebaseContext } from "./FirebaseContext";
 import { connectAuthEmulator, getAuth } from "firebase/auth";
 import { ConsentSettings, getAnalytics, setAnalyticsCollectionEnabled, setConsent } from "firebase/analytics";
 import { getRemoteConfig, RemoteConfigSettings } from "firebase/remote-config";
-import { connectFirestoreEmulator, getFirestore } from "firebase/firestore";
+import { connectFirestoreEmulator, FirestoreSettings, initializeFirestore } from "firebase/firestore";
 import { FirebaseOptions, initializeApp } from "firebase/app";
 
 /**
@@ -79,6 +79,13 @@ export type FirebaseContextProviderProps = PropsWithChildren & {
      */
     consentSettings?: ConsentSettings;
     /**
+     * Specifies custom configurations for your Cloud Firestore instance.
+     * You must set these before invoking any other methods.
+     * {@link https://firebase.google.com/docs/reference/js/firestore_.firestoresettings}
+     * @defaultValue {}
+     */
+    firestoreSettings?: FirestoreSettings;
+    /**
      * Flag indicating whether Firebase Firestore should be enabled.
      * @defaultValue `true`
      */
@@ -132,7 +139,8 @@ export const FirebaseContextProvider: React.FC<FirebaseContextProviderProps> = (
     consentSettings = {},
     remoteConfigEnabled = true,
     remoteConfigSettings,
-    remoteConfigDefaults = {}
+    remoteConfigDefaults = {},
+    firestoreSettings
 }) => {
     const firebase = useMemo(() => {
         return initializeApp(options);
@@ -151,46 +159,63 @@ export const FirebaseContextProvider: React.FC<FirebaseContextProviderProps> = (
         });
     }, [consentSettings]);
 
-    const contextValue = useMemo(() => {
-        const value: Partial<React.ContextType<typeof FirebaseContext>> = {};
-
+    const firestore = useMemo(() => {
         if (firestoreEnabled) {
-            const firestore = getFirestore(firebase);
+            const localFirestore = initializeFirestore(firebase, firestoreSettings || {});
 
             if (emulators?.firestore?.host && emulators?.firestore?.port) {
-                connectFirestoreEmulator(firestore, emulators.firestore.host, emulators.firestore.port);
+                connectFirestoreEmulator(localFirestore, emulators.firestore.host, emulators.firestore.port);
             }
 
-            value.firestore = firestore;
+            return localFirestore;
         }
 
+        return null;
+    }, [firestoreSettings, emulators?.firestore, firestoreEnabled]);
+
+    const auth = useMemo(() => {
         if (authEnabled) {
-            const auth = getAuth(firebase);
+            const localAuth = getAuth(firebase);
             if (emulators?.auth?.host) {
-                connectAuthEmulator(auth, emulators?.auth?.host, {
+                connectAuthEmulator(localAuth, emulators?.auth?.host, {
                     disableWarnings: true
                 });
             }
-            value.auth = auth;
+            return localAuth;
         }
+        return null;
+    }, [emulators?.auth, authEnabled]);
 
+    const analytics = useMemo(() => {
         if (analyticsEnabled && options.measurementId && typeof window !== "undefined") {
-            const analytics = getAnalytics(firebase);
-            value.analytics = analytics;
+            return getAnalytics(firebase);
         }
+        return null;
+    }, [analyticsEnabled, options.measurementId]);
 
+    const remoteConfig = useMemo(() => {
         if (remoteConfigEnabled && typeof window !== "undefined") {
-            const remoteConfig = getRemoteConfig(firebase);
+            const localRemoteConfig = getRemoteConfig(firebase);
             if (remoteConfigSettings) {
-                remoteConfig.settings.fetchTimeoutMillis = remoteConfigSettings.fetchTimeoutMillis;
-                remoteConfig.settings.minimumFetchIntervalMillis = remoteConfigSettings.minimumFetchIntervalMillis;
-                remoteConfig.defaultConfig = remoteConfigDefaults;
+                localRemoteConfig.settings.fetchTimeoutMillis = remoteConfigSettings.fetchTimeoutMillis;
+                localRemoteConfig.settings.minimumFetchIntervalMillis = remoteConfigSettings.minimumFetchIntervalMillis;
+                localRemoteConfig.defaultConfig = remoteConfigDefaults;
             }
-            value.remoteConfig = remoteConfig;
+            return localRemoteConfig;
         }
+        return null;
+    }, [remoteConfigEnabled]);
 
-        return { firebase, ...value };
-    }, [firebase]);
+    const contextValue = useMemo(
+        () => ({
+            firebase,
+            auth,
+            analytics,
+            firestore,
+            remoteConfig
+        }),
+        [firebase, auth, analytics, firestore, remoteConfig]
+    );
 
     useEffect(() => {
         if (contextValue.analytics) {
