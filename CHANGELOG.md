@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.3](https://github.com/vpishuk/react-query-firebase/compare/v1.3.2...v1.3.3) (2025-03-02)
+
+
+### Bug Fixes
+
+* improves refresh id token flow ([#35](https://github.com/vpishuk/react-query-firebase/issues/35)) ([fd686be](https://github.com/vpishuk/react-query-firebase/commit/fd686bec93d892797db99f1257036496416f311f))
+
 ## [1.3.2](https://github.com/vpishuk/react-query-firebase/compare/v1.3.1...v1.3.2) (2025-02-12)
 
 
