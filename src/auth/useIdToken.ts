@@ -4,14 +4,36 @@ import { onIdTokenChanged } from "firebase/auth";
 import { useAuth } from "./useAuth";
 
 /**
- * Custom hook to manage an ID token for the current user.
- * This hook provides an `idToken` value and a `refresh` function to manually refresh the token.
- *
- * @returns {Object} An object containing:
- *   @returns {string} idToken - The current ID token for the user.
- *   @returns {Function} refresh - A function to refresh the ID token.
+ * @inline
  */
-export const useIdToken = () => {
+export type UseIdTokenResult = {
+    idToken: string;
+    refresh: () => Promise<string | undefined>;
+};
+
+/**
+ * A hook to manage the ID token.
+ * It monitors changes to the ID token and provides the token itself along with a refresh method to update the token when needed.
+ *
+ * @group Hook
+ *
+ * @returns {UseIdTokenResult}
+ *
+ * @example
+ * ```jsx
+ * export const MyComponent = () => {
+ *  const result = useIdToken();
+ *  useEffect(() => {
+ *      const timeout = setTimeout(() => {
+ *          result.refresh();
+ *      }, 5000);
+ *      return () => clearTimeout();
+ *  }, [])
+ *  console.log(resilt.idToken);
+ * };
+ * ```
+ */
+export const useIdToken = (): UseIdTokenResult => {
     const auth = useAuth();
 
     const currentUser = useCurrentUser();
@@ -33,7 +55,7 @@ export const useIdToken = () => {
         }
 
         const idToken = await currentUser.getIdToken(true);
-        setIdToken(idToken);
+        return idToken;
     }, [currentUser, idToken]);
 
     useEffect(() => {
