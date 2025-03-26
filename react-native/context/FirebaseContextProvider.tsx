@@ -1,10 +1,10 @@
 import React, { PropsWithChildren, useEffect, useMemo } from "react";
-import { FirebaseContext } from "./FirebaseContext";
+import { FirebaseContext, FirebaseContextValue } from "./FirebaseContext";
 import { connectAuthEmulator } from "@react-native-firebase/auth";
 import { FirebaseAnalyticsTypes, setAnalyticsCollectionEnabled, setConsent } from "@react-native-firebase/analytics";
 import { FirebaseRemoteConfigTypes } from "@react-native-firebase/remote-config";
 import { connectFirestoreEmulator } from "@react-native-firebase/firestore";
-import firebase, { ReactNativeFirebase, initializeApp } from "@react-native-firebase/app";
+import firebase, { ReactNativeFirebase } from "@react-native-firebase/app";
 
 /**
  * @inline
@@ -150,7 +150,6 @@ export type FirebaseContextProviderProps = PropsWithChildren & {
  * ```
  */
 export const FirebaseContextProvider: React.FC<FirebaseContextProviderProps> = ({
-    platform,
     emulators,
     options,
     children,
@@ -163,9 +162,7 @@ export const FirebaseContextProvider: React.FC<FirebaseContextProviderProps> = (
     remoteConfigDefaults = {},
     firestoreSettings
 }) => {
-    const internalFirebase = useMemo(() => {
-        return platform === "Web" ? initializeApp(options) : firebase;
-    }, [options]);
+    const internalFirebase = useMemo(() => firebase, []);
 
     useEffect(() => {
         setConsent(firebase.analytics(), {
@@ -178,7 +175,7 @@ export const FirebaseContextProvider: React.FC<FirebaseContextProviderProps> = (
             security_storage: false,
             ...consentSettings
         });
-    }, [consentSettings, firebase]);
+    }, [consentSettings]);
 
     const internalFirestore = useMemo(() => {
         if (firestoreEnabled) {
@@ -190,11 +187,15 @@ export const FirebaseContextProvider: React.FC<FirebaseContextProviderProps> = (
                 );
             }
 
-            return internalFirebase.firestore();
+            const localFirestore = internalFirebase.firestore();
+            if (firestoreSettings) {
+                localFirestore.settings(firestoreSettings);
+            }
+            return localFirestore;
         }
 
         return null;
-    }, [firestoreSettings, emulators?.firestore, firestoreEnabled, internalFirebase]);
+    }, [emulators?.firestore, firestoreEnabled, internalFirebase, firestoreSettings]);
 
     const internalAuth = useMemo(() => {
         if (authEnabled) {
@@ -210,18 +211,14 @@ export const FirebaseContextProvider: React.FC<FirebaseContextProviderProps> = (
     }, [emulators?.auth, authEnabled, internalFirebase]);
 
     const internalAnalytics = useMemo(() => {
-        if (
-            analyticsEnabled &&
-            options.measurementId &&
-            (typeof window !== "undefined" || platform === "ReactNative")
-        ) {
+        if (analyticsEnabled && options.measurementId) {
             return internalFirebase.analytics();
         }
         return null;
     }, [analyticsEnabled, options.measurementId, internalFirebase]);
 
     const internalRemoteConfig = useMemo(() => {
-        if (remoteConfigEnabled && (typeof window !== "undefined" || platform === "ReactNative")) {
+        if (remoteConfigEnabled) {
             const localRemoteConfig = internalFirebase.remoteConfig();
             if (remoteConfigSettings) {
                 localRemoteConfig.settings.fetchTimeMillis = remoteConfigSettings.fetchTimeMillis;
@@ -231,7 +228,7 @@ export const FirebaseContextProvider: React.FC<FirebaseContextProviderProps> = (
             return localRemoteConfig;
         }
         return null;
-    }, [remoteConfigEnabled, remoteConfigSettings, internalFirebase]);
+    }, [remoteConfigEnabled, remoteConfigSettings, internalFirebase, remoteConfigDefaults]);
 
     const contextValue = useMemo(
         () => ({
@@ -248,10 +245,10 @@ export const FirebaseContextProvider: React.FC<FirebaseContextProviderProps> = (
         if (contextValue.analytics) {
             setAnalyticsCollectionEnabled(contextValue.analytics, !!consentSettings?.analytics_storage);
         }
-    }, [consentSettings]);
+    }, [consentSettings, contextValue.analytics]);
 
     return (
-        <FirebaseContext.Provider value={contextValue as React.ContextType<typeof FirebaseContext>}>
+        <FirebaseContext.Provider value={contextValue as unknown as FirebaseContextValue}>
             {children}
         </FirebaseContext.Provider>
     );

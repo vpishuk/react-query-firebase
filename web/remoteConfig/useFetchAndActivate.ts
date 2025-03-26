@@ -24,7 +24,7 @@ export const useFetchAndActivate = () => {
             setIsFetched(true);
             console.log(`Cannot read remote config: ${(e as Error)?.message}`);
         }
-    }, [isFetched]);
+    }, [remoteConfig]);
 
     return useMemo(
         () => ({

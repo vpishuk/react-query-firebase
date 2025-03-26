@@ -44,5 +44,5 @@ export const useDocReferences = <
                     : doc(reference, path, ...(pathSegments || []))
             ) as FirebaseFirestoreTypes.DocumentReference<AppModelType>;
         });
-    }, [references]);
+    }, [references, db]);
 };

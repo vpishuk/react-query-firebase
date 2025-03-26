@@ -99,6 +99,6 @@ export const useGetRealtimeDocData = <AppModelType, DbModelType extends Document
             isFetching,
             error
         }),
-        [doc, isError, error]
+        [doc, isError, error, isFetching]
     );
 };

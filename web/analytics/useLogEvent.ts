@@ -23,7 +23,7 @@ export const useLogEvent = ({ eventName, eventParams }: UseLogEventOptions) => {
         if (analytics) {
             logEvent(analytics, eventName, eventParams);
         }
-    }, [eventName, eventParams]);
+    }, [eventName, eventParams, analytics]);
 
     return useMemo(
         () => ({

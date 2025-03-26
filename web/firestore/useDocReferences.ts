@@ -40,5 +40,5 @@ export const useDocReferences = <AppModelType, DbModelType extends DocumentData 
                       : doc(reference, path, ...(pathSegments || []))
             ) as DocumentReference<AppModelType, DbModelType>;
         });
-    }, [references]);
+    }, [references, db]);
 };

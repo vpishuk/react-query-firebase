@@ -171,7 +171,7 @@ export const FirebaseContextProvider: React.FC<FirebaseContextProviderProps> = (
         }
 
         return null;
-    }, [firestoreSettings, emulators?.firestore, firestoreEnabled]);
+    }, [firestoreSettings, emulators?.firestore, firestoreEnabled, firebase]);
 
     const auth = useMemo(() => {
         if (authEnabled) {
@@ -184,14 +184,14 @@ export const FirebaseContextProvider: React.FC<FirebaseContextProviderProps> = (
             return localAuth;
         }
         return null;
-    }, [emulators?.auth, authEnabled]);
+    }, [emulators?.auth, authEnabled, firebase]);
 
     const analytics = useMemo(() => {
         if (analyticsEnabled && options.measurementId && typeof window !== "undefined") {
             return getAnalytics(firebase);
         }
         return null;
-    }, [analyticsEnabled, options.measurementId]);
+    }, [analyticsEnabled, options.measurementId, firebase]);
 
     const remoteConfig = useMemo(() => {
         if (remoteConfigEnabled && typeof window !== "undefined") {
@@ -204,7 +204,7 @@ export const FirebaseContextProvider: React.FC<FirebaseContextProviderProps> = (
             return localRemoteConfig;
         }
         return null;
-    }, [remoteConfigEnabled]);
+    }, [remoteConfigEnabled, firebase, remoteConfigDefaults, remoteConfigSettings]);
 
     const contextValue = useMemo(
         () => ({
@@ -221,7 +221,7 @@ export const FirebaseContextProvider: React.FC<FirebaseContextProviderProps> = (
         if (contextValue.analytics) {
             setAnalyticsCollectionEnabled(contextValue.analytics, consentSettings?.analytics_storage === "granted");
         }
-    }, [consentSettings]);
+    }, [consentSettings?.analytics_storage, contextValue.analytics]);
 
     return (
         <FirebaseContext.Provider value={contextValue as React.ContextType<typeof FirebaseContext>}>

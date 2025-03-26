@@ -105,6 +105,6 @@ export const useGetRealtimeDocData = <
             isFetching,
             error
         }),
-        [doc, isError, error]
+        [doc, isError, error, isFetching]
     );
 };
