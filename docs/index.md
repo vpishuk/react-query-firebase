@@ -15,17 +15,17 @@ features:
     - title: Analytics
       details: Hooks to work with Firebase Analytics module
       linkText: Documentation
-      link: /analytics
+      link: /web/analytics
     - title: Auth
       details: Hooks to work with Firebase Auth module
       linkText: Documentation
-      link: /auth
+      link: /web/auth
     - title: Firestore
       details: Hooks to work with Firebase Firestore module
       linkText: Documentation
-      link: /firestore
+      link: /web/firestore
     - title: Remote Config
       details: Hooks to work with Firebase Remote Config module
       linkText: Documentation
-      link: /remoteConfig
+      link: /web/remoteConfig
 ---

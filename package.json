@@ -5,6 +5,13 @@
         "url": "https://github.com/vpishuk/react-query-firebase/issues"
     },
     "peerDependencies": {
+        "@react-native-firebase/analytics": "^21.0.0",
+        "@react-native-firebase/app": "^21.0.0",
+        "@react-native-firebase/auth": "^21.0.0",
+        "@react-native-firebase/crashlytics": "^21.0.0",
+        "@react-native-firebase/firestore": "^21.0.0",
+        "@react-native-firebase/installations": "^21.0.0",
+        "@react-native-firebase/remote-config": "^21.0.0",
         "@tanstack/react-query": "^5.0.0",
         "firebase": "^11.0.0",
         "react": "^18.0.0 || ^19.0.0"
@@ -12,9 +19,16 @@
     "publishConfig": {
         "access": "public"
     },
-    "description": "This module offers react hooks to work with Firebase",
+    "description": "This module offers react hooks to work with Firebase on react-native and web platforms",
     "devDependencies": {
         "@laverve/eslint-utils": "^5.1.1",
+        "@react-native-firebase/analytics": "^21.0.0",
+        "@react-native-firebase/app": "^21.0.0",
+        "@react-native-firebase/auth": "^21.0.0",
+        "@react-native-firebase/crashlytics": "^21.0.0",
+        "@react-native-firebase/firestore": "^21.0.0",
+        "@react-native-firebase/installations": "^21.0.0",
+        "@react-native-firebase/remote-config": "^21.0.0",
         "@types/react": "^19.0.2",
         "husky": "^9.1.1",
         "lint-staged": "^15.1.0",
@@ -31,19 +45,18 @@
     "keywords": [
         "firebase",
         "react",
-        "hooks"
+        "hooks",
+        "react-native"
     ],
     "license": "MIT",
-    "main": "./dist/src/index.js",
-    "types": "./dist/src/index.d.ts",
     "name": "react-query-firebase",
     "repository": {
         "type": "git",
         "url": "https://github.com/vpishuk/react-query-firebase.git"
     },
     "files": [
-        "./dist/src/",
-        "./src/",
+        "./web/",
+        "./react-native/",
         "package.json",
         "package-lock.json",
         "README.md",
@@ -60,5 +73,5 @@
         "docs:build": "vitepress build docs",
         "docs:preview": "vitepress preview docs"
     },
-    "version": "1.3.3"
+    "version": "2.0.0-rc8"
 }

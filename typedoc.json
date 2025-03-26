@@ -2,11 +2,16 @@
     "$schema": "https://typedoc.org/schema.json",
     "docsRoot": "./docs",
     "entryPoints": [
-        "./src/context/index.ts",
-        "./src/analytics/index.ts",
-        "./src/auth/index.ts",
-        "./src/firestore/index.ts",
-        "./src/remoteConfig/index.ts"
+        "./web/context/index.ts",
+        "./web/analytics/index.ts",
+        "./web/auth/index.ts",
+        "./web/firestore/index.ts",
+        "./web/remoteConfig/index.ts",
+        "./react-native/context/index.ts",
+        "./react-native/analytics/index.ts",
+        "./react-native/auth/index.ts",
+        "./react-native/firestore/index.ts",
+        "./react-native/remoteConfig/index.ts"
     ],
     "includeVersion": true,
     "out": "docs",
