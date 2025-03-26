@@ -47,7 +47,7 @@ export const useIdToken = (): UseIdTokenResult => {
 
         const idToken = await currentUser.getIdToken();
         setIdToken(idToken);
-    }, [currentUser, idToken]);
+    }, [currentUser]);
 
     const refresh = useCallback(async () => {
         if (!currentUser) {
@@ -56,11 +56,11 @@ export const useIdToken = (): UseIdTokenResult => {
 
         const idToken = await currentUser.getIdToken(true);
         return idToken;
-    }, [currentUser, idToken]);
+    }, [currentUser]);
 
     useEffect(() => {
         callback();
-    }, [currentUser?.uid ?? ""]);
+    }, [callback]);
 
     useEffect(() => {
         const unsubscribe = onIdTokenChanged(auth, (user) => {
@@ -74,7 +74,7 @@ export const useIdToken = (): UseIdTokenResult => {
         });
 
         return () => unsubscribe();
-    }, [idToken]);
+    }, [setIdToken, auth]);
 
     return {
         idToken,

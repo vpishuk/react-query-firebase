@@ -12,5 +12,5 @@ export const useGetValue = (key: string) => {
     const remoteConfig = useRemoteConfig();
     return useMemo(() => {
         return remoteConfig ? getValue(remoteConfig, key) : null;
-    }, [remoteConfig?.lastFetchStatus, key]);
+    }, [remoteConfig, key]);
 };

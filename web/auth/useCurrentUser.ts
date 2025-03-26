@@ -18,7 +18,7 @@ export const useCurrentUser = () => {
         return () => {
             unsubscribe();
         };
-    }, [currentUser?.uid ?? ""]);
+    }, [currentUser?.uid, firebaseAuth]);
 
     return currentUser;
 };

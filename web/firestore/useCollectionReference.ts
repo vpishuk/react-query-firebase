@@ -33,5 +33,5 @@ export const useCollectionReference = <AppModelType, DbModelType extends Documen
             : reference.type === "collection"
               ? collection(reference, path, ...(pathSegments || []))
               : collection(reference, path, ...(pathSegments || []));
-    }, [path, reference?.path, pathSegments]);
+    }, [path, reference, pathSegments, db]);
 };

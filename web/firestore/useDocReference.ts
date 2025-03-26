@@ -62,7 +62,7 @@ export const useDocReference = <AppModelType, DbModelType extends DocumentData =
 
     useEffect(() => {
         ref.current = getDocReference(db, { path, pathSegments, reference });
-    }, [path, reference, pathSegments]);
+    }, [path, reference, pathSegments, db]);
 
     return ref.current;
 };

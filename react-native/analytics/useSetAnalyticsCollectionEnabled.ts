@@ -18,5 +18,5 @@ export const useSetAnalyticsCollectionEnabled = ({ enabled = false }: UseSetAnal
         if (analytics) {
             setAnalyticsCollectionEnabled(analytics, enabled);
         }
-    }, [analytics]);
+    }, [analytics, enabled]);
 };

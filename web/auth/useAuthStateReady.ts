@@ -14,7 +14,7 @@ export const useAuthStateReady = () => {
     const callback = useCallback(async () => {
         await firebaseAuth.authStateReady();
         setIsAuthStateReady(true);
-    }, [isAuthStateReady]);
+    }, [firebaseAuth]);
 
     useEffect(() => {
         callback();
