@@ -3,16 +3,16 @@ import { useMemo } from "react";
 
 type CompositeFilterDocumentData = FirebaseFirestoreTypes.DocumentData;
 
-export type QueryElement<DbModelType extends CompositeFilterDocumentData = CompositeFilterDocumentData> =
-    Partial<FirebaseFirestoreTypes.QueryCompositeFilterConstraint> & {
-        children?: QueryElement[];
-        field?: keyof (DbModelType & { documentId?: string[] });
-        value?: DbModelType[keyof DbModelType];
-        op?: FirebaseFirestoreTypes.WhereFilterOp;
-    };
+export type QueryElement<DbModelType extends CompositeFilterDocumentData = CompositeFilterDocumentData> = {
+    operator: "OR" | "AND";
+    children?: QueryElement[];
+    field?: keyof (DbModelType & { documentId?: string[] });
+    value?: DbModelType[keyof DbModelType];
+    op?: FirebaseFirestoreTypes.WhereFilterOp;
+};
 
 export type CompositeFilter<DbModelType extends CompositeFilterDocumentData = CompositeFilterDocumentData> = {
-    operator: FirebaseFirestoreTypes.QueryFilterType;
+    operator: "OR" | "AND";
     children: QueryElement<DbModelType & { documentId?: string[] }>[];
 };
 

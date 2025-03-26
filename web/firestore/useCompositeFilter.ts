@@ -1,24 +1,15 @@
-import {
-    DocumentData,
-    QueryFilterConstraint,
-    WhereFilterOp,
-    QueryCompositeFilterConstraint,
-    documentId,
-    and,
-    or,
-    where
-} from "firebase/firestore";
+import { DocumentData, QueryFilterConstraint, WhereFilterOp, documentId, and, or, where } from "firebase/firestore";
 import { useMemo } from "react";
 
 type CompositeFilterDocumentData = DocumentData;
 
-export type QueryElement<DbModelType extends CompositeFilterDocumentData = CompositeFilterDocumentData> =
-    Partial<QueryCompositeFilterConstraint> & {
-        children?: QueryElement[];
-        field?: keyof (DbModelType & { documentId?: string[] });
-        value?: DbModelType[keyof DbModelType];
-        op?: WhereFilterOp;
-    };
+export type QueryElement<DbModelType extends CompositeFilterDocumentData = CompositeFilterDocumentData> = {
+    operator: "OR" | "AND";
+    children?: QueryElement[];
+    field?: keyof (DbModelType & { documentId?: string[] });
+    value?: DbModelType[keyof DbModelType];
+    op?: WhereFilterOp;
+};
 
 export type CompositeFilter<DbModelType extends CompositeFilterDocumentData = CompositeFilterDocumentData> = {
     operator: "OR" | "AND";
