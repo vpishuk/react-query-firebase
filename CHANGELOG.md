@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.2](https://github.com/vpishuk/react-query-firebase/compare/v2.0.1...v2.0.2) (2025-03-26)
+
+
+### Bug Fixes
+
+* fixes missing or incorrect dependencies for hooks ([#44](https://github.com/vpishuk/react-query-firebase/issues/44)) ([8ead796](https://github.com/vpishuk/react-query-firebase/commit/8ead7967c943fb896d27af456b18d7498ed7e0c2))
+
 ## [2.0.1](https://github.com/vpishuk/react-query-firebase/compare/v2.0.0...v2.0.1) (2025-03-26)
 
 
