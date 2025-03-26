@@ -3,10 +3,14 @@
     "include": [
         "./*.js",
         "./*.ts",
-        "./src/**/*.ts",
-        "./src/**/*.tsx",
-        "./src/**/*.js",
-        "./src/**/*.json",
+        "./web/**/*.ts",
+        "./web/**/*.tsx",
+        "./web/**/*.js",
+        "./web/**/*.json",
+        "./react-native/**/*.ts",
+        "./react-native/**/*.tsx",
+        "./react-native/**/*.js",
+        "./react-native/**/*.json",
         "./types/**/*.ts",
         "./*.json"
     ]

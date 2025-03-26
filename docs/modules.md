@@ -1,9 +1,14 @@
-# react-query-firebase v1.0.7
+# react-query-firebase v2.0.0-rc8
 
 ## Modules
 
-- [analytics](analytics/index.md)
-- [auth](auth/index.md)
-- [context](context/index.md)
-- [firestore](firestore/index.md)
-- [remoteConfig](remoteConfig/index.md)
+- [react-native/analytics](react-native/analytics/index.md)
+- [react-native/auth](react-native/auth/index.md)
+- [react-native/context](react-native/context/index.md)
+- [react-native/firestore](react-native/firestore/index.md)
+- [react-native/remoteConfig](react-native/remoteConfig/index.md)
+- [web/analytics](web/analytics/index.md)
+- [web/auth](web/auth/index.md)
+- [web/context](web/context/index.md)
+- [web/firestore](web/firestore/index.md)
+- [web/remoteConfig](web/remoteConfig/index.md)
