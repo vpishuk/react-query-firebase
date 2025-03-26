@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.3](https://github.com/vpishuk/react-query-firebase/compare/v2.0.2...v2.0.3) (2025-03-26)
+
+
+### Bug Fixes
+
+* fixes type of QueryElement ([#46](https://github.com/vpishuk/react-query-firebase/issues/46)) ([b47587c](https://github.com/vpishuk/react-query-firebase/commit/b47587c0554112e1c85c0197b574cd2e9e608e76))
+
 ## [2.0.2](https://github.com/vpishuk/react-query-firebase/compare/v2.0.1...v2.0.2) (2025-03-26)
 
 
