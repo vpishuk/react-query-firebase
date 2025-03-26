@@ -4,7 +4,7 @@ import { useMemo } from "react";
 type CompositeFilterDocumentData = FirebaseFirestoreTypes.DocumentData;
 
 export type QueryElement<DbModelType extends CompositeFilterDocumentData = CompositeFilterDocumentData> = {
-    operator: "OR" | "AND";
+    operator?: "OR" | "AND";
     children?: QueryElement[];
     field?: keyof (DbModelType & { documentId?: string[] });
     value?: DbModelType[keyof DbModelType];
