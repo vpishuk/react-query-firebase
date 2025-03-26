@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.1](https://github.com/vpishuk/react-query-firebase/compare/v2.0.0...v2.0.1) (2025-03-26)
+
+
+### Bug Fixes
+
+* fixes useCompositeFilter types ([7bedaa5](https://github.com/vpishuk/react-query-firebase/commit/7bedaa533f45464876d4b9436993fa6df498f6d0))
+
 ## [2.0.0](https://github.com/vpishuk/react-query-firebase/compare/v1.3.3...v2.0.0) (2025-03-26)
 
 
