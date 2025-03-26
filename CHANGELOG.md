@@ -1,5 +1,18 @@
 # Changelog
 
+## [2.0.0](https://github.com/vpishuk/react-query-firebase/compare/v1.3.3...v2.0.0) (2025-03-26)
+
+
+### Features
+
+* **react-native:** adds support for react-native ([7981882](https://github.com/vpishuk/react-query-firebase/commit/79818828fa820bc7dfdeee25a2d42c72b022e826))
+
+
+### Miscellaneous Chores
+
+* release 2.0.0 ([3e786f0](https://github.com/vpishuk/react-query-firebase/commit/3e786f0f26b68eeb1a8df30962893a60d45a616c))
+* release 2.0.0 ([#42](https://github.com/vpishuk/react-query-firebase/issues/42)) ([13e2507](https://github.com/vpishuk/react-query-firebase/commit/13e2507f524bfac9df8adcf5bd1b44f7d4d29698))
+
 ## [1.3.3](https://github.com/vpishuk/react-query-firebase/compare/v1.3.2...v1.3.3) (2025-03-02)
 
 
