@@ -6,7 +6,7 @@
 function useCurrentUser(): null | User
 ```
 
-Defined in: [web/auth/useCurrentUser.ts:9](https://github.com/vpishuk/react-query-firebase/blob/43c0734068a570cd646254bb366ccd8007f7dfed/web/auth/useCurrentUser.ts#L9)
+Defined in: [web/auth/useCurrentUser.ts:9](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/web/auth/useCurrentUser.ts#L9)
 
 Hook that provides the current authenticated user from Firebase Auth.
 It listens for changes in the authentication state and updates the user accordingly.

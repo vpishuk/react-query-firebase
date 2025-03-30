@@ -6,7 +6,7 @@
 type UseDeleteDocMutationOptions<AppModelType, DbModelType, TContext> = object;
 ```
 
-Defined in: [web/firestore/useDeleteDocMutation.ts:11](https://github.com/vpishuk/react-query-firebase/blob/43c0734068a570cd646254bb366ccd8007f7dfed/web/firestore/useDeleteDocMutation.ts#L11)
+Defined in: [web/firestore/useDeleteDocMutation.ts:11](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/web/firestore/useDeleteDocMutation.ts#L11)
 
 ## Type Parameters
 
@@ -30,7 +30,7 @@ Defined in: [web/firestore/useDeleteDocMutation.ts:11](https://github.com/vpishu
 optional options: Omit<UseMutationOptions<void, FirebaseError, void, TContext>, "mutationFn" | "mutationKey">;
 ```
 
-Defined in: [web/firestore/useDeleteDocMutation.ts:17](https://github.com/vpishuk/react-query-firebase/blob/43c0734068a570cd646254bb366ccd8007f7dfed/web/firestore/useDeleteDocMutation.ts#L17)
+Defined in: [web/firestore/useDeleteDocMutation.ts:17](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/web/firestore/useDeleteDocMutation.ts#L17)
 
 ***
 
@@ -40,4 +40,4 @@ Defined in: [web/firestore/useDeleteDocMutation.ts:17](https://github.com/vpishu
 reference: DocumentReference<AppModelType, DbModelType> | null;
 ```
 
-Defined in: [web/firestore/useDeleteDocMutation.ts:16](https://github.com/vpishuk/react-query-firebase/blob/43c0734068a570cd646254bb366ccd8007f7dfed/web/firestore/useDeleteDocMutation.ts#L16)
+Defined in: [web/firestore/useDeleteDocMutation.ts:16](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/web/firestore/useDeleteDocMutation.ts#L16)

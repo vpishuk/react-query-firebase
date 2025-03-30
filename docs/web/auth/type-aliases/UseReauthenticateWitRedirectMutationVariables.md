@@ -6,7 +6,7 @@
 type UseReauthenticateWitRedirectMutationVariables = object;
 ```
 
-Defined in: [web/auth/useReauthenticateWitRedirectMutation.ts:7](https://github.com/vpishuk/react-query-firebase/blob/43c0734068a570cd646254bb366ccd8007f7dfed/web/auth/useReauthenticateWitRedirectMutation.ts#L7)
+Defined in: [web/auth/useReauthenticateWitRedirectMutation.ts:7](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/web/auth/useReauthenticateWitRedirectMutation.ts#L7)
 
 ## Properties
 
@@ -16,7 +16,7 @@ Defined in: [web/auth/useReauthenticateWitRedirectMutation.ts:7](https://github.
 authProvider: AuthProvider;
 ```
 
-Defined in: [web/auth/useReauthenticateWitRedirectMutation.ts:8](https://github.com/vpishuk/react-query-firebase/blob/43c0734068a570cd646254bb366ccd8007f7dfed/web/auth/useReauthenticateWitRedirectMutation.ts#L8)
+Defined in: [web/auth/useReauthenticateWitRedirectMutation.ts:8](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/web/auth/useReauthenticateWitRedirectMutation.ts#L8)
 
 ***
 
@@ -26,7 +26,7 @@ Defined in: [web/auth/useReauthenticateWitRedirectMutation.ts:8](https://github.
 optional popupRedirectResolver: PopupRedirectResolver;
 ```
 
-Defined in: [web/auth/useReauthenticateWitRedirectMutation.ts:9](https://github.com/vpishuk/react-query-firebase/blob/43c0734068a570cd646254bb366ccd8007f7dfed/web/auth/useReauthenticateWitRedirectMutation.ts#L9)
+Defined in: [web/auth/useReauthenticateWitRedirectMutation.ts:9](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/web/auth/useReauthenticateWitRedirectMutation.ts#L9)
 
 ***
 
@@ -36,4 +36,4 @@ Defined in: [web/auth/useReauthenticateWitRedirectMutation.ts:9](https://github.
 user: User;
 ```
 
-Defined in: [web/auth/useReauthenticateWitRedirectMutation.ts:10](https://github.com/vpishuk/react-query-firebase/blob/43c0734068a570cd646254bb366ccd8007f7dfed/web/auth/useReauthenticateWitRedirectMutation.ts#L10)
+Defined in: [web/auth/useReauthenticateWitRedirectMutation.ts:10](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/web/auth/useReauthenticateWitRedirectMutation.ts#L10)

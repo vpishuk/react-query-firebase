@@ -6,7 +6,7 @@
 type UseUpdateDocMutationValues<DbModelType> = object;
 ```
 
-Defined in: [react-native/firestore/useUpdateDocMutation.ts:7](https://github.com/vpishuk/react-query-firebase/blob/43c0734068a570cd646254bb366ccd8007f7dfed/react-native/firestore/useUpdateDocMutation.ts#L7)
+Defined in: [react-native/firestore/useUpdateDocMutation.ts:7](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/react-native/firestore/useUpdateDocMutation.ts#L7)
 
 ## Type Parameters
 
@@ -22,4 +22,4 @@ Defined in: [react-native/firestore/useUpdateDocMutation.ts:7](https://github.co
 data: UpdateData<DbModelType>;
 ```
 
-Defined in: [react-native/firestore/useUpdateDocMutation.ts:8](https://github.com/vpishuk/react-query-firebase/blob/43c0734068a570cd646254bb366ccd8007f7dfed/react-native/firestore/useUpdateDocMutation.ts#L8)
+Defined in: [react-native/firestore/useUpdateDocMutation.ts:8](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/react-native/firestore/useUpdateDocMutation.ts#L8)

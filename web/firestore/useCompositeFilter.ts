@@ -28,11 +28,11 @@ export type UseCompositeFilter<DbModelType extends CompositeFilterDocumentData =
  * @returns {QueryFieldFilterConstraint | null} A constructed query filter constraint based on the input query, or null if no valid constraints can be derived.
  */
 
-const buildCompositeQuery = <DbModelType extends CompositeFilterDocumentData = CompositeFilterDocumentData>(
+export const buildCompositeFilter = <DbModelType extends CompositeFilterDocumentData = CompositeFilterDocumentData>(
     query: QueryElement<DbModelType>
 ): QueryFilterConstraint | null => {
     if (query.children) {
-        const queryConstraints = query.children.map(buildCompositeQuery).filter((constraint) => !!constraint);
+        const queryConstraints = query.children.map(buildCompositeFilter).filter((constraint) => !!constraint);
 
         if (queryConstraints.length <= 0) {
             return null;
@@ -63,7 +63,7 @@ export const useCompositeFilter = <DbModelType extends CompositeFilterDocumentDa
 }: UseCompositeFilter<DbModelType>) => {
     return useMemo(() => {
         const queryConstraints =
-            query?.children?.map?.((subQuery) => buildCompositeQuery(subQuery))?.filter<QueryFilterConstraint>?.(
+            query?.children?.map?.((subQuery) => buildCompositeFilter(subQuery))?.filter<QueryFilterConstraint>?.(
                 (constraint) => !!constraint
             ) ?? [];
 

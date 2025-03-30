@@ -6,7 +6,7 @@
 function useReauthenticateWitRedirectMutation<TContext>(options): UseMutationResult<void, NativeFirebaseError, UseReauthenticateWitRedirectMutationVariables, TContext>
 ```
 
-Defined in: [react-native/auth/useReauthenticateWitRedirectMutation.ts:21](https://github.com/vpishuk/react-query-firebase/blob/43c0734068a570cd646254bb366ccd8007f7dfed/react-native/auth/useReauthenticateWitRedirectMutation.ts#L21)
+Defined in: [react-native/auth/useReauthenticateWitRedirectMutation.ts:21](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/react-native/auth/useReauthenticateWitRedirectMutation.ts#L21)
 
 Custom hook that provides a mutation to reauthenticate a user with a given authentication provider using redirection.
 This hook uses the `useMutation` hook from the React Query library to handle async mutation logic.

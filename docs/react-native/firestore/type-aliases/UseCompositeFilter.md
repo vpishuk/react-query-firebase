@@ -6,7 +6,7 @@
 type UseCompositeFilter<DbModelType> = object;
 ```
 
-Defined in: [react-native/firestore/useCompositeFilter.ts:19](https://github.com/vpishuk/react-query-firebase/blob/43c0734068a570cd646254bb366ccd8007f7dfed/react-native/firestore/useCompositeFilter.ts#L19)
+Defined in: [react-native/firestore/useCompositeFilter.ts:19](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/react-native/firestore/useCompositeFilter.ts#L19)
 
 ## Type Parameters
 
@@ -22,4 +22,4 @@ Defined in: [react-native/firestore/useCompositeFilter.ts:19](https://github.com
 optional query: CompositeFilter<DbModelType>;
 ```
 
-Defined in: [react-native/firestore/useCompositeFilter.ts:20](https://github.com/vpishuk/react-query-firebase/blob/43c0734068a570cd646254bb366ccd8007f7dfed/react-native/firestore/useCompositeFilter.ts#L20)
+Defined in: [react-native/firestore/useCompositeFilter.ts:20](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/react-native/firestore/useCompositeFilter.ts#L20)

@@ -6,7 +6,7 @@
 type UseGetRealtimeDocDataResult<AppModelType> = object;
 ```
 
-Defined in: [react-native/firestore/useGetRealtimeDocData.ts:38](https://github.com/vpishuk/react-query-firebase/blob/43c0734068a570cd646254bb366ccd8007f7dfed/react-native/firestore/useGetRealtimeDocData.ts#L38)
+Defined in: [react-native/firestore/useGetRealtimeDocData.ts:38](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/react-native/firestore/useGetRealtimeDocData.ts#L38)
 
 ## Type Parameters
 
@@ -22,7 +22,7 @@ Defined in: [react-native/firestore/useGetRealtimeDocData.ts:38](https://github.
 data: AppModelType | null;
 ```
 
-Defined in: [react-native/firestore/useGetRealtimeDocData.ts:39](https://github.com/vpishuk/react-query-firebase/blob/43c0734068a570cd646254bb366ccd8007f7dfed/react-native/firestore/useGetRealtimeDocData.ts#L39)
+Defined in: [react-native/firestore/useGetRealtimeDocData.ts:39](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/react-native/firestore/useGetRealtimeDocData.ts#L39)
 
 ***
 
@@ -32,7 +32,7 @@ Defined in: [react-native/firestore/useGetRealtimeDocData.ts:39](https://github.
 error: ReactNativeFirebase.NativeFirebaseError | Error | null;
 ```
 
-Defined in: [react-native/firestore/useGetRealtimeDocData.ts:41](https://github.com/vpishuk/react-query-firebase/blob/43c0734068a570cd646254bb366ccd8007f7dfed/react-native/firestore/useGetRealtimeDocData.ts#L41)
+Defined in: [react-native/firestore/useGetRealtimeDocData.ts:41](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/react-native/firestore/useGetRealtimeDocData.ts#L41)
 
 ***
 
@@ -42,7 +42,7 @@ Defined in: [react-native/firestore/useGetRealtimeDocData.ts:41](https://github.
 isError: boolean;
 ```
 
-Defined in: [react-native/firestore/useGetRealtimeDocData.ts:40](https://github.com/vpishuk/react-query-firebase/blob/43c0734068a570cd646254bb366ccd8007f7dfed/react-native/firestore/useGetRealtimeDocData.ts#L40)
+Defined in: [react-native/firestore/useGetRealtimeDocData.ts:40](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/react-native/firestore/useGetRealtimeDocData.ts#L40)
 
 ***
 
@@ -52,4 +52,4 @@ Defined in: [react-native/firestore/useGetRealtimeDocData.ts:40](https://github.
 isFetching: boolean;
 ```
 
-Defined in: [react-native/firestore/useGetRealtimeDocData.ts:42](https://github.com/vpishuk/react-query-firebase/blob/43c0734068a570cd646254bb366ccd8007f7dfed/react-native/firestore/useGetRealtimeDocData.ts#L42)
+Defined in: [react-native/firestore/useGetRealtimeDocData.ts:42](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/react-native/firestore/useGetRealtimeDocData.ts#L42)

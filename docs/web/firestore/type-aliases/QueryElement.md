@@ -3,12 +3,18 @@
 # Type Alias: QueryElement\<DbModelType\>
 
 ```ts
-type QueryElement<DbModelType> = Partial<QueryCompositeFilterConstraint> & object;
+type QueryElement<DbModelType> = object;
 ```
 
-Defined in: [web/firestore/useCompositeFilter.ts:15](https://github.com/vpishuk/react-query-firebase/blob/43c0734068a570cd646254bb366ccd8007f7dfed/web/firestore/useCompositeFilter.ts#L15)
+Defined in: [web/firestore/useCompositeFilter.ts:6](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/web/firestore/useCompositeFilter.ts#L6)
 
-## Type declaration
+## Type Parameters
+
+### DbModelType
+
+`DbModelType` *extends* `CompositeFilterDocumentData` = `CompositeFilterDocumentData`
+
+## Properties
 
 ### children?
 
@@ -16,11 +22,19 @@ Defined in: [web/firestore/useCompositeFilter.ts:15](https://github.com/vpishuk/
 optional children: QueryElement[];
 ```
 
+Defined in: [web/firestore/useCompositeFilter.ts:8](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/web/firestore/useCompositeFilter.ts#L8)
+
+***
+
 ### field?
 
 ```ts
 optional field: keyof DbModelType & object;
 ```
+
+Defined in: [web/firestore/useCompositeFilter.ts:9](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/web/firestore/useCompositeFilter.ts#L9)
+
+***
 
 ### op?
 
@@ -28,14 +42,24 @@ optional field: keyof DbModelType & object;
 optional op: WhereFilterOp;
 ```
 
+Defined in: [web/firestore/useCompositeFilter.ts:11](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/web/firestore/useCompositeFilter.ts#L11)
+
+***
+
+### operator?
+
+```ts
+optional operator: "OR" | "AND";
+```
+
+Defined in: [web/firestore/useCompositeFilter.ts:7](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/web/firestore/useCompositeFilter.ts#L7)
+
+***
+
 ### value?
 
 ```ts
 optional value: DbModelType[keyof DbModelType];
 ```
 
-## Type Parameters
-
-### DbModelType
-
-`DbModelType` *extends* `CompositeFilterDocumentData` = `CompositeFilterDocumentData`
+Defined in: [web/firestore/useCompositeFilter.ts:10](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/web/firestore/useCompositeFilter.ts#L10)

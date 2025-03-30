@@ -6,7 +6,7 @@
 function useInfiniteQuery<AppModelType, DbModelType>(options): UseInfiniteQueryResult<InfiniteData<AppModelType[], unknown>>
 ```
 
-Defined in: [web/firestore/useInfiniteQuery.ts:62](https://github.com/vpishuk/react-query-firebase/blob/43c0734068a570cd646254bb366ccd8007f7dfed/web/firestore/useInfiniteQuery.ts#L62)
+Defined in: [web/firestore/useInfiniteQuery.ts:62](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/web/firestore/useInfiniteQuery.ts#L62)
 
 Custom hook that creates an infinite query using Firestore, allowing for query constraints, composite filters, and converters.
 It fetches data in pages and can load more as required.

@@ -6,7 +6,7 @@
 type CompositeFilter<DbModelType> = object;
 ```
 
-Defined in: [web/firestore/useCompositeFilter.ts:23](https://github.com/vpishuk/react-query-firebase/blob/43c0734068a570cd646254bb366ccd8007f7dfed/web/firestore/useCompositeFilter.ts#L23)
+Defined in: [web/firestore/useCompositeFilter.ts:14](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/web/firestore/useCompositeFilter.ts#L14)
 
 ## Type Parameters
 
@@ -22,7 +22,7 @@ Defined in: [web/firestore/useCompositeFilter.ts:23](https://github.com/vpishuk/
 children: QueryElement<DbModelType & object>[];
 ```
 
-Defined in: [web/firestore/useCompositeFilter.ts:25](https://github.com/vpishuk/react-query-firebase/blob/43c0734068a570cd646254bb366ccd8007f7dfed/web/firestore/useCompositeFilter.ts#L25)
+Defined in: [web/firestore/useCompositeFilter.ts:16](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/web/firestore/useCompositeFilter.ts#L16)
 
 ***
 
@@ -32,4 +32,4 @@ Defined in: [web/firestore/useCompositeFilter.ts:25](https://github.com/vpishuk/
 operator: "OR" | "AND";
 ```
 
-Defined in: [web/firestore/useCompositeFilter.ts:24](https://github.com/vpishuk/react-query-firebase/blob/43c0734068a570cd646254bb366ccd8007f7dfed/web/firestore/useCompositeFilter.ts#L24)
+Defined in: [web/firestore/useCompositeFilter.ts:15](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/web/firestore/useCompositeFilter.ts#L15)

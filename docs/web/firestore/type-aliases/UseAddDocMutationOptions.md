@@ -6,7 +6,7 @@
 type UseAddDocMutationOptions<AppModelType, DbModelType, TContext> = object;
 ```
 
-Defined in: [web/firestore/useAddDocMutation.ts:18](https://github.com/vpishuk/react-query-firebase/blob/43c0734068a570cd646254bb366ccd8007f7dfed/web/firestore/useAddDocMutation.ts#L18)
+Defined in: [web/firestore/useAddDocMutation.ts:18](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/web/firestore/useAddDocMutation.ts#L18)
 
 ## Type Parameters
 
@@ -30,7 +30,7 @@ Defined in: [web/firestore/useAddDocMutation.ts:18](https://github.com/vpishuk/r
 optional converter: FirestoreDataConverter<AppModelType, DbModelType>;
 ```
 
-Defined in: [web/firestore/useAddDocMutation.ts:24](https://github.com/vpishuk/react-query-firebase/blob/43c0734068a570cd646254bb366ccd8007f7dfed/web/firestore/useAddDocMutation.ts#L24)
+Defined in: [web/firestore/useAddDocMutation.ts:24](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/web/firestore/useAddDocMutation.ts#L24)
 
 ***
 
@@ -40,7 +40,7 @@ Defined in: [web/firestore/useAddDocMutation.ts:24](https://github.com/vpishuk/r
 optional options: Omit<UseMutationOptions<AppModelType, FirebaseError, UseAddDocMutationValues<AppModelType>, TContext>, "mutationFn" | "mutationKey">;
 ```
 
-Defined in: [web/firestore/useAddDocMutation.ts:25](https://github.com/vpishuk/react-query-firebase/blob/43c0734068a570cd646254bb366ccd8007f7dfed/web/firestore/useAddDocMutation.ts#L25)
+Defined in: [web/firestore/useAddDocMutation.ts:25](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/web/firestore/useAddDocMutation.ts#L25)
 
 ***
 
@@ -50,4 +50,4 @@ Defined in: [web/firestore/useAddDocMutation.ts:25](https://github.com/vpishuk/r
 reference: CollectionReference<AppModelType, DbModelType>;
 ```
 
-Defined in: [web/firestore/useAddDocMutation.ts:23](https://github.com/vpishuk/react-query-firebase/blob/43c0734068a570cd646254bb366ccd8007f7dfed/web/firestore/useAddDocMutation.ts#L23)
+Defined in: [web/firestore/useAddDocMutation.ts:23](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/web/firestore/useAddDocMutation.ts#L23)

@@ -6,7 +6,7 @@
 function useLogEvent(options): object
 ```
 
-Defined in: [react-native/analytics/useLogEvent.ts:19](https://github.com/vpishuk/react-query-firebase/blob/43c0734068a570cd646254bb366ccd8007f7dfed/react-native/analytics/useLogEvent.ts#L19)
+Defined in: [react-native/analytics/useLogEvent.ts:19](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/react-native/analytics/useLogEvent.ts#L19)
 
 Custom hook to create a log event function that logs an analytics event with specified parameters.
 

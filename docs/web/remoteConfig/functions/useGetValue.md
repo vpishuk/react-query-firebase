@@ -6,7 +6,7 @@
 function useGetValue(key): null | Value
 ```
 
-Defined in: [web/remoteConfig/useGetValue.ts:11](https://github.com/vpishuk/react-query-firebase/blob/43c0734068a570cd646254bb366ccd8007f7dfed/web/remoteConfig/useGetValue.ts#L11)
+Defined in: [web/remoteConfig/useGetValue.ts:11](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/web/remoteConfig/useGetValue.ts#L11)
 
 Custom hook to retrieve a value associated with a specified key from remote configuration.
 Utilizes memoization to optimize performance by recalculating the result only if dependencies change.

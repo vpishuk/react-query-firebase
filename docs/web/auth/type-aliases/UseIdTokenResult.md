@@ -6,7 +6,7 @@
 type UseIdTokenResult = object;
 ```
 
-Defined in: [web/auth/useIdToken.ts:9](https://github.com/vpishuk/react-query-firebase/blob/43c0734068a570cd646254bb366ccd8007f7dfed/web/auth/useIdToken.ts#L9)
+Defined in: [web/auth/useIdToken.ts:9](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/web/auth/useIdToken.ts#L9)
 
 ## Properties
 
@@ -16,7 +16,7 @@ Defined in: [web/auth/useIdToken.ts:9](https://github.com/vpishuk/react-query-fi
 idToken: string;
 ```
 
-Defined in: [web/auth/useIdToken.ts:10](https://github.com/vpishuk/react-query-firebase/blob/43c0734068a570cd646254bb366ccd8007f7dfed/web/auth/useIdToken.ts#L10)
+Defined in: [web/auth/useIdToken.ts:10](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/web/auth/useIdToken.ts#L10)
 
 ***
 
@@ -26,7 +26,7 @@ Defined in: [web/auth/useIdToken.ts:10](https://github.com/vpishuk/react-query-f
 refresh: () => Promise<string | undefined>;
 ```
 
-Defined in: [web/auth/useIdToken.ts:11](https://github.com/vpishuk/react-query-firebase/blob/43c0734068a570cd646254bb366ccd8007f7dfed/web/auth/useIdToken.ts#L11)
+Defined in: [web/auth/useIdToken.ts:11](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/web/auth/useIdToken.ts#L11)
 
 #### Returns
 

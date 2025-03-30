@@ -1,4 +1,4 @@
-[react-query-firebase](../../../modules.md) / [react-native/context](../index.md) / FirebaseContextProviderProps
+[react-query-firebase](../../modules.md) / [web](../index.md) / FirebaseContextProviderProps
 
 # Type Alias: FirebaseContextProviderProps
 
@@ -6,7 +6,7 @@
 type FirebaseContextProviderProps = PropsWithChildren & object;
 ```
 
-Defined in: [react-native/context/FirebaseContextProvider.tsx:69](https://github.com/vpishuk/react-query-firebase/blob/43c0734068a570cd646254bb366ccd8007f7dfed/react-native/context/FirebaseContextProvider.tsx#L69)
+Defined in: [web/context/FirebaseContextProvider.tsx:50](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/web/context/FirebaseContextProvider.tsx#L50)
 
 ## Type declaration
 
@@ -33,7 +33,7 @@ Flag indicating whether Firebase Auth should be enabled.
 ### consentSettings?
 
 ```ts
-optional consentSettings: FirebaseAnalyticsTypes.ConsentSettings;
+optional consentSettings: ConsentSettings;
 ```
 
 Default user consent settings. Make sure to either use a consent platform or install custom consent form for a certain regions.
@@ -115,7 +115,7 @@ Flag indicating whether Firebase Firestore should be enabled.
 ### firestoreSettings?
 
 ```ts
-optional firestoreSettings: object;
+optional firestoreSettings: FirestoreSettings;
 ```
 
 Specifies custom configurations for your Cloud Firestore instance.
@@ -128,79 +128,13 @@ You must set these before invoking any other methods.
 {}
 ```
 
-#### firestoreSettings.cacheSizeBytes?
-
-```ts
-optional cacheSizeBytes: number;
-```
-
-#### firestoreSettings.experimentalAutoDetectLongPolling?
-
-```ts
-optional experimentalAutoDetectLongPolling: boolean;
-```
-
-#### firestoreSettings.experimentalForceLongPolling?
-
-```ts
-optional experimentalForceLongPolling: boolean;
-```
-
-#### firestoreSettings.experimentalLongPollingOptions?
-
-```ts
-optional experimentalLongPollingOptions: object;
-```
-
-#### firestoreSettings.experimentalLongPollingOptions.timeoutSeconds
-
-```ts
-timeoutSeconds: number;
-```
-
-#### firestoreSettings.host?
-
-```ts
-optional host: string;
-```
-
-#### firestoreSettings.ignoreUndefinedProperties?
-
-```ts
-optional ignoreUndefinedProperties: boolean;
-```
-
-#### firestoreSettings.localCache?
-
-```ts
-optional localCache: object;
-```
-
-#### firestoreSettings.localCache.kind
-
-```ts
-kind: "memory" | "persistent";
-```
-
-#### firestoreSettings.ssl?
-
-```ts
-optional ssl: boolean;
-```
-
 ### options
 
 ```ts
-options: ReactNativeFirebase.FirebaseAppOptions;
+options: FirebaseOptions;
 ```
 
 Configuration options for Firebase initialization. [Learn about the Firebase config object](https://firebase.google.com/docs/web/setup#config-object)
-
-### platform
-
-```ts
-platform: "Web" | "ReactNative";
-```
 
 ### remoteConfigDefaults?
 
@@ -231,7 +165,7 @@ Flag indicating whether Firebase Remote Config should be enabled.
 ### remoteConfigSettings?
 
 ```ts
-optional remoteConfigSettings: FirebaseRemoteConfigTypes.ConfigSettings;
+optional remoteConfigSettings: RemoteConfigSettings;
 ```
 
 Configuration options for Firebase Remote Config Settings. [Learn about the Firebase Remote COnfig Settings object](https://firebase.google.com/docs/reference/js/remote-config.remoteconfigsettings)

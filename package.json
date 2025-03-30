@@ -68,7 +68,7 @@
         "lint:fix": "eslint  --fix",
         "lint:staged": "lint-staged",
         "prepare": "husky",
-        "docs:generate": "mv docs/.vitepress .vitepress && rm -rf docs && typedoc --plugin typedoc-plugin-markdown --plugin typedoc-vitepress-theme && mv .vitepress docs/.vitepress",
+        "docs:generate": "./.github/scripts/build.sh",
         "docs:dev": "vitepress dev docs",
         "docs:build": "vitepress build docs",
         "docs:preview": "vitepress preview docs"

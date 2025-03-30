@@ -1,4 +1,4 @@
-[react-query-firebase](../../../modules.md) / [react-native/context](../index.md) / FirebaseContextProvider
+[react-query-firebase](../../modules.md) / [react-native](../index.md) / FirebaseContextProvider
 
 # Variable: FirebaseContextProvider
 
@@ -40,7 +40,7 @@ const FirebaseContextProvider: React.FC<{
 }>;
 ```
 
-Defined in: [react-native/context/FirebaseContextProvider.tsx:152](https://github.com/vpishuk/react-query-firebase/blob/43c0734068a570cd646254bb366ccd8007f7dfed/react-native/context/FirebaseContextProvider.tsx#L152)
+Defined in: [react-native/context/FirebaseContextProvider.tsx:152](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/react-native/context/FirebaseContextProvider.tsx#L152)
 
 FirebaseContextProvider component configures and provides Firebase services to its children.
 Initializes Firebase app and enables optional Firebase services such as Firestore, Auth, Analytics,
