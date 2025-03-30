@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.0](https://github.com/vpishuk/react-query-firebase/compare/v2.0.3...v2.1.0) (2025-03-30)
+
+
+### Features
+
+* **firestore:** implements useNonFilterConstrains hook ([#48](https://github.com/vpishuk/react-query-firebase/issues/48)) ([e0996b7](https://github.com/vpishuk/react-query-firebase/commit/e0996b7ad054a17f2b85ce64e4a7e6b61c5242a2))
+
 ## [2.0.3](https://github.com/vpishuk/react-query-firebase/compare/v2.0.2...v2.0.3) (2025-03-26)
 
 
