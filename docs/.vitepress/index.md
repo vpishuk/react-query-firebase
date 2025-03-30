@@ -12,20 +12,12 @@ hero:
           link: /modules
 
 features:
-    - title: Analytics
-      details: Hooks to work with Firebase Analytics module
+    - title: Web
+      details: A set of hooks for web platform
       linkText: Documentation
-      link: /analytics
-    - title: Auth
-      details: Hooks to work with Firebase Auth module
+      link: /web/
+    - title: React Native
+      details: A set of hooks for react-native platform
       linkText: Documentation
-      link: /auth
-    - title: Firestore
-      details: Hooks to work with Firebase Firestore module
-      linkText: Documentation
-      link: /firestore
-    - title: Remote Config
-      details: Hooks to work with Firebase Remote Config module
-      linkText: Documentation
-      link: /remoteConfig
+      link: /react-native/
 ---

@@ -6,7 +6,7 @@
 function useQuery<AppModelType, DbModelType>(__namedParameters): UseQueryResult<AppModelType[]>
 ```
 
-Defined in: [web/firestore/useQuery.ts:44](https://github.com/vpishuk/react-query-firebase/blob/43c0734068a570cd646254bb366ccd8007f7dfed/web/firestore/useQuery.ts#L44)
+Defined in: [web/firestore/useQuery.ts:44](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/web/firestore/useQuery.ts#L44)
 
 Executes a query on a Firestore-like data source and returns the resulting documents as an array.
 

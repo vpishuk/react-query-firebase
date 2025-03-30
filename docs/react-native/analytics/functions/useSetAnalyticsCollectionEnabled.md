@@ -6,7 +6,7 @@
 function useSetAnalyticsCollectionEnabled(options): void
 ```
 
-Defined in: [react-native/analytics/useSetAnalyticsCollectionEnabled.ts:14](https://github.com/vpishuk/react-query-firebase/blob/43c0734068a570cd646254bb366ccd8007f7dfed/react-native/analytics/useSetAnalyticsCollectionEnabled.ts#L14)
+Defined in: [react-native/analytics/useSetAnalyticsCollectionEnabled.ts:14](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/react-native/analytics/useSetAnalyticsCollectionEnabled.ts#L14)
 
 Custom hook to enable or disable analytics collection
 

@@ -6,7 +6,7 @@
 function useUpdateProfileMutation<TContext>(options): UseMutationResult<void, FirebaseError, UseUpdateProfileMutationVariables, TContext>
 ```
 
-Defined in: [web/auth/useUpdateProfileMutation.ts:18](https://github.com/vpishuk/react-query-firebase/blob/43c0734068a570cd646254bb366ccd8007f7dfed/web/auth/useUpdateProfileMutation.ts#L18)
+Defined in: [web/auth/useUpdateProfileMutation.ts:18](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/web/auth/useUpdateProfileMutation.ts#L18)
 
 Custom hook to manage the mutation for updating a user's profile.
 Utilizes Firebase for updating the user's display name.

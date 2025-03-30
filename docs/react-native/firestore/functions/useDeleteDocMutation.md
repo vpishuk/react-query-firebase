@@ -6,7 +6,7 @@
 function useDeleteDocMutation<AppModelType, TContext>(options): UseMutationResult<void, NativeFirebaseError, void, TContext>
 ```
 
-Defined in: [react-native/firestore/useDeleteDocMutation.ts:29](https://github.com/vpishuk/react-query-firebase/blob/43c0734068a570cd646254bb366ccd8007f7dfed/react-native/firestore/useDeleteDocMutation.ts#L29)
+Defined in: [react-native/firestore/useDeleteDocMutation.ts:29](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/react-native/firestore/useDeleteDocMutation.ts#L29)
 
 A custom hook that provides a mutation function to delete a document from the database.
 

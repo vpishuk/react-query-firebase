@@ -6,4 +6,4 @@
 const SIGN_IN_WITH_EMAIL_AND_PASSWORD_MUTATION_KEY: readonly ["FIREBASE", "AUTH", "SIGN_IN_WITH_EMAIL_AND_PASSWORD_MUTATION"];
 ```
 
-Defined in: [react-native/auth/mutation-keys.ts:7](https://github.com/vpishuk/react-query-firebase/blob/43c0734068a570cd646254bb366ccd8007f7dfed/react-native/auth/mutation-keys.ts#L7)
+Defined in: [react-native/auth/mutation-keys.ts:7](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/react-native/auth/mutation-keys.ts#L7)

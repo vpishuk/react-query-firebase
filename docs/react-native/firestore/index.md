@@ -18,6 +18,7 @@
 - [UseDocReferencesOptions](type-aliases/UseDocReferencesOptions.md)
 - [UseGetRealtimeDocDataOptions](type-aliases/UseGetRealtimeDocDataOptions.md)
 - [UseGetRealtimeDocDataResult](type-aliases/UseGetRealtimeDocDataResult.md)
+- [UseQueryConstraints](type-aliases/UseQueryConstraints.md)
 - [UseRunTransactionOptions](type-aliases/UseRunTransactionOptions.md)
 - [UseRunTransactionValues](type-aliases/UseRunTransactionValues.md)
 - [UseSetDocMutationOptions](type-aliases/UseSetDocMutationOptions.md)
@@ -27,6 +28,7 @@
 
 ## Functions
 
+- [buildCompositeFilter](functions/buildCompositeFilter.md)
 - [useAddDocMutation](functions/useAddDocMutation.md)
 - [useBatchWrite](functions/useBatchWrite.md)
 - [useCollectionReference](functions/useCollectionReference.md)
@@ -46,3 +48,8 @@
 ## Hook
 
 - [useGetRealtimeDocData](functions/useGetRealtimeDocData.md)
+- [useQueryConstraints](functions/useQueryConstraints.md)
+
+## Utility
+
+- [buildQueryConstraint](functions/buildQueryConstraint.md)

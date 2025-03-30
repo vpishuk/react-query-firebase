@@ -6,7 +6,7 @@
 type UseDocReferencesOptions<AppModelType, DbModelType> = object;
 ```
 
-Defined in: [web/firestore/useDocReferences.ts:6](https://github.com/vpishuk/react-query-firebase/blob/43c0734068a570cd646254bb366ccd8007f7dfed/web/firestore/useDocReferences.ts#L6)
+Defined in: [web/firestore/useDocReferences.ts:6](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/web/firestore/useDocReferences.ts#L6)
 
 ## Type Parameters
 
@@ -26,7 +26,7 @@ Defined in: [web/firestore/useDocReferences.ts:6](https://github.com/vpishuk/rea
 path: string;
 ```
 
-Defined in: [web/firestore/useDocReferences.ts:8](https://github.com/vpishuk/react-query-firebase/blob/43c0734068a570cd646254bb366ccd8007f7dfed/web/firestore/useDocReferences.ts#L8)
+Defined in: [web/firestore/useDocReferences.ts:8](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/web/firestore/useDocReferences.ts#L8)
 
 ***
 
@@ -36,7 +36,7 @@ Defined in: [web/firestore/useDocReferences.ts:8](https://github.com/vpishuk/rea
 optional pathSegments: string[];
 ```
 
-Defined in: [web/firestore/useDocReferences.ts:9](https://github.com/vpishuk/react-query-firebase/blob/43c0734068a570cd646254bb366ccd8007f7dfed/web/firestore/useDocReferences.ts#L9)
+Defined in: [web/firestore/useDocReferences.ts:9](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/web/firestore/useDocReferences.ts#L9)
 
 ***
 
@@ -48,4 +48,4 @@ optional reference:
 | DocumentReference<AppModelType, DbModelType>;
 ```
 
-Defined in: [web/firestore/useDocReferences.ts:7](https://github.com/vpishuk/react-query-firebase/blob/43c0734068a570cd646254bb366ccd8007f7dfed/web/firestore/useDocReferences.ts#L7)
+Defined in: [web/firestore/useDocReferences.ts:7](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/web/firestore/useDocReferences.ts#L7)

@@ -6,7 +6,7 @@
 type UseAddDocMutationOptions<AppModelType, TContext> = object;
 ```
 
-Defined in: [react-native/firestore/useAddDocMutation.ts:11](https://github.com/vpishuk/react-query-firebase/blob/43c0734068a570cd646254bb366ccd8007f7dfed/react-native/firestore/useAddDocMutation.ts#L11)
+Defined in: [react-native/firestore/useAddDocMutation.ts:11](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/react-native/firestore/useAddDocMutation.ts#L11)
 
 ## Type Parameters
 
@@ -26,7 +26,7 @@ Defined in: [react-native/firestore/useAddDocMutation.ts:11](https://github.com/
 optional options: Omit<UseMutationOptions<AppModelType, ReactNativeFirebase.NativeFirebaseError, UseAddDocMutationValues<AppModelType>, TContext>, "mutationFn" | "mutationKey">;
 ```
 
-Defined in: [react-native/firestore/useAddDocMutation.ts:16](https://github.com/vpishuk/react-query-firebase/blob/43c0734068a570cd646254bb366ccd8007f7dfed/react-native/firestore/useAddDocMutation.ts#L16)
+Defined in: [react-native/firestore/useAddDocMutation.ts:16](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/react-native/firestore/useAddDocMutation.ts#L16)
 
 ***
 
@@ -36,4 +36,4 @@ Defined in: [react-native/firestore/useAddDocMutation.ts:16](https://github.com/
 reference: FirebaseFirestoreTypes.CollectionReference<AppModelType>;
 ```
 
-Defined in: [react-native/firestore/useAddDocMutation.ts:15](https://github.com/vpishuk/react-query-firebase/blob/43c0734068a570cd646254bb366ccd8007f7dfed/react-native/firestore/useAddDocMutation.ts#L15)
+Defined in: [react-native/firestore/useAddDocMutation.ts:15](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/react-native/firestore/useAddDocMutation.ts#L15)

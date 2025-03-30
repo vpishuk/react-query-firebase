@@ -6,7 +6,7 @@
 function useCountQuery<AppModelType, DbModelType>(options): UseQueryResult<number>
 ```
 
-Defined in: [web/firestore/useCountQuery.ts:42](https://github.com/vpishuk/react-query-firebase/blob/43c0734068a570cd646254bb366ccd8007f7dfed/web/firestore/useCountQuery.ts#L42)
+Defined in: [web/firestore/useCountQuery.ts:42](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/web/firestore/useCountQuery.ts#L42)
 
 Executes a query with specified constraints and returns the count of matched documents.
 

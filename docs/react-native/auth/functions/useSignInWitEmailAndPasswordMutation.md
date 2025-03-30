@@ -6,7 +6,7 @@
 function useSignInWitEmailAndPasswordMutation<TContext>(options): UseMutationResult<UserCredential, NativeFirebaseError, UseSignInWitEmailAndPasswordMutationVariables, TContext>
 ```
 
-Defined in: [react-native/auth/useSignInWitEmailAndPasswordMutation.ts:20](https://github.com/vpishuk/react-query-firebase/blob/43c0734068a570cd646254bb366ccd8007f7dfed/react-native/auth/useSignInWitEmailAndPasswordMutation.ts#L20)
+Defined in: [react-native/auth/useSignInWitEmailAndPasswordMutation.ts:20](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/react-native/auth/useSignInWitEmailAndPasswordMutation.ts#L20)
 
 Custom hook to perform a sign-in operation using email and password with Firebase Authentication.
 It utilizes the `useMutation` hook to manage the asynchronous operation and its state.

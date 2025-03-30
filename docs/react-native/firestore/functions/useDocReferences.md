@@ -6,7 +6,7 @@
 function useDocReferences<AppModelType>(references): DocumentReference<AppModelType>[]
 ```
 
-Defined in: [react-native/firestore/useDocReferences.ts:32](https://github.com/vpishuk/react-query-firebase/blob/43c0734068a570cd646254bb366ccd8007f7dfed/react-native/firestore/useDocReferences.ts#L32)
+Defined in: [react-native/firestore/useDocReferences.ts:32](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/react-native/firestore/useDocReferences.ts#L32)
 
 A custom hook to generate document references for Firebase Firestore documents using given
 reference options.
