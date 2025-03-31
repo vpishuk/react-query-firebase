@@ -46,4 +46,8 @@ export type LimitConstraint = {
  * Non filtering query constaints
  * @group Query Constraints
  */
-export type NonFilterQueryConstraint<AppModelType extends AppModel = AppModel> = OrderByConstraint<AppModelType> | StartConstraint | EndConstraint | LimitConstraint;
+export type NonFilterQueryConstraint<AppModelType extends AppModel = AppModel> =
+    | OrderByConstraint<AppModelType>
+    | StartConstraint
+    | EndConstraint
+    | LimitConstraint;
