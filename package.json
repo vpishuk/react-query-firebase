@@ -57,6 +57,7 @@
     "files": [
         "./web/",
         "./react-native/",
+        "./types",
         "package.json",
         "package-lock.json",
         "README.md",
