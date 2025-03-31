@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.3](https://github.com/vpishuk/react-query-firebase/compare/v2.1.2...v2.1.3) (2025-03-31)
+
+
+### Bug Fixes
+
+* **react-native:** makes options optional for RN firebase context ([#56](https://github.com/vpishuk/react-query-firebase/issues/56)) ([855af65](https://github.com/vpishuk/react-query-firebase/commit/855af65e69d08c78a06d65e068e425301a7ebf74))
+
 ## [2.1.2](https://github.com/vpishuk/react-query-firebase/compare/v2.1.1...v2.1.2) (2025-03-31)
 
 
