@@ -67,7 +67,6 @@ export type FirebaseContextProviderEmulators = {
  * @inline
  */
 export type FirebaseContextProviderProps = PropsWithChildren & {
-    platform: "Web" | "ReactNative";
     /**
      * Defines configuration for firebase emulators
      */
@@ -75,7 +74,7 @@ export type FirebaseContextProviderProps = PropsWithChildren & {
     /**
      * Configuration options for Firebase initialization. {@link https://firebase.google.com/docs/web/setup#config-object | Learn about the Firebase config object}
      */
-    options: ReactNativeFirebase.FirebaseAppOptions;
+    options?: ReactNativeFirebase.FirebaseAppOptions;
     /**
      * Flag indicating whether Firebase Auth should be enabled.
      */
@@ -151,7 +150,6 @@ export type FirebaseContextProviderProps = PropsWithChildren & {
  */
 export const FirebaseContextProvider: React.FC<FirebaseContextProviderProps> = ({
     emulators,
-    options,
     children,
     authEnabled = true,
     firestoreEnabled = true,
@@ -211,11 +209,11 @@ export const FirebaseContextProvider: React.FC<FirebaseContextProviderProps> = (
     }, [emulators?.auth, authEnabled, internalFirebase]);
 
     const internalAnalytics = useMemo(() => {
-        if (analyticsEnabled && options.measurementId) {
+        if (analyticsEnabled) {
             return internalFirebase.analytics();
         }
         return null;
-    }, [analyticsEnabled, options.measurementId, internalFirebase]);
+    }, [analyticsEnabled, internalFirebase]);
 
     const internalRemoteConfig = useMemo(() => {
         if (remoteConfigEnabled) {
