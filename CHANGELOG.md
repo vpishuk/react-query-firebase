@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.2](https://github.com/vpishuk/react-query-firebase/compare/v2.1.1...v2.1.2) (2025-03-31)
+
+
+### Miscellaneous Chores
+
+* fixes build process ([#52](https://github.com/vpishuk/react-query-firebase/issues/52)) ([1283980](https://github.com/vpishuk/react-query-firebase/commit/12839802213ab11e2f10c5f18af6b37d1c061732))
+
 ## [2.1.1](https://github.com/vpishuk/react-query-firebase/compare/v2.1.0...v2.1.1) (2025-03-31)
 
 
