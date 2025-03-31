@@ -13,5 +13,5 @@
         "target": "ES2021"
     },
     "exclude": ["**/*.test.ts", "**/*.stub.ts", "node_modules", "dist"],
-    "include": ["./web/index.ts", "./react-native/index.ts", "./common/**/*"]
+    "include": ["./web/**/*", "./react-native/**/*", "./common/**/*"]
 }
