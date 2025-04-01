@@ -38,6 +38,10 @@ export const buildCompositeFilter = <DbModelType extends CompositeFilterDocument
             return null;
         }
 
+        if (queryConstraints.length <= 1) {
+            return queryConstraints[0];
+        }
+
         return (query as CompositeFilter).operator === "OR" ? or(...queryConstraints) : and(...queryConstraints);
     }
 
@@ -73,6 +77,11 @@ export const useCompositeFilter = <DbModelType extends CompositeFilterDocumentDa
         if (queryConstraints.length <= 0) {
             return undefined;
         }
+
+        if (queryConstraints.length <= 1) {
+            return queryConstraints[0];
+        }
+
         return query?.operator === "OR" ? or(...queryConstraints) : and(...queryConstraints);
     }, [query]);
 };
