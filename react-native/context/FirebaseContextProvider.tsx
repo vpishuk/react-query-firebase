@@ -1,9 +1,13 @@
 import React, { PropsWithChildren, useEffect, useMemo } from "react";
 import { FirebaseContext, FirebaseContextValue } from "./FirebaseContext";
-import { connectAuthEmulator } from "@react-native-firebase/auth";
-import { FirebaseAnalyticsTypes, setAnalyticsCollectionEnabled, setConsent } from "@react-native-firebase/analytics";
-import { FirebaseRemoteConfigTypes } from "@react-native-firebase/remote-config";
-import { connectFirestoreEmulator } from "@react-native-firebase/firestore";
+import auth, { connectAuthEmulator } from "@react-native-firebase/auth";
+import analytics, {
+    FirebaseAnalyticsTypes,
+    setAnalyticsCollectionEnabled,
+    setConsent
+} from "@react-native-firebase/analytics";
+import remoteConfig, { FirebaseRemoteConfigTypes } from "@react-native-firebase/remote-config";
+import firestore, { connectFirestoreEmulator } from "@react-native-firebase/firestore";
 import firebase, { ReactNativeFirebase } from "@react-native-firebase/app";
 
 /**
@@ -163,7 +167,7 @@ export const FirebaseContextProvider: React.FC<FirebaseContextProviderProps> = (
     const internalFirebase = useMemo(() => firebase, []);
 
     useEffect(() => {
-        setConsent(firebase.analytics(), {
+        setConsent(analytics(), {
             ad_personalization: false,
             ad_storage: false,
             ad_user_data: false,
@@ -178,14 +182,10 @@ export const FirebaseContextProvider: React.FC<FirebaseContextProviderProps> = (
     const internalFirestore = useMemo(() => {
         if (firestoreEnabled) {
             if (emulators?.firestore?.host && emulators?.firestore?.port) {
-                connectFirestoreEmulator(
-                    internalFirebase.firestore(),
-                    emulators.firestore.host,
-                    emulators.firestore.port
-                );
+                connectFirestoreEmulator(firestore(), emulators.firestore.host, emulators.firestore.port);
             }
 
-            const localFirestore = internalFirebase.firestore();
+            const localFirestore = firestore();
             if (firestoreSettings) {
                 localFirestore.settings(firestoreSettings);
             }
@@ -193,11 +193,11 @@ export const FirebaseContextProvider: React.FC<FirebaseContextProviderProps> = (
         }
 
         return null;
-    }, [emulators?.firestore, firestoreEnabled, internalFirebase, firestoreSettings]);
+    }, [emulators?.firestore, firestoreEnabled, firestoreSettings]);
 
     const internalAuth = useMemo(() => {
         if (authEnabled) {
-            const localAuth = internalFirebase.auth();
+            const localAuth = auth();
             if (emulators?.auth?.host) {
                 connectAuthEmulator(localAuth, emulators?.auth?.host, {
                     disableWarnings: true
@@ -206,18 +206,18 @@ export const FirebaseContextProvider: React.FC<FirebaseContextProviderProps> = (
             return localAuth;
         }
         return null;
-    }, [emulators?.auth, authEnabled, internalFirebase]);
+    }, [emulators?.auth, authEnabled]);
 
     const internalAnalytics = useMemo(() => {
         if (analyticsEnabled) {
-            return internalFirebase.analytics();
+            return analytics();
         }
         return null;
-    }, [analyticsEnabled, internalFirebase]);
+    }, [analyticsEnabled]);
 
     const internalRemoteConfig = useMemo(() => {
         if (remoteConfigEnabled) {
-            const localRemoteConfig = internalFirebase.remoteConfig();
+            const localRemoteConfig = remoteConfig();
             if (remoteConfigSettings) {
                 localRemoteConfig.settings.fetchTimeMillis = remoteConfigSettings.fetchTimeMillis;
                 localRemoteConfig.settings.minimumFetchIntervalMillis = remoteConfigSettings.minimumFetchIntervalMillis;
@@ -226,7 +226,7 @@ export const FirebaseContextProvider: React.FC<FirebaseContextProviderProps> = (
             return localRemoteConfig;
         }
         return null;
-    }, [remoteConfigEnabled, remoteConfigSettings, internalFirebase, remoteConfigDefaults]);
+    }, [remoteConfigEnabled, remoteConfigSettings, remoteConfigDefaults]);
 
     const contextValue = useMemo(
         () => ({
