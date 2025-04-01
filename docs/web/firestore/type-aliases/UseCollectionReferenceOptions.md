@@ -6,7 +6,7 @@
 type UseCollectionReferenceOptions<AppModelType, DbModelType> = object;
 ```
 
-Defined in: [web/firestore/useCollectionReference.ts:6](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/web/firestore/useCollectionReference.ts#L6)
+Defined in: [web/firestore/useCollectionReference.ts:6](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/web/firestore/useCollectionReference.ts#L6)
 
 ## Type Parameters
 
@@ -26,7 +26,7 @@ Defined in: [web/firestore/useCollectionReference.ts:6](https://github.com/vpish
 path: string;
 ```
 
-Defined in: [web/firestore/useCollectionReference.ts:8](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/web/firestore/useCollectionReference.ts#L8)
+Defined in: [web/firestore/useCollectionReference.ts:8](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/web/firestore/useCollectionReference.ts#L8)
 
 ***
 
@@ -36,7 +36,7 @@ Defined in: [web/firestore/useCollectionReference.ts:8](https://github.com/vpish
 optional pathSegments: string[];
 ```
 
-Defined in: [web/firestore/useCollectionReference.ts:9](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/web/firestore/useCollectionReference.ts#L9)
+Defined in: [web/firestore/useCollectionReference.ts:9](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/web/firestore/useCollectionReference.ts#L9)
 
 ***
 
@@ -48,4 +48,4 @@ optional reference:
 | DocumentReference<AppModelType, DbModelType>;
 ```
 
-Defined in: [web/firestore/useCollectionReference.ts:7](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/web/firestore/useCollectionReference.ts#L7)
+Defined in: [web/firestore/useCollectionReference.ts:7](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/web/firestore/useCollectionReference.ts#L7)

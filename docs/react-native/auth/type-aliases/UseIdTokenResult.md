@@ -6,7 +6,7 @@
 type UseIdTokenResult = object;
 ```
 
-Defined in: [react-native/auth/useIdToken.ts:9](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/react-native/auth/useIdToken.ts#L9)
+Defined in: [react-native/auth/useIdToken.ts:9](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/react-native/auth/useIdToken.ts#L9)
 
 ## Properties
 
@@ -16,7 +16,7 @@ Defined in: [react-native/auth/useIdToken.ts:9](https://github.com/vpishuk/react
 idToken: string;
 ```
 
-Defined in: [react-native/auth/useIdToken.ts:10](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/react-native/auth/useIdToken.ts#L10)
+Defined in: [react-native/auth/useIdToken.ts:10](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/react-native/auth/useIdToken.ts#L10)
 
 ***
 
@@ -26,7 +26,7 @@ Defined in: [react-native/auth/useIdToken.ts:10](https://github.com/vpishuk/reac
 refresh: () => Promise<string | undefined>;
 ```
 
-Defined in: [react-native/auth/useIdToken.ts:11](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/react-native/auth/useIdToken.ts#L11)
+Defined in: [react-native/auth/useIdToken.ts:11](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/react-native/auth/useIdToken.ts#L11)
 
 #### Returns
 

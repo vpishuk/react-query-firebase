@@ -1,25 +1,25 @@
 [react-query-firebase](../../../modules.md) / [web/firestore](../index.md) / UseCompositeFilter
 
-# Type Alias: UseCompositeFilter\<DbModelType\>
+# Type Alias: UseCompositeFilter\<AppModelType\>
 
 ```ts
-type UseCompositeFilter<DbModelType> = object;
+type UseCompositeFilter<AppModelType> = object;
 ```
 
-Defined in: [web/firestore/useCompositeFilter.ts:19](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/web/firestore/useCompositeFilter.ts#L19)
+Defined in: [web/firestore/useCompositeFilter.ts:31](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/web/firestore/useCompositeFilter.ts#L31)
 
 ## Type Parameters
 
-### DbModelType
+### AppModelType
 
-`DbModelType` *extends* `CompositeFilterDocumentData` = `CompositeFilterDocumentData`
+`AppModelType` *extends* [`AppModel`](../../../types/type-aliases/AppModel.md) = [`AppModel`](../../../types/type-aliases/AppModel.md)
 
 ## Properties
 
 ### query?
 
 ```ts
-optional query: CompositeFilter<DbModelType>;
+optional query: CompositeFilter<AppModelType>;
 ```
 
-Defined in: [web/firestore/useCompositeFilter.ts:20](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/web/firestore/useCompositeFilter.ts#L20)
+Defined in: [web/firestore/useCompositeFilter.ts:32](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/web/firestore/useCompositeFilter.ts#L32)

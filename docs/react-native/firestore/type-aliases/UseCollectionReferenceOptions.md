@@ -6,7 +6,7 @@
 type UseCollectionReferenceOptions<AppModelType> = object;
 ```
 
-Defined in: [react-native/firestore/useCollectionReference.ts:6](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/react-native/firestore/useCollectionReference.ts#L6)
+Defined in: [react-native/firestore/useCollectionReference.ts:6](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/react-native/firestore/useCollectionReference.ts#L6)
 
 ## Type Parameters
 
@@ -22,7 +22,7 @@ Defined in: [react-native/firestore/useCollectionReference.ts:6](https://github.
 path: string;
 ```
 
-Defined in: [react-native/firestore/useCollectionReference.ts:12](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/react-native/firestore/useCollectionReference.ts#L12)
+Defined in: [react-native/firestore/useCollectionReference.ts:12](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/react-native/firestore/useCollectionReference.ts#L12)
 
 ***
 
@@ -32,7 +32,7 @@ Defined in: [react-native/firestore/useCollectionReference.ts:12](https://github
 optional pathSegments: string[];
 ```
 
-Defined in: [react-native/firestore/useCollectionReference.ts:13](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/react-native/firestore/useCollectionReference.ts#L13)
+Defined in: [react-native/firestore/useCollectionReference.ts:13](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/react-native/firestore/useCollectionReference.ts#L13)
 
 ***
 
@@ -44,4 +44,4 @@ optional reference:
 | FirebaseFirestoreTypes.DocumentReference<AppModelType>;
 ```
 
-Defined in: [react-native/firestore/useCollectionReference.ts:9](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/react-native/firestore/useCollectionReference.ts#L9)
+Defined in: [react-native/firestore/useCollectionReference.ts:9](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/react-native/firestore/useCollectionReference.ts#L9)

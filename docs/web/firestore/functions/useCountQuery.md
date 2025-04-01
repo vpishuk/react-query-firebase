@@ -6,33 +6,66 @@
 function useCountQuery<AppModelType, DbModelType>(options): UseQueryResult<number>
 ```
 
-Defined in: [web/firestore/useCountQuery.ts:42](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/web/firestore/useCountQuery.ts#L42)
+Defined in: [web/firestore/useCountQuery.ts:66](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/web/firestore/useCountQuery.ts#L66)
 
 Executes a query with specified constraints and returns the count of matched documents.
-
-This function utilizes React Query to asynchronously fetch the count of documents from a server database
-that match the provided query constraints and an optional composite filter.
 
 ## Type Parameters
 
 ### AppModelType
 
-`AppModelType` *extends* `DocumentData` = `DocumentData`
+`AppModelType` *extends* [`AppModel`](../../../types/type-aliases/AppModel.md) = [`AppModel`](../../../types/type-aliases/AppModel.md)
 
 ### DbModelType
 
-`DbModelType` *extends* `DocumentData` = `DocumentData`
+`DbModelType` *extends* [`AppModel`](../../../types/type-aliases/AppModel.md) = [`AppModel`](../../../types/type-aliases/AppModel.md)
 
 ## Parameters
 
 ### options
 
-`UseCountQueryOptions`\<`AppModelType`, `DbModelType`\>
-
 Configuration options for the query.
+
+#### collectionReference
+
+`CollectionReference`\<`AppModelType`, `DbModelType`\>
+
+Reference to a Firestore collection
+
+#### compositeFilter?
+
+[`QueryFilterConstraint`](../type-aliases/QueryFilterConstraint.md)
+
+Composite filter
+
+#### options
+
+`Omit`\<`UseQueryOptions`\<`number`, `Error`, `number`, `QueryKey`\>, `"queryFn"`\> & `Required`\<`Pick`\<`UseQueryOptions`\<`number`, `Error`, `number`, `QueryKey`\>, `"queryKey"`\>\>
+
+Reqct-query options that must include queryKey and shall not define queryFn
+
+#### queryConstraints?
+
+`QueryConstraint`[] \| `QueryNonFilterConstraint`[] = `[]`
+
+Non composite filter constraints such as limit, order, where
 
 ## Returns
 
 `UseQueryResult`\<`number`\>
 
 An object containing the number of documents that match the query.
+
+## Example
+
+```jsx
+export const MyComponent = () => {
+ const count = useCountQuery({
+     options: {
+         queryKey: ['key']
+     },
+     collectionReference: collection(),
+ });
+ console.log(count);
+};
+```

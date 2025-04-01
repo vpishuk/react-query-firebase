@@ -6,7 +6,7 @@
 function buildQueryConstraint<AppModelType>(constraint): QueryOrderByConstraint | QueryLimitConstraint | QueryStartAtConstraint
 ```
 
-Defined in: react-native/firestore/useQueryConstraints.ts:36
+Defined in: [react-native/firestore/useQueryConstraints.ts:36](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/react-native/firestore/useQueryConstraints.ts#L36)
 
 A generic mothod to build query constraints for firebase
 

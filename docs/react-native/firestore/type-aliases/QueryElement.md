@@ -1,18 +1,18 @@
 [react-query-firebase](../../../modules.md) / [react-native/firestore](../index.md) / QueryElement
 
-# Type Alias: QueryElement\<DbModelType\>
+# Type Alias: QueryElement\<AppModelType\>
 
 ```ts
-type QueryElement<DbModelType> = object;
+type QueryElement<AppModelType> = object;
 ```
 
-Defined in: [react-native/firestore/useCompositeFilter.ts:6](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/react-native/firestore/useCompositeFilter.ts#L6)
+Defined in: [react-native/firestore/useCompositeFilter.ts:9](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/react-native/firestore/useCompositeFilter.ts#L9)
 
 ## Type Parameters
 
-### DbModelType
+### AppModelType
 
-`DbModelType` *extends* `CompositeFilterDocumentData` = `CompositeFilterDocumentData`
+`AppModelType` *extends* [`AppModel`](../../../types/type-aliases/AppModel.md) = [`AppModel`](../../../types/type-aliases/AppModel.md)
 
 ## Properties
 
@@ -22,17 +22,17 @@ Defined in: [react-native/firestore/useCompositeFilter.ts:6](https://github.com/
 optional children: QueryElement[];
 ```
 
-Defined in: [react-native/firestore/useCompositeFilter.ts:8](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/react-native/firestore/useCompositeFilter.ts#L8)
+Defined in: [react-native/firestore/useCompositeFilter.ts:11](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/react-native/firestore/useCompositeFilter.ts#L11)
 
 ***
 
 ### field?
 
 ```ts
-optional field: keyof DbModelType & object;
+optional field: keyof AppModelType & object;
 ```
 
-Defined in: [react-native/firestore/useCompositeFilter.ts:9](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/react-native/firestore/useCompositeFilter.ts#L9)
+Defined in: [react-native/firestore/useCompositeFilter.ts:12](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/react-native/firestore/useCompositeFilter.ts#L12)
 
 ***
 
@@ -42,7 +42,7 @@ Defined in: [react-native/firestore/useCompositeFilter.ts:9](https://github.com/
 optional op: FirebaseFirestoreTypes.WhereFilterOp;
 ```
 
-Defined in: [react-native/firestore/useCompositeFilter.ts:11](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/react-native/firestore/useCompositeFilter.ts#L11)
+Defined in: [react-native/firestore/useCompositeFilter.ts:14](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/react-native/firestore/useCompositeFilter.ts#L14)
 
 ***
 
@@ -52,14 +52,14 @@ Defined in: [react-native/firestore/useCompositeFilter.ts:11](https://github.com
 optional operator: "OR" | "AND";
 ```
 
-Defined in: [react-native/firestore/useCompositeFilter.ts:7](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/react-native/firestore/useCompositeFilter.ts#L7)
+Defined in: [react-native/firestore/useCompositeFilter.ts:10](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/react-native/firestore/useCompositeFilter.ts#L10)
 
 ***
 
 ### value?
 
 ```ts
-optional value: DbModelType[keyof DbModelType];
+optional value: AppModelType[keyof AppModelType];
 ```
 
-Defined in: [react-native/firestore/useCompositeFilter.ts:10](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/react-native/firestore/useCompositeFilter.ts#L10)
+Defined in: [react-native/firestore/useCompositeFilter.ts:13](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/react-native/firestore/useCompositeFilter.ts#L13)

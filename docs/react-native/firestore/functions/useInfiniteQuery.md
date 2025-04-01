@@ -3,30 +3,73 @@
 # Function: useInfiniteQuery()
 
 ```ts
-function useInfiniteQuery<AppModelType>(options): UseInfiniteQueryResult<InfiniteData<AppModelType[], unknown>>
+function useInfiniteQuery<AppModelType, TQueryKey, TPageParam>(options): UseInfiniteQueryResult<InfiniteData<AppModelType[], unknown>>
 ```
 
-Defined in: [react-native/firestore/useInfiniteQuery.ts:58](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/react-native/firestore/useInfiniteQuery.ts#L58)
+Defined in: [react-native/firestore/useInfiniteQuery.ts:93](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/react-native/firestore/useInfiniteQuery.ts#L93)
 
-Custom hook that creates an infinite query using Firestore, allowing for query constraints, composite filters, and converters.
-It fetches data in pages and can load more as required.
+Executes an infinite query on a Firestore data source and returns the resulting documents as an array.
 
 ## Type Parameters
 
 ### AppModelType
 
-`AppModelType` *extends* `DocumentData` = `DocumentData`
+`AppModelType` *extends* [`AppModel`](../../../types/type-aliases/AppModel.md) = [`AppModel`](../../../types/type-aliases/AppModel.md)
+
+### TQueryKey
+
+`TQueryKey` *extends* `QueryKey` = `QueryKey`
+
+### TPageParam
+
+`TPageParam` = `unknown`
 
 ## Parameters
 
 ### options
 
-`UseInfiniteQueryOptions`\<`AppModelType`\>
+Configuration options for the query.
 
-Configuration options for the infinite query, including Firestore query reference, query constraints, composite filter, and data converter.
+#### collectionReference
+
+`CollectionReference`\<`AppModelType`\>
+
+Reference to a Firestore collection
+
+#### compositeFilter?
+
+[`QueryFilterConstraint`](../type-aliases/QueryFilterConstraint.md)
+
+Composite filter
+
+#### options
+
+`Omit`\<`UseInfiniteQueryOptions`\<`AppModelType`[], `Error`, `InfiniteData`\<`AppModelType`[], `unknown`\>, `AppModelType`[], `TQueryKey`, `TPageParam`\>, `"queryFn"`\> & `Required`\<`Pick`\<`UseInfiniteQueryOptions`\<`AppModelType`[], `Error`, `InfiniteData`\<`AppModelType`[], `unknown`\>, `AppModelType`[], `TQueryKey`, `TPageParam`\>, `"queryKey"`\>\>
+
+Reqct-query options that must include queryKey and shall not define queryFn
+
+#### queryConstraints?
+
+`QueryConstraint`[] \| `QueryNonFilterConstraint`[] = `[]`
+
+Non composite filter constraints such as limit, order, where
 
 ## Returns
 
 `UseInfiniteQueryResult`\<`InfiniteData`\<`AppModelType`[], `unknown`\>\>
 
-Result object containing the infinite data and methods for fetching more pages.
+An object containing documents that match the query.
+
+## Example
+
+```jsx
+export const MyComponent = () => {
+ const docs = useInfiniteQuery({
+     options: {
+         queryKey: ['key']
+     },
+     collectionReference: collection(),
+ });
+ console.log(docs);
+};
+```

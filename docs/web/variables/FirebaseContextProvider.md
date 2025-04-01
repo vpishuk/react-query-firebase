@@ -26,7 +26,7 @@ const FirebaseContextProvider: React.FC<{
 }>;
 ```
 
-Defined in: [web/context/FirebaseContextProvider.tsx:132](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/web/context/FirebaseContextProvider.tsx#L132)
+Defined in: [web/context/FirebaseContextProvider.tsx:132](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/web/context/FirebaseContextProvider.tsx#L132)
 
 FirebaseContextProvider component configures and provides Firebase services to its children.
 Initializes Firebase app and enables optional Firebase services such as Firestore, Auth, Analytics,

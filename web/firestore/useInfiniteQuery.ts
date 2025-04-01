@@ -1,7 +1,5 @@
 import {
     CollectionReference,
-    DocumentData,
-    FirestoreDataConverter,
     getDocs,
     query,
     QueryCompositeFilterConstraint,
@@ -16,12 +14,16 @@ import {
     UseInfiniteQueryResult,
     InfiniteData
 } from "@tanstack/react-query";
+import { QueryFilterConstraint } from "./useCompositeFilter";
+import { AppModel } from "../../types";
 
-type UseInfiniteQueryOptions<
-    AppModelType extends DocumentData = DocumentData,
-    DbModelType extends DocumentData = DocumentData,
-    TQueryKey extends QueryKey = QueryKey
-> = {
+/**
+ * @inline
+ */
+type UseInfiniteQueryOptions<AppModelType extends AppModel = AppModel, TQueryKey extends QueryKey = QueryKey> = {
+    /**
+     * Reqct-query options that must include queryKey and shall not define queryFn
+     */
     options: Omit<
         UseReactInfiniteQueryOptions<
             AppModelType[],
@@ -46,38 +48,64 @@ type UseInfiniteQueryOptions<
                 "queryKey"
             >
         >;
-    collectionReference: CollectionReference<AppModelType, DbModelType>;
+
+    /**
+     * Reference to a Firestore collection
+     */
+    collectionReference: CollectionReference<AppModelType, AppModelType>;
+
+    /**
+     * Non composite filter constraints such as limit, order, where
+     */
     queryConstraints?: QueryConstraint[] | QueryNonFilterConstraint[];
-    compositeFilter?: QueryCompositeFilterConstraint;
-    converter?: FirestoreDataConverter<AppModelType, DbModelType>;
+
+    /**
+     * Composite filter
+     */
+    compositeFilter?: QueryFilterConstraint;
 };
 
 /**
- * Custom hook that creates an infinite query using Firestore, allowing for query constraints, composite filters, and converters.
- * It fetches data in pages and can load more as required.
+ * Executes an infinite query on a Firestore data source and returns the resulting documents as an array.
  *
- * @param {UseInfiniteQueryOptions<AppModelType, DbModelType>} options - Configuration options for the infinite query, including Firestore query reference, query constraints, composite filter, and data converter.
- * @returns {UseInfiniteQueryResult<InfiniteData<AppModelType[]>>} Result object containing the infinite data and methods for fetching more pages.
+ * @group Hook
+ *
+ * @param {UseInfiniteQueryOptions<AppModelType, TQueryKey>} options - Configuration options for the query.
+ *
+ * @returns {UseInfiniteQueryResult<InfiniteData<AppModelType[]>>} An object containing documents that match the query.
+ *
+ * @example
+ * ```jsx
+ * export const MyComponent = () => {
+ *  const docs = useInfiniteQuery({
+ *      options: {
+ *          queryKey: ['key']
+ *      },
+ *      collectionReference: collection(),
+ *  });
+ *  console.log(docs);
+ * };
+ * ```
  */
-export const useInfiniteQuery = <
-    AppModelType extends DocumentData = DocumentData,
-    DbModelType extends DocumentData = DocumentData
->({
+export const useInfiniteQuery = <AppModelType extends AppModel = AppModel, TQueryKey extends QueryKey = QueryKey>({
     options,
     collectionReference,
     queryConstraints = [],
-    compositeFilter,
-    converter
-}: UseInfiniteQueryOptions<AppModelType, DbModelType>): UseInfiniteQueryResult<InfiniteData<AppModelType[]>> => {
+    compositeFilter
+}: UseInfiniteQueryOptions<AppModelType, TQueryKey>): UseInfiniteQueryResult<InfiniteData<AppModelType[]>> => {
     return useInfiniteReactQuery({
         ...options,
         queryFn: async ({ pageParam }) => {
             const allQueryConstraints = [...queryConstraints, ...(pageParam ? [pageParam] : [])];
             const queryToExecute = compositeFilter
-                ? query(collectionReference, compositeFilter, ...(allQueryConstraints as QueryNonFilterConstraint[]))
+                ? query(
+                      collectionReference,
+                      compositeFilter as QueryCompositeFilterConstraint,
+                      ...(allQueryConstraints as QueryNonFilterConstraint[])
+                  )
                 : query(collectionReference, ...allQueryConstraints);
 
-            const querySnapshot = await getDocs(converter ? queryToExecute.withConverter(converter) : queryToExecute);
+            const querySnapshot = await getDocs(queryToExecute);
             const docs: AppModelType[] = [];
 
             if (querySnapshot) {

@@ -26,7 +26,6 @@
 ## Functions
 
 - [useAuth](functions/useAuth.md)
-- [useAuthStateReady](functions/useAuthStateReady.md)
 - [useCreateUserWitEmailAndPasswordMutation](functions/useCreateUserWitEmailAndPasswordMutation.md)
 - [useCurrentUser](functions/useCurrentUser.md)
 - [useReauthenticateWitCredentialMutation](functions/useReauthenticateWitCredentialMutation.md)
@@ -39,4 +38,5 @@
 
 ## Hook
 
+- [useAuthStateReady](functions/useAuthStateReady.md)
 - [useIdToken](functions/useIdToken.md)

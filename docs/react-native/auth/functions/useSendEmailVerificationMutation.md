@@ -6,7 +6,7 @@
 function useSendEmailVerificationMutation<TContext>(options): UseMutationResult<void, NativeFirebaseError, UseSendEmailVerificationMutationVariables, TContext>
 ```
 
-Defined in: [react-native/auth/useSendEmailVerificationMutation.ts:17](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/react-native/auth/useSendEmailVerificationMutation.ts#L17)
+Defined in: [react-native/auth/useSendEmailVerificationMutation.ts:17](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/react-native/auth/useSendEmailVerificationMutation.ts#L17)
 
 A custom hook to create a mutation for sending an email verification to a user using Firebase.
 This uses the `useMutation` hook from a query library and wraps it with specific configuration options.

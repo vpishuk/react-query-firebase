@@ -6,7 +6,7 @@
 function useFirestore(): Module
 ```
 
-Defined in: [react-native/firestore/useFirestore.ts:10](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/react-native/firestore/useFirestore.ts#L10)
+Defined in: [react-native/firestore/useFirestore.ts:10](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/react-native/firestore/useFirestore.ts#L10)
 
 Provides a hook to access the Firestore instance from the Firebase context.
 It extracts the Firestore object from the Firebase context, allowing components to interact with Firestore services.

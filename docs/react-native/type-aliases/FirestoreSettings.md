@@ -6,7 +6,7 @@
 type FirestoreSettings = object;
 ```
 
-Defined in: [react-native/context/FirebaseContextProvider.tsx:13](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/react-native/context/FirebaseContextProvider.tsx#L13)
+Defined in: [react-native/context/FirebaseContextProvider.tsx:17](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/react-native/context/FirebaseContextProvider.tsx#L17)
 
 ## See
 
@@ -20,7 +20,7 @@ https://firebase.google.com/docs/reference/js/firestore_.firestoresettings
 optional cacheSizeBytes: number;
 ```
 
-Defined in: [react-native/context/FirebaseContextProvider.tsx:14](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/react-native/context/FirebaseContextProvider.tsx#L14)
+Defined in: [react-native/context/FirebaseContextProvider.tsx:18](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/react-native/context/FirebaseContextProvider.tsx#L18)
 
 ***
 
@@ -30,7 +30,7 @@ Defined in: [react-native/context/FirebaseContextProvider.tsx:14](https://github
 optional experimentalAutoDetectLongPolling: boolean;
 ```
 
-Defined in: [react-native/context/FirebaseContextProvider.tsx:15](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/react-native/context/FirebaseContextProvider.tsx#L15)
+Defined in: [react-native/context/FirebaseContextProvider.tsx:19](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/react-native/context/FirebaseContextProvider.tsx#L19)
 
 ***
 
@@ -40,7 +40,7 @@ Defined in: [react-native/context/FirebaseContextProvider.tsx:15](https://github
 optional experimentalForceLongPolling: boolean;
 ```
 
-Defined in: [react-native/context/FirebaseContextProvider.tsx:16](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/react-native/context/FirebaseContextProvider.tsx#L16)
+Defined in: [react-native/context/FirebaseContextProvider.tsx:20](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/react-native/context/FirebaseContextProvider.tsx#L20)
 
 ***
 
@@ -50,7 +50,7 @@ Defined in: [react-native/context/FirebaseContextProvider.tsx:16](https://github
 optional experimentalLongPollingOptions: object;
 ```
 
-Defined in: [react-native/context/FirebaseContextProvider.tsx:17](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/react-native/context/FirebaseContextProvider.tsx#L17)
+Defined in: [react-native/context/FirebaseContextProvider.tsx:21](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/react-native/context/FirebaseContextProvider.tsx#L21)
 
 #### timeoutSeconds
 
@@ -66,7 +66,7 @@ timeoutSeconds: number;
 optional host: string;
 ```
 
-Defined in: [react-native/context/FirebaseContextProvider.tsx:20](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/react-native/context/FirebaseContextProvider.tsx#L20)
+Defined in: [react-native/context/FirebaseContextProvider.tsx:24](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/react-native/context/FirebaseContextProvider.tsx#L24)
 
 ***
 
@@ -76,7 +76,7 @@ Defined in: [react-native/context/FirebaseContextProvider.tsx:20](https://github
 optional ignoreUndefinedProperties: boolean;
 ```
 
-Defined in: [react-native/context/FirebaseContextProvider.tsx:21](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/react-native/context/FirebaseContextProvider.tsx#L21)
+Defined in: [react-native/context/FirebaseContextProvider.tsx:25](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/react-native/context/FirebaseContextProvider.tsx#L25)
 
 ***
 
@@ -86,7 +86,7 @@ Defined in: [react-native/context/FirebaseContextProvider.tsx:21](https://github
 optional localCache: object;
 ```
 
-Defined in: [react-native/context/FirebaseContextProvider.tsx:22](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/react-native/context/FirebaseContextProvider.tsx#L22)
+Defined in: [react-native/context/FirebaseContextProvider.tsx:26](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/react-native/context/FirebaseContextProvider.tsx#L26)
 
 #### kind
 
@@ -102,4 +102,4 @@ kind: "memory" | "persistent";
 optional ssl: boolean;
 ```
 
-Defined in: [react-native/context/FirebaseContextProvider.tsx:25](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/react-native/context/FirebaseContextProvider.tsx#L25)
+Defined in: [react-native/context/FirebaseContextProvider.tsx:29](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/react-native/context/FirebaseContextProvider.tsx#L29)

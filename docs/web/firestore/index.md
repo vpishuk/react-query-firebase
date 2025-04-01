@@ -6,6 +6,7 @@
 
 - [CompositeFilter](type-aliases/CompositeFilter.md)
 - [QueryElement](type-aliases/QueryElement.md)
+- [QueryFilterConstraint](type-aliases/QueryFilterConstraint.md)
 - [UseAddDocMutationOptions](type-aliases/UseAddDocMutationOptions.md)
 - [UseAddDocMutationValues](type-aliases/UseAddDocMutationValues.md)
 - [UseBatchWriteOptions](type-aliases/UseBatchWriteOptions.md)
@@ -28,28 +29,28 @@
 
 ## Functions
 
-- [buildCompositeFilter](functions/buildCompositeFilter.md)
 - [useAddDocMutation](functions/useAddDocMutation.md)
 - [useBatchWrite](functions/useBatchWrite.md)
 - [useCollectionReference](functions/useCollectionReference.md)
-- [useCompositeFilter](functions/useCompositeFilter.md)
-- [useCountQuery](functions/useCountQuery.md)
 - [useDeleteDocMutation](functions/useDeleteDocMutation.md)
 - [useDocReference](functions/useDocReference.md)
 - [useDocReferences](functions/useDocReferences.md)
 - [useFirestore](functions/useFirestore.md)
 - [useGetDocData](functions/useGetDocData.md)
-- [useInfiniteQuery](functions/useInfiniteQuery.md)
-- [useQuery](functions/useQuery.md)
 - [useRunTransaction](functions/useRunTransaction.md)
 - [useSetDocMutation](functions/useSetDocMutation.md)
 - [useUpdateDocMutation](functions/useUpdateDocMutation.md)
 
 ## Hook
 
+- [useCompositeFilter](functions/useCompositeFilter.md)
+- [useCountQuery](functions/useCountQuery.md)
 - [useGetRealtimeDocData](functions/useGetRealtimeDocData.md)
+- [useInfiniteQuery](functions/useInfiniteQuery.md)
+- [useQuery](functions/useQuery.md)
 - [useQueryConstraints](functions/useQueryConstraints.md)
 
 ## Utility
 
+- [buildCompositeFilter](functions/buildCompositeFilter.md)
 - [buildQueryConstraint](functions/buildQueryConstraint.md)

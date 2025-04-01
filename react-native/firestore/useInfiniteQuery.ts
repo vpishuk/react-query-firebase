@@ -13,12 +13,20 @@ import {
     UseInfiniteQueryResult,
     InfiniteData
 } from "@tanstack/react-query";
+import { QueryFilterConstraint } from "./useCompositeFilter";
+import { AppModel } from "../../types";
 
+/**
+ * @inline
+ */
 type UseInfiniteQueryOptions<
-    AppModelType extends FirebaseFirestoreTypes.DocumentData = FirebaseFirestoreTypes.DocumentData,
+    AppModelType extends AppModel = AppModel,
     TQueryKey extends QueryKey = QueryKey,
     TPageParam = unknown
 > = {
+    /**
+     * Reqct-query options that must include queryKey and shall not define queryFn
+     */
     options: Omit<
         UseReactInfiniteQueryOptions<
             AppModelType[],
@@ -43,26 +51,57 @@ type UseInfiniteQueryOptions<
                 "queryKey"
             >
         >;
+
+    /**
+     * Reference to a Firestore collection
+     */
     collectionReference: FirebaseFirestoreTypes.CollectionReference<AppModelType>;
+
+    /**
+     * Non composite filter constraints such as limit, order, where
+     */
     queryConstraints?: QueryConstraint[] | QueryNonFilterConstraint[];
-    compositeFilter?: FirebaseFirestoreTypes.QueryCompositeFilterConstraint;
+
+    /**
+     * Composite filter
+     */
+    compositeFilter?: QueryFilterConstraint;
 };
 
 /**
- * Custom hook that creates an infinite query using Firestore, allowing for query constraints, composite filters, and converters.
- * It fetches data in pages and can load more as required.
+ * Executes an infinite query on a Firestore data source and returns the resulting documents as an array.
  *
- * @param {UseInfiniteQueryOptions<AppModelType, DbModelType>} options - Configuration options for the infinite query, including Firestore query reference, query constraints, composite filter, and data converter.
- * @returns {UseInfiniteQueryResult<InfiniteData<AppModelType[]>>} Result object containing the infinite data and methods for fetching more pages.
+ * @group Hook
+ *
+ * @param {UseInfiniteQueryOptions<AppModelType, TQueryKey>} options - Configuration options for the query.
+ *
+ * @returns {UseInfiniteQueryResult<InfiniteData<AppModelType[]>>} An object containing documents that match the query.
+ *
+ * @example
+ * ```jsx
+ * export const MyComponent = () => {
+ *  const docs = useInfiniteQuery({
+ *      options: {
+ *          queryKey: ['key']
+ *      },
+ *      collectionReference: collection(),
+ *  });
+ *  console.log(docs);
+ * };
+ * ```
  */
 export const useInfiniteQuery = <
-    AppModelType extends FirebaseFirestoreTypes.DocumentData = FirebaseFirestoreTypes.DocumentData
+    AppModelType extends AppModel = AppModel,
+    TQueryKey extends QueryKey = QueryKey,
+    TPageParam = unknown
 >({
     options,
     collectionReference,
     queryConstraints = [],
     compositeFilter
-}: UseInfiniteQueryOptions<AppModelType>): UseInfiniteQueryResult<InfiniteData<AppModelType[]>> => {
+}: UseInfiniteQueryOptions<AppModelType, TQueryKey, TPageParam>): UseInfiniteQueryResult<
+    InfiniteData<AppModelType[]>
+> => {
     return useInfiniteReactQuery({
         ...options,
         queryFn: async ({ pageParam }) => {

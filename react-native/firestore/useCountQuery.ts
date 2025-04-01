@@ -11,34 +11,58 @@ import {
     useQuery as useReactQuery,
     UseQueryOptions as UseReactQueryOptions
 } from "@tanstack/react-query";
+import { QueryFilterConstraint } from "./useCompositeFilter";
+import { AppModel } from "../../types";
 
-type UseCountQueryOptions<
-    AppModelType extends FirebaseFirestoreTypes.DocumentData = FirebaseFirestoreTypes.DocumentData
-> = {
+/**
+ * @inline
+ */
+type UseCountQueryOptions<AppModelType extends AppModel = AppModel> = {
+    /**
+     * Reqct-query options that must include queryKey and shall not define queryFn
+     */
     options: Omit<UseReactQueryOptions<number, Error, number>, "queryFn"> &
         Required<Pick<UseReactQueryOptions<number, Error, number>, "queryKey">>;
+
+    /**
+     * Reference to a Firestore collection
+     */
     collectionReference: FirebaseFirestoreTypes.CollectionReference<AppModelType>;
+
+    /**
+     * Non composite filter constraints such as limit, order, where
+     */
     queryConstraints?: QueryConstraint[] | QueryNonFilterConstraint[];
-    compositeFilter?: FirebaseFirestoreTypes.QueryCompositeFilterConstraint;
+
+    /**
+     * Composite filter
+     */
+    compositeFilter?: QueryFilterConstraint;
 };
 
 /**
  * Executes a query with specified constraints and returns the count of matched documents.
  *
- * This function utilizes React Query to asynchronously fetch the count of documents from a server database
- * that match the provided query constraints and an optional composite filter.
+ * @group Hook
  *
  * @param {UseCountQueryOptions<AppModelType>} options - Configuration options for the query.
- * @param {AppModelType extends FirebaseFirestoreTypes.DocumentData = FirebaseFirestoreTypes.DocumentData} [options.options] - Additional options for the React Query.
- * @param {unknown} [options.query] - Reference to the query object to be executed.
- * @param {unknown[]} [options.queryConstraints=[]] - An array of constraints to apply to the query.
- * @param {unknown} [options.compositeFilter] - An optional composite filter to apply to the query.
+ *
  * @returns {UseQueryResult<number>} An object containing the number of documents that match the query.
+ *
+ * @example
+ * ```jsx
+ * export const MyComponent = () => {
+ *  const count = useCountQuery({
+ *      options: {
+ *          queryKey: ['key']
+ *      },
+ *      collectionReference: collection(),
+ *  });
+ *  console.log(count);
+ * };
+ * ```
  */
-
-export const useCountQuery = <
-    AppModelType extends FirebaseFirestoreTypes.DocumentData = FirebaseFirestoreTypes.DocumentData
->({
+export const useCountQuery = <AppModelType extends AppModel = AppModel>({
     options,
     collectionReference,
     queryConstraints = [],

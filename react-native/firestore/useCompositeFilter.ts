@@ -1,36 +1,62 @@
 import firebase, { FirebaseFirestoreTypes, and, or, where } from "@react-native-firebase/firestore";
 import { useMemo } from "react";
+import { AppModel } from "../../types";
 
-type CompositeFilterDocumentData = FirebaseFirestoreTypes.DocumentData;
+export type QueryFilterConstraint =
+    | FirebaseFirestoreTypes.QueryCompositeFilterConstraint
+    | FirebaseFirestoreTypes.QueryFilterConstraint;
 
-export type QueryElement<DbModelType extends CompositeFilterDocumentData = CompositeFilterDocumentData> = {
+export type QueryElement<AppModelType extends AppModel = AppModel> = {
     operator?: "OR" | "AND";
     children?: QueryElement[];
-    field?: keyof (DbModelType & { documentId?: string[] });
-    value?: DbModelType[keyof DbModelType];
+    field?: keyof (AppModelType & { documentId?: string[] });
+    value?: AppModelType[keyof AppModelType];
     op?: FirebaseFirestoreTypes.WhereFilterOp;
 };
 
-export type CompositeFilter<DbModelType extends CompositeFilterDocumentData = CompositeFilterDocumentData> = {
+export type CompositeFilter<AppModelType extends AppModel = AppModel> = {
     operator: "OR" | "AND";
-    children: QueryElement<DbModelType & { documentId?: string[] }>[];
-};
-
-export type UseCompositeFilter<DbModelType extends CompositeFilterDocumentData = CompositeFilterDocumentData> = {
-    query?: CompositeFilter<DbModelType>;
+    children: QueryElement<AppModelType & { documentId?: string[] }>[];
 };
 
 /**
- * Constructs a composite query filter based on the provided query structure.
+ * @inline
+ */
+export type UseCompositeFilter<AppModelType extends AppModel = AppModel> = {
+    query?: CompositeFilter<AppModelType>;
+};
+
+/**
+ * Constructs a composite or where query filter based on the provided query structure.
  * It recursively builds query constraints using logical "or" or "and" operators.
  *
- * @param {QueryElement<DbModelType>} query - The query element or structure to be evaluated and transformed into filter constraints.
- * @returns {QueryFieldFilterConstraint | null} A constructed query filter constraint based on the input query, or null if no valid constraints can be derived.
+ * @group Utility
+ *
+ * @param {QueryElement<AppModelType>} query
+ *
+ * @returns {QueryFilterConstraint | null}
+ *
+ * @example
+ * ```jsx
+ * export const MyComponent = () => {
+ *  const filter = buildCompositeFilter({
+ *      operator: "AND",
+ *      children: [
+ *          {
+ *              field: "field",
+ *              value: "value",
+ *              op: "=="
+ *          },
+ *          ...(query ? [query] : [])
+ *      ]
+ *  });
+ *  console.log(filter);
+ * };
+ * ```
  */
-
-export const buildCompositeFilter = <DbModelType extends CompositeFilterDocumentData = CompositeFilterDocumentData>(
-    query: QueryElement<DbModelType>
-): FirebaseFirestoreTypes.QueryFilterConstraint | null => {
+export const buildCompositeFilter = <AppModelType extends AppModel = AppModel>(
+    query: QueryElement<AppModelType>
+): QueryFilterConstraint | null => {
     if (query.children) {
         const queryConstraints = query.children.map(buildCompositeFilter).filter((constraint) => !!constraint);
 
@@ -57,22 +83,41 @@ export const buildCompositeFilter = <DbModelType extends CompositeFilterDocument
 };
 
 /**
- * A custom hook that generates a composite filter for database queries, using the provided query configuration.
- * It applies either an 'OR' or 'AND' logical operation based on the type specified in the query.
+ * A custom hook that constructs a composite or where query filter based on the provided query structure.
+ * It recursively builds query constraints using logical "or" or "and" operators.
  *
- * @param {Object} query - The query configuration object that contains subqueries and a type for logical combination.
- * @param {string} query.type - The type of composite operation ('or'/'and').
- * @param {Array} query.children - An array of subqueries that will be processed to form the composite filter.
+ * @group Hook
  *
- * @returns {(Function|undefined)} A composite query filter constraint function formed by combining subqueries or undefined if there are no valid constraints.
+ * @param {QueryElement<AppModelType>} query
+ *
+ * @returns {QueryFilterConstraint | null}
+ *
+ * @example
+ * ```jsx
+ * export const MyComponent = () => {
+ *  const filter = useCompositeFilter({
+ *      operator: "AND",
+ *      children: [
+ *          {
+ *              field: "field",
+ *              value: "value",
+ *              op: "=="
+ *          },
+ *          ...(query ? [query] : [])
+ *      ]
+ *  });
+ *  console.log(filter);
+ * };
+ * ```
  */
-export const useCompositeFilter = <DbModelType extends CompositeFilterDocumentData = CompositeFilterDocumentData>({
+export const useCompositeFilter = <AppModelType extends AppModel = AppModel>({
     query
-}: UseCompositeFilter<DbModelType>) => {
+}: UseCompositeFilter<AppModelType>): QueryFilterConstraint | undefined => {
     return useMemo(() => {
         const queryConstraints =
-            query?.children?.map?.((subQuery) => buildCompositeFilter(subQuery))
-                ?.filter<FirebaseFirestoreTypes.QueryFilterConstraint>?.((constraint) => !!constraint) ?? [];
+            query?.children
+                ?.map?.((subQuery) => buildCompositeFilter(subQuery))
+                ?.filter?.((constraint) => !!constraint) ?? [];
 
         if (queryConstraints.length <= 0) {
             return undefined;

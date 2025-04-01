@@ -38,4 +38,5 @@
 
 ## Hook
 
+- [useAuthStateReady](functions/useAuthStateReady.md)
 - [useIdToken](functions/useIdToken.md)
