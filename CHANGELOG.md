@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.3.2](https://github.com/vpishuk/react-query-firebase/compare/v2.3.1...v2.3.2) (2025-04-01)
+
+
+### Bug Fixes
+
+* **react-native:** minor improvement to useInfiniteQUery types ([#67](https://github.com/vpishuk/react-query-firebase/issues/67)) ([ca41b69](https://github.com/vpishuk/react-query-firebase/commit/ca41b69997539e4e14891c94b64d214063698999))
+
 ## [2.3.1](https://github.com/vpishuk/react-query-firebase/compare/v2.3.0...v2.3.1) (2025-04-01)
 
 
