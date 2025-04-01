@@ -30,7 +30,7 @@ type UseInfiniteQueryOptions<AppModelType extends AppModel = AppModel, TQueryKey
             InfiniteData<AppModelType[]>,
             AppModelType[],
             TQueryKey,
-            QueryConstraint
+            QueryNonFilterConstraint
         >,
         "queryFn"
     > &
@@ -42,7 +42,7 @@ type UseInfiniteQueryOptions<AppModelType extends AppModel = AppModel, TQueryKey
                     InfiniteData<AppModelType[]>,
                     AppModelType[],
                     TQueryKey,
-                    QueryConstraint
+                    QueryNonFilterConstraint
                 >,
                 "queryKey"
             >
