@@ -3,13 +3,12 @@ import { FirebaseFirestoreTypes, onSnapshot } from "@react-native-firebase/fires
 import { useEffect, useMemo, useState } from "react";
 import { ReactNativeFirebase } from "@react-native-firebase/app";
 import { useDocReference } from "./useDocReference";
+import { AppModel } from "../../types";
 
 /**
  * @inline
  */
-export type UseGetRealtimeDocDataOptions<
-    AppModelType extends FirebaseFirestoreTypes.DocumentData = FirebaseFirestoreTypes.DocumentData
-> = {
+export type UseGetRealtimeDocDataOptions<AppModelType extends AppModel = AppModel> = {
     /**
      * A slash-separated path to a document. Has to be omitted to use
      */
@@ -17,9 +16,7 @@ export type UseGetRealtimeDocDataOptions<
     /**
      * A reference to a collection.
      */
-    reference?:
-        | FirebaseFirestoreTypes.CollectionReference<AppModelType>
-        | FirebaseFirestoreTypes.DocumentReference<AppModelType>;
+    reference?: FirebaseFirestoreTypes.DocumentReference<AppModelType>;
     /**
      * Additional path segments that will be applied relative
      * to the first argument.
@@ -64,9 +61,7 @@ export type UseGetRealtimeDocDataResult<AppModelType> = {
  * };
  * ```
  */
-export const useGetRealtimeDocData = <
-    AppModelType extends FirebaseFirestoreTypes.DocumentData = FirebaseFirestoreTypes.DocumentData
->({
+export const useGetRealtimeDocData = <AppModelType extends AppModel = AppModel>({
     path,
     pathSegments,
     reference,

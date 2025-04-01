@@ -1,13 +1,14 @@
-import { CollectionReference, DocumentData, DocumentReference, onSnapshot } from "firebase/firestore";
+import { DocumentReference, onSnapshot } from "firebase/firestore";
 
 import { useEffect, useMemo, useState } from "react";
 import { FirebaseError } from "firebase/app";
 import { useDocReference } from "./useDocReference";
+import { AppModel } from "../../types";
 
 /**
  * @inline
  */
-export type UseGetRealtimeDocDataOptions<AppModelType, DbModelType extends DocumentData = DocumentData> = {
+export type UseGetRealtimeDocDataOptions<AppModelType extends AppModel = AppModel> = {
     /**
      * A slash-separated path to a document. Has to be omitted to use
      */
@@ -15,7 +16,7 @@ export type UseGetRealtimeDocDataOptions<AppModelType, DbModelType extends Docum
     /**
      * A reference to a collection.
      */
-    reference?: CollectionReference<AppModelType, DbModelType> | DocumentReference<AppModelType, DbModelType>;
+    reference?: DocumentReference<AppModelType, AppModelType>;
     /**
      * Additional path segments that will be applied relative
      * to the first argument.
@@ -43,7 +44,7 @@ export type UseGetRealtimeDocDataResult<AppModelType> = {
  *
  * @group Hook
  *
- * @param {UseGetRealtimeDocDataOptions<AppModelType, DbModelType>} options
+ * @param {UseGetRealtimeDocDataOptions<AppModelType>} options
  *
  * @returns {UseGetRealtimeDocDataResult<AppModelType>}
  *
@@ -60,12 +61,12 @@ export type UseGetRealtimeDocDataResult<AppModelType> = {
  * };
  * ```
  */
-export const useGetRealtimeDocData = <AppModelType, DbModelType extends DocumentData = DocumentData>({
+export const useGetRealtimeDocData = <AppModelType extends AppModel = AppModel>({
     path,
     pathSegments,
     reference,
     onError
-}: UseGetRealtimeDocDataOptions<AppModelType, DbModelType>): UseGetRealtimeDocDataResult<AppModelType> => {
+}: UseGetRealtimeDocDataOptions<AppModelType>): UseGetRealtimeDocDataResult<AppModelType> => {
     const ref = useDocReference({ path, reference, pathSegments });
     const [doc, setDoc] = useState<AppModelType | null>(null);
     const [isError, setIsError] = useState(false);
