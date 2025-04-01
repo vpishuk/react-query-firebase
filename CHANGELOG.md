@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.2.0](https://github.com/vpishuk/react-query-firebase/compare/v2.1.4...v2.2.0) (2025-04-01)
+
+
+### Features
+
+* **react-native:** implements useAuthStateReady hook ([#61](https://github.com/vpishuk/react-query-firebase/issues/61)) ([b303b3f](https://github.com/vpishuk/react-query-firebase/commit/b303b3f953258bdb756e9ee17222ff60b3c65e63))
+
 ## [2.1.4](https://github.com/vpishuk/react-query-firebase/compare/v2.1.3...v2.1.4) (2025-04-01)
 
 
