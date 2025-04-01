@@ -2,14 +2,18 @@
 
 import { createContext } from "react";
 
-import { firebase } from "@react-native-firebase/auth";
+import { type ReactNativeFirebase } from "@react-native-firebase/app";
+import { type FirebaseAuthTypes } from "@react-native-firebase/auth";
+import { type FirebaseAnalyticsTypes } from "@react-native-firebase/analytics";
+import { type FirebaseRemoteConfigTypes } from "@react-native-firebase/remote-config";
+import { type FirebaseFirestoreTypes } from "@react-native-firebase/firestore";
 
 export type FirebaseContextValue = {
-    auth: ReturnType<typeof firebase.auth>;
-    analytics: ReturnType<typeof firebase.analytics>;
-    firebase: ReturnType<typeof firebase.app>;
-    remoteConfig: ReturnType<typeof firebase.remoteConfig>;
-    firestore: ReturnType<typeof firebase.firestore>;
+    auth: FirebaseAuthTypes.Module;
+    analytics: FirebaseAnalyticsTypes.Module;
+    firebase: ReactNativeFirebase.FirebaseApp;
+    remoteConfig: FirebaseRemoteConfigTypes.Module;
+    firestore: FirebaseFirestoreTypes.Module;
 };
 
 /**
