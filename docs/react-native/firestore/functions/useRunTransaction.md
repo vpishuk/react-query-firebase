@@ -6,7 +6,7 @@
 function useRunTransaction<AppModelType, TContext>(options): UseMutationResult<AppModelType, NativeFirebaseError, UseRunTransactionValues, TContext>
 ```
 
-Defined in: [react-native/firestore/useRunTransaction.ts:25](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/react-native/firestore/useRunTransaction.ts#L25)
+Defined in: [react-native/firestore/useRunTransaction.ts:25](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/react-native/firestore/useRunTransaction.ts#L25)
 
 Custom hook to execute a Firestore transaction using the useMutation hook.
 

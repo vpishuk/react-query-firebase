@@ -11,32 +11,58 @@ import {
     useQuery as useReactQuery,
     UseQueryOptions as UseReactQueryOptions
 } from "@tanstack/react-query";
+import { QueryFilterConstraint } from "./useCompositeFilter";
+import { AppModel } from "../../types";
 
-type UseQueryOptions<AppModelType extends FirebaseFirestoreTypes.DocumentData> = {
+/**
+ * @inline
+ */
+type UseQueryOptions<AppModelType extends AppModel = AppModel> = {
+    /**
+     * Reqct-query options that must include queryKey and shall not define queryFn
+     */
     options: Omit<UseReactQueryOptions<AppModelType[], Error, AppModelType[]>, "queryFn"> &
         Required<Pick<UseReactQueryOptions<AppModelType[], Error, AppModelType[]>, "queryKey">>;
+
+    /**
+     * Reference to a Firestore collection
+     */
     collectionReference: FirebaseFirestoreTypes.CollectionReference<AppModelType>;
+
+    /**
+     * Non composite filter constraints such as limit, order, where
+     */
     queryConstraints?: QueryConstraint[] | QueryNonFilterConstraint[];
-    compositeFilter?: FirebaseFirestoreTypes.QueryCompositeFilterConstraint;
+
+    /**
+     * Composite filter
+     */
+    compositeFilter?: QueryFilterConstraint;
 };
 
 /**
- * Executes a query on a Firestore-like data source and returns the resulting documents as an array.
+ * Executes a query on a Firestore data source and returns the resulting documents as an array.
  *
- * This hook utilizes an abstraction over React Query to asynchronously fetch data based on the provided query
- * reference and constraints. It supports optional filtering, conversion, and additional query constraints.
+ * @group Hook
  *
- * @param {UseQueryOptions<AppModelType>}  options - Configuration options for the query.
- * @param {FirebaseFirestoreTypes.DocumentReference<AppModelType>}  collectionReference - The reference to the query to be executed.
- * @param {QueryConstraint[]}  queryConstraints - Additional constraints to fine-tune the query.
- * @param {QueryConstraint}  compositeFilter - Optional composite filter to apply to the query.
- * @param {FirestoreDataConverter<AppModelType>}  converter - Optional data converter for transforming snapshots.
+ * @param {UseQueryOptions<AppModelType>} options - Configuration options for the query.
  *
- * @returns {UseQueryResult<AppModelType[]>} Result containing an array of documents that match the query criteria.
+ * @returns {UseQueryResult<AppModelType[]>} An object containing documents that match the query.
+ *
+ * @example
+ * ```jsx
+ * export const MyComponent = () => {
+ *  const docs = useQuery({
+ *      options: {
+ *          queryKey: ['key']
+ *      },
+ *      collectionReference: collection(),
+ *  });
+ *  console.log(docs);
+ * };
+ * ```
  */
-export const useQuery = <
-    AppModelType extends FirebaseFirestoreTypes.DocumentData = FirebaseFirestoreTypes.DocumentData
->({
+export const useQuery = <AppModelType extends AppModel = AppModel>({
     options,
     collectionReference,
     queryConstraints = [],

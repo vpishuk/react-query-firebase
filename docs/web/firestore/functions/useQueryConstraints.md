@@ -6,7 +6,7 @@
 function useQueryConstraints<AppModelType>(constraints): QueryNonFilterConstraint[]
 ```
 
-Defined in: web/firestore/useQueryConstraints.ts:87
+Defined in: [web/firestore/useQueryConstraints.ts:87](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/web/firestore/useQueryConstraints.ts#L87)
 
 A hook to build a list of non-filter query constraints for firebase queries.
 It uses buildQueryConstraint method and useMemo hook.

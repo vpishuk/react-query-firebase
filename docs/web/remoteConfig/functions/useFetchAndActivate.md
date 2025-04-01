@@ -6,7 +6,7 @@
 function useFetchAndActivate(): object
 ```
 
-Defined in: [web/remoteConfig/useFetchAndActivate.ts:12](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/web/remoteConfig/useFetchAndActivate.ts#L12)
+Defined in: [web/remoteConfig/useFetchAndActivate.ts:12](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/web/remoteConfig/useFetchAndActivate.ts#L12)
 
 Custom hook to fetch and activate remote configuration settings.
 Initializes remote configuration, fetches, activates it, and tracks the fetch status.

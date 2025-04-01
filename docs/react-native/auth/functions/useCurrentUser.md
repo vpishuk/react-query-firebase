@@ -6,7 +6,7 @@
 function useCurrentUser(): null | User
 ```
 
-Defined in: [react-native/auth/useCurrentUser.ts:9](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/react-native/auth/useCurrentUser.ts#L9)
+Defined in: [react-native/auth/useCurrentUser.ts:9](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/react-native/auth/useCurrentUser.ts#L9)
 
 Hook that provides the current authenticated user from Firebase Auth.
 It listens for changes in the authentication state and updates the user accordingly.

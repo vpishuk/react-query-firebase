@@ -6,7 +6,7 @@
 type UseSetDocMutationOptions<AppModelType, DbModelType, TContext> = object;
 ```
 
-Defined in: [web/firestore/useSetDocMutation.ts:11](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/web/firestore/useSetDocMutation.ts#L11)
+Defined in: [web/firestore/useSetDocMutation.ts:11](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/web/firestore/useSetDocMutation.ts#L11)
 
 ## Type Parameters
 
@@ -30,7 +30,7 @@ Defined in: [web/firestore/useSetDocMutation.ts:11](https://github.com/vpishuk/r
 optional options: Omit<UseMutationOptions<void, FirebaseError, UseSetDocMutationValues<AppModelType>, TContext>, "mutationFn" | "mutationKey">;
 ```
 
-Defined in: [web/firestore/useSetDocMutation.ts:17](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/web/firestore/useSetDocMutation.ts#L17)
+Defined in: [web/firestore/useSetDocMutation.ts:17](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/web/firestore/useSetDocMutation.ts#L17)
 
 ***
 
@@ -40,4 +40,4 @@ Defined in: [web/firestore/useSetDocMutation.ts:17](https://github.com/vpishuk/r
 reference: DocumentReference<AppModelType, DbModelType> | null;
 ```
 
-Defined in: [web/firestore/useSetDocMutation.ts:16](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/web/firestore/useSetDocMutation.ts#L16)
+Defined in: [web/firestore/useSetDocMutation.ts:16](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/web/firestore/useSetDocMutation.ts#L16)

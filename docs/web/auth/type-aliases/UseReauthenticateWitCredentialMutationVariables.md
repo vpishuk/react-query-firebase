@@ -6,7 +6,7 @@
 type UseReauthenticateWitCredentialMutationVariables = object;
 ```
 
-Defined in: [web/auth/useReauthenticateWitCredentialMutation.ts:6](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/web/auth/useReauthenticateWitCredentialMutation.ts#L6)
+Defined in: [web/auth/useReauthenticateWitCredentialMutation.ts:6](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/web/auth/useReauthenticateWitCredentialMutation.ts#L6)
 
 ## Properties
 
@@ -16,7 +16,7 @@ Defined in: [web/auth/useReauthenticateWitCredentialMutation.ts:6](https://githu
 credential: AuthCredential;
 ```
 
-Defined in: [web/auth/useReauthenticateWitCredentialMutation.ts:7](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/web/auth/useReauthenticateWitCredentialMutation.ts#L7)
+Defined in: [web/auth/useReauthenticateWitCredentialMutation.ts:7](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/web/auth/useReauthenticateWitCredentialMutation.ts#L7)
 
 ***
 
@@ -26,4 +26,4 @@ Defined in: [web/auth/useReauthenticateWitCredentialMutation.ts:7](https://githu
 user: User;
 ```
 
-Defined in: [web/auth/useReauthenticateWitCredentialMutation.ts:8](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/web/auth/useReauthenticateWitCredentialMutation.ts#L8)
+Defined in: [web/auth/useReauthenticateWitCredentialMutation.ts:8](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/web/auth/useReauthenticateWitCredentialMutation.ts#L8)

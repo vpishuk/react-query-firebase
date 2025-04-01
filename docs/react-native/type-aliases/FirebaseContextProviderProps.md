@@ -6,7 +6,7 @@
 type FirebaseContextProviderProps = PropsWithChildren & object;
 ```
 
-Defined in: [react-native/context/FirebaseContextProvider.tsx:69](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/react-native/context/FirebaseContextProvider.tsx#L69)
+Defined in: [react-native/context/FirebaseContextProvider.tsx:73](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/react-native/context/FirebaseContextProvider.tsx#L73)
 
 ## Type declaration
 
@@ -188,19 +188,13 @@ kind: "memory" | "persistent";
 optional ssl: boolean;
 ```
 
-### options
+### options?
 
 ```ts
-options: ReactNativeFirebase.FirebaseAppOptions;
+optional options: ReactNativeFirebase.FirebaseAppOptions;
 ```
 
 Configuration options for Firebase initialization. [Learn about the Firebase config object](https://firebase.google.com/docs/web/setup#config-object)
-
-### platform
-
-```ts
-platform: "Web" | "ReactNative";
-```
 
 ### remoteConfigDefaults?
 

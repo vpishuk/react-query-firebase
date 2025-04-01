@@ -6,4 +6,4 @@
 const SEND_EMAIL_VERIFICATION_MUTATION_KEY: readonly ["FIREBASE", "AUTH", "SEND_EMAIL_VERIFICATION_MUTATION"];
 ```
 
-Defined in: [web/auth/mutation-keys.ts:6](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/web/auth/mutation-keys.ts#L6)
+Defined in: [web/auth/mutation-keys.ts:6](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/web/auth/mutation-keys.ts#L6)

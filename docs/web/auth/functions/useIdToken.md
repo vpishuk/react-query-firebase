@@ -6,7 +6,7 @@
 function useIdToken(): object
 ```
 
-Defined in: [web/auth/useIdToken.ts:36](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/web/auth/useIdToken.ts#L36)
+Defined in: [web/auth/useIdToken.ts:36](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/web/auth/useIdToken.ts#L36)
 
 A hook to manage the ID token.
 It monitors changes to the ID token and provides the token itself along with a refresh method to update the token when needed.

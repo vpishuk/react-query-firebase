@@ -6,7 +6,7 @@
 function useAuth(): Auth
 ```
 
-Defined in: [web/auth/useAuth.ts:9](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/web/auth/useAuth.ts#L9)
+Defined in: [web/auth/useAuth.ts:9](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/web/auth/useAuth.ts#L9)
 
 Custom hook to retrieve the authentication object from the Firebase context.
 

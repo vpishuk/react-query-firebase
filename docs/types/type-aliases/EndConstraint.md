@@ -6,7 +6,7 @@
 type EndConstraint = object;
 ```
 
-Defined in: types/QueryConstraints.ts:35
+Defined in: [types/QueryConstraints.ts:35](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/types/QueryConstraints.ts#L35)
 
 End by value constraint
 
@@ -18,7 +18,7 @@ End by value constraint
 optional key: string;
 ```
 
-Defined in: types/QueryConstraints.ts:38
+Defined in: [types/QueryConstraints.ts:38](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/types/QueryConstraints.ts#L38)
 
 ***
 
@@ -28,7 +28,7 @@ Defined in: types/QueryConstraints.ts:38
 type: "endAt" | "endBefore";
 ```
 
-Defined in: types/QueryConstraints.ts:36
+Defined in: [types/QueryConstraints.ts:36](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/types/QueryConstraints.ts#L36)
 
 ***
 
@@ -38,4 +38,4 @@ Defined in: types/QueryConstraints.ts:36
 value: number | string | boolean | null;
 ```
 
-Defined in: types/QueryConstraints.ts:37
+Defined in: [types/QueryConstraints.ts:37](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/types/QueryConstraints.ts#L37)

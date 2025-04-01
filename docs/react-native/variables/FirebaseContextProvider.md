@@ -33,14 +33,13 @@ const FirebaseContextProvider: React.FC<{
      ssl: boolean;
     };
   options: FirebaseAppOptions;
-  platform: "Web" | "ReactNative";
   remoteConfigDefaults: {};
   remoteConfigEnabled: boolean;
   remoteConfigSettings: ConfigSettings;
 }>;
 ```
 
-Defined in: [react-native/context/FirebaseContextProvider.tsx:152](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/react-native/context/FirebaseContextProvider.tsx#L152)
+Defined in: [react-native/context/FirebaseContextProvider.tsx:155](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/react-native/context/FirebaseContextProvider.tsx#L155)
 
 FirebaseContextProvider component configures and provides Firebase services to its children.
 Initializes Firebase app and enables optional Firebase services such as Firestore, Auth, Analytics,

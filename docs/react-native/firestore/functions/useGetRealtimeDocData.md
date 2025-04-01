@@ -6,7 +6,7 @@
 function useGetRealtimeDocData<AppModelType>(options): object
 ```
 
-Defined in: [react-native/firestore/useGetRealtimeDocData.ts:67](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/react-native/firestore/useGetRealtimeDocData.ts#L67)
+Defined in: [react-native/firestore/useGetRealtimeDocData.ts:67](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/react-native/firestore/useGetRealtimeDocData.ts#L67)
 
 A hook to get realtime updates to a firestore document.
 

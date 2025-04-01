@@ -6,7 +6,7 @@
 type StartConstraint = object;
 ```
 
-Defined in: types/QueryConstraints.ts:26
+Defined in: [types/QueryConstraints.ts:26](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/types/QueryConstraints.ts#L26)
 
 Start from value constraint
 
@@ -18,7 +18,7 @@ Start from value constraint
 arguments: unknown[];
 ```
 
-Defined in: types/QueryConstraints.ts:28
+Defined in: [types/QueryConstraints.ts:28](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/types/QueryConstraints.ts#L28)
 
 ***
 
@@ -28,4 +28,4 @@ Defined in: types/QueryConstraints.ts:28
 type: "startAt" | "startAfter";
 ```
 
-Defined in: types/QueryConstraints.ts:27
+Defined in: [types/QueryConstraints.ts:27](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/types/QueryConstraints.ts#L27)

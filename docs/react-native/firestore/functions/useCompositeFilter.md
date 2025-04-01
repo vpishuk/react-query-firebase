@@ -3,30 +3,50 @@
 # Function: useCompositeFilter()
 
 ```ts
-function useCompositeFilter<DbModelType>(query): undefined | QueryCompositeFilterConstraint
+function useCompositeFilter<AppModelType>(query): 
+  | undefined
+  | QueryFilterConstraint
 ```
 
-Defined in: [react-native/firestore/useCompositeFilter.ts:65](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/react-native/firestore/useCompositeFilter.ts#L65)
+Defined in: [react-native/firestore/useCompositeFilter.ts:113](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/react-native/firestore/useCompositeFilter.ts#L113)
 
-A custom hook that generates a composite filter for database queries, using the provided query configuration.
-It applies either an 'OR' or 'AND' logical operation based on the type specified in the query.
+A custom hook that constructs a composite or where query filter based on the provided query structure.
+It recursively builds query constraints using logical "or" or "and" operators.
 
 ## Type Parameters
 
-### DbModelType
+### AppModelType
 
-`DbModelType` *extends* `DocumentData` = `DocumentData`
+`AppModelType` *extends* [`AppModel`](../../../types/type-aliases/AppModel.md) = [`AppModel`](../../../types/type-aliases/AppModel.md)
 
 ## Parameters
 
 ### query
 
-[`UseCompositeFilter`](../type-aliases/UseCompositeFilter.md)\<`DbModelType`\>
+#### query?
 
-The query configuration object that contains subqueries and a type for logical combination.
+[`CompositeFilter`](../type-aliases/CompositeFilter.md)\<`AppModelType`\>
 
 ## Returns
 
-`undefined` \| `QueryCompositeFilterConstraint`
+  \| `undefined`
+  \| [`QueryFilterConstraint`](../type-aliases/QueryFilterConstraint.md)
 
-A composite query filter constraint function formed by combining subqueries or undefined if there are no valid constraints.
+## Example
+
+```jsx
+export const MyComponent = () => {
+ const filter = useCompositeFilter({
+     operator: "AND",
+     children: [
+         {
+             field: "field",
+             value: "value",
+             op: "=="
+         },
+         ...(query ? [query] : [])
+     ]
+ });
+ console.log(filter);
+};
+```

@@ -6,7 +6,7 @@
 type FirebaseContextProviderAuthEmulatorConfig = object;
 ```
 
-Defined in: [react-native/context/FirebaseContextProvider.tsx:45](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/react-native/context/FirebaseContextProvider.tsx#L45)
+Defined in: [react-native/context/FirebaseContextProvider.tsx:49](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/react-native/context/FirebaseContextProvider.tsx#L49)
 
 ## Properties
 
@@ -16,6 +16,6 @@ Defined in: [react-native/context/FirebaseContextProvider.tsx:45](https://github
 host: string;
 ```
 
-Defined in: [react-native/context/FirebaseContextProvider.tsx:49](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/react-native/context/FirebaseContextProvider.tsx#L49)
+Defined in: [react-native/context/FirebaseContextProvider.tsx:53](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/react-native/context/FirebaseContextProvider.tsx#L53)
 
 Host to connect to Firebase Auth Emulator

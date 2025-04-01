@@ -6,7 +6,7 @@
 type UseSignInWitRedirectMutationVariables = object;
 ```
 
-Defined in: [web/auth/useSignInWitRedirectMutation.ts:8](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/web/auth/useSignInWitRedirectMutation.ts#L8)
+Defined in: [web/auth/useSignInWitRedirectMutation.ts:8](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/web/auth/useSignInWitRedirectMutation.ts#L8)
 
 ## Properties
 
@@ -16,7 +16,7 @@ Defined in: [web/auth/useSignInWitRedirectMutation.ts:8](https://github.com/vpis
 authProvider: AuthProvider;
 ```
 
-Defined in: [web/auth/useSignInWitRedirectMutation.ts:9](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/web/auth/useSignInWitRedirectMutation.ts#L9)
+Defined in: [web/auth/useSignInWitRedirectMutation.ts:9](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/web/auth/useSignInWitRedirectMutation.ts#L9)
 
 ***
 
@@ -26,4 +26,4 @@ Defined in: [web/auth/useSignInWitRedirectMutation.ts:9](https://github.com/vpis
 optional popupRedirectResolver: PopupRedirectResolver;
 ```
 
-Defined in: [web/auth/useSignInWitRedirectMutation.ts:10](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/web/auth/useSignInWitRedirectMutation.ts#L10)
+Defined in: [web/auth/useSignInWitRedirectMutation.ts:10](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/web/auth/useSignInWitRedirectMutation.ts#L10)

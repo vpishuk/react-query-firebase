@@ -1,18 +1,18 @@
 [react-query-firebase](../../../modules.md) / [web/firestore](../index.md) / QueryElement
 
-# Type Alias: QueryElement\<DbModelType\>
+# Type Alias: QueryElement\<AppModelType\>
 
 ```ts
-type QueryElement<DbModelType> = object;
+type QueryElement<AppModelType> = object;
 ```
 
-Defined in: [web/firestore/useCompositeFilter.ts:6](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/web/firestore/useCompositeFilter.ts#L6)
+Defined in: [web/firestore/useCompositeFilter.ts:15](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/web/firestore/useCompositeFilter.ts#L15)
 
 ## Type Parameters
 
-### DbModelType
+### AppModelType
 
-`DbModelType` *extends* `CompositeFilterDocumentData` = `CompositeFilterDocumentData`
+`AppModelType` *extends* [`AppModel`](../../../types/type-aliases/AppModel.md) = [`AppModel`](../../../types/type-aliases/AppModel.md)
 
 ## Properties
 
@@ -22,17 +22,17 @@ Defined in: [web/firestore/useCompositeFilter.ts:6](https://github.com/vpishuk/r
 optional children: QueryElement[];
 ```
 
-Defined in: [web/firestore/useCompositeFilter.ts:8](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/web/firestore/useCompositeFilter.ts#L8)
+Defined in: [web/firestore/useCompositeFilter.ts:17](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/web/firestore/useCompositeFilter.ts#L17)
 
 ***
 
 ### field?
 
 ```ts
-optional field: keyof DbModelType & object;
+optional field: keyof AppModelType & object;
 ```
 
-Defined in: [web/firestore/useCompositeFilter.ts:9](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/web/firestore/useCompositeFilter.ts#L9)
+Defined in: [web/firestore/useCompositeFilter.ts:18](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/web/firestore/useCompositeFilter.ts#L18)
 
 ***
 
@@ -42,7 +42,7 @@ Defined in: [web/firestore/useCompositeFilter.ts:9](https://github.com/vpishuk/r
 optional op: WhereFilterOp;
 ```
 
-Defined in: [web/firestore/useCompositeFilter.ts:11](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/web/firestore/useCompositeFilter.ts#L11)
+Defined in: [web/firestore/useCompositeFilter.ts:20](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/web/firestore/useCompositeFilter.ts#L20)
 
 ***
 
@@ -52,14 +52,14 @@ Defined in: [web/firestore/useCompositeFilter.ts:11](https://github.com/vpishuk/
 optional operator: "OR" | "AND";
 ```
 
-Defined in: [web/firestore/useCompositeFilter.ts:7](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/web/firestore/useCompositeFilter.ts#L7)
+Defined in: [web/firestore/useCompositeFilter.ts:16](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/web/firestore/useCompositeFilter.ts#L16)
 
 ***
 
 ### value?
 
 ```ts
-optional value: DbModelType[keyof DbModelType];
+optional value: AppModelType[keyof AppModelType];
 ```
 
-Defined in: [web/firestore/useCompositeFilter.ts:10](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/web/firestore/useCompositeFilter.ts#L10)
+Defined in: [web/firestore/useCompositeFilter.ts:19](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/web/firestore/useCompositeFilter.ts#L19)

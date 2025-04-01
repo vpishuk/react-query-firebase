@@ -6,7 +6,7 @@
 type UseRunTransactionOptions<AppModelType, TContext> = object;
 ```
 
-Defined in: [react-native/firestore/useRunTransaction.ts:11](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/react-native/firestore/useRunTransaction.ts#L11)
+Defined in: [react-native/firestore/useRunTransaction.ts:11](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/react-native/firestore/useRunTransaction.ts#L11)
 
 ## Type Parameters
 
@@ -26,4 +26,4 @@ Defined in: [react-native/firestore/useRunTransaction.ts:11](https://github.com/
 optional options: Omit<UseMutationOptions<AppModelType, ReactNativeFirebase.NativeFirebaseError, UseRunTransactionValues, TContext>, "mutationFn">;
 ```
 
-Defined in: [react-native/firestore/useRunTransaction.ts:12](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/react-native/firestore/useRunTransaction.ts#L12)
+Defined in: [react-native/firestore/useRunTransaction.ts:12](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/react-native/firestore/useRunTransaction.ts#L12)

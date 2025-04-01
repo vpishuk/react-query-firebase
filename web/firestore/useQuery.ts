@@ -1,6 +1,4 @@
 import {
-    DocumentData,
-    FirestoreDataConverter,
     getDocs,
     CollectionReference,
     query,
@@ -14,51 +12,75 @@ import {
     useQuery as useReactQuery,
     UseQueryOptions as UseReactQueryOptions
 } from "@tanstack/react-query";
+import { QueryFilterConstraint } from "./useCompositeFilter";
+import { AppModel } from "../../types";
 
-type UseQueryOptions<
-    AppModelType extends DocumentData = DocumentData,
-    DbModelType extends DocumentData = DocumentData
-> = {
+/**
+ * @inline
+ */
+type UseQueryOptions<AppModelType extends AppModel = AppModel> = {
+    /**
+     * Reqct-query options that must include queryKey and shall not define queryFn
+     */
     options: Omit<UseReactQueryOptions<AppModelType[], Error, AppModelType[]>, "queryFn"> &
         Required<Pick<UseReactQueryOptions<AppModelType[], Error, AppModelType[]>, "queryKey">>;
-    collectionReference: CollectionReference<AppModelType, DbModelType>;
+
+    /**
+     * Reference to a Firestore collection
+     */
+    collectionReference: CollectionReference<AppModelType, AppModelType>;
+
+    /**
+     * Non composite filter constraints such as limit, order, where
+     */
     queryConstraints?: QueryConstraint[] | QueryNonFilterConstraint[];
-    compositeFilter?: QueryCompositeFilterConstraint;
-    converter?: FirestoreDataConverter<AppModelType, DbModelType>;
+
+    /**
+     * Composite filter
+     */
+    compositeFilter?: QueryFilterConstraint;
 };
 
 /**
- * Executes a query on a Firestore-like data source and returns the resulting documents as an array.
+ * Executes a query on a Firestore data source and returns the resulting documents as an array.
  *
- * This hook utilizes an abstraction over React Query to asynchronously fetch data based on the provided query
- * reference and constraints. It supports optional filtering, conversion, and additional query constraints.
+ * @group Hook
  *
- * @param {UseQueryOptions<AppModelType, DbModelType>}  options - Configuration options for the query.
- * @param {DocumentReference<AppModelType>}  queryReference - The reference to the query to be executed.
- * @param {QueryConstraint[]}  queryConstraints - Additional constraints to fine-tune the query.
- * @param {QueryConstraint}  compositeFilter - Optional composite filter to apply to the query.
- * @param {FirestoreDataConverter<AppModelType>}  converter - Optional data converter for transforming snapshots.
+ * @param {UseQueryOptions<AppModelType>} options - Configuration options for the query.
  *
- * @returns {UseQueryResult<AppModelType[]>} Result containing an array of documents that match the query criteria.
+ * @returns {UseQueryResult<AppModelType[]>} An object containing documents that match the query.
+ *
+ * @example
+ * ```jsx
+ * export const MyComponent = () => {
+ *  const docs = useQuery({
+ *      options: {
+ *          queryKey: ['key']
+ *      },
+ *      collectionReference: collection(),
+ *  });
+ *  console.log(docs);
+ * };
+ * ```
  */
-export const useQuery = <
-    AppModelType extends DocumentData = DocumentData,
-    DbModelType extends DocumentData = DocumentData
->({
+export const useQuery = <AppModelType extends AppModel = AppModel>({
     options,
     collectionReference,
     queryConstraints = [],
-    compositeFilter,
-    converter
-}: UseQueryOptions<AppModelType, DbModelType>): UseQueryResult<AppModelType[]> => {
+    compositeFilter
+}: UseQueryOptions<AppModelType>): UseQueryResult<AppModelType[]> => {
     return useReactQuery({
         ...options,
         queryFn: async () => {
             const queryToExecute = compositeFilter
-                ? query(collectionReference, compositeFilter, ...(queryConstraints as QueryNonFilterConstraint[]))
+                ? query(
+                      collectionReference,
+                      compositeFilter as QueryCompositeFilterConstraint,
+                      ...(queryConstraints as QueryNonFilterConstraint[])
+                  )
                 : query(collectionReference, ...queryConstraints);
 
-            const querySnapshot = await getDocs(converter ? queryToExecute.withConverter(converter) : queryToExecute);
+            const querySnapshot = await getDocs(queryToExecute);
             const docs: AppModelType[] = [];
 
             if (querySnapshot) {

@@ -3,30 +3,48 @@
 # Function: buildCompositeFilter()
 
 ```ts
-function buildCompositeFilter<DbModelType>(query): null | QueryFilterConstraint
+function buildCompositeFilter<AppModelType>(query): 
+  | null
+  | QueryFilterConstraint
 ```
 
-Defined in: [react-native/firestore/useCompositeFilter.ts:31](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/react-native/firestore/useCompositeFilter.ts#L31)
+Defined in: [react-native/firestore/useCompositeFilter.ts:57](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/react-native/firestore/useCompositeFilter.ts#L57)
 
-Constructs a composite query filter based on the provided query structure.
+Constructs a composite or where query filter based on the provided query structure.
 It recursively builds query constraints using logical "or" or "and" operators.
 
 ## Type Parameters
 
-### DbModelType
+### AppModelType
 
-`DbModelType` *extends* `DocumentData` = `DocumentData`
+`AppModelType` *extends* [`AppModel`](../../../types/type-aliases/AppModel.md) = [`AppModel`](../../../types/type-aliases/AppModel.md)
 
 ## Parameters
 
 ### query
 
-[`QueryElement`](../type-aliases/QueryElement.md)\<`DbModelType`\>
-
-The query element or structure to be evaluated and transformed into filter constraints.
+[`QueryElement`](../type-aliases/QueryElement.md)\<`AppModelType`\>
 
 ## Returns
 
-`null` \| `QueryFilterConstraint`
+  \| `null`
+  \| [`QueryFilterConstraint`](../type-aliases/QueryFilterConstraint.md)
 
-A constructed query filter constraint based on the input query, or null if no valid constraints can be derived.
+## Example
+
+```jsx
+export const MyComponent = () => {
+ const filter = buildCompositeFilter({
+     operator: "AND",
+     children: [
+         {
+             field: "field",
+             value: "value",
+             op: "=="
+         },
+         ...(query ? [query] : [])
+     ]
+ });
+ console.log(filter);
+};
+```

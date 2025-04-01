@@ -6,7 +6,7 @@
 function useCollectionReference<AppModelType, DbModelType>(options): CollectionReference<DocumentData, DocumentData>
 ```
 
-Defined in: [web/firestore/useCollectionReference.ts:23](https://github.com/vpishuk/react-query-firebase/blob/09a15a5d938c4bdaa4fd86491bcf8ea41c16371f/web/firestore/useCollectionReference.ts#L23)
+Defined in: [web/firestore/useCollectionReference.ts:23](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/web/firestore/useCollectionReference.ts#L23)
 
 Creates a reference to a Firestore collection based on the provided path, reference, and path segments.
 
