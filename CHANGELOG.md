@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.3.1](https://github.com/vpishuk/react-query-firebase/compare/v2.3.0...v2.3.1) (2025-04-01)
+
+
+### Bug Fixes
+
+* **react-native:** improves types for context ([#65](https://github.com/vpishuk/react-query-firebase/issues/65)) ([7a177f8](https://github.com/vpishuk/react-query-firebase/commit/7a177f8b1c5e4ed094c57aafc238098c6de6f24e))
+
 ## [2.3.0](https://github.com/vpishuk/react-query-firebase/compare/v2.2.0...v2.3.0) (2025-04-01)
 
 
