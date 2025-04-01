@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.3.0](https://github.com/vpishuk/react-query-firebase/compare/v2.2.0...v2.3.0) (2025-04-01)
+
+
+### Features
+
+* **react-native:** improves interface for composite filters ([#63](https://github.com/vpishuk/react-query-firebase/issues/63)) ([b01d5a9](https://github.com/vpishuk/react-query-firebase/commit/b01d5a9ae29176674c0cdf7eda4bfb2f662f0ac4))
+
 ## [2.2.0](https://github.com/vpishuk/react-query-firebase/compare/v2.1.4...v2.2.0) (2025-04-01)
 
 
