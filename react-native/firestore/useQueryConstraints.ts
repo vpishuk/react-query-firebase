@@ -1,4 +1,13 @@
-import { startAt, orderBy, limit, limitToLast, startAfter, endAt, endBefore } from "@react-native-firebase/firestore";
+import {
+    startAt,
+    orderBy,
+    limit,
+    limitToLast,
+    startAfter,
+    endAt,
+    endBefore,
+    type QueryNonFilterConstraint
+} from "@react-native-firebase/firestore";
 import { useMemo } from "react";
 import { AppModel } from "../../types/AppModel";
 import { type NonFilterQueryConstraint } from "../../types/QueryConstraints";
@@ -35,7 +44,7 @@ export type UseQueryConstraints<AppModelType extends AppModel = AppModel> = {
  */
 export const buildQueryConstraint = <AppModelType extends AppModel = AppModel>(
     constraint: NonFilterQueryConstraint<AppModelType>
-) => {
+): QueryNonFilterConstraint => {
     switch (constraint.type) {
         case "orderBy":
             return orderBy(constraint.fieldPath as string, constraint.directionStr);
@@ -77,7 +86,7 @@ export const buildQueryConstraint = <AppModelType extends AppModel = AppModel>(
  */
 export const useQueryConstraints = <AppModelType extends AppModel = AppModel>({
     constraints
-}: UseQueryConstraints<AppModelType>) => {
+}: UseQueryConstraints<AppModelType>): QueryNonFilterConstraint[] => {
     return useMemo(() => {
         return constraints.map(buildQueryConstraint);
     }, [constraints]);
