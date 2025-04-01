@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.1.4](https://github.com/vpishuk/react-query-firebase/compare/v2.1.3...v2.1.4) (2025-04-01)
+
+
+### Bug Fixes
+
+* **react-native:** do not wrap constraint into or/and operator if there is only one constraint ([#60](https://github.com/vpishuk/react-query-firebase/issues/60)) ([e6a9662](https://github.com/vpishuk/react-query-firebase/commit/e6a9662229daad9e6b3f73dee6571487ed6c2cbb))
+* **react-native:** use methods exported by modularized build to get instances of different DB modules ([#58](https://github.com/vpishuk/react-query-firebase/issues/58)) ([798e05e](https://github.com/vpishuk/react-query-firebase/commit/798e05ee9b3e2530b6b6c71d7c0a67e3664087aa))
+
 ## [2.1.3](https://github.com/vpishuk/react-query-firebase/compare/v2.1.2...v2.1.3) (2025-03-31)
 
 
