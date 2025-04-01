@@ -19,11 +19,7 @@ import { AppModel } from "../../types";
 /**
  * @inline
  */
-type UseInfiniteQueryOptions<
-    AppModelType extends AppModel = AppModel,
-    TQueryKey extends QueryKey = QueryKey,
-    TPageParam = unknown
-> = {
+type UseInfiniteQueryOptions<AppModelType extends AppModel = AppModel, TQueryKey extends QueryKey = QueryKey> = {
     /**
      * Reqct-query options that must include queryKey and shall not define queryFn
      */
@@ -34,7 +30,7 @@ type UseInfiniteQueryOptions<
             InfiniteData<AppModelType[]>,
             AppModelType[],
             TQueryKey,
-            TPageParam
+            QueryConstraint
         >,
         "queryFn"
     > &
@@ -46,7 +42,7 @@ type UseInfiniteQueryOptions<
                     InfiniteData<AppModelType[]>,
                     AppModelType[],
                     TQueryKey,
-                    TPageParam
+                    QueryConstraint
                 >,
                 "queryKey"
             >
@@ -90,18 +86,12 @@ type UseInfiniteQueryOptions<
  * };
  * ```
  */
-export const useInfiniteQuery = <
-    AppModelType extends AppModel = AppModel,
-    TQueryKey extends QueryKey = QueryKey,
-    TPageParam = unknown
->({
+export const useInfiniteQuery = <AppModelType extends AppModel = AppModel, TQueryKey extends QueryKey = QueryKey>({
     options,
     collectionReference,
     queryConstraints = [],
     compositeFilter
-}: UseInfiniteQueryOptions<AppModelType, TQueryKey, TPageParam>): UseInfiniteQueryResult<
-    InfiniteData<AppModelType[]>
-> => {
+}: UseInfiniteQueryOptions<AppModelType, TQueryKey>): UseInfiniteQueryResult<InfiniteData<AppModelType[]>> => {
     return useInfiniteReactQuery({
         ...options,
         queryFn: async ({ pageParam }) => {
