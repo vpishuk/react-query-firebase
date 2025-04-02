@@ -1,14 +1,15 @@
 import React, { PropsWithChildren, useEffect, useMemo } from "react";
 import { FirebaseContext, FirebaseContextValue } from "./FirebaseContext";
-import auth, { connectAuthEmulator } from "@react-native-firebase/auth";
-import analytics, {
+import { connectAuthEmulator, getAuth } from "@react-native-firebase/auth";
+import {
     FirebaseAnalyticsTypes,
     setAnalyticsCollectionEnabled,
-    setConsent
+    setConsent,
+    getAnalytics
 } from "@react-native-firebase/analytics";
-import remoteConfig, { FirebaseRemoteConfigTypes } from "@react-native-firebase/remote-config";
-import firestore, { connectFirestoreEmulator } from "@react-native-firebase/firestore";
-import firebase, { ReactNativeFirebase } from "@react-native-firebase/app";
+import { FirebaseRemoteConfigTypes, getRemoteConfig } from "@react-native-firebase/remote-config";
+import { connectFirestoreEmulator, getFirestore } from "@react-native-firebase/firestore";
+import { ReactNativeFirebase, getApp } from "@react-native-firebase/app";
 
 /**
  * @inline
@@ -164,10 +165,10 @@ export const FirebaseContextProvider: React.FC<FirebaseContextProviderProps> = (
     remoteConfigDefaults = {},
     firestoreSettings
 }) => {
-    const internalFirebase = useMemo(() => firebase, []);
+    const internalFirebase = useMemo(() => getApp(), []);
 
     useEffect(() => {
-        setConsent(analytics(), {
+        setConsent(getAnalytics(internalFirebase), {
             ad_personalization: false,
             ad_storage: false,
             ad_user_data: false,
@@ -177,15 +178,19 @@ export const FirebaseContextProvider: React.FC<FirebaseContextProviderProps> = (
             security_storage: false,
             ...consentSettings
         });
-    }, [consentSettings]);
+    }, [consentSettings, internalFirebase]);
 
     const internalFirestore = useMemo(() => {
         if (firestoreEnabled) {
             if (emulators?.firestore?.host && emulators?.firestore?.port) {
-                connectFirestoreEmulator(firestore(), emulators.firestore.host, emulators.firestore.port);
+                connectFirestoreEmulator(
+                    getFirestore(internalFirebase),
+                    emulators.firestore.host,
+                    emulators.firestore.port
+                );
             }
 
-            const localFirestore = firestore();
+            const localFirestore = getFirestore(internalFirebase);
             if (firestoreSettings) {
                 localFirestore.settings(firestoreSettings);
             }
@@ -193,11 +198,11 @@ export const FirebaseContextProvider: React.FC<FirebaseContextProviderProps> = (
         }
 
         return null;
-    }, [emulators?.firestore, firestoreEnabled, firestoreSettings]);
+    }, [emulators?.firestore, firestoreEnabled, internalFirebase, firestoreSettings]);
 
     const internalAuth = useMemo(() => {
         if (authEnabled) {
-            const localAuth = auth();
+            const localAuth = getAuth(internalFirebase);
             if (emulators?.auth?.host) {
                 connectAuthEmulator(localAuth, emulators?.auth?.host, {
                     disableWarnings: true
@@ -206,18 +211,18 @@ export const FirebaseContextProvider: React.FC<FirebaseContextProviderProps> = (
             return localAuth;
         }
         return null;
-    }, [emulators?.auth, authEnabled]);
+    }, [emulators?.auth, authEnabled, internalFirebase]);
 
     const internalAnalytics = useMemo(() => {
         if (analyticsEnabled) {
-            return analytics();
+            return getAnalytics(internalFirebase);
         }
         return null;
-    }, [analyticsEnabled]);
+    }, [analyticsEnabled, internalFirebase]);
 
     const internalRemoteConfig = useMemo(() => {
         if (remoteConfigEnabled) {
-            const localRemoteConfig = remoteConfig();
+            const localRemoteConfig = getRemoteConfig(internalFirebase);
             if (remoteConfigSettings) {
                 localRemoteConfig.settings.fetchTimeMillis = remoteConfigSettings.fetchTimeMillis;
                 localRemoteConfig.settings.minimumFetchIntervalMillis = remoteConfigSettings.minimumFetchIntervalMillis;
@@ -226,7 +231,7 @@ export const FirebaseContextProvider: React.FC<FirebaseContextProviderProps> = (
             return localRemoteConfig;
         }
         return null;
-    }, [remoteConfigEnabled, remoteConfigSettings, remoteConfigDefaults]);
+    }, [remoteConfigEnabled, remoteConfigSettings, remoteConfigDefaults, internalFirebase]);
 
     const contextValue = useMemo(
         () => ({
