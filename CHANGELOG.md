@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.5.0](https://github.com/vpishuk/react-query-firebase/compare/v2.4.1...v2.5.0) (2025-04-02)
+
+
+### Features
+
+* **auth:** adds useSignInAnonymously hook ([#75](https://github.com/vpishuk/react-query-firebase/issues/75)) ([defd6ac](https://github.com/vpishuk/react-query-firebase/commit/defd6acf7b3649d34d9e56a730bbc4b86bb27046))
+
 ## [2.4.1](https://github.com/vpishuk/react-query-firebase/compare/v2.4.0...v2.4.1) (2025-04-02)
 
 
