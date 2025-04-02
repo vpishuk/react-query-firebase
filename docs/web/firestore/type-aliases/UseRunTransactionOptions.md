@@ -1,18 +1,18 @@
 [react-query-firebase](../../../modules.md) / [web/firestore](../index.md) / UseRunTransactionOptions
 
-# Type Alias: UseRunTransactionOptions\<AppModelType, TContext\>
+# Type Alias: UseRunTransactionOptions\<T, TContext\>
 
 ```ts
-type UseRunTransactionOptions<AppModelType, TContext> = object;
+type UseRunTransactionOptions<T, TContext> = object;
 ```
 
-Defined in: [web/firestore/useRunTransaction.ts:9](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/web/firestore/useRunTransaction.ts#L9)
+Defined in: [web/firestore/useRunTransaction.ts:15](https://github.com/vpishuk/react-query-firebase/blob/47ed1ecd8b83d68dd4237e8eb73f6aa6dea2c1fa/web/firestore/useRunTransaction.ts#L15)
 
 ## Type Parameters
 
-### AppModelType
+### T
 
-`AppModelType` = `unknown`
+`T` = `unknown`
 
 ### TContext
 
@@ -23,7 +23,9 @@ Defined in: [web/firestore/useRunTransaction.ts:9](https://github.com/vpishuk/re
 ### options?
 
 ```ts
-optional options: Omit<UseMutationOptions<AppModelType, FirebaseError, UseRunTransactionValues, TContext>, "mutationFn">;
+optional options: Omit<UseMutationOptions<T, FirebaseError, <T>(transaction) => T, TContext>, "mutationFn">;
 ```
 
-Defined in: [web/firestore/useRunTransaction.ts:10](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/web/firestore/useRunTransaction.ts#L10)
+Defined in: [web/firestore/useRunTransaction.ts:19](https://github.com/vpishuk/react-query-firebase/blob/47ed1ecd8b83d68dd4237e8eb73f6aa6dea2c1fa/web/firestore/useRunTransaction.ts#L19)
+
+Reqct-mutation options that shall omit mutationFn

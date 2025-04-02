@@ -6,7 +6,7 @@
 type UseQueryConstraints<AppModelType> = object;
 ```
 
-Defined in: [react-native/firestore/useQueryConstraints.ts:9](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/react-native/firestore/useQueryConstraints.ts#L9)
+Defined in: [react-native/firestore/useQueryConstraints.ts:10](https://github.com/vpishuk/react-query-firebase/blob/47ed1ecd8b83d68dd4237e8eb73f6aa6dea2c1fa/react-native/firestore/useQueryConstraints.ts#L10)
 
 ## Type Parameters
 
@@ -22,6 +22,6 @@ Defined in: [react-native/firestore/useQueryConstraints.ts:9](https://github.com
 constraints: NonFilterQueryConstraint<AppModelType>[];
 ```
 
-Defined in: [react-native/firestore/useQueryConstraints.ts:13](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/react-native/firestore/useQueryConstraints.ts#L13)
+Defined in: [react-native/firestore/useQueryConstraints.ts:14](https://github.com/vpishuk/react-query-firebase/blob/47ed1ecd8b83d68dd4237e8eb73f6aa6dea2c1fa/react-native/firestore/useQueryConstraints.ts#L14)
 
 A list of constraints such as limit, order, offset.

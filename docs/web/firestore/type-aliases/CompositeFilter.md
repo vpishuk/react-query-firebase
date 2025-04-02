@@ -6,7 +6,7 @@
 type CompositeFilter<AppModelType> = object;
 ```
 
-Defined in: [web/firestore/useCompositeFilter.ts:23](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/web/firestore/useCompositeFilter.ts#L23)
+Defined in: web/firestore/utils/buildCompositeFilter.ts:22
 
 ## Type Parameters
 
@@ -22,7 +22,7 @@ Defined in: [web/firestore/useCompositeFilter.ts:23](https://github.com/vpishuk/
 children: QueryElement<AppModelType & object>[];
 ```
 
-Defined in: [web/firestore/useCompositeFilter.ts:25](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/web/firestore/useCompositeFilter.ts#L25)
+Defined in: web/firestore/utils/buildCompositeFilter.ts:24
 
 ***
 
@@ -32,4 +32,4 @@ Defined in: [web/firestore/useCompositeFilter.ts:25](https://github.com/vpishuk/
 operator: "OR" | "AND";
 ```
 
-Defined in: [web/firestore/useCompositeFilter.ts:24](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/web/firestore/useCompositeFilter.ts#L24)
+Defined in: web/firestore/utils/buildCompositeFilter.ts:23

@@ -1,30 +1,51 @@
-import { collection, CollectionReference, DocumentData, DocumentReference } from "firebase/firestore";
+import { collection, CollectionReference, DocumentReference } from "firebase/firestore";
 
 import { useMemo } from "react";
 import { useFirestore } from "./useFirestore";
+import { AppModel } from "../../types";
 
-export type UseCollectionReferenceOptions<AppModelType, DbModelType extends DocumentData = DocumentData> = {
-    reference?: CollectionReference<AppModelType, DbModelType> | DocumentReference<AppModelType, DbModelType>;
+/**
+ * @inline
+ */
+export type UseCollectionReferenceOptions<AppModelType extends AppModel = AppModel> = {
+    /**
+     * CollectionReference or DocumentReference that is used as a root to lookup a sub-collection
+     */
+    reference?: CollectionReference<AppModelType, AppModelType> | DocumentReference<AppModelType, AppModelType>;
+    /**
+     * A slash-separated path to a collection.
+     */
     path: string;
+    /**
+     * Additional path segments that will be applied relative
+     */
     pathSegments?: string[];
 };
 
 /**
- * Creates a reference to a Firestore collection based on the provided path, reference, and path segments.
+ * Gets a `CollectionReference` instance that refers to a subcollection of
+ * `reference` at the specified relative path.
  *
- * This hook utilizes useMemo for optimization, ensuring the collection reference is recalculated only when its dependencies change.
+ * @group Hook
  *
- * @param {UseCollectionReferenceOptions<AppModelType, DbModelType>} options - The options including path, reference, and pathSegments to construct the Firestore collection reference.
- * @param {string} options.path - The base path for the collection.
- * @param {FirestoreReference} options.reference - An optional Firestore reference object that should be of type "collection".
- * @param {string[]} options.pathSegments - Additional path segments to append to the base path.
- * @returns {CollectionReference} A Firestore collection reference constructed using the specified path, reference, and path segments.
+ * @param {UseCollectionReferenceOptions<AppModelType>} options - Options
+ *
+ * @returns {CollectionReference<AppModelType, AppModelType>} A reference to a Firestore collection
+ *
+ * @example
+ * ```jsx
+ * export const MyComponent = () => {
+ *  const ref = useCollectionReference({
+ *      path: 'todos'
+ *  });
+ * };
+ * ```
  */
-export const useCollectionReference = <AppModelType, DbModelType extends DocumentData = DocumentData>({
+export const useCollectionReference = <AppModelType extends AppModel = AppModel>({
     path,
     reference,
     pathSegments
-}: UseCollectionReferenceOptions<AppModelType, DbModelType>) => {
+}: UseCollectionReferenceOptions<AppModelType>) => {
     const db = useFirestore();
 
     return useMemo(() => {
@@ -33,5 +54,5 @@ export const useCollectionReference = <AppModelType, DbModelType extends Documen
             : reference.type === "collection"
               ? collection(reference, path, ...(pathSegments || []))
               : collection(reference, path, ...(pathSegments || []));
-    }, [path, reference, pathSegments, db]);
+    }, [path, reference, pathSegments, db]) as CollectionReference<AppModelType, AppModelType>;
 };

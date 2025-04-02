@@ -6,28 +6,54 @@
 function useCollectionReference<AppModelType>(options): CollectionReference<AppModelType>
 ```
 
-Defined in: [react-native/firestore/useCollectionReference.ts:27](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/react-native/firestore/useCollectionReference.ts#L27)
+Defined in: [react-native/firestore/useCollectionReference.ts:46](https://github.com/vpishuk/react-query-firebase/blob/47ed1ecd8b83d68dd4237e8eb73f6aa6dea2c1fa/react-native/firestore/useCollectionReference.ts#L46)
 
-Creates a reference to a Firestore collection based on the provided path, reference, and path segments.
-
-This hook utilizes useMemo for optimization, ensuring the collection reference is recalculated only when its dependencies change.
+Gets a `CollectionReference` instance that refers to a subcollection of
+`reference` at the specified relative path.
 
 ## Type Parameters
 
 ### AppModelType
 
-`AppModelType` *extends* `DocumentData` = `DocumentData`
+`AppModelType` *extends* [`AppModel`](../../../types/type-aliases/AppModel.md) = [`AppModel`](../../../types/type-aliases/AppModel.md)
 
 ## Parameters
 
 ### options
 
-[`UseCollectionReferenceOptions`](../type-aliases/UseCollectionReferenceOptions.md)\<`AppModelType`\>
+Options
 
-The options including path, reference, and pathSegments to construct the Firestore collection reference.
+#### path
+
+`string`
+
+A slash-separated path to a collection.
+
+#### pathSegments?
+
+`string`[]
+
+Additional path segments that will be applied relative
+
+#### reference?
+
+  \| `CollectionReference`\<`AppModelType`\>
+  \| `DocumentReference`\<`AppModelType`\>
+
+CollectionReference or DocumentReference that is used as a root to lookup a sub-collection
 
 ## Returns
 
 `CollectionReference`\<`AppModelType`\>
 
-A Firestore collection reference constructed using the specified path, reference, and path segments.
+A reference to a Firestore collection
+
+## Example
+
+```jsx
+export const MyComponent = () => {
+ const ref = useCollectionReference({
+     path: 'todos'
+ });
+};
+```

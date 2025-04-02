@@ -2,7 +2,7 @@
 
 # types
 
-## Models
+## Type Aliases
 
 - [AppModel](type-aliases/AppModel.md)
 

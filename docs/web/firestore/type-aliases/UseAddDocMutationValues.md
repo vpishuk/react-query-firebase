@@ -6,7 +6,7 @@
 type UseAddDocMutationValues<AppModelType> = object;
 ```
 
-Defined in: [web/firestore/useAddDocMutation.ts:14](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/web/firestore/useAddDocMutation.ts#L14)
+Defined in: [web/firestore/useAddDocMutation.ts:11](https://github.com/vpishuk/react-query-firebase/blob/47ed1ecd8b83d68dd4237e8eb73f6aa6dea2c1fa/web/firestore/useAddDocMutation.ts#L11)
 
 ## Type Parameters
 
@@ -22,4 +22,6 @@ Defined in: [web/firestore/useAddDocMutation.ts:14](https://github.com/vpishuk/r
 data: WithFieldValue<AppModelType>;
 ```
 
-Defined in: [web/firestore/useAddDocMutation.ts:15](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/web/firestore/useAddDocMutation.ts#L15)
+Defined in: [web/firestore/useAddDocMutation.ts:15](https://github.com/vpishuk/react-query-firebase/blob/47ed1ecd8b83d68dd4237e8eb73f6aa6dea2c1fa/web/firestore/useAddDocMutation.ts#L15)
+
+Data to write

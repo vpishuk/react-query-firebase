@@ -3,19 +3,20 @@
 # Function: useSetDocMutation()
 
 ```ts
-function useSetDocMutation<AppModelType, TContext>(param0): UseMutationResult<void, NativeFirebaseError, UseSetDocMutationValues<AppModelType>, TContext>
+function useSetDocMutation<AppModelType, TContext>(options): UseMutationResult<AppModelType & object, Error, {
+  data: WithFieldValue<AppModelType>;
+}, TContext>
 ```
 
-Defined in: [react-native/firestore/useSetDocMutation.ts:36](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/react-native/firestore/useSetDocMutation.ts#L36)
+Defined in: [react-native/firestore/useSetDocMutation.ts:58](https://github.com/vpishuk/react-query-firebase/blob/47ed1ecd8b83d68dd4237e8eb73f6aa6dea2c1fa/react-native/firestore/useSetDocMutation.ts#L58)
 
-Custom hook to create a mutation for setting a document in a Firestore-like database.
-The mutation can be configured with options and reference to specific document path.
+Executes a mutation and returns added document
 
 ## Type Parameters
 
 ### AppModelType
 
-`AppModelType` *extends* `DocumentData` = `DocumentData`
+`AppModelType` *extends* [`AppModel`](../../../types/type-aliases/AppModel.md) = [`AppModel`](../../../types/type-aliases/AppModel.md)
 
 ### TContext
 
@@ -23,14 +24,44 @@ The mutation can be configured with options and reference to specific document p
 
 ## Parameters
 
-### param0
+### options
 
-[`UseSetDocMutationOptions`](../type-aliases/UseSetDocMutationOptions.md)\<`AppModelType`, `TContext`\>
+Configuration options for mutation.
 
-The options for configuring the mutation, including the document reference and additional mutation options.
+#### options?
+
+`Omit`\<`UseMutationOptions`\<`AppModelType`, `Error`, \{
+  `data`: `WithFieldValue`\<`AppModelType`\>;
+ \}, `TContext`\>, `"mutationFn"`\>
+
+Options for useMutation hook excluding mutationFn.
+
+#### reference
+
+`null` \| `DocumentReference`\<`AppModelType`\>
+
+Reference to a document that must be written
 
 ## Returns
 
-`UseMutationResult`\<`void`, `NativeFirebaseError`, [`UseSetDocMutationValues`](../type-aliases/UseSetDocMutationValues.md)\<`AppModelType`\>, `TContext`\>
+`UseMutationResult`\<`AppModelType` & `object`, `Error`, \{
+  `data`: `WithFieldValue`\<`AppModelType`\>;
+ \}, `TContext`\>
 
-The result of the mutation operation, which includes states like isLoading, isSuccess, isError, and methods to control the mutation process.
+A mutation result
+
+## Example
+
+```jsx
+export const MyComponent = () => {
+ const {mutate} = useSetDocMutation({
+     options: {
+     },
+     reference: collection().doc(),
+ });
+
+ // ....
+ mutate({data: {test: 'value'}});
+ // ....
+};
+```

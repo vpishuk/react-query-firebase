@@ -1,8 +1,10 @@
 import { doc, FirebaseFirestoreTypes } from "@react-native-firebase/firestore";
+import { AppModel } from "../../../types";
 
-export type GetDocRefOptions<
-    AppModelType extends FirebaseFirestoreTypes.DocumentData = FirebaseFirestoreTypes.DocumentData
-> = {
+/**
+ * @inline
+ */
+export type GetDocRefOptions<AppModelType extends AppModel = AppModel> = {
     db: FirebaseFirestoreTypes.Module;
     reference?:
         | FirebaseFirestoreTypes.CollectionReference<AppModelType>
@@ -13,18 +15,15 @@ export type GetDocRefOptions<
 
 /**
  * Retrieves a document reference based on provided database options.
- * Either `reference` or `path` must be provided, not both.
+ * Either `reference` or `path`.
  *
- * @param {Object} options - The options for getting a document reference.
- * @param {FirebaseFirestoreTypes.Module} options.db - The Firestore database instance.
- * @param {FirebaseFirestoreTypes.DocumentReference | FirebaseFirestoreTypes.CollectionReference | null} [options.reference] - Reference to a document or collection.
- * @param {string | null} [options.path] - Path to the document.
- * @param {string[] | null} [options.pathSegments] - Additional path segments if any.
- * @returns {FirebaseFirestoreTypes.DocumentReference<AppModelType>} The document reference.
+ * @group Utility
+ *
+ * @param {GetDocRefOptions<AppModelType>} options - The options for building doc reference.
+ *
+ * @returns {DocumentReference<AppModelType, AppModelType>} Returns a document reference
  */
-export const getDocRef = async <
-    AppModelType extends FirebaseFirestoreTypes.DocumentData = FirebaseFirestoreTypes.DocumentData
->({
+export const getDocRef = <AppModelType extends AppModel = AppModel>({
     db,
     reference,
     path,

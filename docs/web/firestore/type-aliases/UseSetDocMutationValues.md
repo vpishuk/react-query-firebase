@@ -6,13 +6,13 @@
 type UseSetDocMutationValues<AppModelType> = object;
 ```
 
-Defined in: [web/firestore/useSetDocMutation.ts:7](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/web/firestore/useSetDocMutation.ts#L7)
+Defined in: [web/firestore/useSetDocMutation.ts:11](https://github.com/vpishuk/react-query-firebase/blob/47ed1ecd8b83d68dd4237e8eb73f6aa6dea2c1fa/web/firestore/useSetDocMutation.ts#L11)
 
 ## Type Parameters
 
 ### AppModelType
 
-`AppModelType`
+`AppModelType` *extends* [`AppModel`](../../../types/type-aliases/AppModel.md) = [`AppModel`](../../../types/type-aliases/AppModel.md)
 
 ## Properties
 
@@ -22,4 +22,6 @@ Defined in: [web/firestore/useSetDocMutation.ts:7](https://github.com/vpishuk/re
 data: WithFieldValue<AppModelType>;
 ```
 
-Defined in: [web/firestore/useSetDocMutation.ts:8](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/web/firestore/useSetDocMutation.ts#L8)
+Defined in: [web/firestore/useSetDocMutation.ts:15](https://github.com/vpishuk/react-query-firebase/blob/47ed1ecd8b83d68dd4237e8eb73f6aa6dea2c1fa/web/firestore/useSetDocMutation.ts#L15)
+
+Data to write

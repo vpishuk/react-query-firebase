@@ -8,7 +8,7 @@ function buildCompositeFilter<AppModelType>(query):
   | QueryFilterConstraint
 ```
 
-Defined in: [react-native/firestore/useCompositeFilter.ts:57](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/react-native/firestore/useCompositeFilter.ts#L57)
+Defined in: react-native/firestore/utils/buildCompositeFilter.ts:49
 
 Constructs a composite or where query filter based on the provided query structure.
 It recursively builds query constraints using logical "or" or "and" operators.

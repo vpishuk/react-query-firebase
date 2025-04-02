@@ -6,7 +6,7 @@
 type UseSendEmailVerificationMutationVariables = object;
 ```
 
-Defined in: [web/auth/useSendEmailVerificationMutation.ts:7](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/web/auth/useSendEmailVerificationMutation.ts#L7)
+Defined in: [web/auth/useSendEmailVerificationMutation.ts:7](https://github.com/vpishuk/react-query-firebase/blob/47ed1ecd8b83d68dd4237e8eb73f6aa6dea2c1fa/web/auth/useSendEmailVerificationMutation.ts#L7)
 
 ## Properties
 
@@ -16,4 +16,4 @@ Defined in: [web/auth/useSendEmailVerificationMutation.ts:7](https://github.com/
 user: User;
 ```
 
-Defined in: [web/auth/useSendEmailVerificationMutation.ts:8](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/web/auth/useSendEmailVerificationMutation.ts#L8)
+Defined in: [web/auth/useSendEmailVerificationMutation.ts:8](https://github.com/vpishuk/react-query-firebase/blob/47ed1ecd8b83d68dd4237e8eb73f6aa6dea2c1fa/web/auth/useSendEmailVerificationMutation.ts#L8)

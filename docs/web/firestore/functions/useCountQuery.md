@@ -3,10 +3,10 @@
 # Function: useCountQuery()
 
 ```ts
-function useCountQuery<AppModelType, DbModelType>(options): UseQueryResult<number>
+function useCountQuery<AppModelType>(options): UseQueryResult<number>
 ```
 
-Defined in: [web/firestore/useCountQuery.ts:66](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/web/firestore/useCountQuery.ts#L66)
+Defined in: [web/firestore/useCountQuery.ts:66](https://github.com/vpishuk/react-query-firebase/blob/47ed1ecd8b83d68dd4237e8eb73f6aa6dea2c1fa/web/firestore/useCountQuery.ts#L66)
 
 Executes a query with specified constraints and returns the count of matched documents.
 
@@ -16,10 +16,6 @@ Executes a query with specified constraints and returns the count of matched doc
 
 `AppModelType` *extends* [`AppModel`](../../../types/type-aliases/AppModel.md) = [`AppModel`](../../../types/type-aliases/AppModel.md)
 
-### DbModelType
-
-`DbModelType` *extends* [`AppModel`](../../../types/type-aliases/AppModel.md) = [`AppModel`](../../../types/type-aliases/AppModel.md)
-
 ## Parameters
 
 ### options
@@ -28,7 +24,7 @@ Configuration options for the query.
 
 #### collectionReference
 
-`CollectionReference`\<`AppModelType`, `DbModelType`\>
+`CollectionReference`\<`AppModelType`, `AppModelType`\>
 
 Reference to a Firestore collection
 

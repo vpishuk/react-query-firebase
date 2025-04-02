@@ -15,3 +15,8 @@ export * from "./useSetDocMutation";
 export * from "./useUpdateDocMutation";
 export * from "./useGetRealtimeDocData";
 export * from "./useQueryConstraints";
+export * from "./utils/getDocData";
+export * from "./utils/getDocSnap";
+export * from "./utils/getDocRef";
+export * from "./utils/buildQueryConstraint";
+export * from "./utils/buildCompositeFilter";

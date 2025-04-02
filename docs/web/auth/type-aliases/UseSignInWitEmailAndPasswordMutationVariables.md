@@ -6,7 +6,7 @@
 type UseSignInWitEmailAndPasswordMutationVariables = object;
 ```
 
-Defined in: [web/auth/useSignInWitEmailAndPasswordMutation.ts:8](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/web/auth/useSignInWitEmailAndPasswordMutation.ts#L8)
+Defined in: [web/auth/useSignInWitEmailAndPasswordMutation.ts:8](https://github.com/vpishuk/react-query-firebase/blob/47ed1ecd8b83d68dd4237e8eb73f6aa6dea2c1fa/web/auth/useSignInWitEmailAndPasswordMutation.ts#L8)
 
 ## Properties
 
@@ -16,7 +16,7 @@ Defined in: [web/auth/useSignInWitEmailAndPasswordMutation.ts:8](https://github.
 email: string;
 ```
 
-Defined in: [web/auth/useSignInWitEmailAndPasswordMutation.ts:9](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/web/auth/useSignInWitEmailAndPasswordMutation.ts#L9)
+Defined in: [web/auth/useSignInWitEmailAndPasswordMutation.ts:9](https://github.com/vpishuk/react-query-firebase/blob/47ed1ecd8b83d68dd4237e8eb73f6aa6dea2c1fa/web/auth/useSignInWitEmailAndPasswordMutation.ts#L9)
 
 ***
 
@@ -26,4 +26,4 @@ Defined in: [web/auth/useSignInWitEmailAndPasswordMutation.ts:9](https://github.
 password: string;
 ```
 
-Defined in: [web/auth/useSignInWitEmailAndPasswordMutation.ts:10](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/web/auth/useSignInWitEmailAndPasswordMutation.ts#L10)
+Defined in: [web/auth/useSignInWitEmailAndPasswordMutation.ts:10](https://github.com/vpishuk/react-query-firebase/blob/47ed1ecd8b83d68dd4237e8eb73f6aa6dea2c1fa/web/auth/useSignInWitEmailAndPasswordMutation.ts#L10)

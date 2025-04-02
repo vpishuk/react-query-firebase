@@ -3,45 +3,13 @@
 # Type Alias: UseDocReferenceOptions\<AppModelType\>
 
 ```ts
-type UseDocReferenceOptions<AppModelType> = object;
+type UseDocReferenceOptions<AppModelType> = Omit<GetDocRefOptions<AppModelType>, "db">;
 ```
 
-Defined in: [react-native/firestore/useDocReference.ts:6](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/react-native/firestore/useDocReference.ts#L6)
+Defined in: [react-native/firestore/useDocReference.ts:11](https://github.com/vpishuk/react-query-firebase/blob/47ed1ecd8b83d68dd4237e8eb73f6aa6dea2c1fa/react-native/firestore/useDocReference.ts#L11)
 
 ## Type Parameters
 
 ### AppModelType
 
-`AppModelType` *extends* `FirebaseFirestoreTypes.DocumentData` = `FirebaseFirestoreTypes.DocumentData`
-
-## Properties
-
-### path?
-
-```ts
-optional path: string;
-```
-
-Defined in: [react-native/firestore/useDocReference.ts:12](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/react-native/firestore/useDocReference.ts#L12)
-
-***
-
-### pathSegments?
-
-```ts
-optional pathSegments: string[];
-```
-
-Defined in: [react-native/firestore/useDocReference.ts:13](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/react-native/firestore/useDocReference.ts#L13)
-
-***
-
-### reference?
-
-```ts
-optional reference: 
-  | FirebaseFirestoreTypes.CollectionReference<AppModelType>
-| FirebaseFirestoreTypes.DocumentReference<AppModelType>;
-```
-
-Defined in: [react-native/firestore/useDocReference.ts:9](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/react-native/firestore/useDocReference.ts#L9)
+`AppModelType` *extends* [`AppModel`](../../../types/type-aliases/AppModel.md) = [`AppModel`](../../../types/type-aliases/AppModel.md)

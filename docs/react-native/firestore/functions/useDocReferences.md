@@ -3,39 +3,48 @@
 # Function: useDocReferences()
 
 ```ts
-function useDocReferences<AppModelType>(references): DocumentReference<AppModelType>[]
+function useDocReferences<AppModelType>(options): DocumentReference<AppModelType>[]
 ```
 
-Defined in: [react-native/firestore/useDocReferences.ts:32](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/react-native/firestore/useDocReferences.ts#L32)
+Defined in: [react-native/firestore/useDocReferences.ts:32](https://github.com/vpishuk/react-query-firebase/blob/47ed1ecd8b83d68dd4237e8eb73f6aa6dea2c1fa/react-native/firestore/useDocReferences.ts#L32)
 
-A custom hook to generate document references for Firebase Firestore documents using given
-reference options.
-
-The hook accepts an array of options, where each option may contain a path,
-an existing reference, or path segments, and returns an array of generated
-Firestore document references based on those options. The references can be used
-to interact with the Firestore database documents. It uses memoization to optimize
-reference generation.
+Gets `CollectionReference` instances
 
 ## Type Parameters
 
 ### AppModelType
 
-`AppModelType` *extends* `DocumentData` = `DocumentData`
+`AppModelType` *extends* [`AppModel`](../../../types/type-aliases/AppModel.md) = [`AppModel`](../../../types/type-aliases/AppModel.md)
 
 ## Parameters
 
-### references
+### options
 
-[`UseDocReferencesOptions`](../type-aliases/UseDocReferencesOptions.md)\<`AppModelType`\>[]
+Options
 
-An array of options
-specifying how to generate document references. Each option may include a `path`
-as a string, a `reference` as a Firestore reference, and `pathSegments` as an array of strings.
+#### references
+
+`Omit`\<\{
+  `db`: `Module`;
+  `path`: `string`;
+  `pathSegments`: `string`[];
+  `reference`:   \| `CollectionReference`\<`AppModelType`\>
+     \| `DocumentReference`\<`AppModelType`\>;
+ \}, `"db"`\>[]
 
 ## Returns
 
 `DocumentReference`\<`AppModelType`\>[]
 
-An array of Firestore document references
-generated from the options provided.
+A reference to a Firestore document
+
+## Example
+
+```jsx
+export const MyComponent = () => {
+ const ref = useDocReference({
+     reference: collection('todos')
+     path: 'first'
+ });
+};
+```

@@ -6,7 +6,7 @@
 function useSignOutMutation<TContext>(options): UseMutationResult<void, NativeFirebaseError, void, TContext>
 ```
 
-Defined in: [react-native/auth/useSignOutMutation.ts:15](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/react-native/auth/useSignOutMutation.ts#L15)
+Defined in: [react-native/auth/useSignOutMutation.ts:15](https://github.com/vpishuk/react-query-firebase/blob/47ed1ecd8b83d68dd4237e8eb73f6aa6dea2c1fa/react-native/auth/useSignOutMutation.ts#L15)
 
 Custom hook for handling the sign-out mutation using Firebase authentication.
 It wraps the useMutation hook to provide a sign-out function with Firebase.

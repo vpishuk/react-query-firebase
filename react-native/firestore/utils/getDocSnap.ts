@@ -1,29 +1,24 @@
-import { FirebaseFirestoreTypes, getDoc as firestoreGetDoc } from "@react-native-firebase/firestore";
+import { getDoc as firestoreGetDoc } from "@react-native-firebase/firestore";
 import { getDocRef, GetDocRefOptions } from "./getDocRef";
+import { AppModel } from "../../../types";
 
-export type GetDocSnapOptions<
-    AppModelType extends FirebaseFirestoreTypes.DocumentData = FirebaseFirestoreTypes.DocumentData
-> = GetDocRefOptions<AppModelType>;
+/**
+ * @inline
+ */
+export type GetDocSnapOptions<AppModelType extends AppModel = AppModel> = GetDocRefOptions<AppModelType>;
 
 /**
  * Asynchronously retrieves a document snapshot from Firestore using a specified document reference
  * or path information. This function handles getting the appropriate document reference based on
  * the parameters provided, and then fetches the document data from Firestore.
  *
- * @param {GetDocSnapOptions<AppModelType, DbModelType>} options - An object containing options
- *                                                                for retrieving the document
- *                                                                snapshot.
- * @param {DocumentData} options.db - The Firestore database instance to perform the operation on.
- * @param {string} options.reference - A string representing a direct Firestore document reference.
- * @param {string} options.path - A Firestore path string leading to the document.
- * @param {string[]} options.pathSegments - An array of path segments to build the Firestore path.
- * @returns {Promise<FirebaseFirestoreTypes.DocumentData | null>} A promise that resolves to the document data if the
- *                                         document exists, or `null` if the document does not exist
- *                                         or if the reference could not be obtained.
+ * @group Utility
+ *
+ * @param {GetDocSnapOptions<AppModelType>} options - The options for retrieving the document snapshot
+ *
+ * @returns {Promise<DocumentSnapshot<AppModelType, AppModelType> | null>} Returns a document reference
  */
-export const getDocSnap = async <
-    AppModelType extends FirebaseFirestoreTypes.DocumentData = FirebaseFirestoreTypes.DocumentData
->({
+export const getDocSnap = async <AppModelType extends AppModel = AppModel>({
     db,
     reference,
     path,

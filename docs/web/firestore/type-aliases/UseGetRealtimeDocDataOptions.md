@@ -1,22 +1,18 @@
 [react-query-firebase](../../../modules.md) / [web/firestore](../index.md) / UseGetRealtimeDocDataOptions
 
-# Type Alias: UseGetRealtimeDocDataOptions\<AppModelType, DbModelType\>
+# Type Alias: UseGetRealtimeDocDataOptions\<AppModelType\>
 
 ```ts
-type UseGetRealtimeDocDataOptions<AppModelType, DbModelType> = object;
+type UseGetRealtimeDocDataOptions<AppModelType> = object;
 ```
 
-Defined in: [web/firestore/useGetRealtimeDocData.ts:10](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/web/firestore/useGetRealtimeDocData.ts#L10)
+Defined in: [web/firestore/useGetRealtimeDocData.ts:11](https://github.com/vpishuk/react-query-firebase/blob/47ed1ecd8b83d68dd4237e8eb73f6aa6dea2c1fa/web/firestore/useGetRealtimeDocData.ts#L11)
 
 ## Type Parameters
 
 ### AppModelType
 
-`AppModelType`
-
-### DbModelType
-
-`DbModelType` *extends* `DocumentData` = `DocumentData`
+`AppModelType` *extends* [`AppModel`](../../../types/type-aliases/AppModel.md) = [`AppModel`](../../../types/type-aliases/AppModel.md)
 
 ## Properties
 
@@ -26,7 +22,7 @@ Defined in: [web/firestore/useGetRealtimeDocData.ts:10](https://github.com/vpish
 optional onError: (error) => unknown;
 ```
 
-Defined in: [web/firestore/useGetRealtimeDocData.ts:28](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/web/firestore/useGetRealtimeDocData.ts#L28)
+Defined in: [web/firestore/useGetRealtimeDocData.ts:29](https://github.com/vpishuk/react-query-firebase/blob/47ed1ecd8b83d68dd4237e8eb73f6aa6dea2c1fa/web/firestore/useGetRealtimeDocData.ts#L29)
 
 A callback to be called if the listen fails or is
 cancelled. No further callbacks will occur.
@@ -49,7 +45,7 @@ cancelled. No further callbacks will occur.
 optional path: string;
 ```
 
-Defined in: [web/firestore/useGetRealtimeDocData.ts:14](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/web/firestore/useGetRealtimeDocData.ts#L14)
+Defined in: [web/firestore/useGetRealtimeDocData.ts:15](https://github.com/vpishuk/react-query-firebase/blob/47ed1ecd8b83d68dd4237e8eb73f6aa6dea2c1fa/web/firestore/useGetRealtimeDocData.ts#L15)
 
 A slash-separated path to a document. Has to be omitted to use
 
@@ -61,7 +57,7 @@ A slash-separated path to a document. Has to be omitted to use
 optional pathSegments: string[];
 ```
 
-Defined in: [web/firestore/useGetRealtimeDocData.ts:23](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/web/firestore/useGetRealtimeDocData.ts#L23)
+Defined in: [web/firestore/useGetRealtimeDocData.ts:24](https://github.com/vpishuk/react-query-firebase/blob/47ed1ecd8b83d68dd4237e8eb73f6aa6dea2c1fa/web/firestore/useGetRealtimeDocData.ts#L24)
 
 Additional path segments that will be applied relative
 to the first argument.
@@ -71,11 +67,9 @@ to the first argument.
 ### reference?
 
 ```ts
-optional reference: 
-  | CollectionReference<AppModelType, DbModelType>
-| DocumentReference<AppModelType, DbModelType>;
+optional reference: DocumentReference<AppModelType, AppModelType>;
 ```
 
-Defined in: [web/firestore/useGetRealtimeDocData.ts:18](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/web/firestore/useGetRealtimeDocData.ts#L18)
+Defined in: [web/firestore/useGetRealtimeDocData.ts:19](https://github.com/vpishuk/react-query-firebase/blob/47ed1ecd8b83d68dd4237e8eb73f6aa6dea2c1fa/web/firestore/useGetRealtimeDocData.ts#L19)
 
 A reference to a collection.

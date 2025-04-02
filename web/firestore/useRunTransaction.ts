@@ -4,28 +4,53 @@ import { runTransaction, Transaction } from "firebase/firestore";
 import { FirebaseError } from "firebase/app";
 import { useFirestore } from "./useFirestore";
 
-export type UseRunTransactionValues = <AppModelType = unknown>(transaction: Transaction) => AppModelType;
+/**
+ * @inline
+ */
+export type UseRunTransactionValues = <T = unknown>(transaction: Transaction) => T;
 
-export type UseRunTransactionOptions<AppModelType = unknown, TContext = unknown> = {
-    options?: Omit<UseMutationOptions<AppModelType, FirebaseError, UseRunTransactionValues, TContext>, "mutationFn">;
+/**
+ * @inline
+ */
+export type UseRunTransactionOptions<T = unknown, TContext = unknown> = {
+    /**
+     * Reqct-mutation options that shall omit mutationFn
+     */
+    options?: Omit<UseMutationOptions<T, FirebaseError, UseRunTransactionValues, TContext>, "mutationFn">;
 };
 
 /**
- * Custom hook to execute a Firestore transaction using the useMutation hook.
+ * Executes a Firestore transaction
  *
- * @param {UseRunTransactionOptions<AppModelType, TContext>} options - Configuration options for running the transaction.
- * @param {Object} options.options - Options to customize the behavior of useMutation and runTransaction.
- * @returns {UseMutationResult} The result object from the useMutation hook, allowing to track the transaction state and outcome.
+ * @group Hook
+ *
+ * @param {UseRunTransactionOptions<T>} options - Configuration options for the mutation.
+ *
+ * @returns {UseMutationResult<T, Error>} An object representing mutation
+ *
+ * @example
+ * ```jsx
+ * export const MyComponent = () => {
+ *  const doc = useGetDocData({
+ *      options: {
+ *          queryKey: ['key']
+ *      },
+ *      reference: collection(),
+ *      path: 'id'
+ *  });
+ *  console.log(doc);
+ * };
+ * ```
  */
-export const useRunTransaction = <AppModelType = unknown, TContext = unknown>({
+export const useRunTransaction = <T = unknown, TContext = unknown>({
     options = {}
-}: UseRunTransactionOptions<AppModelType, TContext>) => {
+}: UseRunTransactionOptions<T, TContext>) => {
     const db = useFirestore();
 
     return useMutation({
         ...options,
         mutationFn: async (transactionFn) => {
-            return runTransaction<AppModelType>(db, transactionFn);
+            return runTransaction<T>(db, transactionFn);
         }
     });
 };

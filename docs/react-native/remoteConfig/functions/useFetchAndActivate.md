@@ -6,7 +6,7 @@
 function useFetchAndActivate(): object
 ```
 
-Defined in: [react-native/remoteConfig/useFetchAndActivate.ts:12](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/react-native/remoteConfig/useFetchAndActivate.ts#L12)
+Defined in: [react-native/remoteConfig/useFetchAndActivate.ts:12](https://github.com/vpishuk/react-query-firebase/blob/47ed1ecd8b83d68dd4237e8eb73f6aa6dea2c1fa/react-native/remoteConfig/useFetchAndActivate.ts#L12)
 
 Custom hook to fetch and activate remote configuration settings.
 Initializes remote configuration, fetches, activates it, and tracks the fetch status.

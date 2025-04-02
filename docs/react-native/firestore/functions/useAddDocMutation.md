@@ -3,13 +3,14 @@
 # Function: useAddDocMutation()
 
 ```ts
-function useAddDocMutation<AppModelType, TContext>(options): UseMutationResult<AppModelType, NativeFirebaseError, UseAddDocMutationValues<AppModelType>, TContext>
+function useAddDocMutation<AppModelType, TContext>(options): UseMutationResult<AppModelType, NativeFirebaseError, {
+  data: WithFieldValue<AppModelType>;
+}, TContext>
 ```
 
-Defined in: [react-native/firestore/useAddDocMutation.ts:37](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/react-native/firestore/useAddDocMutation.ts#L37)
+Defined in: [react-native/firestore/useAddDocMutation.ts:67](https://github.com/vpishuk/react-query-firebase/blob/47ed1ecd8b83d68dd4237e8eb73f6aa6dea2c1fa/react-native/firestore/useAddDocMutation.ts#L67)
 
-Provides a mutation hook to add a document to a Firestore collection utilizing React Query's `useMutation`.
-It handles addition and optional conversion of the document data in Firestore.
+Executes a mutation and returns added document
 
 ## Type Parameters
 
@@ -25,12 +26,42 @@ It handles addition and optional conversion of the document data in Firestore.
 
 ### options
 
-[`UseAddDocMutationOptions`](../type-aliases/UseAddDocMutationOptions.md)\<`AppModelType`, `TContext`\>
+Configuration options for the mutation.
 
-Options for the mutation hook
+#### collectionReference
+
+`CollectionReference`\<`AppModelType`\>
+
+Reference to a collection where document must be added
+
+#### options?
+
+`Omit`\<`UseMutationOptions`\<`AppModelType`, `NativeFirebaseError`, \{
+  `data`: `WithFieldValue`\<`AppModelType`\>;
+ \}, `TContext`\>, `"mutationFn"`\> = `{}`
+
+Options for useMutation hook excluding mutationFn. MutationKey will be equal to reference.path by default.
 
 ## Returns
 
-`UseMutationResult`\<`AppModelType`, `NativeFirebaseError`, [`UseAddDocMutationValues`](../type-aliases/UseAddDocMutationValues.md)\<`AppModelType`\>, `TContext`\>
+`UseMutationResult`\<`AppModelType`, `NativeFirebaseError`, \{
+  `data`: `WithFieldValue`\<`AppModelType`\>;
+ \}, `TContext`\>
 
-The mutation hook result containing status, error, and data of the mutation process.
+A mutation result
+
+## Example
+
+```jsx
+export const MyComponent = () => {
+ const {mutate} = useAddDocMutation({
+     options: {
+     },
+     reference: collection(),
+ });
+
+ // ....
+ mutate({data: {test: 'value'}});
+ // ....
+};
+```

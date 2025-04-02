@@ -3,12 +3,12 @@
 # Function: useDeleteDocMutation()
 
 ```ts
-function useDeleteDocMutation<AppModelType, TContext>(options): UseMutationResult<void, NativeFirebaseError, void, TContext>
+function useDeleteDocMutation<AppModelType, TContext>(options): UseMutationResult<void, Error, void, TContext>
 ```
 
-Defined in: [react-native/firestore/useDeleteDocMutation.ts:29](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/react-native/firestore/useDeleteDocMutation.ts#L29)
+Defined in: [react-native/firestore/useDeleteDocMutation.ts:52](https://github.com/vpishuk/react-query-firebase/blob/47ed1ecd8b83d68dd4237e8eb73f6aa6dea2c1fa/react-native/firestore/useDeleteDocMutation.ts#L52)
 
-A custom hook that provides a mutation function to delete a document from the database.
+Executes a query with specified constraints and returns the count of matched documents.
 
 ## Type Parameters
 
@@ -24,12 +24,38 @@ A custom hook that provides a mutation function to delete a document from the da
 
 ### options
 
-[`UseDeleteDocMutationOptions`](../type-aliases/UseDeleteDocMutationOptions.md)\<`AppModelType`, `TContext`\>
+Configuration options for the query.
 
-An object containing the reference to the document and additional options for the mutation.
+#### options?
+
+`Omit`\<`UseMutationOptions`\<`void`, `Error`, `void`, `TContext`\>, `"mutationFn"`\> = `{}`
+
+Options for useMutation hook excluding mutationFn. MutationKey will be equal to reference.path by default.
+
+#### reference
+
+`null` \| `DocumentReference`\<`AppModelType`\>
+
+A reference to a firestore document
 
 ## Returns
 
-`UseMutationResult`\<`void`, `NativeFirebaseError`, `void`, `TContext`\>
+`UseMutationResult`\<`void`, `Error`, `void`, `TContext`\>
 
-An object returned by the `useMutation` hook which includes properties and methods to control the mutation's execution and track its state.
+A mutation result
+
+## Example
+
+```jsx
+export const MyComponent = () => {
+ const {mutate} = useDeleteDocMutation({
+     options: {
+     },
+     reference: document(),
+ });
+
+ // ....
+ mutate();
+ // ....
+};
+```

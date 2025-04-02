@@ -6,12 +6,24 @@
 type AppModel = object;
 ```
 
-Defined in: [types/AppModel.ts:5](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/types/AppModel.ts#L5)
+Defined in: [types/AppModel.ts:4](https://github.com/vpishuk/react-query-firebase/blob/47ed1ecd8b83d68dd4237e8eb73f6aa6dea2c1fa/types/AppModel.ts#L4)
 
 Generic definition for a data model
 
-## Index Signature
+## Indexable
 
 ```ts
 [key: string]: unknown
 ```
+
+## Properties
+
+### uid?
+
+```ts
+optional uid: string;
+```
+
+Defined in: [types/AppModel.ts:8](https://github.com/vpishuk/react-query-firebase/blob/47ed1ecd8b83d68dd4237e8eb73f6aa6dea2c1fa/types/AppModel.ts#L8)
+
+Unique identifier equl to documentId() from Firestore

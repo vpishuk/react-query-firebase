@@ -8,4 +8,4 @@ type QueryFilterConstraint =
   | FirebaseFirestoreTypes.QueryFilterConstraint;
 ```
 
-Defined in: [react-native/firestore/useCompositeFilter.ts:5](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/react-native/firestore/useCompositeFilter.ts#L5)
+Defined in: react-native/firestore/utils/buildCompositeFilter.ts:4

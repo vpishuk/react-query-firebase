@@ -1,22 +1,18 @@
 [react-query-firebase](../../../modules.md) / [web/firestore](../index.md) / UseDeleteDocMutationOptions
 
-# Type Alias: UseDeleteDocMutationOptions\<AppModelType, DbModelType, TContext\>
+# Type Alias: UseDeleteDocMutationOptions\<AppModelType, TContext\>
 
 ```ts
-type UseDeleteDocMutationOptions<AppModelType, DbModelType, TContext> = object;
+type UseDeleteDocMutationOptions<AppModelType, TContext> = object;
 ```
 
-Defined in: [web/firestore/useDeleteDocMutation.ts:11](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/web/firestore/useDeleteDocMutation.ts#L11)
+Defined in: [web/firestore/useDeleteDocMutation.ts:18](https://github.com/vpishuk/react-query-firebase/blob/47ed1ecd8b83d68dd4237e8eb73f6aa6dea2c1fa/web/firestore/useDeleteDocMutation.ts#L18)
 
 ## Type Parameters
 
 ### AppModelType
 
-`AppModelType` *extends* `DocumentData` = `DocumentData`
-
-### DbModelType
-
-`DbModelType` *extends* `DocumentData` = `DocumentData`
+`AppModelType` *extends* [`AppModel`](../../../types/type-aliases/AppModel.md) = [`AppModel`](../../../types/type-aliases/AppModel.md)
 
 ### TContext
 
@@ -27,17 +23,21 @@ Defined in: [web/firestore/useDeleteDocMutation.ts:11](https://github.com/vpishu
 ### options?
 
 ```ts
-optional options: Omit<UseMutationOptions<void, FirebaseError, void, TContext>, "mutationFn" | "mutationKey">;
+optional options: Omit<UseMutationOptions<void, FirebaseError, void, TContext>, "mutationFn">;
 ```
 
-Defined in: [web/firestore/useDeleteDocMutation.ts:17](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/web/firestore/useDeleteDocMutation.ts#L17)
+Defined in: [web/firestore/useDeleteDocMutation.ts:26](https://github.com/vpishuk/react-query-firebase/blob/47ed1ecd8b83d68dd4237e8eb73f6aa6dea2c1fa/web/firestore/useDeleteDocMutation.ts#L26)
+
+Options for useMutation hook excluding mutationFn. MutationKey will be equal to reference.path by default.
 
 ***
 
 ### reference
 
 ```ts
-reference: DocumentReference<AppModelType, DbModelType> | null;
+reference: DocumentReference<AppModelType, AppModelType> | null;
 ```
 
-Defined in: [web/firestore/useDeleteDocMutation.ts:16](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/web/firestore/useDeleteDocMutation.ts#L16)
+Defined in: [web/firestore/useDeleteDocMutation.ts:22](https://github.com/vpishuk/react-query-firebase/blob/47ed1ecd8b83d68dd4237e8eb73f6aa6dea2c1fa/web/firestore/useDeleteDocMutation.ts#L22)
+
+A reference to a firestore document

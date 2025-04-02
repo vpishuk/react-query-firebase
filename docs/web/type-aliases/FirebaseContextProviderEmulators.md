@@ -6,7 +6,7 @@
 type FirebaseContextProviderEmulators = object;
 ```
 
-Defined in: [web/context/FirebaseContextProvider.tsx:36](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/web/context/FirebaseContextProvider.tsx#L36)
+Defined in: [web/context/FirebaseContextProvider.tsx:36](https://github.com/vpishuk/react-query-firebase/blob/47ed1ecd8b83d68dd4237e8eb73f6aa6dea2c1fa/web/context/FirebaseContextProvider.tsx#L36)
 
 ## Properties
 
@@ -16,7 +16,7 @@ Defined in: [web/context/FirebaseContextProvider.tsx:36](https://github.com/vpis
 optional auth: object;
 ```
 
-Defined in: [web/context/FirebaseContextProvider.tsx:44](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/web/context/FirebaseContextProvider.tsx#L44)
+Defined in: [web/context/FirebaseContextProvider.tsx:44](https://github.com/vpishuk/react-query-firebase/blob/47ed1ecd8b83d68dd4237e8eb73f6aa6dea2c1fa/web/context/FirebaseContextProvider.tsx#L44)
 
 Defines configuration for Firebase Auth emulator. Optional
 
@@ -36,7 +36,7 @@ Host to connect to Firebase Auth Emulator
 optional firestore: object;
 ```
 
-Defined in: [web/context/FirebaseContextProvider.tsx:40](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/web/context/FirebaseContextProvider.tsx#L40)
+Defined in: [web/context/FirebaseContextProvider.tsx:40](https://github.com/vpishuk/react-query-firebase/blob/47ed1ecd8b83d68dd4237e8eb73f6aa6dea2c1fa/web/context/FirebaseContextProvider.tsx#L40)
 
 Defines configuration for Firebase Firestore emulator. Optional.
 

@@ -3,22 +3,20 @@
 # Function: useUpdateDocMutation()
 
 ```ts
-function useUpdateDocMutation<AppModelType, TContext>(options): UseMutationResult<AppModelType, NativeFirebaseError, UseUpdateDocMutationValues<AppModelType>, TContext>
+function useUpdateDocMutation<AppModelType, TContext>(options): UseMutationResult<AppModelType & object, Error, {
+  data: UpdateData<AppModelType>;
+}, TContext>
 ```
 
-Defined in: [react-native/firestore/useUpdateDocMutation.ts:46](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/react-native/firestore/useUpdateDocMutation.ts#L46)
+Defined in: [react-native/firestore/useUpdateDocMutation.ts:58](https://github.com/vpishuk/react-query-firebase/blob/47ed1ecd8b83d68dd4237e8eb73f6aa6dea2c1fa/react-native/firestore/useUpdateDocMutation.ts#L58)
 
-Custom hook that sets up a mutation for updating a document in a Firestore database.
-
-This hook utilizes `useMutation` for performing asynchronous operations to update the document
-and retrieve the latest data snapshot. The update functionality can be configured with a custom
-converter if needed.
+Executes a mutation and returns updated document
 
 ## Type Parameters
 
 ### AppModelType
 
-`AppModelType` *extends* `DocumentData` = `DocumentData`
+`AppModelType` *extends* [`AppModel`](../../../types/type-aliases/AppModel.md) = [`AppModel`](../../../types/type-aliases/AppModel.md)
 
 ### TContext
 
@@ -28,20 +26,42 @@ converter if needed.
 
 ### options
 
-[`UseUpdateDocMutationOptions`](../type-aliases/UseUpdateDocMutationOptions.md)\<`AppModelType`, `TContext`\>
+Configuration options for mutation.
 
-Configuration options for the mutation,
-including Firestore reference, an optional Firestore data converter, and additional mutation options.
+#### options?
 
-`reference` - The Firestore document reference that identifies the document to be updated.
+`Omit`\<`UseMutationOptions`\<`AppModelType`, `Error`, \{
+  `data`: `UpdateData`\<`AppModelType`\>;
+ \}, `TContext`\>, `"mutationFn"`\> = `{}`
 
-`converter` - An optional Firestore converter for transforming the database response into a custom type.
+Options for useMutation hook excluding mutationFn.
 
-`options` - Additional options that customize the mutation's behavior.
+#### reference
+
+`null` \| `DocumentReference`\<`AppModelType`\>
+
+Reference to a document that must be updated
 
 ## Returns
 
-`UseMutationResult`\<`AppModelType`, `NativeFirebaseError`, [`UseUpdateDocMutationValues`](../type-aliases/UseUpdateDocMutationValues.md)\<`AppModelType`\>, `TContext`\>
+`UseMutationResult`\<`AppModelType` & `object`, `Error`, \{
+  `data`: `UpdateData`\<`AppModelType`\>;
+ \}, `TContext`\>
 
-An object returned by `useMutation`
-which includes functions to start the mutation and properties that represent the different states of the mutation.
+A mutation result
+
+## Example
+
+```jsx
+export const MyComponent = () => {
+ const {mutate} = useUpdateDocMutation({
+     options: {
+     },
+     reference: collection().doc(),
+ });
+
+ // ....
+ mutate({data: {test: 'value'}});
+ // ....
+};
+```

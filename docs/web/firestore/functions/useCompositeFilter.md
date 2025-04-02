@@ -6,7 +6,7 @@
 function useCompositeFilter<AppModelType>(query): undefined | QueryCompositeFilterConstraint
 ```
 
-Defined in: [web/firestore/useCompositeFilter.ts:111](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/web/firestore/useCompositeFilter.ts#L111)
+Defined in: [web/firestore/useCompositeFilter.ts:41](https://github.com/vpishuk/react-query-firebase/blob/47ed1ecd8b83d68dd4237e8eb73f6aa6dea2c1fa/web/firestore/useCompositeFilter.ts#L41)
 
 A custom hook that constructs a composite or where query filter based on the provided query structure.
 It recursively builds query constraints using logical "or" or "and" operators.

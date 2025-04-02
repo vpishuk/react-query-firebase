@@ -6,7 +6,7 @@
 function useCreateUserWitEmailAndPasswordMutation<TContext>(options): UseMutationResult<UserCredential, FirebaseError, UseCreateUserWitEmailAndPasswordMutationVariables, TContext>
 ```
 
-Defined in: [web/auth/useCreateUserWitEmailAndPasswordMutation.ts:19](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/web/auth/useCreateUserWitEmailAndPasswordMutation.ts#L19)
+Defined in: [web/auth/useCreateUserWitEmailAndPasswordMutation.ts:19](https://github.com/vpishuk/react-query-firebase/blob/47ed1ecd8b83d68dd4237e8eb73f6aa6dea2c1fa/web/auth/useCreateUserWitEmailAndPasswordMutation.ts#L19)
 
 Custom hook to initiate a user creation process using email and password with Firebase authentication.
 This hook utilizes the `useMutation` functionality to support creating new user credentials asynchronously.

@@ -1,22 +1,18 @@
 [react-query-firebase](../../../modules.md) / [web/firestore](../index.md) / UseUpdateDocMutationOptions
 
-# Type Alias: UseUpdateDocMutationOptions\<AppModelType, DbModelType, TContext\>
+# Type Alias: UseUpdateDocMutationOptions\<AppModelType, TContext\>
 
 ```ts
-type UseUpdateDocMutationOptions<AppModelType, DbModelType, TContext> = object;
+type UseUpdateDocMutationOptions<AppModelType, TContext> = object;
 ```
 
-Defined in: [web/firestore/useUpdateDocMutation.ts:18](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/web/firestore/useUpdateDocMutation.ts#L18)
+Defined in: [web/firestore/useUpdateDocMutation.ts:21](https://github.com/vpishuk/react-query-firebase/blob/47ed1ecd8b83d68dd4237e8eb73f6aa6dea2c1fa/web/firestore/useUpdateDocMutation.ts#L21)
 
 ## Type Parameters
 
 ### AppModelType
 
-`AppModelType` *extends* `DocumentData` = `DocumentData`
-
-### DbModelType
-
-`DbModelType` *extends* `DocumentData` = `DocumentData`
+`AppModelType` *extends* [`AppModel`](../../../types/type-aliases/AppModel.md) = [`AppModel`](../../../types/type-aliases/AppModel.md)
 
 ### TContext
 
@@ -24,30 +20,24 @@ Defined in: [web/firestore/useUpdateDocMutation.ts:18](https://github.com/vpishu
 
 ## Properties
 
-### converter?
-
-```ts
-optional converter: FirestoreDataConverter<AppModelType, DbModelType>;
-```
-
-Defined in: [web/firestore/useUpdateDocMutation.ts:24](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/web/firestore/useUpdateDocMutation.ts#L24)
-
-***
-
 ### options?
 
 ```ts
-optional options: Omit<UseMutationOptions<AppModelType, FirebaseError, UseUpdateDocMutationValues<DbModelType>, TContext>, "mutationFn" | "mutationKey">;
+optional options: Omit<UseMutationOptions<AppModelType, FirebaseError, UseUpdateDocMutationValues<AppModelType>, TContext>, "mutationFn">;
 ```
 
-Defined in: [web/firestore/useUpdateDocMutation.ts:25](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/web/firestore/useUpdateDocMutation.ts#L25)
+Defined in: [web/firestore/useUpdateDocMutation.ts:29](https://github.com/vpishuk/react-query-firebase/blob/47ed1ecd8b83d68dd4237e8eb73f6aa6dea2c1fa/web/firestore/useUpdateDocMutation.ts#L29)
+
+Options for useMutation hook excluding mutationFn.
 
 ***
 
 ### reference
 
 ```ts
-reference: DocumentReference<AppModelType, DbModelType> | null;
+reference: DocumentReference<AppModelType, AppModelType> | null;
 ```
 
-Defined in: [web/firestore/useUpdateDocMutation.ts:23](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/web/firestore/useUpdateDocMutation.ts#L23)
+Defined in: [web/firestore/useUpdateDocMutation.ts:25](https://github.com/vpishuk/react-query-firebase/blob/47ed1ecd8b83d68dd4237e8eb73f6aa6dea2c1fa/web/firestore/useUpdateDocMutation.ts#L25)
+
+Reference to a document that must be updated

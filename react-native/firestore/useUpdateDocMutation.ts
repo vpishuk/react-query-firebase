@@ -1,52 +1,61 @@
 import { useMutation, UseMutationOptions } from "@tanstack/react-query";
 import { FirebaseFirestoreTypes, updateDoc, getDoc, UpdateData } from "@react-native-firebase/firestore";
 
-import { ReactNativeFirebase } from "@react-native-firebase/app";
 import { useMemo } from "react";
+import { AppModel } from "../../types";
 
-export type UseUpdateDocMutationValues<DbModelType> = {
-    data: UpdateData<DbModelType>;
+/**
+ * @inline
+ */
+export type UseUpdateDocMutationValues<AppModelType extends AppModel = AppModel> = {
+    /**
+     * Data to write
+     */
+    data: UpdateData<AppModelType>;
 };
 
-export type UseUpdateDocMutationOptions<
-    AppModelType extends FirebaseFirestoreTypes.DocumentData = FirebaseFirestoreTypes.DocumentData,
-    TContext = unknown
-> = {
+/**
+ * @inline
+ */
+export type UseUpdateDocMutationOptions<AppModelType extends AppModel = AppModel, TContext = unknown> = {
+    /**
+     * Reference to a document that must be updated
+     */
     reference: FirebaseFirestoreTypes.DocumentReference<AppModelType> | null;
+    /**
+     * Options for useMutation hook excluding mutationFn.
+     */
     options?: Omit<
-        UseMutationOptions<
-            AppModelType,
-            ReactNativeFirebase.NativeFirebaseError,
-            UseUpdateDocMutationValues<AppModelType>,
-            TContext
-        >,
-        "mutationFn" | "mutationKey"
+        UseMutationOptions<AppModelType, Error, UseUpdateDocMutationValues<AppModelType>, TContext>,
+        "mutationFn"
     >;
 };
 
 /**
- * Custom hook that sets up a mutation for updating a document in a Firestore database.
+ * Executes a mutation and returns updated document
  *
- * This hook utilizes `useMutation` for performing asynchronous operations to update the document
- * and retrieve the latest data snapshot. The update functionality can be configured with a custom
- * converter if needed.
+ * @group Hook
  *
- * @param {UseUpdateDocMutationOptions<AppModelType, TContext>} options - Configuration options for the mutation,
- * including Firestore reference, an optional Firestore data converter, and additional mutation options.
+ * @param {UseUpdateDocMutationOptions<AppModelType>} options - Configuration options for mutation.
  *
- * `reference` - The Firestore document reference that identifies the document to be updated.
+ * @returns {UseMutationResult<AppModelType, Error, UseAddDocMutationValues<AppModelType>, TContext>}  A mutation result
  *
- * `converter` - An optional Firestore converter for transforming the database response into a custom type.
+ * @example
+ * ```jsx
+ * export const MyComponent = () => {
+ *  const {mutate} = useUpdateDocMutation({
+ *      options: {
+ *      },
+ *      reference: collection().doc(),
+ *  });
  *
- * `options` - Additional options that customize the mutation's behavior.
- *
- * @returns {UseMutationResult<AppModelType, Error, {data: AppModelType}, TContext>} An object returned by `useMutation`
- * which includes functions to start the mutation and properties that represent the different states of the mutation.
+ *  // ....
+ *  mutate({data: {test: 'value'}});
+ *  // ....
+ * };
+ * ```
  */
-export const useUpdateDocMutation = <
-    AppModelType extends FirebaseFirestoreTypes.DocumentData = FirebaseFirestoreTypes.DocumentData,
-    TContext = unknown
->({
+export const useUpdateDocMutation = <AppModelType extends AppModel = AppModel, TContext = unknown>({
     reference,
     options = {}
 }: UseUpdateDocMutationOptions<AppModelType, TContext>) => {
@@ -61,7 +70,7 @@ export const useUpdateDocMutation = <
 
             await updateDoc<AppModelType>(reference, data);
             const docSnap = await getDoc(reference);
-            return docSnap.data() as AppModelType;
+            return { ...(docSnap.data() as AppModelType), uid: docSnap.id };
         },
         mutationKey
     });

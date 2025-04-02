@@ -1,7 +1,10 @@
 /**
  * Generic definition for a data model
- * @group Models
  */
 export type AppModel = {
+    /**
+     * Unique identifier equl to documentId() from Firestore
+     */
+    uid?: string;
     [key: string]: unknown;
 };

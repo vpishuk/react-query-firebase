@@ -3,31 +3,51 @@
 # Function: useDocReference()
 
 ```ts
-function useDocReference<AppModelType>(options): DocumentReference<AppModelType>
+function useDocReference<AppModelType>(options): null | DocumentReference<AppModelType>
 ```
 
-Defined in: [react-native/firestore/useDocReference.ts:51](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/react-native/firestore/useDocReference.ts#L51)
+Defined in: [react-native/firestore/useDocReference.ts:35](https://github.com/vpishuk/react-query-firebase/blob/47ed1ecd8b83d68dd4237e8eb73f6aa6dea2c1fa/react-native/firestore/useDocReference.ts#L35)
 
-Custom hook to generate and manage a Firestore document reference.
-This hook facilitates the retrieval of a Firestore document reference based on given options such as path and reference data.
-The reference is updated whenever the associated path, reference, or path segments change.
+Gets a `CollectionReference` instance.
 
 ## Type Parameters
 
 ### AppModelType
 
-`AppModelType` *extends* `DocumentData` = `DocumentData`
+`AppModelType` *extends* [`AppModel`](../../../types/type-aliases/AppModel.md) = [`AppModel`](../../../types/type-aliases/AppModel.md)
 
 ## Parameters
 
 ### options
 
-[`UseDocReferenceOptions`](../type-aliases/UseDocReferenceOptions.md)\<`AppModelType`\>
+Options
 
-Configuration options for setting up the document reference.
+#### path?
+
+`string`
+
+#### pathSegments?
+
+`string`[]
+
+#### reference?
+
+  \| `CollectionReference`\<`AppModelType`\>
+  \| `DocumentReference`\<`AppModelType`\>
 
 ## Returns
 
-`DocumentReference`\<`AppModelType`\>
+`null` \| `DocumentReference`\<`AppModelType`\>
 
-The Firestore document reference corresponding to the provided path and options, or null if not initialized.
+A reference to a Firestore document
+
+## Example
+
+```jsx
+export const MyComponent = () => {
+ const ref = useDocReference({
+     reference: collection('todos')
+     path: 'first'
+ });
+};
+```

@@ -6,7 +6,7 @@
 function useGetRealtimeDocData<AppModelType>(options): object
 ```
 
-Defined in: [react-native/firestore/useGetRealtimeDocData.ts:67](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/react-native/firestore/useGetRealtimeDocData.ts#L67)
+Defined in: [react-native/firestore/useGetRealtimeDocData.ts:64](https://github.com/vpishuk/react-query-firebase/blob/47ed1ecd8b83d68dd4237e8eb73f6aa6dea2c1fa/react-native/firestore/useGetRealtimeDocData.ts#L64)
 
 A hook to get realtime updates to a firestore document.
 
@@ -14,7 +14,7 @@ A hook to get realtime updates to a firestore document.
 
 ### AppModelType
 
-`AppModelType` *extends* `DocumentData` = `DocumentData`
+`AppModelType` *extends* [`AppModel`](../../../types/type-aliases/AppModel.md) = [`AppModel`](../../../types/type-aliases/AppModel.md)
 
 ## Parameters
 
@@ -42,8 +42,7 @@ to the first argument.
 
 #### reference?
 
-  \| `CollectionReference`\<`AppModelType`\>
-  \| `DocumentReference`\<`AppModelType`\>
+`DocumentReference`\<`AppModelType`\>
 
 A reference to a collection.
 

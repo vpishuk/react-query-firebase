@@ -3,10 +3,10 @@
 # Function: useInfiniteQuery()
 
 ```ts
-function useInfiniteQuery<AppModelType, TQueryKey, TPageParam>(options): UseInfiniteQueryResult<InfiniteData<AppModelType[], unknown>>
+function useInfiniteQuery<AppModelType, TQueryKey>(options): UseInfiniteQueryResult<InfiniteData<AppModelType[], unknown>>
 ```
 
-Defined in: [react-native/firestore/useInfiniteQuery.ts:93](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/react-native/firestore/useInfiniteQuery.ts#L93)
+Defined in: [react-native/firestore/useInfiniteQuery.ts:89](https://github.com/vpishuk/react-query-firebase/blob/47ed1ecd8b83d68dd4237e8eb73f6aa6dea2c1fa/react-native/firestore/useInfiniteQuery.ts#L89)
 
 Executes an infinite query on a Firestore data source and returns the resulting documents as an array.
 
@@ -19,10 +19,6 @@ Executes an infinite query on a Firestore data source and returns the resulting 
 ### TQueryKey
 
 `TQueryKey` *extends* `QueryKey` = `QueryKey`
-
-### TPageParam
-
-`TPageParam` = `unknown`
 
 ## Parameters
 
@@ -44,7 +40,7 @@ Composite filter
 
 #### options
 
-`Omit`\<`UseInfiniteQueryOptions`\<`AppModelType`[], `Error`, `InfiniteData`\<`AppModelType`[], `unknown`\>, `AppModelType`[], `TQueryKey`, `TPageParam`\>, `"queryFn"`\> & `Required`\<`Pick`\<`UseInfiniteQueryOptions`\<`AppModelType`[], `Error`, `InfiniteData`\<`AppModelType`[], `unknown`\>, `AppModelType`[], `TQueryKey`, `TPageParam`\>, `"queryKey"`\>\>
+`Omit`\<`UseInfiniteQueryOptions`\<`AppModelType`[], `Error`, `InfiniteData`\<`AppModelType`[], `unknown`\>, `AppModelType`[], `TQueryKey`, `QueryNonFilterConstraint`\>, `"queryFn"`\> & `Required`\<`Pick`\<`UseInfiniteQueryOptions`\<`AppModelType`[], `Error`, `InfiniteData`\<`AppModelType`[], `unknown`\>, `AppModelType`[], `TQueryKey`, `QueryNonFilterConstraint`\>, `"queryKey"`\>\>
 
 Reqct-query options that must include queryKey and shall not define queryFn
 

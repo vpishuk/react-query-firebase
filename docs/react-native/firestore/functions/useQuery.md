@@ -6,7 +6,7 @@
 function useQuery<AppModelType>(options): UseQueryResult<AppModelType[]>
 ```
 
-Defined in: [react-native/firestore/useQuery.ts:65](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/react-native/firestore/useQuery.ts#L65)
+Defined in: [react-native/firestore/useQuery.ts:65](https://github.com/vpishuk/react-query-firebase/blob/47ed1ecd8b83d68dd4237e8eb73f6aa6dea2c1fa/react-native/firestore/useQuery.ts#L65)
 
 Executes a query on a Firestore data source and returns the resulting documents as an array.
 

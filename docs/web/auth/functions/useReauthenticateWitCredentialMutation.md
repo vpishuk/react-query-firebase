@@ -6,7 +6,7 @@
 function useReauthenticateWitCredentialMutation<TContext>(options): UseMutationResult<UserCredential, FirebaseError, UseReauthenticateWitCredentialMutationVariables, TContext>
 ```
 
-Defined in: [web/auth/useReauthenticateWitCredentialMutation.ts:19](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/web/auth/useReauthenticateWitCredentialMutation.ts#L19)
+Defined in: [web/auth/useReauthenticateWitCredentialMutation.ts:19](https://github.com/vpishuk/react-query-firebase/blob/47ed1ecd8b83d68dd4237e8eb73f6aa6dea2c1fa/web/auth/useReauthenticateWitCredentialMutation.ts#L19)
 
 Custom hook to create a mutation for re-authenticating a user with a given credential.
 This hook utilizes useMutation from React Query to manage the asynchronous re-authentication

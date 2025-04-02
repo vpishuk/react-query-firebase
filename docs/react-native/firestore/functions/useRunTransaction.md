@@ -3,18 +3,18 @@
 # Function: useRunTransaction()
 
 ```ts
-function useRunTransaction<AppModelType, TContext>(options): UseMutationResult<AppModelType, NativeFirebaseError, UseRunTransactionValues, TContext>
+function useRunTransaction<T, TContext>(options): UseMutationResult<T, Error, <T>(transaction) => T, TContext>
 ```
 
-Defined in: [react-native/firestore/useRunTransaction.ts:25](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/react-native/firestore/useRunTransaction.ts#L25)
+Defined in: [react-native/firestore/useRunTransaction.ts:44](https://github.com/vpishuk/react-query-firebase/blob/47ed1ecd8b83d68dd4237e8eb73f6aa6dea2c1fa/react-native/firestore/useRunTransaction.ts#L44)
 
-Custom hook to execute a Firestore transaction using the useMutation hook.
+Executes a Firestore transaction
 
 ## Type Parameters
 
-### AppModelType
+### T
 
-`AppModelType` = `unknown`
+`T` = `unknown`
 
 ### TContext
 
@@ -24,12 +24,31 @@ Custom hook to execute a Firestore transaction using the useMutation hook.
 
 ### options
 
-[`UseRunTransactionOptions`](../type-aliases/UseRunTransactionOptions.md)\<`AppModelType`, `TContext`\>
+Configuration options for the mutation.
 
-Configuration options for running the transaction.
+#### options?
+
+`Omit`\<`UseMutationOptions`\<`T`, `Error`, \<`T`\>(`transaction`) => `T`, `TContext`\>, `"mutationFn"`\> = `{}`
+
+Reqct-mutation options that shall omit mutationFn
 
 ## Returns
 
-`UseMutationResult`\<`AppModelType`, `NativeFirebaseError`, [`UseRunTransactionValues`](../type-aliases/UseRunTransactionValues.md), `TContext`\>
+`UseMutationResult`\<`T`, `Error`, \<`T`\>(`transaction`) => `T`, `TContext`\>
 
-The result object from the useMutation hook, allowing to track the transaction state and outcome.
+An object representing mutation
+
+## Example
+
+```jsx
+export const MyComponent = () => {
+ const doc = useGetDocData({
+     options: {
+         queryKey: ['key']
+     },
+     reference: collection(),
+     path: 'id'
+ });
+ console.log(doc);
+};
+```
