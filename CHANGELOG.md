@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.6.0](https://github.com/vpishuk/react-query-firebase/compare/v2.5.0...v2.6.0) (2025-04-02)
+
+
+### Features
+
+* **firestore:** adds useEnsureDoc hook ([#77](https://github.com/vpishuk/react-query-firebase/issues/77)) ([14a3514](https://github.com/vpishuk/react-query-firebase/commit/14a35140a78193df350c3f1186026eed4f8834fa))
+
 ## [2.5.0](https://github.com/vpishuk/react-query-firebase/compare/v2.4.1...v2.5.0) (2025-04-02)
 
 
