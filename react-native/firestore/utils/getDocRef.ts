@@ -29,8 +29,8 @@ export const getDocRef = <AppModelType extends AppModel = AppModel>({
     path,
     pathSegments
 }: GetDocRefOptions<AppModelType>) => {
-    if (!reference && !path) {
-        throw new Error("One of the options must be provided: path or reference.");
+    if ((!reference && !path) || (reference && !path)) {
+        return null;
     }
 
     const docRef = !reference
