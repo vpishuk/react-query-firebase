@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.4.0](https://github.com/vpishuk/react-query-firebase/compare/v2.3.3...v2.4.0) (2025-04-02)
+
+
+### Features
+
+* **firestore:** standardize interfaces and improve documentation ([#71](https://github.com/vpishuk/react-query-firebase/issues/71)) ([f5e8c4f](https://github.com/vpishuk/react-query-firebase/commit/f5e8c4f6813e5b7c16c903df22a89f65172ff7f6))
+
 ## [2.3.3](https://github.com/vpishuk/react-query-firebase/compare/v2.3.2...v2.3.3) (2025-04-01)
 
 
