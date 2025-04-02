@@ -1,61 +1,65 @@
 import { useMutation, UseMutationOptions } from "@tanstack/react-query";
-import {
-    DocumentData,
-    updateDoc,
-    getDoc,
-    FirestoreDataConverter,
-    DocumentReference,
-    UpdateData
-} from "firebase/firestore";
+import { updateDoc, getDoc, DocumentReference, UpdateData } from "firebase/firestore";
 
 import { FirebaseError } from "firebase/app";
 import { useMemo } from "react";
+import { AppModel } from "../../types";
 
-export type UseUpdateDocMutationValues<DbModelType> = {
-    data: UpdateData<DbModelType>;
+/**
+ * @inline
+ */
+export type UseUpdateDocMutationValues<AppModelType extends AppModel = AppModel> = {
+    /**
+     * Data to write
+     */
+    data: UpdateData<AppModelType>;
 };
 
-export type UseUpdateDocMutationOptions<
-    AppModelType extends DocumentData = DocumentData,
-    DbModelType extends DocumentData = DocumentData,
-    TContext = unknown
-> = {
-    reference: DocumentReference<AppModelType, DbModelType> | null;
-    converter?: FirestoreDataConverter<AppModelType, DbModelType>;
+/**
+ * @inline
+ */
+export type UseUpdateDocMutationOptions<AppModelType extends AppModel = AppModel, TContext = unknown> = {
+    /**
+     * Reference to a document that must be updated
+     */
+    reference: DocumentReference<AppModelType, AppModelType> | null;
+    /**
+     * Options for useMutation hook excluding mutationFn.
+     */
     options?: Omit<
-        UseMutationOptions<AppModelType, FirebaseError, UseUpdateDocMutationValues<DbModelType>, TContext>,
-        "mutationFn" | "mutationKey"
+        UseMutationOptions<AppModelType, FirebaseError, UseUpdateDocMutationValues<AppModelType>, TContext>,
+        "mutationFn"
     >;
 };
 
 /**
- * Custom hook that sets up a mutation for updating a document in a Firestore database.
+ * Executes a mutation and returns updated document
  *
- * This hook utilizes `useMutation` for performing asynchronous operations to update the document
- * and retrieve the latest data snapshot. The update functionality can be configured with a custom
- * converter if needed.
+ * @group Hook
  *
- * @param {UseUpdateDocMutationOptions<AppModelType, DbModelType, TContext>} options - Configuration options for the mutation,
- * including Firestore reference, an optional Firestore data converter, and additional mutation options.
+ * @param {UseUpdateDocMutationOptions<AppModelType>} options - Configuration options for mutation.
  *
- * `reference` - The Firestore document reference that identifies the document to be updated.
+ * @returns {UseMutationResult<AppModelType, Error, UseAddDocMutationValues<AppModelType>, TContext>}  A mutation result
  *
- * `converter` - An optional Firestore converter for transforming the database response into a custom type.
+ * @example
+ * ```jsx
+ * export const MyComponent = () => {
+ *  const {mutate} = useUpdateDocMutation({
+ *      options: {
+ *      },
+ *      reference: collection().doc(),
+ *  });
  *
- * `options` - Additional options that customize the mutation's behavior.
- *
- * @returns {UseMutationResult<AppModelType, Error, {data: AppModelType}, TContext>} An object returned by `useMutation`
- * which includes functions to start the mutation and properties that represent the different states of the mutation.
+ *  // ....
+ *  mutate({data: {test: 'value'}});
+ *  // ....
+ * };
+ * ```
  */
-export const useUpdateDocMutation = <
-    AppModelType extends DocumentData = DocumentData,
-    DbModelType extends DocumentData = DocumentData,
-    TContext = unknown
->({
+export const useUpdateDocMutation = <AppModelType extends AppModel = AppModel, TContext = unknown>({
     reference,
-    converter,
     options = {}
-}: UseUpdateDocMutationOptions<AppModelType, DbModelType, TContext>) => {
+}: UseUpdateDocMutationOptions<AppModelType, TContext>) => {
     const mutationKey = useMemo(() => [reference?.path], [reference?.path]);
 
     return useMutation({
@@ -65,9 +69,9 @@ export const useUpdateDocMutation = <
                 throw new Error("Reference is undefined");
             }
 
-            await updateDoc<AppModelType, DbModelType>(reference, data);
-            const docSnap = await getDoc(converter ? reference.withConverter(converter) : reference);
-            return docSnap.data() as AppModelType;
+            await updateDoc<AppModelType, AppModelType>(reference, data);
+            const docSnap = await getDoc(reference);
+            return { ...(docSnap.data() as AppModelType), uid: docSnap.id };
         },
         mutationKey
     });

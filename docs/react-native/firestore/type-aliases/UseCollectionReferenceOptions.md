@@ -6,13 +6,13 @@
 type UseCollectionReferenceOptions<AppModelType> = object;
 ```
 
-Defined in: [react-native/firestore/useCollectionReference.ts:6](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/react-native/firestore/useCollectionReference.ts#L6)
+Defined in: [react-native/firestore/useCollectionReference.ts:10](https://github.com/vpishuk/react-query-firebase/blob/47ed1ecd8b83d68dd4237e8eb73f6aa6dea2c1fa/react-native/firestore/useCollectionReference.ts#L10)
 
 ## Type Parameters
 
 ### AppModelType
 
-`AppModelType` *extends* `FirebaseFirestoreTypes.DocumentData` = `FirebaseFirestoreTypes.DocumentData`
+`AppModelType` *extends* [`AppModel`](../../../types/type-aliases/AppModel.md) = [`AppModel`](../../../types/type-aliases/AppModel.md)
 
 ## Properties
 
@@ -22,7 +22,9 @@ Defined in: [react-native/firestore/useCollectionReference.ts:6](https://github.
 path: string;
 ```
 
-Defined in: [react-native/firestore/useCollectionReference.ts:12](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/react-native/firestore/useCollectionReference.ts#L12)
+Defined in: [react-native/firestore/useCollectionReference.ts:20](https://github.com/vpishuk/react-query-firebase/blob/47ed1ecd8b83d68dd4237e8eb73f6aa6dea2c1fa/react-native/firestore/useCollectionReference.ts#L20)
+
+A slash-separated path to a collection.
 
 ***
 
@@ -32,7 +34,9 @@ Defined in: [react-native/firestore/useCollectionReference.ts:12](https://github
 optional pathSegments: string[];
 ```
 
-Defined in: [react-native/firestore/useCollectionReference.ts:13](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/react-native/firestore/useCollectionReference.ts#L13)
+Defined in: [react-native/firestore/useCollectionReference.ts:24](https://github.com/vpishuk/react-query-firebase/blob/47ed1ecd8b83d68dd4237e8eb73f6aa6dea2c1fa/react-native/firestore/useCollectionReference.ts#L24)
+
+Additional path segments that will be applied relative
 
 ***
 
@@ -44,4 +48,6 @@ optional reference:
 | FirebaseFirestoreTypes.DocumentReference<AppModelType>;
 ```
 
-Defined in: [react-native/firestore/useCollectionReference.ts:9](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/react-native/firestore/useCollectionReference.ts#L9)
+Defined in: [react-native/firestore/useCollectionReference.ts:14](https://github.com/vpishuk/react-query-firebase/blob/47ed1ecd8b83d68dd4237e8eb73f6aa6dea2c1fa/react-native/firestore/useCollectionReference.ts#L14)
+
+CollectionReference or DocumentReference that is used as a root to lookup a sub-collection

@@ -4,15 +4,31 @@ import { FirebaseFirestoreTypes, addDoc, WithFieldValue, getDoc } from "@react-n
 import { ReactNativeFirebase } from "@react-native-firebase/app";
 import { useMemo } from "react";
 
+/**
+ * @inline
+ */
 export type UseAddDocMutationValues<AppModelType> = {
+    /**
+     * Data to write
+     */
     data: WithFieldValue<AppModelType>;
 };
 
+/**
+ * @inline
+ */
 export type UseAddDocMutationOptions<
     AppModelType extends FirebaseFirestoreTypes.DocumentData = FirebaseFirestoreTypes.DocumentData,
     TContext = unknown
 > = {
-    reference: FirebaseFirestoreTypes.CollectionReference<AppModelType>;
+    /**
+     * Reference to a collection where document must be added
+     */
+    collectionReference: FirebaseFirestoreTypes.CollectionReference<AppModelType>;
+
+    /**
+     * Options for useMutation hook excluding mutationFn. MutationKey will be equal to reference.path by default.
+     */
     options?: Omit<
         UseMutationOptions<
             AppModelType,
@@ -20,36 +36,50 @@ export type UseAddDocMutationOptions<
             UseAddDocMutationValues<AppModelType>,
             TContext
         >,
-        "mutationFn" | "mutationKey"
+        "mutationFn"
     >;
 };
 
 /**
- * Provides a mutation hook to add a document to a Firestore collection utilizing React Query's `useMutation`.
- * It handles addition and optional conversion of the document data in Firestore.
+ * Executes a mutation and returns added document
  *
- * @param {Object} options - Options for the mutation hook
- * @param {FirebaseFirestore.FirebaseFirestoreTypes.CollectionReference<AppModelType>} options.reference - Firestore collection reference where the document should be added.
- * @param {UseMutationOptions<AppModelType, Error, { data: DbModelType }, TContext>} [options.options={}] - Optional configuration for the mutation.
+ * @group Hook
  *
- * @returns {UseMutationResult<AppModelType, Error, { data: DbModelType }, TContext>} The mutation hook result containing status, error, and data of the mutation process.
+ * @param {UseAddDocMutationOptions<AppModelType>} options - Configuration options for the mutation.
+ *
+ * @returns {UseMutationResult<AppModelType, Error, UseAddDocMutationValues<AppModelType>, TContext>}  A mutation result
+ *
+ * @example
+ * ```jsx
+ * export const MyComponent = () => {
+ *  const {mutate} = useAddDocMutation({
+ *      options: {
+ *      },
+ *      reference: collection(),
+ *  });
+ *
+ *  // ....
+ *  mutate({data: {test: 'value'}});
+ *  // ....
+ * };
+ * ```
  */
 export const useAddDocMutation = <
     AppModelType extends FirebaseFirestoreTypes.DocumentData = FirebaseFirestoreTypes.DocumentData,
     TContext = unknown
 >({
-    reference,
+    collectionReference,
     options = {}
 }: UseAddDocMutationOptions<AppModelType, TContext>) => {
-    const mutationKey = useMemo(() => [reference.path], [reference.path]);
+    const mutationKey = useMemo(() => [collectionReference.path], [collectionReference.path]);
 
     return useMutation({
+        mutationKey,
         ...options,
         mutationFn: async ({ data }) => {
-            const docRef = await addDoc<AppModelType>(reference, data);
+            const docRef = await addDoc<AppModelType>(collectionReference, data);
             const docSnap = await getDoc(docRef);
             return docSnap.data() as AppModelType;
-        },
-        mutationKey
+        }
     });
 };

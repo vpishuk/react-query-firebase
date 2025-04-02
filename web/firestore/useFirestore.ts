@@ -2,10 +2,11 @@ import { useContext } from "react";
 import { FirebaseContext } from "../context/FirebaseContext";
 
 /**
- * Provides a hook to access the Firestore instance from the Firebase context.
- * It extracts the Firestore object from the Firebase context, allowing components to interact with Firestore services.
+ * Returns an instance of firestore bound to the closest context.
  *
- * @returns {firestore.Firestore} The Firestore instance from the Firebase context.
+ * @group Hook
+ *
+ * @returns {Firestore}
  */
 export const useFirestore = () => {
     const { firestore } = useContext(FirebaseContext);

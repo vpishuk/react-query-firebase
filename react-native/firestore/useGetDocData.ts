@@ -1,31 +1,43 @@
-import { FirebaseFirestoreTypes } from "@react-native-firebase/firestore";
-
 import { useFirestore } from "./useFirestore";
-import { getDocData } from "./utils/getDocData";
+import { getDocData, GetDocDataOptions } from "./utils/getDocData";
 import { useQuery, UseQueryOptions } from "@tanstack/react-query";
-
-type UseGetDocOptions<AppModelType extends FirebaseFirestoreTypes.DocumentData = FirebaseFirestoreTypes.DocumentData> =
-    {
-        options: Omit<UseQueryOptions<AppModelType | null | undefined, Error, AppModelType>, "queryFn"> &
-            Required<Pick<UseQueryOptions<AppModelType, Error, AppModelType>, "queryKey">>;
-        path?: string;
-        pathSegments?: string[];
-        reference:
-            | FirebaseFirestoreTypes.CollectionReference<AppModelType>
-            | FirebaseFirestoreTypes.DocumentReference<AppModelType>;
-    };
+import { AppModel } from "../../types";
 
 /**
- * Custom React Hook to retrieve document data from Firestore using specified parameters.
- * @param {Object} options - The options for configuring the Firestore query.
- * @param {string} reference - The reference to the document in Firestore.
- * @param {string} path - The path to the document in Firestore.
- * @param {Array<string>} pathSegments - Segments of the path to document in Firestore.
- * @returns {Object} Result of the query containing document data and query status.
+ * @inline
  */
-export const useGetDocData = <
-    AppModelType extends FirebaseFirestoreTypes.DocumentData = FirebaseFirestoreTypes.DocumentData
->({
+type UseGetDocOptions<AppModelType extends AppModel = AppModel> = {
+    /**
+     * Reqct-query options that must include queryKey and shall not define queryFn
+     */
+    options: Omit<UseQueryOptions<AppModelType | null, Error, AppModelType>, "queryFn"> &
+        Required<Pick<UseQueryOptions<AppModelType, Error, AppModelType>, "queryKey">>;
+} & Omit<GetDocDataOptions<AppModelType>, "db">;
+
+/**
+ * Executes a query on a Firestore data source and returns the resulting document.
+ *
+ * @group Hook
+ *
+ * @param {UseGetDocOptions<AppModelType>} options - Configuration options for the query.
+ *
+ * @returns {UseQueryResult<AppModelType, Error>} An object containing document's data
+ *
+ * @example
+ * ```jsx
+ * export const MyComponent = () => {
+ *  const doc = useGetDocData({
+ *      options: {
+ *          queryKey: ['key']
+ *      },
+ *      reference: collection(),
+ *      path: 'id'
+ *  });
+ *  console.log(doc);
+ * };
+ * ```
+ */
+export const useGetDocData = <AppModelType extends AppModel = AppModel>({
     options,
     reference,
     path,

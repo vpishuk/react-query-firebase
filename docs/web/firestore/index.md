@@ -5,6 +5,9 @@
 ## Type Aliases
 
 - [CompositeFilter](type-aliases/CompositeFilter.md)
+- [GetDocDataOptions](type-aliases/GetDocDataOptions.md)
+- [GetDocRefOptions](type-aliases/GetDocRefOptions.md)
+- [GetDocSnapOptions](type-aliases/GetDocSnapOptions.md)
 - [QueryElement](type-aliases/QueryElement.md)
 - [QueryFilterConstraint](type-aliases/QueryFilterConstraint.md)
 - [UseAddDocMutationOptions](type-aliases/UseAddDocMutationOptions.md)
@@ -27,30 +30,30 @@
 - [UseUpdateDocMutationOptions](type-aliases/UseUpdateDocMutationOptions.md)
 - [UseUpdateDocMutationValues](type-aliases/UseUpdateDocMutationValues.md)
 
-## Functions
+## Hook
 
 - [useAddDocMutation](functions/useAddDocMutation.md)
 - [useBatchWrite](functions/useBatchWrite.md)
 - [useCollectionReference](functions/useCollectionReference.md)
+- [useCompositeFilter](functions/useCompositeFilter.md)
+- [useCountQuery](functions/useCountQuery.md)
 - [useDeleteDocMutation](functions/useDeleteDocMutation.md)
 - [useDocReference](functions/useDocReference.md)
 - [useDocReferences](functions/useDocReferences.md)
 - [useFirestore](functions/useFirestore.md)
 - [useGetDocData](functions/useGetDocData.md)
-- [useRunTransaction](functions/useRunTransaction.md)
-- [useSetDocMutation](functions/useSetDocMutation.md)
-- [useUpdateDocMutation](functions/useUpdateDocMutation.md)
-
-## Hook
-
-- [useCompositeFilter](functions/useCompositeFilter.md)
-- [useCountQuery](functions/useCountQuery.md)
 - [useGetRealtimeDocData](functions/useGetRealtimeDocData.md)
 - [useInfiniteQuery](functions/useInfiniteQuery.md)
 - [useQuery](functions/useQuery.md)
 - [useQueryConstraints](functions/useQueryConstraints.md)
+- [useRunTransaction](functions/useRunTransaction.md)
+- [useSetDocMutation](functions/useSetDocMutation.md)
+- [useUpdateDocMutation](functions/useUpdateDocMutation.md)
 
 ## Utility
 
 - [buildCompositeFilter](functions/buildCompositeFilter.md)
 - [buildQueryConstraint](functions/buildQueryConstraint.md)
+- [getDocData](functions/getDocData.md)
+- [getDocRef](functions/getDocRef.md)
+- [getDocSnap](functions/getDocSnap.md)

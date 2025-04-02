@@ -3,31 +3,61 @@
 # Function: useGetDocData()
 
 ```ts
-function useGetDocData<AppModelType, DbModelType>(__namedParameters): UseQueryResult<AppModelType, Error>
+function useGetDocData<AppModelType>(options): UseQueryResult<AppModelType, Error>
 ```
 
-Defined in: [web/firestore/useGetDocData.ts:26](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/web/firestore/useGetDocData.ts#L26)
+Defined in: [web/firestore/useGetDocData.ts:40](https://github.com/vpishuk/react-query-firebase/blob/47ed1ecd8b83d68dd4237e8eb73f6aa6dea2c1fa/web/firestore/useGetDocData.ts#L40)
 
-Custom React Hook to retrieve document data from Firestore using specified parameters.
+Executes a query on a Firestore data source and returns the resulting document.
 
 ## Type Parameters
 
 ### AppModelType
 
-`AppModelType` *extends* `DocumentData` = `DocumentData`
-
-### DbModelType
-
-`DbModelType` *extends* `DocumentData` = `DocumentData`
+`AppModelType` *extends* [`AppModel`](../../../types/type-aliases/AppModel.md) = [`AppModel`](../../../types/type-aliases/AppModel.md)
 
 ## Parameters
 
-### \_\_namedParameters
+### options
 
-`UseGetDocOptions`\<`AppModelType`, `DbModelType`\>
+Configuration options for the query.
+
+#### options
+
+`Omit`\<`UseQueryOptions`\<`null` \| `AppModelType`, `Error`, `AppModelType`, `QueryKey`\>, `"queryFn"`\> & `Required`\<`Pick`\<`UseQueryOptions`\<`AppModelType`, `Error`, `AppModelType`, `QueryKey`\>, `"queryKey"`\>\>
+
+Reqct-query options that must include queryKey and shall not define queryFn
+
+#### path?
+
+`string`
+
+#### pathSegments?
+
+`string`[]
+
+#### reference?
+
+  \| `CollectionReference`\<`AppModelType`, `AppModelType`\>
+  \| `DocumentReference`\<`AppModelType`, `AppModelType`\>
 
 ## Returns
 
 `UseQueryResult`\<`AppModelType`, `Error`\>
 
-Result of the query containing document data and query status.
+An object containing document's data
+
+## Example
+
+```jsx
+export const MyComponent = () => {
+ const doc = useGetDocData({
+     options: {
+         queryKey: ['key']
+     },
+     reference: collection(),
+     path: 'id'
+ });
+ console.log(doc);
+};
+```

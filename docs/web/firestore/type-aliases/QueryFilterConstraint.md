@@ -6,4 +6,4 @@
 type QueryFilterConstraint = FBQueryFilterConstraint | FBQueryCompositeFilterConstraint;
 ```
 
-Defined in: [web/firestore/useCompositeFilter.ts:13](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/web/firestore/useCompositeFilter.ts#L13)
+Defined in: web/firestore/utils/buildCompositeFilter.ts:12

@@ -6,7 +6,7 @@
 type FirebaseContextProviderAuthEmulatorConfig = object;
 ```
 
-Defined in: [web/context/FirebaseContextProvider.tsx:26](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/web/context/FirebaseContextProvider.tsx#L26)
+Defined in: [web/context/FirebaseContextProvider.tsx:26](https://github.com/vpishuk/react-query-firebase/blob/47ed1ecd8b83d68dd4237e8eb73f6aa6dea2c1fa/web/context/FirebaseContextProvider.tsx#L26)
 
 ## Properties
 
@@ -16,6 +16,6 @@ Defined in: [web/context/FirebaseContextProvider.tsx:26](https://github.com/vpis
 host: string;
 ```
 
-Defined in: [web/context/FirebaseContextProvider.tsx:30](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/web/context/FirebaseContextProvider.tsx#L30)
+Defined in: [web/context/FirebaseContextProvider.tsx:30](https://github.com/vpishuk/react-query-firebase/blob/47ed1ecd8b83d68dd4237e8eb73f6aa6dea2c1fa/web/context/FirebaseContextProvider.tsx#L30)
 
 Host to connect to Firebase Auth Emulator

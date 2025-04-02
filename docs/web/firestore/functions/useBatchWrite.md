@@ -3,32 +3,44 @@
 # Function: useBatchWrite()
 
 ```ts
-function useBatchWrite<TContext>(options): UseMutationResult<void, FirebaseError, UseBatchWriteVariables, TContext>
+function useBatchWrite(options): UseMutationResult<void, FirebaseError, (batch) => void | Promise<void>, unknown>
 ```
 
-Defined in: [web/firestore/useBatchWrite.ts:20](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/web/firestore/useBatchWrite.ts#L20)
+Defined in: [web/firestore/useBatchWrite.ts:47](https://github.com/vpishuk/react-query-firebase/blob/47ed1ecd8b83d68dd4237e8eb73f6aa6dea2c1fa/web/firestore/useBatchWrite.ts#L47)
 
 Custom hook to perform batch write operations using Firestore.
-Utilizes a mutation to carry out the batch write transaction.
-
-## Type Parameters
-
-### TContext
-
-`TContext` = `unknown`
-
-The type of context that can be passed into the hook, defaults to unknown.
 
 ## Parameters
 
 ### options
 
-[`UseBatchWriteOptions`](../type-aliases/UseBatchWriteOptions.md)\<`TContext`\> = `{}`
+Configuration options for the query.
 
-The configuration options for the mutation operation.
+#### options?
+
+`Omit`\<`UseMutationOptions`\<`void`, `FirebaseError`, (`batch`) => `void` \| `Promise`\<`void`\>, `unknown`\>, `"mutationFn"`\> = `{}`
+
+Options for useMutation hook excluding mutationFn. MutationKey will be equal to reference.path by default.
 
 ## Returns
 
-`UseMutationResult`\<`void`, `FirebaseError`, [`UseBatchWriteVariables`](../type-aliases/UseBatchWriteVariables.md), `TContext`\>
+`UseMutationResult`\<`void`, `FirebaseError`, (`batch`) => `void` \| `Promise`\<`void`\>, `unknown`\>
 
-Returns an object composed of elements returned by useMutation, including properties such as status, and functions to trigger and control the mutation process.
+A mutation result
+
+## Example
+
+```jsx
+export const MyComponent = () => {
+ const {mutate} = useBatchWrite({
+     options: {
+     },
+ });
+
+ // ....
+ mutate(() => {
+     ref.update({...})
+ });
+ // ....
+};
+```

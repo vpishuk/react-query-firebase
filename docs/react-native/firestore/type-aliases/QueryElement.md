@@ -6,7 +6,7 @@
 type QueryElement<AppModelType> = object;
 ```
 
-Defined in: [react-native/firestore/useCompositeFilter.ts:9](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/react-native/firestore/useCompositeFilter.ts#L9)
+Defined in: react-native/firestore/utils/buildCompositeFilter.ts:8
 
 ## Type Parameters
 
@@ -22,7 +22,7 @@ Defined in: [react-native/firestore/useCompositeFilter.ts:9](https://github.com/
 optional children: QueryElement[];
 ```
 
-Defined in: [react-native/firestore/useCompositeFilter.ts:11](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/react-native/firestore/useCompositeFilter.ts#L11)
+Defined in: react-native/firestore/utils/buildCompositeFilter.ts:10
 
 ***
 
@@ -32,7 +32,7 @@ Defined in: [react-native/firestore/useCompositeFilter.ts:11](https://github.com
 optional field: keyof AppModelType & object;
 ```
 
-Defined in: [react-native/firestore/useCompositeFilter.ts:12](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/react-native/firestore/useCompositeFilter.ts#L12)
+Defined in: react-native/firestore/utils/buildCompositeFilter.ts:11
 
 ***
 
@@ -42,7 +42,7 @@ Defined in: [react-native/firestore/useCompositeFilter.ts:12](https://github.com
 optional op: FirebaseFirestoreTypes.WhereFilterOp;
 ```
 
-Defined in: [react-native/firestore/useCompositeFilter.ts:14](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/react-native/firestore/useCompositeFilter.ts#L14)
+Defined in: react-native/firestore/utils/buildCompositeFilter.ts:13
 
 ***
 
@@ -52,7 +52,7 @@ Defined in: [react-native/firestore/useCompositeFilter.ts:14](https://github.com
 optional operator: "OR" | "AND";
 ```
 
-Defined in: [react-native/firestore/useCompositeFilter.ts:10](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/react-native/firestore/useCompositeFilter.ts#L10)
+Defined in: react-native/firestore/utils/buildCompositeFilter.ts:9
 
 ***
 
@@ -62,4 +62,4 @@ Defined in: [react-native/firestore/useCompositeFilter.ts:10](https://github.com
 optional value: AppModelType[keyof AppModelType];
 ```
 
-Defined in: [react-native/firestore/useCompositeFilter.ts:13](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/react-native/firestore/useCompositeFilter.ts#L13)
+Defined in: react-native/firestore/utils/buildCompositeFilter.ts:12

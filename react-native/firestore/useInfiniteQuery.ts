@@ -13,7 +13,7 @@ import {
     UseInfiniteQueryResult,
     InfiniteData
 } from "@tanstack/react-query";
-import { QueryFilterConstraint } from "./useCompositeFilter";
+import { QueryFilterConstraint } from "./utils/buildCompositeFilter";
 import { AppModel } from "../../types";
 
 /**

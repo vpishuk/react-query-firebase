@@ -3,18 +3,18 @@
 # Function: useRunTransaction()
 
 ```ts
-function useRunTransaction<AppModelType, TContext>(options): UseMutationResult<AppModelType, FirebaseError, UseRunTransactionValues, TContext>
+function useRunTransaction<T, TContext>(options): UseMutationResult<T, FirebaseError, <T>(transaction) => T, TContext>
 ```
 
-Defined in: [web/firestore/useRunTransaction.ts:20](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/web/firestore/useRunTransaction.ts#L20)
+Defined in: [web/firestore/useRunTransaction.ts:45](https://github.com/vpishuk/react-query-firebase/blob/47ed1ecd8b83d68dd4237e8eb73f6aa6dea2c1fa/web/firestore/useRunTransaction.ts#L45)
 
-Custom hook to execute a Firestore transaction using the useMutation hook.
+Executes a Firestore transaction
 
 ## Type Parameters
 
-### AppModelType
+### T
 
-`AppModelType` = `unknown`
+`T` = `unknown`
 
 ### TContext
 
@@ -24,12 +24,31 @@ Custom hook to execute a Firestore transaction using the useMutation hook.
 
 ### options
 
-[`UseRunTransactionOptions`](../type-aliases/UseRunTransactionOptions.md)\<`AppModelType`, `TContext`\>
+Configuration options for the mutation.
 
-Configuration options for running the transaction.
+#### options?
+
+`Omit`\<`UseMutationOptions`\<`T`, `FirebaseError`, \<`T`\>(`transaction`) => `T`, `TContext`\>, `"mutationFn"`\> = `{}`
+
+Reqct-mutation options that shall omit mutationFn
 
 ## Returns
 
-`UseMutationResult`\<`AppModelType`, `FirebaseError`, [`UseRunTransactionValues`](../type-aliases/UseRunTransactionValues.md), `TContext`\>
+`UseMutationResult`\<`T`, `FirebaseError`, \<`T`\>(`transaction`) => `T`, `TContext`\>
 
-The result object from the useMutation hook, allowing to track the transaction state and outcome.
+An object representing mutation
+
+## Example
+
+```jsx
+export const MyComponent = () => {
+ const doc = useGetDocData({
+     options: {
+         queryKey: ['key']
+     },
+     reference: collection(),
+     path: 'id'
+ });
+ console.log(doc);
+};
+```

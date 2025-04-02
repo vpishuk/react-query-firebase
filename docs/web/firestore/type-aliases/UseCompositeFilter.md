@@ -6,7 +6,7 @@
 type UseCompositeFilter<AppModelType> = object;
 ```
 
-Defined in: [web/firestore/useCompositeFilter.ts:31](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/web/firestore/useCompositeFilter.ts#L31)
+Defined in: [web/firestore/useCompositeFilter.ts:9](https://github.com/vpishuk/react-query-firebase/blob/47ed1ecd8b83d68dd4237e8eb73f6aa6dea2c1fa/web/firestore/useCompositeFilter.ts#L9)
 
 ## Type Parameters
 
@@ -22,4 +22,4 @@ Defined in: [web/firestore/useCompositeFilter.ts:31](https://github.com/vpishuk/
 optional query: CompositeFilter<AppModelType>;
 ```
 
-Defined in: [web/firestore/useCompositeFilter.ts:32](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/web/firestore/useCompositeFilter.ts#L32)
+Defined in: [web/firestore/useCompositeFilter.ts:10](https://github.com/vpishuk/react-query-firebase/blob/47ed1ecd8b83d68dd4237e8eb73f6aa6dea2c1fa/web/firestore/useCompositeFilter.ts#L10)

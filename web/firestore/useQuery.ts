@@ -12,7 +12,7 @@ import {
     useQuery as useReactQuery,
     UseQueryOptions as UseReactQueryOptions
 } from "@tanstack/react-query";
-import { QueryFilterConstraint } from "./useCompositeFilter";
+import { QueryFilterConstraint } from "./utils/buildCompositeFilter";
 import { AppModel } from "../../types";
 
 /**
@@ -85,7 +85,7 @@ export const useQuery = <AppModelType extends AppModel = AppModel>({
 
             if (querySnapshot) {
                 querySnapshot.forEach((doc) => {
-                    docs.push(doc.data());
+                    docs.push({ ...doc.data(), uid: doc.id });
                 });
             }
             return docs;

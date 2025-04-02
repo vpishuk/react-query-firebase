@@ -6,7 +6,7 @@
 function useInfiniteQuery<AppModelType, TQueryKey>(options): UseInfiniteQueryResult<InfiniteData<AppModelType[], unknown>>
 ```
 
-Defined in: [web/firestore/useInfiniteQuery.ts:90](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/web/firestore/useInfiniteQuery.ts#L90)
+Defined in: [web/firestore/useInfiniteQuery.ts:90](https://github.com/vpishuk/react-query-firebase/blob/47ed1ecd8b83d68dd4237e8eb73f6aa6dea2c1fa/web/firestore/useInfiniteQuery.ts#L90)
 
 Executes an infinite query on a Firestore data source and returns the resulting documents as an array.
 
@@ -40,7 +40,7 @@ Composite filter
 
 #### options
 
-`Omit`\<`UseInfiniteQueryOptions`\<`AppModelType`[], `Error`, `InfiniteData`\<`AppModelType`[], `unknown`\>, `AppModelType`[], `TQueryKey`, `QueryConstraint`\>, `"queryFn"`\> & `Required`\<`Pick`\<`UseInfiniteQueryOptions`\<`AppModelType`[], `Error`, `InfiniteData`\<`AppModelType`[], `unknown`\>, `AppModelType`[], `TQueryKey`, `QueryConstraint`\>, `"queryKey"`\>\>
+`Omit`\<`UseInfiniteQueryOptions`\<`AppModelType`[], `Error`, `InfiniteData`\<`AppModelType`[], `unknown`\>, `AppModelType`[], `TQueryKey`, `QueryNonFilterConstraint`\>, `"queryFn"`\> & `Required`\<`Pick`\<`UseInfiniteQueryOptions`\<`AppModelType`[], `Error`, `InfiniteData`\<`AppModelType`[], `unknown`\>, `AppModelType`[], `TQueryKey`, `QueryNonFilterConstraint`\>, `"queryKey"`\>\>
 
 Reqct-query options that must include queryKey and shall not define queryFn
 

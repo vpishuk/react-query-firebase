@@ -3,23 +3,20 @@
 # Function: useAddDocMutation()
 
 ```ts
-function useAddDocMutation<AppModelType, DbModelType, TContext>(options): UseMutationResult<AppModelType, FirebaseError, UseAddDocMutationValues<AppModelType>, TContext>
+function useAddDocMutation<AppModelType, TContext>(options): UseMutationResult<AppModelType, FirebaseError, {
+  data: WithFieldValue<AppModelType>;
+}, TContext>
 ```
 
-Defined in: [web/firestore/useAddDocMutation.ts:42](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/web/firestore/useAddDocMutation.ts#L42)
+Defined in: [web/firestore/useAddDocMutation.ts:59](https://github.com/vpishuk/react-query-firebase/blob/47ed1ecd8b83d68dd4237e8eb73f6aa6dea2c1fa/web/firestore/useAddDocMutation.ts#L59)
 
-Provides a mutation hook to add a document to a Firestore collection utilizing React Query's `useMutation`.
-It handles addition and optional conversion of the document data in Firestore.
+Executes a mutation and returns added document
 
 ## Type Parameters
 
 ### AppModelType
 
-`AppModelType` *extends* `DocumentData` = `DocumentData`
-
-### DbModelType
-
-`DbModelType` *extends* `DocumentData` = `DocumentData`
+`AppModelType` *extends* [`AppModel`](../../../types/type-aliases/AppModel.md) = [`AppModel`](../../../types/type-aliases/AppModel.md)
 
 ### TContext
 
@@ -29,12 +26,42 @@ It handles addition and optional conversion of the document data in Firestore.
 
 ### options
 
-[`UseAddDocMutationOptions`](../type-aliases/UseAddDocMutationOptions.md)\<`AppModelType`, `DbModelType`, `TContext`\>
+Configuration options for the mutation.
 
-Options for the mutation hook
+#### collectionReference
+
+`CollectionReference`\<`AppModelType`, `AppModelType`\>
+
+Reference to a collection where document must be added
+
+#### options?
+
+`Omit`\<`UseMutationOptions`\<`AppModelType`, `FirebaseError`, \{
+  `data`: `WithFieldValue`\<`AppModelType`\>;
+ \}, `TContext`\>, `"mutationFn"`\> = `{}`
+
+Options for useMutation hook excluding mutationFn. MutationKey will be equal to reference.path by default.
 
 ## Returns
 
-`UseMutationResult`\<`AppModelType`, `FirebaseError`, [`UseAddDocMutationValues`](../type-aliases/UseAddDocMutationValues.md)\<`AppModelType`\>, `TContext`\>
+`UseMutationResult`\<`AppModelType`, `FirebaseError`, \{
+  `data`: `WithFieldValue`\<`AppModelType`\>;
+ \}, `TContext`\>
 
-The mutation hook result containing status, error, and data of the mutation process.
+A mutation result
+
+## Example
+
+```jsx
+export const MyComponent = () => {
+ const {mutate} = useAddDocMutation({
+     options: {
+     },
+     reference: collection(),
+ });
+
+ // ....
+ mutate({data: {test: 'value'}});
+ // ....
+};
+```

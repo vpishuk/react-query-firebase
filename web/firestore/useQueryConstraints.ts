@@ -1,16 +1,8 @@
-import {
-    QueryNonFilterConstraint,
-    startAt,
-    orderBy,
-    limit,
-    limitToLast,
-    startAfter,
-    endAt,
-    endBefore
-} from "firebase/firestore";
+import { QueryNonFilterConstraint } from "firebase/firestore";
 import { AppModel } from "../../types/AppModel";
 import { NonFilterQueryConstraint } from "../../types/QueryConstraints";
 import { useMemo } from "react";
+import { buildQueryConstraint } from "./utils/buildQueryConstraint";
 
 /**
  * @inline
@@ -20,47 +12,6 @@ export type UseQueryConstraints<AppModelType extends AppModel = AppModel> = {
      * A list of constraints such as limit, order, offset.
      */
     constraints: NonFilterQueryConstraint<AppModelType>[];
-};
-
-/**
- * A generic mothod to build query constraints for firebase
- *
- * @group Utility
- *
- * @param {NonFilterQueryConstraint<AppModelType>} constraint
- *
- * @returns {QueryNonFilterConstraint}
- *
- * @example
- * ```jsx
- * const firebaseConfig = {};
- * export const constraint = useMemo(() => {
- *  return buildQueryConstraint({
- *      type: 'limit',
- *      limit: 1
- *  });
- * };
- * ```
- */
-export const buildQueryConstraint = <AppModelType extends AppModel = AppModel>(
-    constraint: NonFilterQueryConstraint<AppModelType>
-): QueryNonFilterConstraint => {
-    switch (constraint.type) {
-        case "orderBy":
-            return orderBy(constraint.fieldPath as string, constraint.directionStr);
-        case "startAt":
-            return startAt(...constraint.arguments);
-        case "startAfter":
-            return startAfter(...constraint.arguments);
-        case "endAt":
-            return endAt(constraint.value, constraint.key);
-        case "endBefore":
-            return endBefore(constraint.value, constraint.key);
-        case "limit":
-            return limit(constraint.limit);
-        case "limitToLast":
-            return limitToLast(constraint.limit);
-    }
 };
 
 /**

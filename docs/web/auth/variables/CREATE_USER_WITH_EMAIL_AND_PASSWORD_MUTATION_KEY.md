@@ -6,4 +6,4 @@
 const CREATE_USER_WITH_EMAIL_AND_PASSWORD_MUTATION_KEY: readonly ["FIREBASE", "AUTH", "CREATE_USER_WITH_EMAIL_AND_PASSWORD_MUTATION"];
 ```
 
-Defined in: [web/auth/mutation-keys.ts:1](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/web/auth/mutation-keys.ts#L1)
+Defined in: [web/auth/mutation-keys.ts:1](https://github.com/vpishuk/react-query-firebase/blob/47ed1ecd8b83d68dd4237e8eb73f6aa6dea2c1fa/web/auth/mutation-keys.ts#L1)

@@ -6,7 +6,7 @@
 type UseAddDocMutationValues<AppModelType> = object;
 ```
 
-Defined in: [react-native/firestore/useAddDocMutation.ts:7](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/react-native/firestore/useAddDocMutation.ts#L7)
+Defined in: [react-native/firestore/useAddDocMutation.ts:10](https://github.com/vpishuk/react-query-firebase/blob/47ed1ecd8b83d68dd4237e8eb73f6aa6dea2c1fa/react-native/firestore/useAddDocMutation.ts#L10)
 
 ## Type Parameters
 
@@ -22,4 +22,6 @@ Defined in: [react-native/firestore/useAddDocMutation.ts:7](https://github.com/v
 data: WithFieldValue<AppModelType>;
 ```
 
-Defined in: [react-native/firestore/useAddDocMutation.ts:8](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/react-native/firestore/useAddDocMutation.ts#L8)
+Defined in: [react-native/firestore/useAddDocMutation.ts:14](https://github.com/vpishuk/react-query-firebase/blob/47ed1ecd8b83d68dd4237e8eb73f6aa6dea2c1fa/react-native/firestore/useAddDocMutation.ts#L14)
+
+Data to write

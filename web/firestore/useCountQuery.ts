@@ -12,13 +12,13 @@ import {
     useQuery as useReactQuery,
     UseQueryOptions as UseReactQueryOptions
 } from "@tanstack/react-query";
-import { QueryFilterConstraint } from "./useCompositeFilter";
+import { QueryFilterConstraint } from "./utils/buildCompositeFilter";
 import { AppModel } from "../../types";
 
 /**
  * @inline
  */
-type UseCountQueryOptions<AppModelType extends AppModel = AppModel, DbModelType extends AppModel = AppModel> = {
+type UseCountQueryOptions<AppModelType extends AppModel = AppModel> = {
     /**
      * Reqct-query options that must include queryKey and shall not define queryFn
      */
@@ -28,7 +28,7 @@ type UseCountQueryOptions<AppModelType extends AppModel = AppModel, DbModelType 
     /**
      * Reference to a Firestore collection
      */
-    collectionReference: CollectionReference<AppModelType, DbModelType>;
+    collectionReference: CollectionReference<AppModelType, AppModelType>;
 
     /**
      * Non composite filter constraints such as limit, order, where
@@ -63,12 +63,12 @@ type UseCountQueryOptions<AppModelType extends AppModel = AppModel, DbModelType 
  * };
  * ```
  */
-export const useCountQuery = <AppModelType extends AppModel = AppModel, DbModelType extends AppModel = AppModel>({
+export const useCountQuery = <AppModelType extends AppModel = AppModel>({
     options,
     collectionReference,
     queryConstraints = [],
     compositeFilter
-}: UseCountQueryOptions<AppModelType, DbModelType>): UseQueryResult<number> => {
+}: UseCountQueryOptions<AppModelType>): UseQueryResult<number> => {
     return useReactQuery({
         ...options,
         queryFn: async () => {

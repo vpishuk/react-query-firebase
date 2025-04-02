@@ -6,13 +6,13 @@
 type UseDeleteDocMutationOptions<AppModelType, TContext> = object;
 ```
 
-Defined in: [react-native/firestore/useDeleteDocMutation.ts:11](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/react-native/firestore/useDeleteDocMutation.ts#L11)
+Defined in: [react-native/firestore/useDeleteDocMutation.ts:17](https://github.com/vpishuk/react-query-firebase/blob/47ed1ecd8b83d68dd4237e8eb73f6aa6dea2c1fa/react-native/firestore/useDeleteDocMutation.ts#L17)
 
 ## Type Parameters
 
 ### AppModelType
 
-`AppModelType` *extends* `FirebaseFirestoreTypes.DocumentData` = `FirebaseFirestoreTypes.DocumentData`
+`AppModelType` *extends* [`AppModel`](../../../types/type-aliases/AppModel.md) = [`AppModel`](../../../types/type-aliases/AppModel.md)
 
 ### TContext
 
@@ -23,10 +23,12 @@ Defined in: [react-native/firestore/useDeleteDocMutation.ts:11](https://github.c
 ### options?
 
 ```ts
-optional options: Omit<UseMutationOptions<void, ReactNativeFirebase.NativeFirebaseError, void, TContext>, "mutationFn" | "mutationKey">;
+optional options: Omit<UseMutationOptions<void, Error, void, TContext>, "mutationFn">;
 ```
 
-Defined in: [react-native/firestore/useDeleteDocMutation.ts:16](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/react-native/firestore/useDeleteDocMutation.ts#L16)
+Defined in: [react-native/firestore/useDeleteDocMutation.ts:25](https://github.com/vpishuk/react-query-firebase/blob/47ed1ecd8b83d68dd4237e8eb73f6aa6dea2c1fa/react-native/firestore/useDeleteDocMutation.ts#L25)
+
+Options for useMutation hook excluding mutationFn. MutationKey will be equal to reference.path by default.
 
 ***
 
@@ -36,4 +38,6 @@ Defined in: [react-native/firestore/useDeleteDocMutation.ts:16](https://github.c
 reference: FirebaseFirestoreTypes.DocumentReference<AppModelType> | null;
 ```
 
-Defined in: [react-native/firestore/useDeleteDocMutation.ts:15](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/react-native/firestore/useDeleteDocMutation.ts#L15)
+Defined in: [react-native/firestore/useDeleteDocMutation.ts:21](https://github.com/vpishuk/react-query-firebase/blob/47ed1ecd8b83d68dd4237e8eb73f6aa6dea2c1fa/react-native/firestore/useDeleteDocMutation.ts#L21)
+
+A reference to a firestore document

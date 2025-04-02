@@ -6,7 +6,7 @@
 type OrderByConstraint<AppModelType> = object;
 ```
 
-Defined in: [types/QueryConstraints.ts:7](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/types/QueryConstraints.ts#L7)
+Defined in: [types/QueryConstraints.ts:7](https://github.com/vpishuk/react-query-firebase/blob/47ed1ecd8b83d68dd4237e8eb73f6aa6dea2c1fa/types/QueryConstraints.ts#L7)
 
 Order by constraint
 
@@ -24,7 +24,7 @@ Order by constraint
 directionStr: "asc" | "desc";
 ```
 
-Defined in: [types/QueryConstraints.ts:19](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/types/QueryConstraints.ts#L19)
+Defined in: [types/QueryConstraints.ts:19](https://github.com/vpishuk/react-query-firebase/blob/47ed1ecd8b83d68dd4237e8eb73f6aa6dea2c1fa/types/QueryConstraints.ts#L19)
 
 Direction of ordering: asc or desc
 
@@ -36,7 +36,7 @@ Direction of ordering: asc or desc
 fieldPath: keyof AppModelType;
 ```
 
-Defined in: [types/QueryConstraints.ts:15](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/types/QueryConstraints.ts#L15)
+Defined in: [types/QueryConstraints.ts:15](https://github.com/vpishuk/react-query-firebase/blob/47ed1ecd8b83d68dd4237e8eb73f6aa6dea2c1fa/types/QueryConstraints.ts#L15)
 
 Field path to use for ordering
 
@@ -48,6 +48,6 @@ Field path to use for ordering
 type: "orderBy";
 ```
 
-Defined in: [types/QueryConstraints.ts:11](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/types/QueryConstraints.ts#L11)
+Defined in: [types/QueryConstraints.ts:11](https://github.com/vpishuk/react-query-firebase/blob/47ed1ecd8b83d68dd4237e8eb73f6aa6dea2c1fa/types/QueryConstraints.ts#L11)
 
 Type of a constraint

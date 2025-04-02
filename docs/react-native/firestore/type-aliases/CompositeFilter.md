@@ -6,7 +6,7 @@
 type CompositeFilter<AppModelType> = object;
 ```
 
-Defined in: [react-native/firestore/useCompositeFilter.ts:17](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/react-native/firestore/useCompositeFilter.ts#L17)
+Defined in: react-native/firestore/utils/buildCompositeFilter.ts:16
 
 ## Type Parameters
 
@@ -22,7 +22,7 @@ Defined in: [react-native/firestore/useCompositeFilter.ts:17](https://github.com
 children: QueryElement<AppModelType & object>[];
 ```
 
-Defined in: [react-native/firestore/useCompositeFilter.ts:19](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/react-native/firestore/useCompositeFilter.ts#L19)
+Defined in: react-native/firestore/utils/buildCompositeFilter.ts:18
 
 ***
 
@@ -32,4 +32,4 @@ Defined in: [react-native/firestore/useCompositeFilter.ts:19](https://github.com
 operator: "OR" | "AND";
 ```
 
-Defined in: [react-native/firestore/useCompositeFilter.ts:18](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/react-native/firestore/useCompositeFilter.ts#L18)
+Defined in: react-native/firestore/utils/buildCompositeFilter.ts:17

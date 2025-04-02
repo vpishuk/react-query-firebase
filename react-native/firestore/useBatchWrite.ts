@@ -4,23 +4,47 @@ import { writeBatch, FirebaseFirestoreTypes } from "@react-native-firebase/fires
 import { ReactNativeFirebase } from "@react-native-firebase/app";
 import { useFirestore } from "./useFirestore";
 
+/**
+ * @inline
+ */
 export type UseBatchWriteVariables = (batch: FirebaseFirestoreTypes.WriteBatch) => Promise<void> | void;
 
-export type UseBatchWriteOptions<TContext = unknown> = {
+/**
+ * @inline
+ */
+export type UseBatchWriteOptions = {
     options?: Omit<
-        UseMutationOptions<void, ReactNativeFirebase.NativeFirebaseError, UseBatchWriteVariables, TContext>,
+        UseMutationOptions<void, ReactNativeFirebase.NativeFirebaseError, UseBatchWriteVariables>,
         "mutationFn"
     >;
 };
 
 /**
  * Custom hook to perform batch write operations using Firestore.
- * Utilizes a mutation to carry out the batch write transaction.
- * @template TContext - The type of context that can be passed into the hook, defaults to unknown.
- * @param {Object} options - The configuration options for the mutation operation.
- * @returns {Object} Returns an object composed of elements returned by useMutation, including properties such as status, and functions to trigger and control the mutation process.
+ *
+ * @group Hook
+ *
+ * @param {UseBatchWriteOptions} options - Configuration options for the query.
+ *
+ * @returns {UseMutationResult<void, Error, UseAddDocMutationValues<AppModelType>>}  A mutation result
+ *
+ * @example
+ * ```jsx
+ * export const MyComponent = () => {
+ *  const {mutate} = useBatchWrite({
+ *      options: {
+ *      },
+ *  });
+ *
+ *  // ....
+ *  mutate(() => {
+ *      ref.update({...})
+ *  });
+ *  // ....
+ * };
+ * ```
  */
-export const useBatchWrite = <TContext = unknown>({ options = {} }: UseBatchWriteOptions<TContext> = {}) => {
+export const useBatchWrite = ({ options = {} }: UseBatchWriteOptions = {}) => {
     const db = useFirestore();
 
     return useMutation({

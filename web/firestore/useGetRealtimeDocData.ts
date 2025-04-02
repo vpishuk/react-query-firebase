@@ -95,11 +95,11 @@ export const useGetRealtimeDocData = <AppModelType extends AppModel = AppModel>(
 
     return useMemo(
         () => ({
-            data: doc,
+            data: { ...(doc || {}), uid: ref?.id ?? "" } as AppModelType,
             isError,
             isFetching,
             error
         }),
-        [doc, isError, error, isFetching]
+        [doc, isError, error, ref, isFetching]
     );
 };

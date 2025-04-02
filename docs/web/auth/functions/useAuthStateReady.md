@@ -6,7 +6,7 @@
 function useAuthStateReady(): boolean
 ```
 
-Defined in: [web/auth/useAuthStateReady.ts:20](https://github.com/vpishuk/react-query-firebase/blob/10e2945f75363a784c3dfc0e90b9f7a489dcc848/web/auth/useAuthStateReady.ts#L20)
+Defined in: [web/auth/useAuthStateReady.ts:20](https://github.com/vpishuk/react-query-firebase/blob/47ed1ecd8b83d68dd4237e8eb73f6aa6dea2c1fa/web/auth/useAuthStateReady.ts#L20)
 
 A custom hook that determines if the Firebase authentication state is ready.
 It uses Firebase authentication to check if the auth state is ready and updates the state accordingly.
