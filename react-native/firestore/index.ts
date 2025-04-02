@@ -20,3 +20,4 @@ export * from "./utils/getDocSnap";
 export * from "./utils/getDocRef";
 export * from "./utils/buildQueryConstraint";
 export * from "./utils/buildCompositeFilter";
+export * from "./useEnsureDoc";

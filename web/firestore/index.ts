@@ -15,6 +15,7 @@ export * from "./useSetDocMutation";
 export * from "./useUpdateDocMutation";
 export * from "./useGetRealtimeDocData";
 export * from "./useQueryConstraints";
+export * from "./useEnsureDoc";
 export * from "./utils/getDocData";
 export * from "./utils/getDocSnap";
 export * from "./utils/getDocRef";
