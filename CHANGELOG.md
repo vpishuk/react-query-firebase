@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.4.1](https://github.com/vpishuk/react-query-firebase/compare/v2.4.0...v2.4.1) (2025-04-02)
+
+
+### Bug Fixes
+
+* **firestore:** returns null from getDocRef in certain scenarios ([#73](https://github.com/vpishuk/react-query-firebase/issues/73)) ([19ff5ba](https://github.com/vpishuk/react-query-firebase/commit/19ff5ba1e415e66211c2a479dc6fd2e492b78f5a))
+
 ## [2.4.0](https://github.com/vpishuk/react-query-firebase/compare/v2.3.3...v2.4.0) (2025-04-02)
 
 
