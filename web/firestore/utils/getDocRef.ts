@@ -27,17 +27,17 @@ export const getDocRef = <AppModelType extends AppModel = AppModel>({
     path,
     pathSegments
 }: GetDocRefOptions<AppModelType>) => {
-    if (!reference && !path) {
-        throw new Error("One of the options must be provided: path or reference.");
+    if ((!reference && !path) || (reference && !path)) {
+        return null;
     }
 
     const docRef = !reference
-        ? doc(db, path as string, ...(pathSegments || []))
+        ? (doc(db, path as string, ...(pathSegments || [])) as DocumentReference<AppModelType, AppModelType>)
         : reference.type === "collection"
-          ? doc(reference, path, ...(pathSegments || []))
+          ? (doc(reference, path, ...(pathSegments || [])) as DocumentReference<AppModelType, AppModelType>)
           : reference.type === "document"
-            ? doc(reference, path as string, ...(pathSegments || []))
+            ? (doc(reference, path as string, ...(pathSegments || [])) as DocumentReference<AppModelType, AppModelType>)
             : null;
 
-    return docRef as DocumentReference<AppModelType, AppModelType>;
+    return docRef;
 };
