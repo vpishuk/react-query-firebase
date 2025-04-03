@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.6.1](https://github.com/vpishuk/react-query-firebase/compare/v2.6.0...v2.6.1) (2025-04-02)
+
+
+### Bug Fixes
+
+* **react-native:** migrate off deprecated namespaced methods ([#79](https://github.com/vpishuk/react-query-firebase/issues/79)) ([3f033be](https://github.com/vpishuk/react-query-firebase/commit/3f033befaef844fe7d19513c51d475aebbd0bc3f))
+
 ## [2.6.0](https://github.com/vpishuk/react-query-firebase/compare/v2.5.0...v2.6.0) (2025-04-02)
 
 
