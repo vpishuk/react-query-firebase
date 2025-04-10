@@ -80,7 +80,7 @@ export const useQuery = <AppModelType extends AppModel = AppModel>({
 
             if (querySnapshot) {
                 querySnapshot.forEach((doc) => {
-                    docs.push(doc.data());
+                    docs.push({ ...doc.data(), uid: doc.id });
                 });
             }
             return docs;

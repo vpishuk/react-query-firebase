@@ -1,5 +1,5 @@
 import { useQuery, UseQueryOptions } from "@tanstack/react-query";
-import { getDoc, setDoc } from "firebase/firestore";
+import { FirestoreError, getDoc, setDoc } from "firebase/firestore";
 
 import { AppModel } from "../../types";
 import { GetDocDataOptions } from "./utils/getDocData";
@@ -58,22 +58,35 @@ export const useEnsureDoc = <AppModelType extends AppModel = AppModel>({
     return useQuery({
         ...options,
         queryFn: async () => {
-            const existingDocSnap = await getDocSnap({ db, path, pathSegments, reference });
+            const createDoc = async () => {
+                const docRef = getDocRef({ db, reference, path, pathSegments });
+                if (!docRef) {
+                    throw new Error(
+                        `Cannot fetch document reference using data: ${reference?.path}, ${path}, ${pathSegments?.join("/")}`
+                    );
+                }
 
-            if (existingDocSnap?.exists) {
-                return { ...(existingDocSnap.data() as AppModelType), uid: existingDocSnap.id };
+                await setDoc<AppModelType, AppModelType>(docRef, defaults);
+                const docSnap = await getDoc(docRef);
+                return { ...(docSnap.data() as AppModelType), uid: docSnap.id };
+            };
+
+            try {
+                const existingDocSnap = await getDocSnap({ db, path, pathSegments, reference });
+
+                if (existingDocSnap?.exists) {
+                    return { ...(existingDocSnap.data() as AppModelType), uid: existingDocSnap.id };
+                }
+
+                return createDoc();
+            } catch (e) {
+                // permission denied error may arise because of a security rule
+                if ((e as FirestoreError).code === "permission-denied") {
+                    return createDoc();
+                }
+
+                throw e;
             }
-
-            const docRef = getDocRef({ db, reference, path, pathSegments });
-            if (!docRef) {
-                throw new Error(
-                    `Cannot fetch document reference using data: ${reference?.path}, ${path}, ${pathSegments?.join("/")}`
-                );
-            }
-
-            await setDoc<AppModelType, AppModelType>(docRef, defaults);
-            const docSnap = await getDoc(docRef);
-            return { ...(docSnap.data() as AppModelType), uid: docSnap.id };
         }
     });
 };

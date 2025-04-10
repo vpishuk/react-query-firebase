@@ -105,7 +105,7 @@ export const useInfiniteQuery = <AppModelType extends AppModel = AppModel, TQuer
 
             if (querySnapshot) {
                 querySnapshot.forEach((doc) => {
-                    docs.push(doc.data());
+                    docs.push({ ...doc.data(), uid: doc.id });
                 });
             }
             return docs;
