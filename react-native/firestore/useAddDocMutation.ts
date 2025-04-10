@@ -3,6 +3,7 @@ import { FirebaseFirestoreTypes, addDoc, WithFieldValue, getDoc } from "@react-n
 
 import { ReactNativeFirebase } from "@react-native-firebase/app";
 import { useMemo } from "react";
+import { AppModel } from "../../types";
 
 /**
  * @inline
@@ -17,10 +18,7 @@ export type UseAddDocMutationValues<AppModelType> = {
 /**
  * @inline
  */
-export type UseAddDocMutationOptions<
-    AppModelType extends FirebaseFirestoreTypes.DocumentData = FirebaseFirestoreTypes.DocumentData,
-    TContext = unknown
-> = {
+export type UseAddDocMutationOptions<AppModelType extends AppModel = AppModel, TContext = unknown> = {
     /**
      * Reference to a collection where document must be added
      */
@@ -64,10 +62,7 @@ export type UseAddDocMutationOptions<
  * };
  * ```
  */
-export const useAddDocMutation = <
-    AppModelType extends FirebaseFirestoreTypes.DocumentData = FirebaseFirestoreTypes.DocumentData,
-    TContext = unknown
->({
+export const useAddDocMutation = <AppModelType extends AppModel = AppModel, TContext = unknown>({
     collectionReference,
     options = {}
 }: UseAddDocMutationOptions<AppModelType, TContext>) => {
@@ -79,7 +74,7 @@ export const useAddDocMutation = <
         mutationFn: async ({ data }) => {
             const docRef = await addDoc<AppModelType>(collectionReference, data);
             const docSnap = await getDoc(docRef);
-            return docSnap.data() as AppModelType;
+            return { ...docSnap.data(), uid: docRef.id } as AppModelType;
         }
     });
 };

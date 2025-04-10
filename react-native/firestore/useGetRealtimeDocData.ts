@@ -78,12 +78,13 @@ export const useGetRealtimeDocData = <AppModelType extends AppModel = AppModel>(
             ? onSnapshot<AppModelType>(ref, {
                   next: async (snapshot) => {
                       setIsFetching(false);
-                      setDoc(snapshot.data() || null);
+                      setDoc({ ...snapshot.data(), uid: snapshot.id } as AppModelType);
                       setError(null);
                       setIsError(false);
                   },
                   error: (e) => {
                       setIsError(true);
+                      setDoc(null);
                       setError(e);
                       onError?.(e);
                   }
