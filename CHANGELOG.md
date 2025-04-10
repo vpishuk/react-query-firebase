@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.6.2](https://github.com/vpishuk/react-query-firebase/compare/v2.6.1...v2.6.2) (2025-04-10)
+
+
+### Bug Fixes
+
+* **react-native:** adds uid into app model returned from queries ([#82](https://github.com/vpishuk/react-query-firebase/issues/82)) ([b9c55a2](https://github.com/vpishuk/react-query-firebase/commit/b9c55a21bebd2638bd12de8a8b5d296673bc75fc))
+
 ## [2.6.1](https://github.com/vpishuk/react-query-firebase/compare/v2.6.0...v2.6.1) (2025-04-02)
 
 
