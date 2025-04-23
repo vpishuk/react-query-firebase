@@ -63,7 +63,7 @@ export const useIdToken = (): UseIdTokenResult => {
     }, [callback]);
 
     useEffect(() => {
-        const unsubscribe = onIdTokenChanged(auth, (user: FirebaseAuthTypes.User) => {
+        const unsubscribe = onIdTokenChanged(auth, (user: FirebaseAuthTypes.User | null) => {
             if (user) {
                 user.getIdToken().then((idToken) => {
                     setIdToken(idToken);
