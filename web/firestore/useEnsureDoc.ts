@@ -74,7 +74,7 @@ export const useEnsureDoc = <AppModelType extends AppModel = AppModel>({
             try {
                 const existingDocSnap = await getDocSnap({ db, path, pathSegments, reference });
 
-                if (existingDocSnap?.exists) {
+                if (existingDocSnap?.exists()) {
                     return { ...(existingDocSnap.data() as AppModelType), uid: existingDocSnap.id };
                 }
 

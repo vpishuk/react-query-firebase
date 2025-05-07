@@ -25,7 +25,7 @@ export const getDocData = async <AppModelType extends AppModel = AppModel>({
 }: GetDocDataOptions<AppModelType>) => {
     const docSnap = await getDocSnap<AppModelType>({ db, reference, path, pathSegments });
 
-    if (docSnap && docSnap?.exists) {
+    if (docSnap && docSnap?.exists()) {
         return { ...docSnap.data(), uid: docSnap.id } as AppModelType;
     }
 
