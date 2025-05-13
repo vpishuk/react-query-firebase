@@ -31,7 +31,7 @@
         "@react-native-firebase/remote-config": "^22.1.0",
         "@types/react": "^19.0.2",
         "husky": "^9.1.1",
-        "lint-staged": "^15.1.0",
+        "lint-staged": "^16.0.0",
         "prettier": "^3.0.3",
         "react": "^19.0.0",
         "typedoc": "^0.28.0",
