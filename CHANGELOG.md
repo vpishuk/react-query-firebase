@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.6.4](https://github.com/vpishuk/react-query-firebase/compare/v2.6.3...v2.6.4) (2025-06-10)
+
+
+### Miscellaneous Chores
+
+* release 2.6.4 ([786e2f9](https://github.com/vpishuk/react-query-firebase/commit/786e2f9a3164346fced78de9143b26ce8e4343ce))
+
 ## [2.6.3](https://github.com/vpishuk/react-query-firebase/compare/v2.6.2...v2.6.3) (2025-05-07)
 
 
