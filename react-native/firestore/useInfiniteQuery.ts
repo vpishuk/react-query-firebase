@@ -28,7 +28,6 @@ type UseInfiniteQueryOptions<AppModelType extends AppModel = AppModel, TQueryKey
             AppModelType[],
             Error,
             InfiniteData<AppModelType[]>,
-            AppModelType[],
             TQueryKey,
             QueryNonFilterConstraint
         >,
@@ -40,7 +39,6 @@ type UseInfiniteQueryOptions<AppModelType extends AppModel = AppModel, TQueryKey
                     AppModelType[],
                     Error,
                     InfiniteData<AppModelType[]>,
-                    AppModelType[],
                     TQueryKey,
                     QueryNonFilterConstraint
                 >,
