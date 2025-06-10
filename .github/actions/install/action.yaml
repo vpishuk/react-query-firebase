@@ -5,3 +5,5 @@ runs:
   steps:
     - run: npm ci
       shell: bash
+    - run: nom i @rollup/rollup-linux-x64-gnu
+      shell: bash
