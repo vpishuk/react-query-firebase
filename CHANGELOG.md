@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.6.5](https://github.com/vpishuk/react-query-firebase/compare/v2.6.4...v2.6.5) (2025-06-25)
+
+
+### Bug Fixes
+
+* migrates FieldPath to modular rnfirebase ([#97](https://github.com/vpishuk/react-query-firebase/issues/97)) ([3538427](https://github.com/vpishuk/react-query-firebase/commit/3538427a62a6328139ff48fa69f3a87d1967ad31))
+
 ## [2.6.4](https://github.com/vpishuk/react-query-firebase/compare/v2.6.3...v2.6.4) (2025-06-10)
 
 
