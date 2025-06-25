@@ -1,4 +1,4 @@
-import firebase, { FirebaseFirestoreTypes, and, or, where } from "@react-native-firebase/firestore";
+import { FirebaseFirestoreTypes, and, or, where, FieldPath } from "@react-native-firebase/firestore";
 import { AppModel } from "../../../types";
 
 export type QueryFilterConstraint =
@@ -65,7 +65,7 @@ export const buildCompositeFilter = <AppModelType extends AppModel = AppModel>(
 
     if (query.field && query.op) {
         return where(
-            query.field === "documentId" ? firebase.FieldPath.documentId() : (query.field as string),
+            query.field === "documentId" ? new FieldPath("__name__") : (query.field as string),
             query.op,
             query.value
         ) as unknown as FirebaseFirestoreTypes.QueryFilterConstraint;
