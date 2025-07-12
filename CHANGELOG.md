@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.7.0](https://github.com/vpishuk/react-query-firebase/compare/v2.6.5...v2.7.0) (2025-07-12)
+
+
+### Features
+
+* **auth:** implements useLinkWithRedirect hook ([#101](https://github.com/vpishuk/react-query-firebase/issues/101)) ([220ac2c](https://github.com/vpishuk/react-query-firebase/commit/220ac2c2d7b0daf5e49c334e841f7b844b4c3320))
+
 ## [2.6.5](https://github.com/vpishuk/react-query-firebase/compare/v2.6.4...v2.6.5) (2025-06-25)
 
 
