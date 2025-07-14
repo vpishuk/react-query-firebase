@@ -12,3 +12,5 @@ export * from "./useIdToken";
 export * from "./useReauthenticateWitCredentialMutation";
 export * from "./useReauthenticateWitRedirectMutation";
 export * from "./useSignInAnonymouslyMutation";
+export * from "./useAuthProvider";
+export * from "./useLinkWithRedirect";
