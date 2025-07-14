@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.7.1](https://github.com/vpishuk/react-query-firebase/compare/v2.7.0...v2.7.1) (2025-07-14)
+
+
+### Bug Fixes
+
+* exporta useAuthProvider and useLink hooks ([#104](https://github.com/vpishuk/react-query-firebase/issues/104)) ([5d8cdc8](https://github.com/vpishuk/react-query-firebase/commit/5d8cdc8dd12fcdce45c63e9536691fc28487e8c8))
+
 ## [2.7.0](https://github.com/vpishuk/react-query-firebase/compare/v2.6.5...v2.7.0) (2025-07-12)
 
 
