@@ -12,5 +12,6 @@ export * from "./useReauthenticateWitCredentialMutation";
 export * from "./useReauthenticateWitRedirectMutation";
 export * from "./useAuthStateReady";
 export * from "./useSignInAnonymouslyMutation";
-export * from "./useAuthProvider";
-export * from "./useLinkWithRedirect";
+export * from "./useEmailAuthProviderCredential";
+export * from "./useFacebookAuthProviderCredential";
+export * from "./useLinkWithCredentialMutation";
