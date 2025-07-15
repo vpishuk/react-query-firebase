@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.8.0](https://github.com/vpishuk/react-query-firebase/compare/v2.7.1...v2.8.0) (2025-07-15)
+
+
+### Features
+
+* **linkWithCredential:** replaces link with redirct by linkWithCredential ([#106](https://github.com/vpishuk/react-query-firebase/issues/106)) ([1b0fad5](https://github.com/vpishuk/react-query-firebase/commit/1b0fad53ece3b429bb8930b288c7c7ef1eda482d))
+
 ## [2.7.1](https://github.com/vpishuk/react-query-firebase/compare/v2.7.0...v2.7.1) (2025-07-14)
 
 
