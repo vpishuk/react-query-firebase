@@ -14,4 +14,5 @@ export * from "./useAuthStateReady";
 export * from "./useSignInAnonymouslyMutation";
 export * from "./useEmailAuthProviderCredential";
 export * from "./useFacebookAuthProviderCredential";
+export * from "./useAppleAuthProviderCredential";
 export * from "./useLinkWithCredentialMutation";
