@@ -75,7 +75,7 @@ export const useQuery = <AppModelType extends AppModel = AppModel>({
                 ? query(collectionReference, compositeFilter, ...(queryConstraints as QueryNonFilterConstraint[]))
                 : query(collectionReference, ...(queryConstraints as QueryConstraint[]));
 
-            const querySnapshot = await getDocs(queryToExecute);
+            const querySnapshot: FirebaseFirestoreTypes.QuerySnapshot<AppModelType> = await getDocs(queryToExecute);
             const docs: AppModelType[] = [];
 
             if (querySnapshot) {
