@@ -72,9 +72,9 @@ export const useAddDocMutation = <AppModelType extends AppModel = AppModel, TCon
         mutationKey,
         ...options,
         mutationFn: async ({ data }) => {
-            const docRef = await addDoc<AppModelType>(collectionReference, data);
+            const docRef = await addDoc<AppModelType, AppModelType>(collectionReference, data);
             const docSnap = await getDoc(docRef);
-            return { ...docSnap.data(), uid: docRef.id } as AppModelType;
+            return { ...(docSnap.data() as AppModelType), uid: docRef.id } as AppModelType;
         }
     });
 };

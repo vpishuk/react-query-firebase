@@ -96,7 +96,7 @@ export const useInfiniteQuery = <AppModelType extends AppModel = AppModel, TQuer
             const allQueryConstraints = [...queryConstraints, ...(pageParam ? [pageParam] : [])];
             const queryToExecute = compositeFilter
                 ? query(collectionReference, compositeFilter, ...(allQueryConstraints as QueryNonFilterConstraint[]))
-                : query(collectionReference, ...allQueryConstraints);
+                : query(collectionReference, ...(allQueryConstraints as QueryConstraint[]));
 
             const querySnapshot = await getDocs(queryToExecute);
             const docs: AppModelType[] = [];
