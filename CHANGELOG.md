@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.9.0](https://github.com/vpishuk/react-query-firebase/compare/v2.8.0...v2.9.0) (2025-07-22)
+
+
+### Features
+
+* adds apple auth provider ([#109](https://github.com/vpishuk/react-query-firebase/issues/109)) ([e6cdae5](https://github.com/vpishuk/react-query-firebase/commit/e6cdae58a89aa3ecf5625e4c3fa22fbfbe480249))
+
 ## [2.8.0](https://github.com/vpishuk/react-query-firebase/compare/v2.7.1...v2.8.0) (2025-07-15)
 
 
