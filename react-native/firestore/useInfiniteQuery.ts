@@ -96,9 +96,12 @@ export const useInfiniteQuery = <AppModelType extends AppModel = AppModel, TQuer
             const allQueryConstraints = [...queryConstraints, ...(pageParam ? [pageParam] : [])];
             const queryToExecute = compositeFilter
                 ? query(collectionReference, compositeFilter, ...(allQueryConstraints as QueryNonFilterConstraint[]))
-                : query(collectionReference, ...allQueryConstraints);
+                : query(collectionReference, ...(allQueryConstraints as QueryConstraint[]));
 
-            const querySnapshot = await getDocs(queryToExecute);
+            const querySnapshot: FirebaseFirestoreTypes.QuerySnapshot<AppModelType> = await getDocs<
+                AppModelType,
+                AppModelType
+            >(queryToExecute);
             const docs: AppModelType[] = [];
 
             if (querySnapshot) {

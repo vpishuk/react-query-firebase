@@ -73,7 +73,7 @@ export const useCountQuery = <AppModelType extends AppModel = AppModel>({
         queryFn: async () => {
             const queryToExecute = compositeFilter
                 ? query(collectionReference, compositeFilter, ...(queryConstraints as QueryNonFilterConstraint[]))
-                : query(collectionReference, ...queryConstraints);
+                : query(collectionReference, ...(queryConstraints as QueryConstraint[]));
 
             const querySnapshot = await getCountFromServer(queryToExecute);
             if (querySnapshot) {
