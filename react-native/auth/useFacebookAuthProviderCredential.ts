@@ -3,7 +3,7 @@ import { useCallback } from "react";
 
 type Credential = {
     token: string;
-    nonce: string;
+    nonce?: string;
 };
 
 /**
