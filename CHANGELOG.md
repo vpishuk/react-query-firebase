@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.9.2](https://github.com/vpishuk/react-query-firebase/compare/v2.9.1...v2.9.2) (2025-07-23)
+
+
+### Bug Fixes
+
+* add support for facebook classic login ([#114](https://github.com/vpishuk/react-query-firebase/issues/114)) ([953aae5](https://github.com/vpishuk/react-query-firebase/commit/953aae548c123ccf6977b846e3405d372bcae2b3))
+
 ## [2.9.1](https://github.com/vpishuk/react-query-firebase/compare/v2.9.0...v2.9.1) (2025-07-23)
 
 
