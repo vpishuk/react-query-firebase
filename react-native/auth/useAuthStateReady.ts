@@ -1,3 +1,4 @@
+import { onAuthStateChanged } from "@react-native-firebase/auth";
 import { useAuth } from "./useAuth";
 import { useEffect, useState } from "react";
 
@@ -23,7 +24,7 @@ export const useAuthStateReady = () => {
     const [isAuthStateReady, setIsAuthStateReady] = useState(false);
 
     useEffect(() => {
-        const subscription = firebaseAuth.onAuthStateChanged(() => {
+        const subscription = onAuthStateChanged(firebaseAuth, () => {
             if (!isAuthStateReady) {
                 setIsAuthStateReady(true);
             }
