@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.9.1](https://github.com/vpishuk/react-query-firebase/compare/v2.9.0...v2.9.1) (2025-07-23)
+
+
+### Bug Fixes
+
+* migrate to modulat onAuthStateChanged ([#111](https://github.com/vpishuk/react-query-firebase/issues/111)) ([4e2723b](https://github.com/vpishuk/react-query-firebase/commit/4e2723bdfa66c27b39e690ae5b51c12d661b1913))
+
 ## [2.9.0](https://github.com/vpishuk/react-query-firebase/compare/v2.8.0...v2.9.0) (2025-07-22)
 
 
