@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.9.3](https://github.com/vpishuk/react-query-firebase/compare/v2.9.2...v2.9.3) (2025-07-24)
+
+
+### Bug Fixes
+
+* remove deprecation warnings ([#116](https://github.com/vpishuk/react-query-firebase/issues/116)) ([27e92cf](https://github.com/vpishuk/react-query-firebase/commit/27e92cfd7d4c50419be20856ee24d23e75798392))
+
 ## [2.9.2](https://github.com/vpishuk/react-query-firebase/compare/v2.9.1...v2.9.2) (2025-07-23)
 
 
