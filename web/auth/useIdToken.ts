@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import { useCurrentUser } from "./useCurrentUser";
-import { onIdTokenChanged } from "firebase/auth";
+import { onIdTokenChanged, getIdToken } from "firebase/auth";
 import { useAuth } from "./useAuth";
 
 /**
@@ -45,7 +45,7 @@ export const useIdToken = (): UseIdTokenResult => {
             return;
         }
 
-        const idToken = await currentUser.getIdToken();
+        const idToken = await getIdToken(currentUser);
         setIdToken(idToken);
     }, [currentUser]);
 
@@ -54,7 +54,7 @@ export const useIdToken = (): UseIdTokenResult => {
             return;
         }
 
-        const idToken = await currentUser.getIdToken(true);
+        const idToken = await getIdToken(currentUser, true);
         return idToken;
     }, [currentUser]);
 
@@ -65,7 +65,7 @@ export const useIdToken = (): UseIdTokenResult => {
     useEffect(() => {
         const unsubscribe = onIdTokenChanged(auth, (user) => {
             if (user) {
-                user.getIdToken().then((idToken) => {
+                getIdToken(user).then((idToken) => {
                     setIdToken(idToken);
                 });
             } else {
