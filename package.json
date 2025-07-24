@@ -30,7 +30,7 @@
         "@react-native-firebase/installations": "^22.4.0",
         "@react-native-firebase/remote-config": "^22.4.0",
         "@types/react": "^19.1.8",
-        "firebase": "^11.9.0",
+        "firebase": "^12.0.0",
         "husky": "^9.1.7",
         "lint-staged": "^16.1.2",
         "prettier": "^3.6.2",
