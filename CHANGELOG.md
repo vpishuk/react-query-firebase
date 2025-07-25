@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.10.0](https://github.com/vpishuk/react-query-firebase/compare/v2.9.3...v2.10.0) (2025-07-25)
+
+
+### Features
+
+* adds useSignInWithCredential mutation ([#118](https://github.com/vpishuk/react-query-firebase/issues/118)) ([8f15c28](https://github.com/vpishuk/react-query-firebase/commit/8f15c2805ea57d8daba003963f7630e6211a5e40))
+
 ## [2.9.3](https://github.com/vpishuk/react-query-firebase/compare/v2.9.2...v2.9.3) (2025-07-24)
 
 
