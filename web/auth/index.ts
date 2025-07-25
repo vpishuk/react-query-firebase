@@ -16,3 +16,4 @@ export * from "./useEmailAuthProviderCredential";
 export * from "./useFacebookAuthProviderCredential";
 export * from "./useAppleAuthProviderCredential";
 export * from "./useLinkWithCredentialMutation";
+export * from "./useSignInWithCredentialMutation";
