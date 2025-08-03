@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.10.1](https://github.com/vpishuk/react-query-firebase/compare/v2.10.0...v2.10.1) (2025-08-03)
+
+
+### Bug Fixes
+
+* **auth:** migrates useCurrentUser to module api ([#121](https://github.com/vpishuk/react-query-firebase/issues/121)) ([6fc99a3](https://github.com/vpishuk/react-query-firebase/commit/6fc99a37c9250c0288ea149c495c2e455d2dd46f))
+
 ## [2.10.0](https://github.com/vpishuk/react-query-firebase/compare/v2.9.3...v2.10.0) (2025-07-25)
 
 
