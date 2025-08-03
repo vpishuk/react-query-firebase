@@ -1,3 +1,4 @@
+import { onAuthStateChanged } from "@react-native-firebase/auth";
 import { useAuth } from "./useAuth";
 import { useEffect, useState } from "react";
 
@@ -7,18 +8,19 @@ import { useEffect, useState } from "react";
  * @returns {Object|null} The current authenticated user object or null if no user is authenticated.
  */
 export const useCurrentUser = () => {
-    const { onAuthStateChanged, currentUser: fbCurrentUser } = useAuth();
+    const firebaseAuth = useAuth();
 
-    const [currentUser, setCurrentUser] = useState(fbCurrentUser);
+    const [currentUser, setCurrentUser] = useState(firebaseAuth.currentUser);
 
     useEffect(() => {
-        const unsubscribe = onAuthStateChanged((user) => {
+        const unsubscribe = onAuthStateChanged(firebaseAuth, (user) => {
             setCurrentUser(user);
         });
+
         return () => {
             unsubscribe();
         };
-    }, [currentUser?.uid, onAuthStateChanged]);
+    }, [firebaseAuth]);
 
     return currentUser;
 };
