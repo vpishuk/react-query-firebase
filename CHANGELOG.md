@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.11.0](https://github.com/vpishuk/react-query-firebase/compare/v2.10.1...v2.11.0) (2025-08-09)
+
+
+### Features
+
+* **auth:** adds useGetRedirectResultMutation ([#124](https://github.com/vpishuk/react-query-firebase/issues/124)) ([7ecd6fa](https://github.com/vpishuk/react-query-firebase/commit/7ecd6fa7b6721c932dd45ab9afd68e3895d1c211))
+
 ## [2.10.1](https://github.com/vpishuk/react-query-firebase/compare/v2.10.0...v2.10.1) (2025-08-03)
 
 
