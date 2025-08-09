@@ -17,3 +17,4 @@ export * from "./useFacebookAuthProviderCredential";
 export * from "./useAppleAuthProviderCredential";
 export * from "./useLinkWithCredentialMutation";
 export * from "./useSignInWithCredentialMutation";
+export * from "./useGetRedirectResultMutation";
