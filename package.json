@@ -75,5 +75,5 @@
         "docs:build": "vitepress build docs",
         "docs:preview": "vitepress preview docs"
     },
-    "version": "2.11.0"
+    "version": "2.12.0"
 }

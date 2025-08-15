@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.12.0](https://github.com/vpishuk/react-query-firebase/compare/v2.11.0...v2.12.0) (2025-08-15)
+
+
+### Miscellaneous Chores
+
+* upgrade dependencies ([#127](https://github.com/vpishuk/react-query-firebase/issues/127)) ([92c81ca](https://github.com/vpishuk/react-query-firebase/commit/92c81ca51e4abfa7cbecff9c1a8b7fadbf9946bc))
+
 ## [2.11.0](https://github.com/vpishuk/react-query-firebase/compare/v2.10.1...v2.11.0) (2025-08-09)
 
 
