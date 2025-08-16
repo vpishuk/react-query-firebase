@@ -13,7 +13,7 @@
         "@react-native-firebase/installations": "^23.x.x",
         "@react-native-firebase/remote-config": "^23.x.x",
         "@tanstack/react-query": "^5.x.x",
-        "firebase": "^11.x.x",
+        "firebase": "^11.x.x || ^12.x.x",
         "react": "^18.x.x || ^19.x.x"
     },
     "publishConfig": {
