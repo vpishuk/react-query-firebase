@@ -23,7 +23,7 @@
     "devDependencies": {
         "@laverve/eslint-utils": "^5.3.1",
         "@react-native-firebase/analytics": "^23.0.1",
-        "@react-native-firebase/app": "23.0.1",
+        "@react-native-firebase/app": "23.3.0",
         "@react-native-firebase/auth": "^23.0.1",
         "@react-native-firebase/crashlytics": "^23.0.1",
         "@react-native-firebase/firestore": "^23.0.1",
