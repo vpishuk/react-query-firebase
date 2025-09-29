@@ -1,6 +1,13 @@
 import React, { PropsWithChildren, useEffect, useMemo } from "react";
 import { FirebaseContext } from "./FirebaseContext";
-import { connectAuthEmulator, getAuth } from "firebase/auth";
+import {
+    browserLocalPersistence,
+    browserSessionPersistence,
+    connectAuthEmulator,
+    getAuth,
+    Persistence,
+    setPersistence
+} from "firebase/auth";
 import { ConsentSettings, getAnalytics, setAnalyticsCollectionEnabled, setConsent } from "firebase/analytics";
 import { getRemoteConfig, RemoteConfigSettings } from "firebase/remote-config";
 import { connectFirestoreEmulator, FirestoreSettings, initializeFirestore } from "firebase/firestore";
@@ -104,6 +111,11 @@ export type FirebaseContextProviderProps = PropsWithChildren & {
      * @defaultValue `true`
      */
     remoteConfigEnabled?: boolean;
+    /**
+     * Firebase persistence type
+     * @defaultValue 'LOCAL'
+     */
+    authPersistenceType?: "SESSION" | "LOCAL" | "NONE" | "COOKIE";
 };
 
 /**
@@ -140,7 +152,8 @@ export const FirebaseContextProvider: React.FC<FirebaseContextProviderProps> = (
     remoteConfigEnabled = true,
     remoteConfigSettings,
     remoteConfigDefaults = {},
-    firestoreSettings
+    firestoreSettings,
+    authPersistenceType
 }) => {
     const firebase = useMemo(() => {
         return initializeApp(options);
@@ -173,6 +186,19 @@ export const FirebaseContextProvider: React.FC<FirebaseContextProviderProps> = (
         return null;
     }, [firestoreSettings, emulators?.firestore, firestoreEnabled, firebase]);
 
+    const authPersistence = useMemo(() => {
+        switch (authPersistenceType) {
+            case "NONE":
+            case "COOKIE":
+                return { type: "NONE" } as Persistence;
+            case "SESSION":
+                return browserSessionPersistence;
+            default:
+            case "LOCAL":
+                return browserLocalPersistence;
+        }
+    }, [authPersistenceType]);
+
     const auth = useMemo(() => {
         if (authEnabled) {
             const localAuth = getAuth(firebase);
@@ -185,6 +211,12 @@ export const FirebaseContextProvider: React.FC<FirebaseContextProviderProps> = (
         }
         return null;
     }, [emulators?.auth, authEnabled, firebase]);
+
+    useEffect(() => {
+        if (authPersistence && auth) {
+            setPersistence(auth, authPersistence);
+        }
+    }, [auth, authPersistence]);
 
     const analytics = useMemo(() => {
         if (analyticsEnabled && options.measurementId && typeof window !== "undefined") {

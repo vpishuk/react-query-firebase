@@ -128,6 +128,12 @@ export type FirebaseContextProviderProps = PropsWithChildren & {
      * @defaultValue `true`
      */
     remoteConfigEnabled?: boolean;
+    /**
+     * Firebase persistence type
+     * Applicable only for web version. Unsupported in native.
+     * @defaultValue 'LOCAL'
+     */
+    authPersistenceType?: "SESSION" | "LOCAL" | "NONE" | "COOKIE";
 };
 
 /**
