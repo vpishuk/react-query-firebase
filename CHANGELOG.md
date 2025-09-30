@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.13.0](https://github.com/vpishuk/react-query-firebase/compare/v2.12.1...v2.13.0) (2025-09-30)
+
+
+### Features
+
+* adds support for auth persistence layer configuration ([9483913](https://github.com/vpishuk/react-query-firebase/commit/94839130b5457abfc47d0b43ef04c176cf977ed5))
+
 ## [2.12.1](https://github.com/vpishuk/react-query-firebase/compare/v2.12.0...v2.12.1) (2025-08-16)
 
 
