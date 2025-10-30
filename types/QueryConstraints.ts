@@ -34,8 +34,7 @@ export type StartConstraint = {
  */
 export type EndConstraint = {
     type: "endAt" | "endBefore";
-    value: number | string | boolean | null;
-    key?: string;
+    arguments: unknown[];
 };
 
 /**

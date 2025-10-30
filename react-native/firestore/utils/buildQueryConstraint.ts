@@ -41,9 +41,9 @@ export const buildQueryConstraint = <AppModelType extends AppModel = AppModel>(
         case "startAfter":
             return startAfter(...constraint.arguments);
         case "endAt":
-            return endAt(constraint.value, constraint.key);
+            return endAt(...constraint.arguments);
         case "endBefore":
-            return endBefore(constraint.value, constraint.key);
+            return endBefore(...constraint.arguments);
         case "limit":
             return limit(constraint.limit);
         case "limitToLast":
