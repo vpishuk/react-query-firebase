@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.13.1](https://github.com/vpishuk/react-query-firebase/compare/v2.13.0...v2.13.1) (2025-10-30)
+
+
+### Bug Fixes
+
+* fixes endAt and endBefore query constraints ([eebd6b7](https://github.com/vpishuk/react-query-firebase/commit/eebd6b7a01a3a079548071940a793a129e77c4ba))
+
 ## [2.13.0](https://github.com/vpishuk/react-query-firebase/compare/v2.12.1...v2.13.0) (2025-09-30)
 
 
