@@ -1,6 +1,6 @@
 import { setAnalyticsCollectionEnabled } from "firebase/analytics";
-import { useAnalytics } from "./useAnalytics";
 import { useEffect } from "react";
+import { useAnalytics } from "./useAnalytics";
 
 type UseSetAnalyticsCollectionEnabledOptions = {
     enabled?: boolean;

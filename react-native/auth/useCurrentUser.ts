@@ -1,6 +1,6 @@
 import { onAuthStateChanged } from "@react-native-firebase/auth";
-import { useAuth } from "./useAuth";
 import { useEffect, useState } from "react";
+import { useAuth } from "./useAuth";
 
 /**
  * Hook that provides the current authenticated user from Firebase Auth.

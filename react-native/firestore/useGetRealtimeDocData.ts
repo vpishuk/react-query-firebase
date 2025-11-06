@@ -2,8 +2,8 @@ import { FirebaseFirestoreTypes, onSnapshot } from "@react-native-firebase/fires
 
 import { useEffect, useMemo, useState } from "react";
 import { ReactNativeFirebase } from "@react-native-firebase/app";
-import { useDocReference } from "./useDocReference";
 import { AppModel } from "../../types";
+import { useDocReference } from "./useDocReference";
 
 /**
  * @inline

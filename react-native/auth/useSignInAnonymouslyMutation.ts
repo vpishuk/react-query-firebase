@@ -1,9 +1,9 @@
 import { useMutation, UseMutationOptions } from "@tanstack/react-query";
 import { signInAnonymously, FirebaseAuthTypes } from "@react-native-firebase/auth";
 
+import { ReactNativeFirebase } from "@react-native-firebase/app";
 import { useAuth } from "./useAuth";
 import { SIGN_IN_ANONYMOUSLY_MUTATION_KEY } from "./mutation-keys";
-import { ReactNativeFirebase } from "@react-native-firebase/app";
 
 /**
  * @inline

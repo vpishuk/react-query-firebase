@@ -1,6 +1,6 @@
 import { logEvent } from "firebase/analytics";
-import { useAnalytics } from "./useAnalytics";
 import { useCallback, useMemo } from "react";
+import { useAnalytics } from "./useAnalytics";
 
 type UseLogEventOptions = {
     eventName: string;

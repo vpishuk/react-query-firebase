@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
-import { useCurrentUser } from "./useCurrentUser";
 import { onIdTokenChanged, getIdToken } from "firebase/auth";
+import { useCurrentUser } from "./useCurrentUser";
 import { useAuth } from "./useAuth";
 
 /**
@@ -59,7 +59,7 @@ export const useIdToken = (): UseIdTokenResult => {
     }, [currentUser]);
 
     useEffect(() => {
-        callback();
+        setTimeout(callback, 0);
     }, [callback]);
 
     useEffect(() => {

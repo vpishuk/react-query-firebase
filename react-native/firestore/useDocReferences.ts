@@ -1,6 +1,6 @@
 import { useMemo } from "react";
-import { useFirestore } from "./useFirestore";
 import { AppModel } from "../../types";
+import { useFirestore } from "./useFirestore";
 import { getDocRef, GetDocRefOptions } from "./utils/getDocRef";
 
 /**

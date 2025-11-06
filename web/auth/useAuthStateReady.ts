@@ -1,5 +1,5 @@
+import { useEffect, useState } from "react";
 import { useAuth } from "./useAuth";
-import { useCallback, useEffect, useState } from "react";
 
 /**
  * A custom hook that determines if the Firebase authentication state is ready.
@@ -22,14 +22,9 @@ export const useAuthStateReady = () => {
 
     const [isAuthStateReady, setIsAuthStateReady] = useState(false);
 
-    const callback = useCallback(async () => {
-        await firebaseAuth.authStateReady();
-        setIsAuthStateReady(true);
-    }, [firebaseAuth]);
-
     useEffect(() => {
-        callback();
-    }, [callback]);
+        firebaseAuth.authStateReady().then(() => setIsAuthStateReady(true));
+    }, [firebaseAuth]);
 
     return isAuthStateReady;
 };

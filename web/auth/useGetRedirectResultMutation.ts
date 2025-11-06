@@ -1,8 +1,8 @@
 import { useMutation, UseMutationOptions } from "@tanstack/react-query";
-import { useAuth } from "./useAuth";
-import { GET_REDIRECT_RESULT_MUTATION_KEY } from "./mutation-keys";
 import { getRedirectResult, UserCredential } from "firebase/auth";
 import { FirebaseError } from "firebase/app";
+import { useAuth } from "./useAuth";
+import { GET_REDIRECT_RESULT_MUTATION_KEY } from "./mutation-keys";
 
 /**
  * Custom hook to retrieve redirect result after sign in with redirect.

@@ -2,8 +2,8 @@ import { DocumentReference, onSnapshot } from "firebase/firestore";
 
 import { useEffect, useMemo, useState } from "react";
 import { FirebaseError } from "firebase/app";
-import { useDocReference } from "./useDocReference";
 import { AppModel } from "../../types";
+import { useDocReference } from "./useDocReference";
 
 /**
  * @inline

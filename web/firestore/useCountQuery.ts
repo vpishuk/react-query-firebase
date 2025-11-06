@@ -12,8 +12,8 @@ import {
     useQuery as useReactQuery,
     UseQueryOptions as UseReactQueryOptions
 } from "@tanstack/react-query";
-import { QueryFilterConstraint } from "./utils/buildCompositeFilter";
 import { AppModel } from "../../types";
+import { QueryFilterConstraint } from "./utils/buildCompositeFilter";
 
 /**
  * @inline

@@ -1,6 +1,6 @@
 import { onAuthStateChanged } from "@react-native-firebase/auth";
-import { useAuth } from "./useAuth";
 import { useEffect, useState } from "react";
+import { useAuth } from "./useAuth";
 
 /**
  * A custom hook that determines if the Firebase authentication state is ready.

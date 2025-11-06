@@ -1,9 +1,9 @@
 import { useMutation, UseMutationOptions } from "@tanstack/react-query";
 import { signInWithEmailAndPassword, FirebaseAuthTypes } from "@react-native-firebase/auth";
 
+import { ReactNativeFirebase } from "@react-native-firebase/app";
 import { useAuth } from "./useAuth";
 import { SIGN_IN_WITH_EMAIL_AND_PASSWORD_MUTATION_KEY } from "./mutation-keys";
-import { ReactNativeFirebase } from "@react-native-firebase/app";
 
 export type UseSignInWitEmailAndPasswordMutationVariables = {
     email: string;

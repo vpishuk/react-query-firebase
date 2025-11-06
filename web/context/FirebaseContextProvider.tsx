@@ -1,5 +1,4 @@
 import React, { PropsWithChildren, useEffect, useMemo } from "react";
-import { FirebaseContext } from "./FirebaseContext";
 import {
     browserLocalPersistence,
     browserSessionPersistence,
@@ -12,6 +11,7 @@ import { ConsentSettings, getAnalytics, setAnalyticsCollectionEnabled, setConsen
 import { getRemoteConfig, RemoteConfigSettings } from "firebase/remote-config";
 import { connectFirestoreEmulator, FirestoreSettings, initializeFirestore } from "firebase/firestore";
 import { FirebaseOptions, initializeApp } from "firebase/app";
+import { FirebaseContext } from "./FirebaseContext";
 
 /**
  * @inline
@@ -184,7 +184,7 @@ export const FirebaseContextProvider: React.FC<FirebaseContextProviderProps> = (
         }
 
         return null;
-    }, [firestoreSettings, emulators?.firestore, firestoreEnabled, firebase]);
+    }, [firestoreSettings, emulators, firestoreEnabled, firebase]);
 
     const authPersistence = useMemo(() => {
         switch (authPersistenceType) {

@@ -1,5 +1,5 @@
-import { getDocSnap, GetDocSnapOptions } from "./getDocSnap";
 import { AppModel } from "../../../types";
+import { getDocSnap, GetDocSnapOptions } from "./getDocSnap";
 
 /**
  * @inline

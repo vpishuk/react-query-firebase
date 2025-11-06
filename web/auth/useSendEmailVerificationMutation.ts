@@ -1,8 +1,8 @@
 import { useMutation, UseMutationOptions } from "@tanstack/react-query";
 import { sendEmailVerification, User } from "firebase/auth";
 
-import { SEND_EMAIL_VERIFICATION_MUTATION_KEY } from "./mutation-keys";
 import { FirebaseError } from "firebase/app";
+import { SEND_EMAIL_VERIFICATION_MUTATION_KEY } from "./mutation-keys";
 
 export type UseSendEmailVerificationMutationVariables = {
     user: User;

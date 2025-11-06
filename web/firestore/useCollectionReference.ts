@@ -1,8 +1,8 @@
 import { collection, CollectionReference, DocumentReference } from "firebase/firestore";
 
 import { useMemo } from "react";
-import { useFirestore } from "./useFirestore";
 import { AppModel } from "../../types";
+import { useFirestore } from "./useFirestore";
 
 /**
  * @inline

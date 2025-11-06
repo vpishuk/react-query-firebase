@@ -1,8 +1,6 @@
-import { DocumentReference } from "firebase/firestore";
-
-import { useEffect, useRef } from "react";
-import { useFirestore } from "./useFirestore";
+import { useMemo } from "react";
 import { AppModel } from "../../types";
+import { useFirestore } from "./useFirestore";
 import { getDocRef, GetDocRefOptions } from "./utils/getDocRef";
 
 /**
@@ -38,13 +36,8 @@ export const useDocReference = <AppModelType extends AppModel = AppModel>({
     pathSegments
 }: UseDocReferenceOptions<AppModelType>) => {
     const db = useFirestore();
-    const ref = useRef<DocumentReference<AppModelType, AppModelType> | null>(
-        getDocRef({ db, path, pathSegments, reference })
-    );
 
-    useEffect(() => {
-        ref.current = getDocRef({ db, path, pathSegments, reference });
-    }, [path, reference, pathSegments, db]);
-
-    return ref.current;
+    return useMemo(() => {
+        return getDocRef({ db, path, pathSegments, reference });
+    }, [db, path, pathSegments, reference]);
 };

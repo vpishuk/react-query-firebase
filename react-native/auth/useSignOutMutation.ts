@@ -1,8 +1,8 @@
 import { useMutation, UseMutationOptions } from "@tanstack/react-query";
 import { signOut } from "@react-native-firebase/auth";
 
-import { SIGN_OUT_MUTATION_KEY } from "./mutation-keys";
 import { ReactNativeFirebase } from "@react-native-firebase/app";
+import { SIGN_OUT_MUTATION_KEY } from "./mutation-keys";
 import { useAuth } from "./useAuth";
 
 /**

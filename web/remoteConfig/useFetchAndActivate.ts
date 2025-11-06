@@ -1,6 +1,6 @@
-import { useRemoteConfig } from "./useRemoteConfig";
 import { ensureInitialized, fetchAndActivate } from "firebase/remote-config";
 import { useCallback, useMemo, useState } from "react";
+import { useRemoteConfig } from "./useRemoteConfig";
 
 /**
  * Custom hook to fetch and activate remote configuration settings.

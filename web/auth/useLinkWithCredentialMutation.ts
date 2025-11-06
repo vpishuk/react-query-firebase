@@ -1,8 +1,8 @@
 import { useMutation, UseMutationOptions } from "@tanstack/react-query";
 import { linkWithCredential, User, AuthCredential, UserCredential } from "firebase/auth";
 
-import { LINK_WITH_CREDENTIAL_MUTATION_KEY } from "./mutation-keys";
 import { FirebaseError } from "firebase/app";
+import { LINK_WITH_CREDENTIAL_MUTATION_KEY } from "./mutation-keys";
 
 export type UseLinkWitCredentialMutationVariables = {
     user: User;

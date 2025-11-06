@@ -1,7 +1,7 @@
-import { useFirestore } from "./useFirestore";
-import { getDocData, GetDocDataOptions } from "./utils/getDocData";
 import { useQuery, UseQueryOptions } from "@tanstack/react-query";
 import { AppModel } from "../../types";
+import { useFirestore } from "./useFirestore";
+import { getDocData, GetDocDataOptions } from "./utils/getDocData";
 
 /**
  * @inline

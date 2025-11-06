@@ -1,9 +1,9 @@
 import { useMutation, UseMutationOptions } from "@tanstack/react-query";
 import { FirebaseAuthTypes, signInWithCredential } from "@react-native-firebase/auth";
 
+import { ReactNativeFirebase } from "@react-native-firebase/app";
 import { SIGN_IN_WITH_CREDENTIAL_MUTATION_KEY } from "./mutation-keys";
 import { useAuth } from "./useAuth";
-import { ReactNativeFirebase } from "@react-native-firebase/app";
 
 export type UseSignInWithCredentialMutationVariables = {
     credential: FirebaseAuthTypes.AuthCredential;

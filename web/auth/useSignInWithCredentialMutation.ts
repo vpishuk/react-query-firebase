@@ -1,8 +1,8 @@
 import { useMutation, UseMutationOptions } from "@tanstack/react-query";
 import { AuthCredential, UserCredential, signInWithCredential } from "firebase/auth";
 
-import { SIGN_IN_WITH_CREDENTIAL_MUTATION_KEY } from "./mutation-keys";
 import { FirebaseError } from "firebase/app";
+import { SIGN_IN_WITH_CREDENTIAL_MUTATION_KEY } from "./mutation-keys";
 import { useAuth } from "./useAuth";
 
 export type UseSignInWithCredentialMutationVariables = {

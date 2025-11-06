@@ -1,8 +1,8 @@
 import { useMutation, UseMutationOptions } from "@tanstack/react-query";
 import { reauthenticateWithRedirect, AuthProvider, PopupRedirectResolver, User } from "firebase/auth";
 
-import { REAUTHENTICATE_WITH_REDIRECT_MUTATION_KEY } from "./mutation-keys";
 import { FirebaseError } from "firebase/app";
+import { REAUTHENTICATE_WITH_REDIRECT_MUTATION_KEY } from "./mutation-keys";
 
 export type UseReauthenticateWitRedirectMutationVariables = {
     authProvider: AuthProvider;

@@ -1,7 +1,7 @@
 import { QueryNonFilterConstraint } from "firebase/firestore";
+import { useMemo } from "react";
 import { AppModel } from "../../types/AppModel";
 import { NonFilterQueryConstraint } from "../../types/QueryConstraints";
-import { useMemo } from "react";
 import { buildQueryConstraint } from "./utils/buildQueryConstraint";
 
 /**

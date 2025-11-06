@@ -1,5 +1,4 @@
 import React, { PropsWithChildren, useEffect, useMemo } from "react";
-import { FirebaseContext, FirebaseContextValue } from "./FirebaseContext";
 import { connectAuthEmulator, getAuth } from "@react-native-firebase/auth";
 import {
     FirebaseAnalyticsTypes,
@@ -10,6 +9,7 @@ import {
 import { FirebaseRemoteConfigTypes, getRemoteConfig } from "@react-native-firebase/remote-config";
 import { connectFirestoreEmulator, getFirestore } from "@react-native-firebase/firestore";
 import { ReactNativeFirebase, getApp } from "@react-native-firebase/app";
+import { FirebaseContext, FirebaseContextValue } from "./FirebaseContext";
 
 /**
  * @inline
@@ -204,7 +204,7 @@ export const FirebaseContextProvider: React.FC<FirebaseContextProviderProps> = (
         }
 
         return null;
-    }, [emulators?.firestore, firestoreEnabled, internalFirebase, firestoreSettings]);
+    }, [emulators, firestoreEnabled, internalFirebase, firestoreSettings]);
 
     const internalAuth = useMemo(() => {
         if (authEnabled) {

@@ -1,6 +1,6 @@
 import { getValue } from "@react-native-firebase/remote-config";
-import { useRemoteConfig } from "./useRemoteConfig";
 import { useMemo } from "react";
+import { useRemoteConfig } from "./useRemoteConfig";
 
 /**
  * Custom hook to retrieve a value associated with a specified key from remote configuration.

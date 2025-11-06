@@ -1,7 +1,7 @@
 import { useMutation, UseMutationOptions } from "@tanstack/react-query";
 import { reauthenticateWithCredential, User, AuthCredential, UserCredential } from "firebase/auth";
-import { REAUTHENTICATE_WITH_CREDENTIAL_MUTATION_KEY } from "./mutation-keys";
 import { FirebaseError } from "firebase/app";
+import { REAUTHENTICATE_WITH_CREDENTIAL_MUTATION_KEY } from "./mutation-keys";
 
 export type UseReauthenticateWitCredentialMutationVariables = {
     credential: AuthCredential;

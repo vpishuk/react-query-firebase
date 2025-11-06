@@ -1,6 +1,6 @@
 import { getDoc as firestoreGetDoc } from "@react-native-firebase/firestore";
-import { getDocRef, GetDocRefOptions } from "./getDocRef";
 import { AppModel } from "../../../types";
+import { getDocRef, GetDocRefOptions } from "./getDocRef";
 
 /**
  * @inline
