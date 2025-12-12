@@ -9,15 +9,15 @@ hero:
     actions:
         - theme: brand
           text: Documentation
-          link: /modules
+          link: /globals
 
 features:
     - title: Web
       details: A set of hooks for web platform
       linkText: Documentation
-      link: /web/
+      link: /react-query-firebase/namespaces/web/
     - title: React Native
       details: A set of hooks for react-native platform
       linkText: Documentation
-      link: /react-native/
+      link: /react-query-firebase/namespaces/RN/
 ---

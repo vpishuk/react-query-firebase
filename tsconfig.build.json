@@ -7,11 +7,12 @@
         "forceConsistentCasingInFileNames": true,
         "jsx": "react",
         "moduleResolution": "Node",
-        "rootDir": "./",
+        "outDir": "./dist",
+        "rootDir": "./src",
         "skipLibCheck": true,
         "strict": true,
         "target": "ES2021"
     },
     "exclude": ["**/*.test.ts", "**/*.stub.ts", "node_modules", "dist"],
-    "include": ["./web/**/*", "./react-native/**/*", "./common/**/*"]
+    "include": ["./src/**/*"]
 }

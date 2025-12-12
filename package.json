@@ -24,31 +24,31 @@
         "@eslint-community/eslint-plugin-eslint-comments": "^4.5.0",
         "@react-native-firebase/analytics": "^23.5.0",
         "@react-native-firebase/app": "^23.5.0",
-        "@react-native-firebase/auth": "^23.5.0",
-        "@react-native-firebase/crashlytics": "^23.5.0",
-        "@react-native-firebase/firestore": "^23.5.0",
-        "@react-native-firebase/installations": "^23.5.0",
-        "@react-native-firebase/remote-config": "^23.5.0",
-        "@tanstack/react-query": "^5.90.6",
-        "@types/react": "^19.2.2",
+        "@react-native-firebase/auth": "^23.7.0",
+        "@react-native-firebase/crashlytics": "^23.7.0",
+        "@react-native-firebase/firestore": "^23.7.0",
+        "@react-native-firebase/installations": "^23.7.0",
+        "@react-native-firebase/remote-config": "^23.7.0",
+        "@tanstack/react-query": "^5.90.12",
+        "@types/react": "^19.2.7",
         "eslint": "^9.39.1",
         "eslint-config-prettier": "^10.1.8",
         "eslint-plugin-import": "^2.32.0",
-        "eslint-plugin-jest": "^29.0.1",
+        "eslint-plugin-jest": "^29.2.1",
         "eslint-plugin-jsonc": "^2.21.0",
         "eslint-plugin-prettier": "^5.5.4",
         "eslint-plugin-react": "^7.37.5",
         "eslint-plugin-react-hooks": "^7.0.1",
         "firebase": "^12.5.0",
         "husky": "^9.1.7",
-        "lint-staged": "^16.2.6",
-        "prettier": "^3.6.2",
-        "react": "^19.2.0",
-        "typedoc": "^0.28.14",
+        "lint-staged": "^16.2.7",
+        "prettier": "^3.7.4",
+        "react": "^19.2.3",
+        "typedoc": "^0.28.15",
         "typedoc-plugin-markdown": "^4.9.0",
         "typedoc-vitepress-theme": "^1.1.2",
         "typescript": "^5.9.3",
-        "typescript-eslint": "^8.46.3",
+        "typescript-eslint": "^8.49.0",
         "vitepress": "^1.6.4"
     },
     "homepage": "https://github.com/vpishuk/react-query-firebase",
@@ -64,10 +64,30 @@
         "type": "git",
         "url": "https://github.com/vpishuk/react-query-firebase.git"
     },
+    "exports": {
+        ".": {
+            "import": "./dist/index.js",
+            "require": "./dist/index.js",
+            "types": "./dist/index.d.ts"
+        },
+        "react-native": {
+            "import": "./dist/react-native/index.js",
+            "require": "./dist/react-native/index.js",
+            "types": "./dist/react-native/index.d.ts"
+        },
+        "web": {
+            "import": "./dist/web/index.js",
+            "require": "./dist/web/index.js",
+            "types": "./dist/web/index.d.ts"
+        },
+        "types": {
+            "import": "./dist/types/index.js",
+            "require": "./dist/types/index.js",
+            "types": "./dist/types/index.d.ts"
+        }
+    },
     "files": [
-        "./web/",
-        "./react-native/",
-        "./types",
+        "./dist/",
         "package.json",
         "package-lock.json",
         "README.md",

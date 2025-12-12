@@ -1,17 +1,4 @@
 {
     "extends": "./tsconfig.build.json",
-    "include": [
-        "./*.js",
-        "./*.ts",
-        "./web/**/*.ts",
-        "./web/**/*.tsx",
-        "./web/**/*.js",
-        "./web/**/*.json",
-        "./react-native/**/*.ts",
-        "./react-native/**/*.tsx",
-        "./react-native/**/*.js",
-        "./react-native/**/*.json",
-        "./types/**/*.ts",
-        "./*.json"
-    ]
+    "include": ["./*.js", "./*.ts", "./src/**/*.ts", "./*.json"]
 }
