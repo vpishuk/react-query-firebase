@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.13.4](https://github.com/vpishuk/react-query-firebase/compare/v2.13.3...v2.13.4) (2025-12-12)
+
+
+### Bug Fixes
+
+* esmify package ([#151](https://github.com/vpishuk/react-query-firebase/issues/151)) ([c0641ca](https://github.com/vpishuk/react-query-firebase/commit/c0641ca3b6033617ac3e5682f25b675d6f881a77))
+
 ## [2.13.3](https://github.com/vpishuk/react-query-firebase/compare/v2.13.2...v2.13.3) (2025-11-06)
 
 
