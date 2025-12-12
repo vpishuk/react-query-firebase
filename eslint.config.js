@@ -19,7 +19,8 @@ export const config = eslintTs.config(
                 { groups: ["builtin", "external", "internal", "parent", "sibling", "index", "object", "type"] }
             ],
             "import/no-unresolved": "off",
-            "import/no-named-as-default": "off"
+            "import/no-named-as-default": "off",
+            "import/extensions": ["error", "ignorePackages"]
         }
     },
     eslintPluginCommentsRecommended.recommended,
@@ -99,13 +100,7 @@ export const config = eslintTs.config(
             "**/*.png",
             "**/*.jpg",
             "**/*.jpeg",
-            "**/*.css",
-            "react-native/**/*.d.ts",
-            "react-native/**/*.js",
-            "web/**/*.d.ts",
-            "web/**/*.js",
-            "types/**/*.d.ts",
-            "types/**/*.js"
+            "**/*.css"
         ]
     }
 );

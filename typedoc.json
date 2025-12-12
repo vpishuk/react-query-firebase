@@ -2,21 +2,22 @@
     "$schema": "https://typedoc.org/schema.json",
     "docsRoot": "./docs",
     "entryPoints": [
-        "./types/index.ts",
-        "./web/index.ts",
-        "./web/analytics/index.ts",
-        "./web/auth/index.ts",
-        "./web/firestore/index.ts",
-        "./web/remoteConfig/index.ts",
-        "./react-native/index.ts",
-        "./react-native/analytics/index.ts",
-        "./react-native/auth/index.ts",
-        "./react-native/firestore/index.ts",
-        "./react-native/remoteConfig/index.ts"
+        "./src/types/index.ts",
+        "./src/web/index.ts",
+        "./src/web/analytics/index.ts",
+        "./src/web/auth/index.ts",
+        "./src/web/firestore/index.ts",
+        "./src/web/remoteConfig/index.ts",
+        "./src/react-native/index.ts",
+        "./src/react-native/analytics/index.ts",
+        "./src/react-native/auth/index.ts",
+        "./src/react-native/firestore/index.ts",
+        "./src/react-native/remoteConfig/index.ts"
     ],
     "includeVersion": true,
     "out": "docs",
     "plugin": ["typedoc-plugin-markdown", "typedoc-vitepress-theme"],
     "readme": "./.vitepress/index.md",
+    "tsconfig": "./tsconfig.build.json",
     "useCodeBlocks": true
 }
