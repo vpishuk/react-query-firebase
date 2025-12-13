@@ -70,17 +70,17 @@
             "require": "./dist/index.js",
             "types": "./dist/index.d.ts"
         },
-        "react-native": {
+        "./react-native": {
             "import": "./dist/react-native/index.js",
             "require": "./dist/react-native/index.js",
             "types": "./dist/react-native/index.d.ts"
         },
-        "web": {
+        "./web": {
             "import": "./dist/web/index.js",
             "require": "./dist/web/index.js",
             "types": "./dist/web/index.d.ts"
         },
-        "types": {
+        "./types": {
             "import": "./dist/types/index.js",
             "require": "./dist/types/index.js",
             "types": "./dist/types/index.d.ts"
