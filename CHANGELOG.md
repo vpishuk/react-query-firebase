@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.14.0](https://github.com/vpishuk/react-query-firebase/compare/v2.13.4...v2.14.0) (2025-12-13)
+
+
+### Miscellaneous Chores
+
+* release 2.14.0 ([99dd7e4](https://github.com/vpishuk/react-query-firebase/commit/99dd7e483ed4e77b8c34fc5bf4ddef805e81bac2))
+* release 2.14.0 ([#154](https://github.com/vpishuk/react-query-firebase/issues/154)) ([b986f09](https://github.com/vpishuk/react-query-firebase/commit/b986f09cceefd254ebf5ef6f5b2bae34cf38952c))
+
 ## [2.13.4](https://github.com/vpishuk/react-query-firebase/compare/v2.13.3...v2.13.4) (2025-12-12)
 
 
