@@ -11,6 +11,7 @@ export * from "./useIdToken.js";
 export * from "./useReauthenticateWitCredentialMutation.js";
 export * from "./useReauthenticateWitRedirectMutation.js";
 export * from "./useAuthStateReady.js";
+export * from "./useSignInWithCustomToken.js";
 export * from "./useSignInAnonymouslyMutation.js";
 export * from "./useEmailAuthProviderCredential.js";
 export * from "./useFacebookAuthProviderCredential.js";
