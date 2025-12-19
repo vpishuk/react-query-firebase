@@ -47,7 +47,6 @@ export type UseSignInWithCustomTokenMutationOptions = {
  */
 export const useSignInWithCustomTokenMutation = ({ options = {} }: UseSignInWithCustomTokenMutationOptions = {}) => {
     const firebaseAuth = useAuth();
-
     return useMutation({
         ...options,
         mutationKey: SIGN_IN_ANONYMOUSLY_MUTATION_KEY,
