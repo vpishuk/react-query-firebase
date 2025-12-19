@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.15.0](https://github.com/vpishuk/react-query-firebase/compare/v2.14.0...v2.15.0) (2025-12-19)
+
+
+### Features
+
+* adds useSignInWithCustomTokenMutation ([#157](https://github.com/vpishuk/react-query-firebase/issues/157)) ([a1fbb71](https://github.com/vpishuk/react-query-firebase/commit/a1fbb71d5ab98ab55a8f5fbf4d75952cbfd99e55))
+
 ## [2.14.0](https://github.com/vpishuk/react-query-firebase/compare/v2.13.4...v2.14.0) (2025-12-13)
 
 
