@@ -10,7 +10,7 @@ import { useAuth } from "./useAuth.js";
 export const useCurrentUser = () => {
     const firebaseAuth = useAuth();
 
-    const [currentUser, setCurrentUser] = useState(firebaseAuth.currentUser);
+    const [currentUser, setCurrentUser] = useState(firebaseAuth?.currentUser ?? null);
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(firebaseAuth, (user) => {
