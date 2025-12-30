@@ -1,5 +1,21 @@
 # Changelog
 
+## [3.0.0](https://github.com/vpishuk/react-query-firebase/compare/v2.15.1...v3.0.0) (2025-12-30)
+
+
+### ⚠ BREAKING CHANGES
+
+* replaces subpaths exports to make library compatible with react-native ([#168](https://github.com/vpishuk/react-query-firebase/issues/168))
+
+### Features
+
+* replaces subpaths exports to make library compatible with react-native ([#168](https://github.com/vpishuk/react-query-firebase/issues/168)) ([6a88a30](https://github.com/vpishuk/react-query-firebase/commit/6a88a30370ddbc083317de6ce19684987ecd075f))
+
+
+### Bug Fixes
+
+* adds back index.ts file temporarily ([#166](https://github.com/vpishuk/react-query-firebase/issues/166)) ([2818fe6](https://github.com/vpishuk/react-query-firebase/commit/2818fe66fb050ec001428270ad9d2fce44621905))
+
 ## [2.15.1](https://github.com/vpishuk/react-query-firebase/compare/v2.15.0...v2.15.1) (2025-12-19)
 
 
