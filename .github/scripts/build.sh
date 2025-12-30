@@ -6,7 +6,7 @@ mv docs/.vitepress .vitepress
 (
     set -e
     rm -rf docs
-    npx typedoc ./src/index.ts --plugin typedoc-plugin-markdown --plugin typedoc-vitepress-theme
+    npx typedoc ./src/web.ts --plugin typedoc-plugin-markdown --plugin typedoc-vitepress-theme
 )
 EXITCODE=$?
 

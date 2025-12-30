@@ -71,16 +71,6 @@
             "import": "./dist/web.js",
             "require": "./dist/web.js",
             "types": "./dist/web.d.ts"
-        },
-        "./react-native": {
-            "import": "./dist/react-native/index.js",
-            "require": "./dist/react-native/index.js",
-            "types": "./dist/react-native/index.d.ts"
-        },
-        "./web": {
-            "import": "./dist/web/index.js",
-            "require": "./dist/web/index.js",
-            "types": "./dist/web/index.d.ts"
         }
     },
     "files": [

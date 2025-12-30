@@ -11,13 +11,4 @@ hero:
           text: Documentation
           link: /globals
 
-features:
-    - title: Web
-      details: A set of hooks for web platform
-      linkText: Documentation
-      link: /react-query-firebase/namespaces/web/
-    - title: React Native
-      details: A set of hooks for react-native platform
-      linkText: Documentation
-      link: /react-query-firebase/namespaces/RN/
 ---
