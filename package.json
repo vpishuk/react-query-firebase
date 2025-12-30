@@ -66,9 +66,11 @@
     },
     "exports": {
         ".": {
-            "import": "./dist/index.js",
-            "require": "./dist/index.js",
-            "types": "./dist/index.d.ts"
+            "browser": "./dist/web.js",
+            "react-native": "./dist/react-native.js",
+            "import": "./dist/web.js",
+            "require": "./dist/web.js",
+            "types": "./dist/web.d.ts"
         },
         "./react-native": {
             "import": "./dist/react-native/index.js",
@@ -79,11 +81,6 @@
             "import": "./dist/web/index.js",
             "require": "./dist/web/index.js",
             "types": "./dist/web/index.d.ts"
-        },
-        "./types": {
-            "import": "./dist/types/index.js",
-            "require": "./dist/types/index.js",
-            "types": "./dist/types/index.d.ts"
         }
     },
     "files": [
