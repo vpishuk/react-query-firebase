@@ -21,3 +21,4 @@ export * from "./utils/getDocSnap.js";
 export * from "./utils/getDocRef.js";
 export * from "./utils/buildQueryConstraint.js";
 export * from "./utils/buildCompositeFilter.js";
+export * from "./useFirestoreQueryEngine.js";
