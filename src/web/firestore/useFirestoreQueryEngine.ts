@@ -1,15 +1,11 @@
-import {
-    getDocs,
-    CollectionReference,
-    query,
-    QueryCompositeFilterConstraint,
-    QueryConstraint,
-    QueryNonFilterConstraint
-} from "firebase/firestore";
+import { getDocs, CollectionReference, query, QueryNonFilterConstraint, or, and } from "firebase/firestore";
 
 import { useCallback } from "react";
+import { NonFilterQueryConstraint } from "../../types/QueryConstraints.js";
+
 import { AppModel } from "../../types/index.js";
-import { QueryFilterConstraint } from "./utils/buildCompositeFilter.js";
+import { QueryFilterConstraint, CompositeFilter, buildCompositeFilter } from "./utils/buildCompositeFilter.js";
+import { buildQueryConstraint } from "./utils/buildQueryConstraint.js";
 
 /**
  * @inline
@@ -23,12 +19,12 @@ type UseFirestoreQueryEngineOptions<AppModelType extends AppModel = AppModel> = 
     /**
      * Non composite filter constraints such as limit, order, where
      */
-    queryConstraints?: QueryConstraint[] | QueryNonFilterConstraint[];
+    queryConstraints: NonFilterQueryConstraint<AppModelType>[];
 
     /**
      * Composite filter
      */
-    compositeFilter?: QueryFilterConstraint;
+    compositeFilter?: CompositeFilter;
 };
 
 /**
@@ -36,7 +32,7 @@ type UseFirestoreQueryEngineOptions<AppModelType extends AppModel = AppModel> = 
  *
  * @group Hook
  *
- * @returns {(options: UseFirestoreQueryEngineOptions): Promise<AppModelType[]>} A function to execute firestore query
+ * @returns {(options: UseFirestoreQueryEngineOptions<AppModelType>): Promise<AppModelType[]>} A function to execute firestore query
  *
  * @example
  * ```jsx
@@ -53,15 +49,30 @@ type UseFirestoreQueryEngineOptions<AppModelType extends AppModel = AppModel> = 
  * ```
  */
 export const useFirestoreQueryEngine = <AppModelType extends AppModel = AppModel>(): ((
-    options: UseFirestoreQueryEngineOptions
+    options: UseFirestoreQueryEngineOptions<AppModelType>
 ) => Promise<AppModelType[]>) => {
     return useCallback(
-        async ({ collectionReference, queryConstraints = [], compositeFilter }: UseFirestoreQueryEngineOptions) => {
-            const queryToExecute = compositeFilter
+        async ({
+            collectionReference,
+            queryConstraints = [],
+            compositeFilter: inputCompositeFilter
+        }: UseFirestoreQueryEngineOptions<AppModelType>) => {
+            const compositeFilter =
+                inputCompositeFilter?.children?.map?.((subQuery) => buildCompositeFilter(subQuery))
+                    ?.filter<QueryFilterConstraint>?.((constraint) => !!constraint) ?? [];
+
+            const finalCompositeFilter =
+                compositeFilter.length > 0
+                    ? inputCompositeFilter?.operator === "OR"
+                        ? or(...compositeFilter)
+                        : and(...compositeFilter)
+                    : undefined;
+
+            const queryToExecute = finalCompositeFilter
                 ? query(
                       collectionReference,
-                      compositeFilter as QueryCompositeFilterConstraint,
-                      ...(queryConstraints as QueryNonFilterConstraint[])
+                      finalCompositeFilter,
+                      ...(queryConstraints.map(buildQueryConstraint) as QueryNonFilterConstraint[])
                   )
                 : query(collectionReference, ...queryConstraints);
 
