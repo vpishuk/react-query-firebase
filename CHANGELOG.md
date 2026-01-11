@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.1.0](https://github.com/vpishuk/react-query-firebase/compare/v3.0.0...v3.1.0) (2026-01-11)
+
+
+### Features
+
+* adds a hook to expose wrapper around firestore query engine ([#172](https://github.com/vpishuk/react-query-firebase/issues/172)) ([ef97a25](https://github.com/vpishuk/react-query-firebase/commit/ef97a25517facce23266b57ac656f370149f428a))
+
 ## [3.0.0](https://github.com/vpishuk/react-query-firebase/compare/v2.15.1...v3.0.0) (2025-12-30)
 
 
