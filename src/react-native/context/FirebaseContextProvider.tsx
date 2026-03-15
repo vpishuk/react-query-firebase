@@ -181,7 +181,7 @@ export const FirebaseContextProvider: React.FC<FirebaseContextProviderProps> = (
             analytics_storage: false,
             functionality_storage: false,
             personalization_storage: false,
-            security_storage: false,
+            security_storage: "denied",
             ...consentSettings
         });
     }, [consentSettings, internalFirebase]);
