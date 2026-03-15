@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.1.1](https://github.com/vpishuk/react-query-firebase/compare/v3.1.0...v3.1.1) (2026-03-15)
+
+
+### Bug Fixes
+
+* fixes default consent settings for react-native ([#181](https://github.com/vpishuk/react-query-firebase/issues/181)) ([f66da3a](https://github.com/vpishuk/react-query-firebase/commit/f66da3a2a6d72e9a7e29c6571a4224283d7a03c7))
+
 ## [3.1.0](https://github.com/vpishuk/react-query-firebase/compare/v3.0.0...v3.1.0) (2026-01-11)
 
 
