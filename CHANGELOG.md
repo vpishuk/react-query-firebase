@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.2.0](https://github.com/vpishuk/react-query-firebase/compare/v3.1.1...v3.2.0) (2026-03-20)
+
+
+### Features
+
+* adds module to cover Cloud Messaging API with firebase ([#185](https://github.com/vpishuk/react-query-firebase/issues/185)) ([3d59651](https://github.com/vpishuk/react-query-firebase/commit/3d59651c9a1f0ae48b8411111563fa2eebe49ca6))
+
 ## [3.1.1](https://github.com/vpishuk/react-query-firebase/compare/v3.1.0...v3.1.1) (2026-03-15)
 
 
