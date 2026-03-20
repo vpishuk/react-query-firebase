@@ -1,10 +1,9 @@
-"use client";
-
 import { createContext } from "react";
 
 import { Auth } from "firebase/auth";
 import { Analytics } from "firebase/analytics";
 import { Firestore } from "firebase/firestore";
+import { Messaging } from "firebase/messaging";
 import { FirebaseApp } from "firebase/app";
 import { RemoteConfig } from "firebase/remote-config";
 
@@ -14,6 +13,7 @@ type FirebaseContextValue = {
     firebase: FirebaseApp;
     remoteConfig: RemoteConfig;
     firestore: Firestore;
+    messaging: Messaging;
 };
 
 /**

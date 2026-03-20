@@ -10,6 +10,7 @@ import {
 import { ConsentSettings, getAnalytics, setAnalyticsCollectionEnabled, setConsent } from "firebase/analytics";
 import { getRemoteConfig, RemoteConfigSettings } from "firebase/remote-config";
 import { connectFirestoreEmulator, FirestoreSettings, initializeFirestore } from "firebase/firestore";
+import { getMessaging } from "firebase/messaging";
 import { FirebaseOptions, initializeApp } from "firebase/app";
 import { FirebaseContext } from "./FirebaseContext.js";
 
@@ -244,7 +245,8 @@ export const FirebaseContextProvider: React.FC<FirebaseContextProviderProps> = (
             auth,
             analytics,
             firestore,
-            remoteConfig
+            remoteConfig,
+            messaging: getMessaging(firebase)
         }),
         [firebase, auth, analytics, firestore, remoteConfig]
     );

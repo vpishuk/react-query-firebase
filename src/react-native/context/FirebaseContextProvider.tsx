@@ -1,7 +1,8 @@
 import React, { PropsWithChildren, useEffect, useMemo } from "react";
 import { connectAuthEmulator, getAuth } from "@react-native-firebase/auth";
+import { getMessaging } from "@react-native-firebase/messaging";
 import {
-    FirebaseAnalyticsTypes,
+    ConsentSettings,
     setAnalyticsCollectionEnabled,
     setConsent,
     getAnalytics
@@ -101,7 +102,7 @@ export type FirebaseContextProviderProps = PropsWithChildren & {
      *                  security_storage: "denied"
      *              }
      */
-    consentSettings?: FirebaseAnalyticsTypes.ConsentSettings;
+    consentSettings?: ConsentSettings;
     /**
      * Specifies custom configurations for your Cloud Firestore instance.
      * You must set these before invoking any other methods.
@@ -245,7 +246,8 @@ export const FirebaseContextProvider: React.FC<FirebaseContextProviderProps> = (
             auth: internalAuth,
             analytics: internalAnalytics,
             firestore: internalFirestore,
-            remoteConfig: internalRemoteConfig
+            remoteConfig: internalRemoteConfig,
+            messageing: getMessaging(internalFirebase)
         }),
         [internalFirebase, internalAuth, internalAnalytics, internalFirestore, internalRemoteConfig]
     );
