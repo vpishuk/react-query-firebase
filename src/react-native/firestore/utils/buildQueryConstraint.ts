@@ -17,7 +17,7 @@ import { AppModel, type NonFilterQueryConstraint } from "../../../types/index.js
  *
  * @param {NonFilterQueryConstraint<AppModelType>} constraint
  *
- * @returns {FirebaseFirestoreTypes.QueryNonFilterConstraint}
+ * @returns {QueryNonFilterConstraint}
  *
  * @example
  * ```jsx

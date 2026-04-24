@@ -1,12 +1,12 @@
 import { useMutation, UseMutationOptions } from "@tanstack/react-query";
-import { runTransaction, FirebaseFirestoreTypes } from "@react-native-firebase/firestore";
+import { runTransaction } from "@react-native-firebase/firestore";
 
 import { useFirestore } from "./useFirestore.js";
 
 /**
  * @inline
  */
-export type UseRunTransactionValues = <T = unknown>(transaction: FirebaseFirestoreTypes.Transaction) => T;
+export type UseRunTransactionValues<T = unknown> = Parameters<typeof runTransaction<T>>[1];
 
 /**
  * @inline
@@ -15,7 +15,7 @@ export type UseRunTransactionOptions<T = unknown, TContext = unknown> = {
     /**
      * Reqct-mutation options that shall omit mutationFn
      */
-    options?: Omit<UseMutationOptions<T, Error, UseRunTransactionValues, TContext>, "mutationFn">;
+    options?: Omit<UseMutationOptions<T, Error, UseRunTransactionValues<T>, TContext>, "mutationFn">;
 };
 
 /**

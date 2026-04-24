@@ -1,9 +1,9 @@
-import { getDocs, FirebaseFirestoreTypes, query, or, and, QueryConstraint } from "@react-native-firebase/firestore";
+import { getDocs, CollectionReference, query, QueryConstraint } from "@react-native-firebase/firestore";
 
 import { useCallback } from "react";
 import { AppModel } from "../../types/index.js";
 import { type NonFilterQueryConstraint } from "../../types/QueryConstraints.js";
-import { buildCompositeFilter, QueryFilterConstraint, type CompositeFilter } from "./utils/buildCompositeFilter.js";
+import { buildCompositeFilter, type CompositeFilter } from "./utils/buildCompositeFilter.js";
 import { buildQueryConstraint } from "./utils/buildQueryConstraint.js";
 
 /**
@@ -13,7 +13,7 @@ type UseFirestoreQueryEngineOptions<AppModelType extends AppModel = AppModel> = 
     /**
      * Reference to a Firestore collection
      */
-    collectionReference: FirebaseFirestoreTypes.CollectionReference<AppModelType>;
+    collectionReference: CollectionReference<AppModelType, AppModelType>;
 
     /**
      * Non composite filter constraints such as limit, order, where
@@ -56,26 +56,19 @@ export const useFirestoreQueryEngine = <AppModelType extends AppModel = AppModel
             queryConstraints = [],
             compositeFilter: inputCompositeFilter
         }: UseFirestoreQueryEngineOptions<AppModelType>) => {
-            const compositeFilter =
-                inputCompositeFilter?.children?.map?.((subQuery) => buildCompositeFilter(subQuery))
-                    ?.filter<QueryFilterConstraint>?.((constraint) => !!constraint) ?? [];
+            const compositeFilter = inputCompositeFilter ? buildCompositeFilter(inputCompositeFilter) : null;
+            const builtQueryConstraints = queryConstraints.map(buildQueryConstraint);
 
-            const finalCompositeFilter =
-                compositeFilter.length > 0
-                    ? inputCompositeFilter?.operator === "OR"
-                        ? or(...compositeFilter)
-                        : and(...compositeFilter)
-                    : undefined;
-
-            const queryToExecute = finalCompositeFilter
-                ? query(collectionReference, finalCompositeFilter, ...queryConstraints.map(buildQueryConstraint))
-                : query(collectionReference, ...(queryConstraints.map(buildQueryConstraint) as QueryConstraint[]));
+            const queryToExecute = query(
+                collectionReference,
+                ...([...(compositeFilter ? [compositeFilter] : []), ...builtQueryConstraints] as QueryConstraint[])
+            );
 
             const querySnapshot = await getDocs<AppModelType, AppModelType>(queryToExecute);
             const docs: AppModelType[] = [];
 
             if (querySnapshot) {
-                querySnapshot.forEach((doc: FirebaseFirestoreTypes.DocumentSnapshot) => {
+                querySnapshot.forEach((doc) => {
                     docs.push({ ...doc.data(), uid: doc.id } as AppModelType);
                 });
             }

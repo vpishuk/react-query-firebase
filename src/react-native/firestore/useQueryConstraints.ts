@@ -22,7 +22,7 @@ export type UseQueryConstraints<AppModelType extends AppModel = AppModel> = {
  *
  * @param {UseQueryConstraints<AppModelType>} options
  *
- * @returns {FirebaseFirestoreTypes.QueryNonFilterConstraint}
+ * @returns {QueryNonFilterConstraint}
  *
  * @example
  * ```jsx

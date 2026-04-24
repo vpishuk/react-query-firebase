@@ -1,7 +1,8 @@
 import {
-    FirebaseFirestoreTypes,
+    CollectionReference,
     getDocs,
     query,
+    QueryCompositeFilterConstraint,
     QueryConstraint,
     QueryNonFilterConstraint
 } from "@react-native-firebase/firestore";
@@ -14,7 +15,6 @@ import {
     InfiniteData
 } from "@tanstack/react-query";
 import { AppModel } from "../../types/index.js";
-import { QueryFilterConstraint } from "./utils/buildCompositeFilter.js";
 
 /**
  * @inline
@@ -49,7 +49,7 @@ type UseInfiniteQueryOptions<AppModelType extends AppModel = AppModel, TQueryKey
     /**
      * Reference to a Firestore collection
      */
-    collectionReference: FirebaseFirestoreTypes.CollectionReference<AppModelType>;
+    collectionReference: CollectionReference<AppModelType, AppModelType>;
 
     /**
      * Non composite filter constraints such as limit, order, where
@@ -59,7 +59,7 @@ type UseInfiniteQueryOptions<AppModelType extends AppModel = AppModel, TQueryKey
     /**
      * Composite filter
      */
-    compositeFilter?: QueryFilterConstraint;
+    compositeFilter?: QueryCompositeFilterConstraint;
 };
 
 /**
@@ -94,14 +94,12 @@ export const useInfiniteQuery = <AppModelType extends AppModel = AppModel, TQuer
         ...options,
         queryFn: async ({ pageParam }) => {
             const allQueryConstraints = [...queryConstraints, ...(pageParam ? [pageParam] : [])];
-            const queryToExecute = compositeFilter
-                ? query(collectionReference, compositeFilter, ...(allQueryConstraints as QueryNonFilterConstraint[]))
-                : query(collectionReference, ...(allQueryConstraints as QueryConstraint[]));
+            const queryToExecute = query(
+                collectionReference,
+                ...([...(compositeFilter ? [compositeFilter] : []), ...allQueryConstraints] as QueryConstraint[])
+            );
 
-            const querySnapshot: FirebaseFirestoreTypes.QuerySnapshot<AppModelType> = await getDocs<
-                AppModelType,
-                AppModelType
-            >(queryToExecute);
+            const querySnapshot = await getDocs<AppModelType, AppModelType>(queryToExecute);
             const docs: AppModelType[] = [];
 
             if (querySnapshot) {

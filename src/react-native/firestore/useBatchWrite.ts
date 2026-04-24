@@ -1,5 +1,5 @@
 import { useMutation, UseMutationOptions } from "@tanstack/react-query";
-import { writeBatch, FirebaseFirestoreTypes } from "@react-native-firebase/firestore";
+import { writeBatch } from "@react-native-firebase/firestore";
 
 import { ReactNativeFirebase } from "@react-native-firebase/app";
 import { useFirestore } from "./useFirestore.js";
@@ -7,7 +7,7 @@ import { useFirestore } from "./useFirestore.js";
 /**
  * @inline
  */
-export type UseBatchWriteVariables = (batch: FirebaseFirestoreTypes.WriteBatch) => Promise<void> | void;
+export type UseBatchWriteVariables = (batch: ReturnType<typeof writeBatch>) => Promise<void> | void;
 
 /**
  * @inline

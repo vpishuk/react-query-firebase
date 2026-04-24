@@ -24,10 +24,10 @@ export const getDocSnap = async <AppModelType extends AppModel = AppModel>({
     path,
     pathSegments
 }: GetDocSnapOptions<AppModelType>) => {
-    const docRef = await getDocRef<AppModelType>({ db, reference, path, pathSegments });
+    const docRef = getDocRef<AppModelType>({ db, reference, path, pathSegments });
 
     if (docRef) {
-        return await firestoreGetDoc(docRef);
+        return await firestoreGetDoc<AppModelType, AppModelType>(docRef);
     }
 
     return null;

@@ -1,4 +1,4 @@
-import { FirebaseFirestoreTypes, onSnapshot } from "@react-native-firebase/firestore";
+import { DocumentReference, onSnapshot } from "@react-native-firebase/firestore";
 
 import { useEffect, useMemo, useState } from "react";
 import { ReactNativeFirebase } from "@react-native-firebase/app";
@@ -16,7 +16,7 @@ export type UseGetRealtimeDocDataOptions<AppModelType extends AppModel = AppMode
     /**
      * A reference to a collection.
      */
-    reference?: FirebaseFirestoreTypes.DocumentReference<AppModelType>;
+    reference?: DocumentReference<AppModelType, AppModelType>;
     /**
      * Additional path segments that will be applied relative
      * to the first argument.

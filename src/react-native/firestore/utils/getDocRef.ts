@@ -1,14 +1,12 @@
-import { doc, FirebaseFirestoreTypes } from "@react-native-firebase/firestore";
+import { doc, CollectionReference, DocumentReference, Firestore } from "@react-native-firebase/firestore";
 import { AppModel } from "../../../types/index.js";
 
 /**
  * @inline
  */
 export type GetDocRefOptions<AppModelType extends AppModel = AppModel> = {
-    db: FirebaseFirestoreTypes.Module;
-    reference?:
-        | FirebaseFirestoreTypes.CollectionReference<AppModelType>
-        | FirebaseFirestoreTypes.DocumentReference<AppModelType>;
+    db: Firestore;
+    reference?: CollectionReference<AppModelType, AppModelType> | DocumentReference<AppModelType, AppModelType>;
     path?: string;
     pathSegments?: string[];
 };
@@ -35,7 +33,11 @@ export const getDocRef = <AppModelType extends AppModel = AppModel>({
 
     const docRef = !reference
         ? doc(db, path as string, ...(pathSegments || []))
-        : doc(reference, path, ...(pathSegments || []));
+        : doc<AppModelType, AppModelType>(
+              reference as CollectionReference<AppModelType, AppModelType>,
+              path,
+              ...(pathSegments || [])
+          );
 
-    return docRef as FirebaseFirestoreTypes.DocumentReference<AppModelType>;
+    return docRef as DocumentReference<AppModelType, AppModelType>;
 };

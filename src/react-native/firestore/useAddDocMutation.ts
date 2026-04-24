@@ -1,5 +1,5 @@
 import { useMutation, UseMutationOptions } from "@tanstack/react-query";
-import { FirebaseFirestoreTypes, addDoc, WithFieldValue, getDoc } from "@react-native-firebase/firestore";
+import { type CollectionReference, addDoc, WithFieldValue, getDoc } from "@react-native-firebase/firestore";
 
 import { ReactNativeFirebase } from "@react-native-firebase/app";
 import { useMemo } from "react";
@@ -22,7 +22,7 @@ export type UseAddDocMutationOptions<AppModelType extends AppModel = AppModel, T
     /**
      * Reference to a collection where document must be added
      */
-    collectionReference: FirebaseFirestoreTypes.CollectionReference<AppModelType>;
+    collectionReference: CollectionReference<AppModelType, AppModelType>;
 
     /**
      * Options for useMutation hook excluding mutationFn. MutationKey will be equal to reference.path by default.
