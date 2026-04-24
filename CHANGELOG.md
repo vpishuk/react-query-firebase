@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.3.0](https://github.com/vpishuk/react-query-firebase/compare/v3.2.0...v3.3.0) (2026-04-24)
+
+
+### Features
+
+* migrates to v24 of react-native-firebase ([#196](https://github.com/vpishuk/react-query-firebase/issues/196)) ([4732af2](https://github.com/vpishuk/react-query-firebase/commit/4732af22cf1da3201870fcd3ce174501d85a0bf7))
+
 ## [3.2.0](https://github.com/vpishuk/react-query-firebase/compare/v3.1.1...v3.2.0) (2026-03-20)
 
 
