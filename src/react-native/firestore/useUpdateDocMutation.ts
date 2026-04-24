@@ -1,5 +1,5 @@
 import { useMutation, UseMutationOptions } from "@tanstack/react-query";
-import { FirebaseFirestoreTypes, updateDoc, getDoc, UpdateData } from "@react-native-firebase/firestore";
+import { DocumentReference, updateDoc, getDoc, UpdateData } from "@react-native-firebase/firestore";
 
 import { useMemo } from "react";
 import { AppModel } from "../../types/index.js";
@@ -21,7 +21,7 @@ export type UseUpdateDocMutationOptions<AppModelType extends AppModel = AppModel
     /**
      * Reference to a document that must be updated
      */
-    reference: FirebaseFirestoreTypes.DocumentReference<AppModelType> | null;
+    reference: DocumentReference<AppModelType, AppModelType> | null;
     /**
      * Options for useMutation hook excluding mutationFn.
      */
@@ -68,7 +68,7 @@ export const useUpdateDocMutation = <AppModelType extends AppModel = AppModel, T
                 throw new Error("Reference is undefined");
             }
 
-            await updateDoc<AppModelType>(reference, data);
+            await updateDoc<AppModelType, AppModelType>(reference, data);
             const docSnap = await getDoc(reference);
             return { ...(docSnap.data() as AppModelType), uid: docSnap.id };
         },

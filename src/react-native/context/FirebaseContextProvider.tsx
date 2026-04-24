@@ -8,28 +8,14 @@ import {
     getAnalytics
 } from "@react-native-firebase/analytics";
 import { FirebaseRemoteConfigTypes, getRemoteConfig } from "@react-native-firebase/remote-config";
-import { connectFirestoreEmulator, getFirestore } from "@react-native-firebase/firestore";
+import {
+    connectFirestoreEmulator,
+    getFirestore,
+    initializeFirestore,
+    FirestoreSettings
+} from "@react-native-firebase/firestore";
 import { ReactNativeFirebase, getApp } from "@react-native-firebase/app";
 import { FirebaseContext, FirebaseContextValue } from "./FirebaseContext.js";
-
-/**
- * @inline
- * @see https://firebase.google.com/docs/reference/js/firestore_.firestoresettings
- */
-export type FirestoreSettings = {
-    cacheSizeBytes?: number;
-    experimentalAutoDetectLongPolling?: boolean;
-    experimentalForceLongPolling?: boolean;
-    experimentalLongPollingOptions?: {
-        timeoutSeconds: number;
-    };
-    host?: string;
-    ignoreUndefinedProperties?: boolean;
-    localCache?: {
-        kind: "memory" | "persistent";
-    };
-    ssl?: boolean;
-};
 
 /**
  * @inline
@@ -197,10 +183,7 @@ export const FirebaseContextProvider: React.FC<FirebaseContextProviderProps> = (
                 );
             }
 
-            const localFirestore = getFirestore(internalFirebase);
-            if (firestoreSettings) {
-                localFirestore.settings(firestoreSettings);
-            }
+            const localFirestore = initializeFirestore(internalFirebase, firestoreSettings || {});
             return localFirestore;
         }
 

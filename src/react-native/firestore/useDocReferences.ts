@@ -17,7 +17,7 @@ export type UseDocReferencesOptions<AppModelType extends AppModel = AppModel> = 
  *
  * @param {UseDocReferencesOptions<AppModelType>} options - Options
  *
- * @returns {Array<FirebaseFirestoreTypes.DocumentReference<AppModelType> | null>} A reference to a Firestore document
+ * @returns {Array<DocumentReference<AppModelType> | null>} A reference to a Firestore document
  *
  * @example
  * ```jsx

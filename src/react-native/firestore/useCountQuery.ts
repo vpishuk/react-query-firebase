@@ -1,7 +1,8 @@
 import {
-    FirebaseFirestoreTypes,
+    CollectionReference,
     getCountFromServer,
     query,
+    QueryCompositeFilterConstraint,
     QueryConstraint,
     QueryNonFilterConstraint
 } from "@react-native-firebase/firestore";
@@ -12,7 +13,6 @@ import {
     UseQueryOptions as UseReactQueryOptions
 } from "@tanstack/react-query";
 import { AppModel } from "../../types/index.js";
-import { QueryFilterConstraint } from "./utils/buildCompositeFilter.js";
 
 /**
  * @inline
@@ -27,7 +27,7 @@ type UseCountQueryOptions<AppModelType extends AppModel = AppModel> = {
     /**
      * Reference to a Firestore collection
      */
-    collectionReference: FirebaseFirestoreTypes.CollectionReference<AppModelType>;
+    collectionReference: CollectionReference<AppModelType, AppModelType>;
 
     /**
      * Non composite filter constraints such as limit, order, where
@@ -37,7 +37,7 @@ type UseCountQueryOptions<AppModelType extends AppModel = AppModel> = {
     /**
      * Composite filter
      */
-    compositeFilter?: QueryFilterConstraint;
+    compositeFilter?: QueryCompositeFilterConstraint;
 };
 
 /**

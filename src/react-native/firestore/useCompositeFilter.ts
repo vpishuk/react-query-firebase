@@ -1,7 +1,6 @@
-import { and, or } from "@react-native-firebase/firestore";
 import { useMemo } from "react";
 import { AppModel } from "../../types/index.js";
-import { buildCompositeFilter, CompositeFilter, QueryFilterConstraint } from "./utils/buildCompositeFilter.js";
+import { buildCompositeFilter, CompositeFilter } from "./utils/buildCompositeFilter.js";
 
 /**
  * @inline
@@ -40,21 +39,8 @@ export type UseCompositeFilter<AppModelType extends AppModel = AppModel> = {
  */
 export const useCompositeFilter = <AppModelType extends AppModel = AppModel>({
     query
-}: UseCompositeFilter<AppModelType>): QueryFilterConstraint | undefined => {
+}: UseCompositeFilter<AppModelType>) => {
     return useMemo(() => {
-        const queryConstraints =
-            query?.children
-                ?.map?.((subQuery) => buildCompositeFilter(subQuery))
-                ?.filter?.((constraint) => !!constraint) ?? [];
-
-        if (queryConstraints.length <= 0) {
-            return undefined;
-        }
-
-        if (queryConstraints.length <= 1) {
-            return queryConstraints[0];
-        }
-
-        return query?.operator === "OR" ? or(...queryConstraints) : and(...queryConstraints);
+        return query ? buildCompositeFilter(query) : null;
     }, [query]);
 };

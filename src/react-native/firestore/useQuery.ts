@@ -1,5 +1,5 @@
 import {
-    FirebaseFirestoreTypes,
+    CollectionReference,
     getDocs,
     query,
     QueryConstraint,
@@ -11,8 +11,8 @@ import {
     useQuery as useReactQuery,
     UseQueryOptions as UseReactQueryOptions
 } from "@tanstack/react-query";
+import { QueryCompositeFilterConstraint } from "firebase/firestore";
 import { AppModel } from "../../types/index.js";
-import { QueryFilterConstraint } from "./utils/buildCompositeFilter.js";
 
 /**
  * @inline
@@ -27,7 +27,7 @@ type UseQueryOptions<AppModelType extends AppModel = AppModel> = {
     /**
      * Reference to a Firestore collection
      */
-    collectionReference: FirebaseFirestoreTypes.CollectionReference<AppModelType>;
+    collectionReference: CollectionReference<AppModelType, AppModelType>;
 
     /**
      * Non composite filter constraints such as limit, order, where
@@ -37,7 +37,7 @@ type UseQueryOptions<AppModelType extends AppModel = AppModel> = {
     /**
      * Composite filter
      */
-    compositeFilter?: QueryFilterConstraint;
+    compositeFilter?: QueryCompositeFilterConstraint;
 };
 
 /**
@@ -71,11 +71,12 @@ export const useQuery = <AppModelType extends AppModel = AppModel>({
     return useReactQuery({
         ...options,
         queryFn: async () => {
-            const queryToExecute = compositeFilter
-                ? query(collectionReference, compositeFilter, ...(queryConstraints as QueryNonFilterConstraint[]))
-                : query(collectionReference, ...(queryConstraints as QueryConstraint[]));
+            const queryToExecute = query(
+                collectionReference,
+                ...([...(compositeFilter ? [compositeFilter] : []), ...queryConstraints] as QueryConstraint[])
+            );
 
-            const querySnapshot: FirebaseFirestoreTypes.QuerySnapshot<AppModelType> = await getDocs(queryToExecute);
+            const querySnapshot = await getDocs(queryToExecute);
             const docs: AppModelType[] = [];
 
             if (querySnapshot) {

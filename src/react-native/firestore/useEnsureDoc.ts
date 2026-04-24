@@ -71,7 +71,7 @@ export const useEnsureDoc = <AppModelType extends AppModel = AppModel>({
                 );
             }
 
-            await setDoc<AppModelType>(docRef, defaults);
+            await setDoc<AppModelType, AppModelType>(docRef, defaults);
             const docSnap = await getDoc(docRef);
             return { ...(docSnap.data() as AppModelType), uid: docSnap.id };
         }

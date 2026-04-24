@@ -1,5 +1,5 @@
 import { useMutation, UseMutationOptions } from "@tanstack/react-query";
-import { FirebaseFirestoreTypes, deleteDoc, WithFieldValue } from "@react-native-firebase/firestore";
+import { DocumentReference, deleteDoc, WithFieldValue, DocumentData } from "@react-native-firebase/firestore";
 
 import { useMemo } from "react";
 import { AppModel } from "../../types/index.js";
@@ -18,7 +18,7 @@ export type UseDeleteDocMutationOptions<AppModelType extends AppModel = AppModel
     /**
      * A reference to a firestore document
      */
-    reference: FirebaseFirestoreTypes.DocumentReference<AppModelType> | null;
+    reference: DocumentReference<AppModelType, AppModelType> | null;
     /**
      * Options for useMutation hook excluding mutationFn. MutationKey will be equal to reference.path by default.
      */
@@ -49,10 +49,7 @@ export type UseDeleteDocMutationOptions<AppModelType extends AppModel = AppModel
  * };
  * ```
  */
-export const useDeleteDocMutation = <
-    AppModelType extends FirebaseFirestoreTypes.DocumentData = FirebaseFirestoreTypes.DocumentData,
-    TContext = unknown
->({
+export const useDeleteDocMutation = <AppModelType extends DocumentData = DocumentData, TContext = unknown>({
     reference,
     options = {}
 }: UseDeleteDocMutationOptions<AppModelType, TContext>) => {

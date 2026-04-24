@@ -1,4 +1,4 @@
-import { collection, FirebaseFirestoreTypes } from "@react-native-firebase/firestore";
+import { collection, CollectionReference, DocumentReference } from "@react-native-firebase/firestore";
 
 import { useMemo } from "react";
 import { AppModel } from "../../types/index.js";
@@ -11,9 +11,7 @@ export type UseCollectionReferenceOptions<AppModelType extends AppModel = AppMod
     /**
      * CollectionReference or DocumentReference that is used as a root to lookup a sub-collection
      */
-    reference?:
-        | FirebaseFirestoreTypes.CollectionReference<AppModelType>
-        | FirebaseFirestoreTypes.DocumentReference<AppModelType>;
+    reference?: CollectionReference<AppModelType, AppModelType> | DocumentReference<AppModelType, AppModelType>;
     /**
      * A slash-separated path to a collection.
      */
@@ -32,7 +30,7 @@ export type UseCollectionReferenceOptions<AppModelType extends AppModel = AppMod
  *
  * @param {UseCollectionReferenceOptions<AppModelType>} options - Options
  *
- * @returns {FirebaseFirestoreTypes.CollectionReference<AppModelType, AppModelType>} A reference to a Firestore collection
+ * @returns {CollectionReference<AppModelType, AppModelType>} A reference to a Firestore collection
  *
  * @example
  * ```jsx
@@ -53,6 +51,6 @@ export const useCollectionReference = <AppModelType extends AppModel = AppModel>
     return useMemo(() => {
         return !reference
             ? collection(db, path || "", ...(pathSegments || []))
-            : collection(reference, path, ...(pathSegments || []));
-    }, [db, reference, path, pathSegments]) as FirebaseFirestoreTypes.CollectionReference<AppModelType>;
+            : collection(reference as CollectionReference<AppModelType, AppModelType>, path, ...(pathSegments || []));
+    }, [db, reference, path, pathSegments]) as CollectionReference<AppModelType, AppModelType>;
 };

@@ -1,5 +1,5 @@
 import { useMutation, UseMutationOptions } from "@tanstack/react-query";
-import { FirebaseFirestoreTypes, getDoc, setDoc, WithFieldValue } from "@react-native-firebase/firestore";
+import { DocumentReference, getDoc, setDoc, WithFieldValue } from "@react-native-firebase/firestore";
 
 import { useMemo } from "react";
 import { AppModel } from "../../types/index.js";
@@ -21,7 +21,7 @@ export type UseSetDocMutationOptions<AppModelType extends AppModel = AppModel, T
     /**
      * Reference to a document that must be written
      */
-    reference: FirebaseFirestoreTypes.DocumentReference<AppModelType> | null;
+    reference: DocumentReference<AppModelType, AppModelType> | null;
     /**
      * Options for useMutation hook excluding mutationFn.
      */
@@ -68,7 +68,7 @@ export const useSetDocMutation = <AppModelType extends AppModel = AppModel, TCon
             if (!reference) {
                 throw new Error("Reference is undefined");
             }
-            await setDoc<AppModelType>(reference, data);
+            await setDoc<AppModelType, AppModelType>(reference, data);
             const docSnap = await getDoc(reference);
             return { ...(docSnap.data() as AppModelType), uid: docSnap.id };
         }

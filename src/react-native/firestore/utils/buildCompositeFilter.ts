@@ -1,21 +1,16 @@
-import { FirebaseFirestoreTypes, and, or, where, FieldPath } from "@react-native-firebase/firestore";
+import { QueryFilterConstraint, WhereFilterOp, and, or, where, FieldPath } from "@react-native-firebase/firestore";
+import { QueryCompositeFilterConstraint } from "firebase/firestore";
 import { AppModel } from "../../../types/index.js";
 
-export type QueryFilterConstraint =
-    | FirebaseFirestoreTypes.QueryCompositeFilterConstraint
-    | FirebaseFirestoreTypes.QueryFilterConstraint;
-
 export type QueryElement<AppModelType extends AppModel = AppModel> = {
-    operator?: "OR" | "AND";
-    children?: QueryElement[];
-    field?: keyof (AppModelType & { documentId?: string[] });
-    value?: AppModelType[keyof AppModelType];
-    op?: FirebaseFirestoreTypes.WhereFilterOp;
+    field: keyof (AppModelType & { documentId?: string[] });
+    value: AppModelType[keyof AppModelType];
+    op: WhereFilterOp;
 };
 
 export type CompositeFilter<AppModelType extends AppModel = AppModel> = {
     operator: "OR" | "AND";
-    children: QueryElement<AppModelType & { documentId?: string[] }>[];
+    children: Array<CompositeFilter<AppModelType> | QueryElement<AppModelType & { documentId?: string[] }>>;
 };
 
 /**
@@ -26,7 +21,7 @@ export type CompositeFilter<AppModelType extends AppModel = AppModel> = {
  *
  * @param {QueryElement<AppModelType>} query
  *
- * @returns {QueryFilterConstraint | null}
+ * @returns {QueryCompositeFilterConstraint | null}
  *
  * @example
  * ```jsx
@@ -47,28 +42,36 @@ export type CompositeFilter<AppModelType extends AppModel = AppModel> = {
  * ```
  */
 export const buildCompositeFilter = <AppModelType extends AppModel = AppModel>(
-    query: QueryElement<AppModelType>
-): QueryFilterConstraint | null => {
-    if (query.children) {
-        const queryConstraints = query.children.map(buildCompositeFilter).filter((constraint) => !!constraint);
+    query: CompositeFilter<AppModelType> | QueryElement<AppModelType>
+): QueryCompositeFilterConstraint | null => {
+    if ((query as CompositeFilter<AppModelType>).children) {
+        const queryConstraints = (query as CompositeFilter<AppModelType>).children
+            .map(buildCompositeFilter)
+            .filter((constraint) => !!constraint) as QueryFilterConstraint[];
 
         if (queryConstraints.length <= 0) {
             return null;
         }
 
         if (queryConstraints.length <= 1) {
-            return queryConstraints[0];
+            return and(queryConstraints[0]);
         }
 
-        return (query as CompositeFilter).operator === "OR" ? or(...queryConstraints) : and(...queryConstraints);
+        return (query as CompositeFilter<AppModelType>).operator === "OR"
+            ? or(...queryConstraints)
+            : and(...queryConstraints);
     }
 
-    if (query.field && query.op) {
-        return where(
-            query.field === "documentId" ? new FieldPath("__name__") : (query.field as string),
-            query.op,
-            query.value
-        ) as unknown as FirebaseFirestoreTypes.QueryFilterConstraint;
+    if ((query as QueryElement<AppModelType>).field && (query as QueryElement<AppModelType>).op) {
+        return and(
+            where(
+                (query as QueryElement<AppModelType>).field === "documentId"
+                    ? new FieldPath("__name__")
+                    : ((query as QueryElement<AppModelType>).field as string),
+                (query as QueryElement<AppModelType>).op,
+                (query as QueryElement<AppModelType>).value
+            )
+        );
     }
 
     return null;
