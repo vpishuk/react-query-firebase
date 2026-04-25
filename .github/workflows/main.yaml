@@ -15,21 +15,21 @@ jobs:
         runs-on: ubuntu-latest
 
         steps:
-            - uses: actions/checkout@v4
+            - uses: actions/checkout@v6
             - name: Use Node.js
-              uses: actions/setup-node@v4
+              uses: actions/setup-node@v6
               with:
                   node-version-file: .nvmrc
                   cache: "npm"
             - uses: ./.github/actions/install
             - uses: ./.github/actions/lint
             - uses: ./.github/actions/build
-            - uses: googleapis/release-please-action@v4
+            - uses: googleapis/release-please-action@v5
               id: release
               with:
                   release-type: node
             - uses: ./.github/actions/publish
               if: ${{ steps.release.outputs.release_created }}
-            - uses: actions/deploy-pages@v4
+            - uses: actions/deploy-pages@v6
               with:
                   artifact_name: "github-pages"
