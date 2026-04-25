@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.3.2](https://github.com/vpishuk/react-query-firebase/compare/v3.3.1...v3.3.2) (2026-04-25)
+
+
+### Bug Fixes
+
+* enhance compositeFilter param by adding nullish value ([#202](https://github.com/vpishuk/react-query-firebase/issues/202)) ([db8556e](https://github.com/vpishuk/react-query-firebase/commit/db8556e37810cf55b4c8a87f3ee66d5ffc2277be))
+
 ## [3.3.1](https://github.com/vpishuk/react-query-firebase/compare/v3.3.0...v3.3.1) (2026-04-25)
 
 
