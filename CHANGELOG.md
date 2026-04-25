@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.3.1](https://github.com/vpishuk/react-query-firebase/compare/v3.3.0...v3.3.1) (2026-04-25)
+
+
+### Bug Fixes
+
+* sync react-native and web interfaces ([#200](https://github.com/vpishuk/react-query-firebase/issues/200)) ([0c2dcd6](https://github.com/vpishuk/react-query-firebase/commit/0c2dcd6af801759b0fe42aa72cc205db5ced97af))
+
 ## [3.3.0](https://github.com/vpishuk/react-query-firebase/compare/v3.2.0...v3.3.0) (2026-04-24)
 
 
