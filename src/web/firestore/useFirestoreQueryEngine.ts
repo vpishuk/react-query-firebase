@@ -1,10 +1,10 @@
-import { getDocs, CollectionReference, query, QueryNonFilterConstraint, or, and } from "firebase/firestore";
+import { getDocs, CollectionReference, query, QueryConstraint } from "firebase/firestore";
 
 import { useCallback } from "react";
 import { NonFilterQueryConstraint } from "../../types/QueryConstraints.js";
 
 import { AppModel } from "../../types/index.js";
-import { QueryFilterConstraint, CompositeFilter, buildCompositeFilter } from "./utils/buildCompositeFilter.js";
+import { CompositeFilter, buildCompositeFilter } from "./utils/buildCompositeFilter.js";
 import { buildQueryConstraint } from "./utils/buildQueryConstraint.js";
 
 /**
@@ -24,7 +24,7 @@ type UseFirestoreQueryEngineOptions<AppModelType extends AppModel = AppModel> = 
     /**
      * Composite filter
      */
-    compositeFilter?: CompositeFilter;
+    compositeFilter?: CompositeFilter<AppModelType>;
 };
 
 /**
@@ -57,26 +57,15 @@ export const useFirestoreQueryEngine = <AppModelType extends AppModel = AppModel
             queryConstraints = [],
             compositeFilter: inputCompositeFilter
         }: UseFirestoreQueryEngineOptions<AppModelType>) => {
-            const compositeFilter =
-                inputCompositeFilter?.children?.map?.((subQuery) => buildCompositeFilter(subQuery))
-                    ?.filter<QueryFilterConstraint>?.((constraint) => !!constraint) ?? [];
+            const compositeFilter = inputCompositeFilter ? buildCompositeFilter(inputCompositeFilter) : null;
+            const builtQueryConstraints = queryConstraints.map(buildQueryConstraint);
 
-            const finalCompositeFilter =
-                compositeFilter.length > 0
-                    ? inputCompositeFilter?.operator === "OR"
-                        ? or(...compositeFilter)
-                        : and(...compositeFilter)
-                    : undefined;
+            const queryToExecute = query(
+                collectionReference,
+                ...([...(compositeFilter ? [compositeFilter] : []), ...builtQueryConstraints] as QueryConstraint[])
+            );
 
-            const queryToExecute = finalCompositeFilter
-                ? query(
-                      collectionReference,
-                      finalCompositeFilter,
-                      ...(queryConstraints.map(buildQueryConstraint) as QueryNonFilterConstraint[])
-                  )
-                : query(collectionReference, ...queryConstraints);
-
-            const querySnapshot = await getDocs(queryToExecute);
+            const querySnapshot = await getDocs<AppModelType, AppModelType>(queryToExecute);
             const docs: AppModelType[] = [];
 
             if (querySnapshot) {

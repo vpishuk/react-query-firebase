@@ -2,9 +2,9 @@ import {
     getCountFromServer,
     CollectionReference,
     query,
-    QueryCompositeFilterConstraint,
     QueryConstraint,
-    QueryNonFilterConstraint
+    QueryNonFilterConstraint,
+    QueryCompositeFilterConstraint
 } from "firebase/firestore";
 
 import {
@@ -13,7 +13,6 @@ import {
     UseQueryOptions as UseReactQueryOptions
 } from "@tanstack/react-query";
 import { AppModel } from "../../types/index.js";
-import { QueryFilterConstraint } from "./utils/buildCompositeFilter.js";
 
 /**
  * @inline
@@ -38,7 +37,7 @@ type UseCountQueryOptions<AppModelType extends AppModel = AppModel> = {
     /**
      * Composite filter
      */
-    compositeFilter?: QueryFilterConstraint;
+    compositeFilter?: QueryCompositeFilterConstraint;
 };
 
 /**
@@ -73,12 +72,8 @@ export const useCountQuery = <AppModelType extends AppModel = AppModel>({
         ...options,
         queryFn: async () => {
             const queryToExecute = compositeFilter
-                ? query(
-                      collectionReference,
-                      compositeFilter as QueryCompositeFilterConstraint,
-                      ...(queryConstraints as QueryNonFilterConstraint[])
-                  )
-                : query(collectionReference, ...queryConstraints);
+                ? query(collectionReference, compositeFilter, ...(queryConstraints as QueryNonFilterConstraint[]))
+                : query(collectionReference, ...(queryConstraints as QueryConstraint[]));
 
             const querySnapshot = await getCountFromServer(queryToExecute);
             if (querySnapshot) {

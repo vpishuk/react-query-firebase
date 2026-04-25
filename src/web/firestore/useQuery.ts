@@ -13,7 +13,6 @@ import {
     UseQueryOptions as UseReactQueryOptions
 } from "@tanstack/react-query";
 import { AppModel } from "../../types/index.js";
-import { QueryFilterConstraint } from "./utils/buildCompositeFilter.js";
 
 /**
  * @inline
@@ -38,7 +37,7 @@ type UseQueryOptions<AppModelType extends AppModel = AppModel> = {
     /**
      * Composite filter
      */
-    compositeFilter?: QueryFilterConstraint;
+    compositeFilter?: QueryCompositeFilterConstraint;
 };
 
 /**
@@ -72,13 +71,10 @@ export const useQuery = <AppModelType extends AppModel = AppModel>({
     return useReactQuery({
         ...options,
         queryFn: async () => {
-            const queryToExecute = compositeFilter
-                ? query(
-                      collectionReference,
-                      compositeFilter as QueryCompositeFilterConstraint,
-                      ...(queryConstraints as QueryNonFilterConstraint[])
-                  )
-                : query(collectionReference, ...queryConstraints);
+            const queryToExecute = query(
+                collectionReference,
+                ...([...(compositeFilter ? [compositeFilter] : []), ...queryConstraints] as QueryConstraint[])
+            );
 
             const querySnapshot = await getDocs(queryToExecute);
             const docs: AppModelType[] = [];
