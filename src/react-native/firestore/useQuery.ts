@@ -37,7 +37,7 @@ type UseQueryOptions<AppModelType extends AppModel = AppModel> = {
     /**
      * Composite filter
      */
-    compositeFilter?: QueryCompositeFilterConstraint;
+    compositeFilter?: QueryCompositeFilterConstraint | null;
 };
 
 /**

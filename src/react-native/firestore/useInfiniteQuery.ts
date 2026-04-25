@@ -59,7 +59,7 @@ type UseInfiniteQueryOptions<AppModelType extends AppModel = AppModel, TQueryKey
     /**
      * Composite filter
      */
-    compositeFilter?: QueryCompositeFilterConstraint;
+    compositeFilter?: QueryCompositeFilterConstraint | null;
 };
 
 /**
