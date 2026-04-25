@@ -1,27 +1,23 @@
 import {
-    QueryFilterConstraint as FBQueryFilterConstraint,
-    QueryCompositeFilterConstraint as FBQueryCompositeFilterConstraint,
     WhereFilterOp,
     or,
     and,
     where,
-    documentId
+    documentId,
+    QueryFilterConstraint,
+    QueryCompositeFilterConstraint
 } from "firebase/firestore";
 import { AppModel } from "../../../types/AppModel.js";
 
-export type QueryFilterConstraint = FBQueryFilterConstraint | FBQueryCompositeFilterConstraint;
-
 export type QueryElement<AppModelType extends AppModel = AppModel> = {
-    operator?: "OR" | "AND";
-    children?: QueryElement[];
-    field?: keyof (AppModelType & { documentId?: string[] });
-    value?: AppModelType[keyof AppModelType];
-    op?: WhereFilterOp;
+    field: keyof (AppModelType & { documentId?: string[] });
+    value: AppModelType[keyof AppModelType];
+    op: WhereFilterOp;
 };
 
 export type CompositeFilter<AppModelType extends AppModel = AppModel> = {
     operator: "OR" | "AND";
-    children: QueryElement<AppModelType & { documentId?: string[] }>[];
+    children: Array<CompositeFilter<AppModelType> | QueryElement<AppModelType & { documentId?: string[] }>>;
 };
 /**
  * Constructs a composite or where query filter based on the provided query structure.
@@ -53,20 +49,36 @@ export type CompositeFilter<AppModelType extends AppModel = AppModel> = {
  */
 
 export const buildCompositeFilter = <AppModelType extends AppModel = AppModel>(
-    query: QueryElement<AppModelType>
-): QueryFilterConstraint | null => {
-    if (query.children) {
-        const queryConstraints = query.children.map(buildCompositeFilter).filter((constraint) => !!constraint);
+    query: CompositeFilter<AppModelType> | QueryElement<AppModelType>
+): QueryCompositeFilterConstraint | null => {
+    if ((query as CompositeFilter<AppModelType>).children) {
+        const queryConstraints = (query as CompositeFilter<AppModelType>).children
+            .map(buildCompositeFilter)
+            .filter((constraint) => !!constraint) as QueryFilterConstraint[];
 
         if (queryConstraints.length <= 0) {
             return null;
         }
 
-        return (query as CompositeFilter).operator === "OR" ? or(...queryConstraints) : and(...queryConstraints);
+        if (queryConstraints.length <= 1) {
+            return and(queryConstraints[0]);
+        }
+
+        return (query as CompositeFilter<AppModelType>).operator === "OR"
+            ? or(...queryConstraints)
+            : and(...queryConstraints);
     }
 
-    if (query.field && query.op) {
-        return where(query.field === "documentId" ? documentId() : (query.field as string), query.op, query.value);
+    if ((query as QueryElement<AppModelType>).field && (query as QueryElement<AppModelType>).op) {
+        return and(
+            where(
+                (query as QueryElement<AppModelType>).field === "documentId"
+                    ? documentId()
+                    : ((query as QueryElement<AppModelType>).field as string),
+                (query as QueryElement<AppModelType>).op,
+                (query as QueryElement<AppModelType>).value
+            )
+        );
     }
 
     return null;
