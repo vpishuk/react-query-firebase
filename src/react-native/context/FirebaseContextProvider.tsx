@@ -228,15 +228,14 @@ export const FirebaseContextProvider: React.FC<FirebaseContextProviderProps> = (
     }, [remoteConfigEnabled, remoteConfigSettings, remoteConfigDefaults, internalFirebase]);
 
     const contextValue = useMemo(
-        () =>
-            ({
-                firebase: internalFirebase,
-                auth: internalAuth,
-                analytics: internalAnalytics,
-                firestore: internalFirestore,
-                remoteConfig: internalRemoteConfig,
-                messaging: getMessaging(internalFirebase)
-            }) satisfies React.ContextType<typeof FirebaseContext>,
+        () => ({
+            firebase: internalFirebase,
+            auth: internalAuth,
+            analytics: internalAnalytics,
+            firestore: internalFirestore,
+            remoteConfig: internalRemoteConfig,
+            messaging: getMessaging(internalFirebase)
+        }),
         [internalFirebase, internalAuth, internalAnalytics, internalFirestore, internalRemoteConfig]
     );
 
@@ -246,5 +245,9 @@ export const FirebaseContextProvider: React.FC<FirebaseContextProviderProps> = (
         }
     }, [consentSettings, contextValue.analytics]);
 
-    return <FirebaseContext.Provider value={contextValue}>{children}</FirebaseContext.Provider>;
+    return (
+        <FirebaseContext.Provider value={contextValue as React.ContextType<typeof FirebaseContext>}>
+            {children}
+        </FirebaseContext.Provider>
+    );
 };
