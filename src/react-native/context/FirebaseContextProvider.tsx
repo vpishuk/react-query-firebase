@@ -173,6 +173,10 @@ export const FirebaseContextProvider: React.FC<FirebaseContextProviderProps> = (
         });
     }, [consentSettings, internalFirebase]);
 
+    useEffect(() => {
+        initializeFirestore(internalFirebase, firestoreSettings || {});
+    }, [firestoreSettings, internalFirebase]);
+
     const internalFirestore = useMemo(() => {
         if (firestoreEnabled) {
             if (emulators?.firestore?.host && emulators?.firestore?.port) {
@@ -183,12 +187,12 @@ export const FirebaseContextProvider: React.FC<FirebaseContextProviderProps> = (
                 );
             }
 
-            const localFirestore = initializeFirestore(internalFirebase, firestoreSettings || {});
+            const localFirestore = getFirestore(internalFirebase);
             return localFirestore;
         }
 
         return null;
-    }, [emulators, firestoreEnabled, internalFirebase, firestoreSettings]);
+    }, [emulators, firestoreEnabled, internalFirebase]);
 
     const internalAuth = useMemo(() => {
         if (authEnabled) {
