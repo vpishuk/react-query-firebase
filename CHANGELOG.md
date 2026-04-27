@@ -1,5 +1,14 @@
 # Changelog
 
+## [3.3.3](https://github.com/vpishuk/react-query-firebase/compare/v3.3.2...v3.3.3) (2026-04-27)
+
+
+### Bug Fixes
+
+* fixes context provider ([#207](https://github.com/vpishuk/react-query-firebase/issues/207)) ([f36c242](https://github.com/vpishuk/react-query-firebase/commit/f36c242be0c265664dd54da747b9315ec293459c))
+* fixes context value typing ([#206](https://github.com/vpishuk/react-query-firebase/issues/206)) ([56b482f](https://github.com/vpishuk/react-query-firebase/commit/56b482f21296efca23cce7c668be04e173a2e3aa))
+* fixes initialization of firestore ([#205](https://github.com/vpishuk/react-query-firebase/issues/205)) ([8db6aa8](https://github.com/vpishuk/react-query-firebase/commit/8db6aa8a08d89133643c1d4fde71dcbcf5734cf3))
+
 ## [3.3.2](https://github.com/vpishuk/react-query-firebase/compare/v3.3.1...v3.3.2) (2026-04-25)
 
 
