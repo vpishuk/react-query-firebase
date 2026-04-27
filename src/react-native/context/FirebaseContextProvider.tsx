@@ -15,7 +15,7 @@ import {
     FirestoreSettings
 } from "@react-native-firebase/firestore";
 import { ReactNativeFirebase, getApp } from "@react-native-firebase/app";
-import { FirebaseContext, FirebaseContextValue } from "./FirebaseContext.js";
+import { FirebaseContext } from "./FirebaseContext.js";
 
 /**
  * @inline
@@ -228,14 +228,15 @@ export const FirebaseContextProvider: React.FC<FirebaseContextProviderProps> = (
     }, [remoteConfigEnabled, remoteConfigSettings, remoteConfigDefaults, internalFirebase]);
 
     const contextValue = useMemo(
-        () => ({
-            firebase: internalFirebase,
-            auth: internalAuth,
-            analytics: internalAnalytics,
-            firestore: internalFirestore,
-            remoteConfig: internalRemoteConfig,
-            messageing: getMessaging(internalFirebase)
-        }),
+        () =>
+            ({
+                firebase: internalFirebase,
+                auth: internalAuth,
+                analytics: internalAnalytics,
+                firestore: internalFirestore,
+                remoteConfig: internalRemoteConfig,
+                messaging: getMessaging(internalFirebase)
+            }) satisfies React.ContextType<typeof FirebaseContext>,
         [internalFirebase, internalAuth, internalAnalytics, internalFirestore, internalRemoteConfig]
     );
 
@@ -245,9 +246,5 @@ export const FirebaseContextProvider: React.FC<FirebaseContextProviderProps> = (
         }
     }, [consentSettings, contextValue.analytics]);
 
-    return (
-        <FirebaseContext.Provider value={contextValue as unknown as FirebaseContextValue}>
-            {children}
-        </FirebaseContext.Provider>
-    );
+    return <FirebaseContext.Provider value={contextValue}>{children}</FirebaseContext.Provider>;
 };

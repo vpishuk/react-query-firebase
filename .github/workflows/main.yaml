@@ -30,6 +30,6 @@ jobs:
                   release-type: node
             - uses: ./.github/actions/publish
               if: ${{ steps.release.outputs.release_created }}
-            - uses: actions/deploy-pages@v6
+            - uses: actions/deploy-pages@v4
               with:
                   artifact_name: "github-pages"
