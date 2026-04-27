@@ -8,12 +8,12 @@ import { type FirebaseRemoteConfigTypes } from "@react-native-firebase/remote-co
 import { type Firestore } from "@react-native-firebase/firestore";
 
 export type FirebaseContextValue = {
-    auth: FirebaseAuthTypes.Module | null;
-    analytics: Analytics | null;
-    firebase: FirebaseApp | null;
-    remoteConfig: FirebaseRemoteConfigTypes.Module | null;
-    firestore: Firestore | null;
-    messaging: Messaging | null;
+    auth: FirebaseAuthTypes.Module;
+    analytics: Analytics;
+    firebase: FirebaseApp;
+    remoteConfig: FirebaseRemoteConfigTypes.Module;
+    firestore: Firestore;
+    messaging: Messaging;
 };
 
 /**
