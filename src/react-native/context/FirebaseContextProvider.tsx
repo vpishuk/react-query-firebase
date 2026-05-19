@@ -1,4 +1,4 @@
-import React, { PropsWithChildren, useEffect, useMemo } from "react";
+import React, { PropsWithChildren, useEffect, useMemo, useState } from "react";
 import { connectAuthEmulator, getAuth } from "@react-native-firebase/auth";
 import { getMessaging } from "@react-native-firebase/messaging";
 import {
@@ -165,6 +165,7 @@ export const FirebaseContextProvider: React.FC<FirebaseContextProviderProps> = (
     firestoreDBId = "(default)"
 }) => {
     const internalFirebase = useMemo(() => getApp(), []);
+    const [isFIrestoreReady, setIsFirestoreReady] = useState(false);
 
     useEffect(() => {
         setConsent(getAnalytics(internalFirebase), {
@@ -180,11 +181,13 @@ export const FirebaseContextProvider: React.FC<FirebaseContextProviderProps> = (
     }, [consentSettings, internalFirebase]);
 
     useEffect(() => {
-        initializeFirestore(internalFirebase, firestoreSettings || {});
+        initializeFirestore(internalFirebase, firestoreSettings || {}).then(() => {
+            setIsFirestoreReady(true);
+        });
     }, [firestoreSettings, internalFirebase]);
 
     const internalFirestore = useMemo(() => {
-        if (firestoreEnabled) {
+        if (firestoreEnabled && isFIrestoreReady) {
             if (emulators?.firestore?.host && emulators?.firestore?.port) {
                 connectFirestoreEmulator(
                     getFirestore(internalFirebase),
@@ -198,7 +201,7 @@ export const FirebaseContextProvider: React.FC<FirebaseContextProviderProps> = (
         }
 
         return null;
-    }, [emulators, firestoreEnabled, internalFirebase, firestoreDBId]);
+    }, [emulators, firestoreEnabled, internalFirebase, firestoreDBId, isFIrestoreReady]);
 
     const internalAuth = useMemo(() => {
         if (authEnabled) {
@@ -240,9 +243,10 @@ export const FirebaseContextProvider: React.FC<FirebaseContextProviderProps> = (
             analytics: internalAnalytics,
             firestore: internalFirestore,
             remoteConfig: internalRemoteConfig,
-            messaging: getMessaging(internalFirebase)
+            messaging: getMessaging(internalFirebase),
+            isFIrestoreReady
         }),
-        [internalFirebase, internalAuth, internalAnalytics, internalFirestore, internalRemoteConfig]
+        [internalFirebase, internalAuth, internalAnalytics, internalFirestore, internalRemoteConfig, isFIrestoreReady]
     );
 
     useEffect(() => {

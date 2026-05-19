@@ -252,7 +252,8 @@ export const FirebaseContextProvider: React.FC<FirebaseContextProviderProps> = (
             analytics,
             firestore,
             remoteConfig,
-            messaging: getMessaging(firebase)
+            messaging: getMessaging(firebase),
+            isFIrestoreReady: true
         }),
         [firebase, auth, analytics, firestore, remoteConfig]
     );
