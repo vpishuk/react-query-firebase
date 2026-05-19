@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.6.0](https://github.com/vpishuk/react-query-firebase/compare/v3.5.0...v3.6.0) (2026-05-19)
+
+
+### Features
+
+* adds useFirebaseContext hook ([#220](https://github.com/vpishuk/react-query-firebase/issues/220)) ([3526966](https://github.com/vpishuk/react-query-firebase/commit/3526966a618e78bf96ea5c61e05c9ba48d8841ae))
+
 ## [3.5.0](https://github.com/vpishuk/react-query-firebase/compare/v3.4.0...v3.5.0) (2026-05-19)
 
 
