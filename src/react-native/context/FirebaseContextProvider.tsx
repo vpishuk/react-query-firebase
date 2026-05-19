@@ -97,6 +97,11 @@ export type FirebaseContextProviderProps = PropsWithChildren & {
      */
     firestoreSettings?: FirestoreSettings;
     /**
+     * Specifies custom firestore database identifier
+     * @defaultValue `(default)`
+     */
+    firestoreDBId?: string;
+    /**
      * Flag indicating whether Firebase Firestore should be enabled.
      * @defaultValue `true`
      */
@@ -156,7 +161,8 @@ export const FirebaseContextProvider: React.FC<FirebaseContextProviderProps> = (
     remoteConfigEnabled = true,
     remoteConfigSettings,
     remoteConfigDefaults = {},
-    firestoreSettings
+    firestoreSettings,
+    firestoreDBId = "(default)"
 }) => {
     const internalFirebase = useMemo(() => getApp(), []);
 
@@ -187,12 +193,12 @@ export const FirebaseContextProvider: React.FC<FirebaseContextProviderProps> = (
                 );
             }
 
-            const localFirestore = getFirestore(internalFirebase);
+            const localFirestore = getFirestore(internalFirebase, firestoreDBId as string);
             return localFirestore;
         }
 
         return null;
-    }, [emulators, firestoreEnabled, internalFirebase]);
+    }, [emulators, firestoreEnabled, internalFirebase, firestoreDBId]);
 
     const internalAuth = useMemo(() => {
         if (authEnabled) {
