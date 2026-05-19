@@ -99,6 +99,11 @@ export type FirebaseContextProviderProps = PropsWithChildren & {
      */
     firestoreEnabled?: boolean;
     /**
+     * Specifies custom firestore database identifier
+     * @defaultValue `(default)`
+     */
+    firestoreDBId?: string;
+    /**
      * Configuration options for Firebase Remote Config Settings. {@link https://firebase.google.com/docs/reference/js/remote-config.remoteconfigsettings | Learn about the Firebase Remote COnfig Settings object}
      * @defaultValue `true`
      */
@@ -154,7 +159,8 @@ export const FirebaseContextProvider: React.FC<FirebaseContextProviderProps> = (
     remoteConfigSettings,
     remoteConfigDefaults = {},
     firestoreSettings,
-    authPersistenceType
+    authPersistenceType,
+    firestoreDBId = "(default)"
 }) => {
     const firebase = useMemo(() => {
         return initializeApp(options);
@@ -175,7 +181,7 @@ export const FirebaseContextProvider: React.FC<FirebaseContextProviderProps> = (
 
     const firestore = useMemo(() => {
         if (firestoreEnabled) {
-            const localFirestore = initializeFirestore(firebase, firestoreSettings || {});
+            const localFirestore = initializeFirestore(firebase, firestoreSettings || {}, firestoreDBId);
 
             if (emulators?.firestore?.host && emulators?.firestore?.port) {
                 connectFirestoreEmulator(localFirestore, emulators.firestore.host, emulators.firestore.port);
@@ -185,7 +191,7 @@ export const FirebaseContextProvider: React.FC<FirebaseContextProviderProps> = (
         }
 
         return null;
-    }, [firestoreSettings, emulators, firestoreEnabled, firebase]);
+    }, [firestoreSettings, emulators, firestoreEnabled, firebase, firestoreDBId]);
 
     const authPersistence = useMemo(() => {
         switch (authPersistenceType) {
