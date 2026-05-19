@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.7.0](https://github.com/vpishuk/react-query-firebase/compare/v3.6.0...v3.7.0) (2026-05-19)
+
+
+### Features
+
+* adds firestoreDBId into initializeFirestore call ([#222](https://github.com/vpishuk/react-query-firebase/issues/222)) ([1a3f1ae](https://github.com/vpishuk/react-query-firebase/commit/1a3f1aec0994956b98887875797e9299d3530972))
+
 ## [3.6.0](https://github.com/vpishuk/react-query-firebase/compare/v3.5.0...v3.6.0) (2026-05-19)
 
 
