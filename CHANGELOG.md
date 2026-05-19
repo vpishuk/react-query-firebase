@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.5.0](https://github.com/vpishuk/react-query-firebase/compare/v3.4.0...v3.5.0) (2026-05-19)
+
+
+### Features
+
+* adds isFirestoreReady boolean flag under context ([#218](https://github.com/vpishuk/react-query-firebase/issues/218)) ([3d99195](https://github.com/vpishuk/react-query-firebase/commit/3d99195efbe58f350c001f152619898f628611ff))
+
 ## [3.4.0](https://github.com/vpishuk/react-query-firebase/compare/v3.3.3...v3.4.0) (2026-05-19)
 
 
