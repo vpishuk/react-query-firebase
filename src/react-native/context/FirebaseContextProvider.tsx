@@ -181,10 +181,10 @@ export const FirebaseContextProvider: React.FC<FirebaseContextProviderProps> = (
     }, [consentSettings, internalFirebase]);
 
     useEffect(() => {
-        initializeFirestore(internalFirebase, firestoreSettings || {}).then(() => {
+        initializeFirestore(internalFirebase, firestoreSettings || {}, firestoreDBId).then(() => {
             setIsFirestoreReady(true);
         });
-    }, [firestoreSettings, internalFirebase]);
+    }, [firestoreSettings, internalFirebase, firestoreDBId]);
 
     const internalFirestore = useMemo(() => {
         if (firestoreEnabled && isFIrestoreReady) {
