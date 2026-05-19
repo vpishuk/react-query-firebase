@@ -1,5 +1,17 @@
 # Changelog
 
+## [3.4.0](https://github.com/vpishuk/react-query-firebase/compare/v3.3.3...v3.4.0) (2026-05-19)
+
+
+### Features
+
+* adds database id into firebaseContextProvider interface ([#213](https://github.com/vpishuk/react-query-firebase/issues/213)) ([c3a6adf](https://github.com/vpishuk/react-query-firebase/commit/c3a6adfc117a78e1504d199ad665b26d85431bd5))
+
+
+### Bug Fixes
+
+* reduces version of typescript ([#215](https://github.com/vpishuk/react-query-firebase/issues/215)) ([3465192](https://github.com/vpishuk/react-query-firebase/commit/346519274d0746963d033895c1a07f1694a2334c))
+
 ## [3.3.3](https://github.com/vpishuk/react-query-firebase/compare/v3.3.2...v3.3.3) (2026-04-27)
 
 
