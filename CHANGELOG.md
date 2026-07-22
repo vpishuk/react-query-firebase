@@ -1,5 +1,14 @@
 # Changelog
 
+## [3.7.1](https://github.com/vpishuk/react-query-firebase/compare/v3.7.0...v3.7.1) (2026-07-22)
+
+
+### Bug Fixes
+
+* fixes lint issue ([0c5c585](https://github.com/vpishuk/react-query-firebase/commit/0c5c585c084c101903a54d4ed0d08e5bdd9931d6))
+* fixes ts issues ([4ee04c4](https://github.com/vpishuk/react-query-firebase/commit/4ee04c4c7c5cb4a72ca05d2e9a312b296ede47bb))
+* upgrade dependencies ([c41062f](https://github.com/vpishuk/react-query-firebase/commit/c41062f0f5ab112da731e354b127bb0fa618e664))
+
 ## [3.7.0](https://github.com/vpishuk/react-query-firebase/compare/v3.6.0...v3.7.0) (2026-05-19)
 
 
