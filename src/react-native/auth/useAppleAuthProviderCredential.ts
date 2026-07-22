@@ -1,4 +1,4 @@
-import { AppleAuthProvider, FirebaseAuthTypes } from "@react-native-firebase/auth";
+import { OAuthProvider, AuthCredential } from "@react-native-firebase/auth";
 import { useCallback } from "react";
 
 type Credential = {
@@ -7,7 +7,7 @@ type Credential = {
 };
 
 /**
- * A custom hook that returns an auth credential for facebook.
+ * A custom hook that returns an auth credential for apple.
  *
  * @group Hook
  * @param {AuthProvider} provider alas of a provider
@@ -25,7 +25,7 @@ type Credential = {
  */
 
 export const useAppleAuthProviderCredential = () => {
-    return useCallback((credential: Credential): FirebaseAuthTypes.AuthCredential => {
-        return AppleAuthProvider.credential(credential.token, credential.nonce);
+    return useCallback((credential: Credential): AuthCredential => {
+        return new OAuthProvider("apple.com").credential({ idToken: credential.token, rawNonce: credential.nonce });
     }, []);
 };

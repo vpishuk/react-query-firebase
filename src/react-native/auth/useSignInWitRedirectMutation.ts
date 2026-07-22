@@ -1,25 +1,25 @@
 import { useMutation, UseMutationOptions } from "@tanstack/react-query";
-import { signInWithRedirect, FirebaseAuthTypes, PopupRedirectResolver } from "@react-native-firebase/auth";
+import { signInWithRedirect, AuthProvider, PopupRedirectResolver, UserCredential } from "@react-native-firebase/auth";
 
 import { ReactNativeFirebase } from "@react-native-firebase/app";
 import { useAuth } from "./useAuth.js";
 import { SIGN_IN_WITH_REDIRECT_MUTATION_KEY } from "./mutation-keys.js";
 
 export type UseSignInWitRedirectMutationVariables = {
-    authProvider: FirebaseAuthTypes.AuthProvider;
+    authProvider: AuthProvider;
     popupRedirectResolver?: PopupRedirectResolver;
 };
 
 /**
  * Custom hook for handling Firebase authentication using sign-in with redirect functionality.
  * This hook utilizes the `useMutation` mechanism to perform the sign-in operation.
- * @param {Omit<UseMutationOptions<void, ReactNativeFirebase.NativeFirebaseError, UseSignInWitRedirectMutationVariables, TContext>, "mutationKey" | "mutationFn">} options - Optional configurations for the mutation, omitting the mutationKey and mutationFn properties.
- * @returns {UseMutationResult<void, ReactNativeFirebase.NativeFirebaseError, UseSignInWitRedirectMutationVariables, TContext>} The result object from the useMutation hook, containing the mutation function and its current state.
+ * @param {Omit<UseMutationOptions<UserCredential, ReactNativeFirebase.NativeFirebaseError, UseSignInWitRedirectMutationVariables, TContext>, "mutationKey" | "mutationFn">} options - Optional configurations for the mutation, omitting the mutationKey and mutationFn properties.
+ * @returns {UseMutationResult<UserCredential, ReactNativeFirebase.NativeFirebaseError, UseSignInWitRedirectMutationVariables, TContext>} The result object from the useMutation hook, containing the mutation function and its current state.
  */
 export const useSignInWitRedirectMutation = <TContext = unknown>(
     options: Omit<
         UseMutationOptions<
-            void,
+            UserCredential,
             ReactNativeFirebase.NativeFirebaseError,
             UseSignInWitRedirectMutationVariables,
             TContext

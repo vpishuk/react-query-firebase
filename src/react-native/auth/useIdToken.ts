@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import { onIdTokenChanged, FirebaseAuthTypes, getIdToken } from "@react-native-firebase/auth";
+import { onIdTokenChanged, User, getIdToken } from "@react-native-firebase/auth";
 import { useCurrentUser } from "./useCurrentUser.js";
 import { useAuth } from "./useAuth.js";
 
@@ -63,7 +63,7 @@ export const useIdToken = (): UseIdTokenResult => {
     }, [callback]);
 
     useEffect(() => {
-        const unsubscribe = onIdTokenChanged(auth, (user: FirebaseAuthTypes.User | null) => {
+        const unsubscribe = onIdTokenChanged(auth, (user: User | null) => {
             if (user) {
                 getIdToken(user).then((idToken) => {
                     setIdToken(idToken);

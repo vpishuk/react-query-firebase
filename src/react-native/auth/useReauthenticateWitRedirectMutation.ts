@@ -1,13 +1,13 @@
 import { useMutation, UseMutationOptions } from "@tanstack/react-query";
-import { reauthenticateWithRedirect, FirebaseAuthTypes, PopupRedirectResolver } from "@react-native-firebase/auth";
+import { reauthenticateWithRedirect, AuthProvider, User, PopupRedirectResolver } from "@react-native-firebase/auth";
 
 import { ReactNativeFirebase } from "@react-native-firebase/app";
 import { REAUTHENTICATE_WITH_REDIRECT_MUTATION_KEY } from "./mutation-keys.js";
 
 export type UseReauthenticateWitRedirectMutationVariables = {
-    authProvider: FirebaseAuthTypes.AuthProvider;
+    authProvider: AuthProvider;
     popupRedirectResolver?: PopupRedirectResolver;
-    user: FirebaseAuthTypes.User;
+    user: User;
 };
 
 /**

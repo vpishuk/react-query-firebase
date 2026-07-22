@@ -1,24 +1,24 @@
 import { useMutation, UseMutationOptions } from "@tanstack/react-query";
-import { FirebaseAuthTypes, signInWithCredential } from "@react-native-firebase/auth";
+import { UserCredential, AuthCredential, signInWithCredential } from "@react-native-firebase/auth";
 
 import { ReactNativeFirebase } from "@react-native-firebase/app";
 import { SIGN_IN_WITH_CREDENTIAL_MUTATION_KEY } from "./mutation-keys.js";
 import { useAuth } from "./useAuth.js";
 
 export type UseSignInWithCredentialMutationVariables = {
-    credential: FirebaseAuthTypes.AuthCredential;
+    credential: AuthCredential;
 };
 
 /**
  * Custom hook for handling sign in using credential
  * This hook utilizes the `useMutation` mechanism to perform the sign-in operation.
- * @param {Omit<UseMutationOptions<FirebaseAuthTypes.UserCredential, ReactNativeFirebase.NativeFirebaseError, UseSignInWithCredentialMutationVariables, TContext>, "mutationKey" | "mutationFn">} options - Optional configurations for the mutation, omitting the mutationKey and mutationFn properties.
- * @returns {UseMutationResult<FirebaseAuthTypes.UserCredential, ReactNativeFirebase.NativeFirebaseError, UseSignInWithCredentialMutationVariables, TContext>} The result object from the useMutation hook, containing the mutation function and its current state.
+ * @param {Omit<UseMutationOptions<UserCredential, ReactNativeFirebase.NativeFirebaseError, UseSignInWithCredentialMutationVariables, TContext>, "mutationKey" | "mutationFn">} options - Optional configurations for the mutation, omitting the mutationKey and mutationFn properties.
+ * @returns {UseMutationResult<UserCredential, ReactNativeFirebase.NativeFirebaseError, UseSignInWithCredentialMutationVariables, TContext>} The result object from the useMutation hook, containing the mutation function and its current state.
  */
 export const useSignInWithCredentialMutation = <TContext = unknown>(
     options: Omit<
         UseMutationOptions<
-            FirebaseAuthTypes.UserCredential,
+            UserCredential,
             ReactNativeFirebase.NativeFirebaseError,
             UseSignInWithCredentialMutationVariables,
             TContext

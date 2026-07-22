@@ -1,5 +1,5 @@
 import { useMutation, UseMutationOptions } from "@tanstack/react-query";
-import { FirebaseAuthTypes, signInWithCustomToken } from "@react-native-firebase/auth";
+import { UserCredential, signInWithCustomToken } from "@react-native-firebase/auth";
 
 import { ReactNativeFirebase } from "@react-native-firebase/app";
 import { useAuth } from "./useAuth.js";
@@ -13,11 +13,7 @@ export type UseSignInWithCustomTokenMutationOptions = {
      * Options for useMutation hook excluding mutationFn. MutationKey will be equal to reference.path by default.
      */
     options?: Omit<
-        UseMutationOptions<
-            FirebaseAuthTypes.UserCredential,
-            ReactNativeFirebase.NativeFirebaseError,
-            { customToken: string }
-        >,
+        UseMutationOptions<UserCredential, ReactNativeFirebase.NativeFirebaseError, { customToken: string }>,
         "mutationFn"
     >;
 };

@@ -1,4 +1,4 @@
-import { EmailAuthProvider, FirebaseAuthTypes } from "@react-native-firebase/auth";
+import { EmailAuthProvider, AuthCredential } from "@react-native-firebase/auth";
 import { useCallback } from "react";
 
 type Credential = {
@@ -26,7 +26,7 @@ type Credential = {
  */
 
 export const useEmailAuthProviderCredential = () => {
-    return useCallback((credential: Credential): FirebaseAuthTypes.AuthCredential => {
+    return useCallback((credential: Credential): AuthCredential => {
         if (credential.password) {
             return EmailAuthProvider.credential(credential.email, credential.password);
         }

@@ -1,11 +1,11 @@
 import { useMutation, UseMutationOptions } from "@tanstack/react-query";
-import { updateProfile, FirebaseAuthTypes } from "@react-native-firebase/auth";
+import { updateProfile, User } from "@react-native-firebase/auth";
 import { ReactNativeFirebase } from "@react-native-firebase/app";
 import { CREATE_USER_WITH_EMAIL_AND_PASSWORD_MUTATION_KEY } from "./mutation-keys.js";
 
 export type UseUpdateProfileMutationVariables = {
     displayName?: string;
-    user: FirebaseAuthTypes.User;
+    user: User;
 };
 
 /**

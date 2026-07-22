@@ -1,11 +1,11 @@
 import { useMutation, UseMutationOptions } from "@tanstack/react-query";
-import { reauthenticateWithCredential, FirebaseAuthTypes } from "@react-native-firebase/auth";
+import { reauthenticateWithCredential, AuthCredential, User, UserCredential } from "@react-native-firebase/auth";
 import { ReactNativeFirebase } from "@react-native-firebase/app";
 import { REAUTHENTICATE_WITH_CREDENTIAL_MUTATION_KEY } from "./mutation-keys.js";
 
 export type UseReauthenticateWitCredentialMutationVariables = {
-    credential: FirebaseAuthTypes.AuthCredential;
-    user: FirebaseAuthTypes.User;
+    credential: AuthCredential;
+    user: User;
 };
 
 /**
@@ -13,13 +13,13 @@ export type UseReauthenticateWitCredentialMutationVariables = {
  * This hook utilizes useMutation from React Query to manage the asynchronous re-authentication
  * process with Firebase credentials. It omits the default "mutationKey" and "mutationFn" options.
  *
- * @param {Omit<UseMutationOptions<FirebaseAuthTypes.UserCredential, ReactNativeFirebase.NativeFirebaseError, UseReauthenticateWitCredentialMutationVariables, TContext>, "mutationKey" | "mutationFn">}  options - Optional mutation options excluding "mutationKey" and "mutationFn".
- * @returns {UseMutationResult<FirebaseAuthTypes.UserCredential, ReactNativeFirebase.NativeFirebaseError, UseReauthenticateWitCredentialMutationVariables, TContext>} A useMutation result object managing the loading, error, and result state of the re-authentication mutation.
+ * @param {Omit<UseMutationOptions<UserCredential, ReactNativeFirebase.NativeFirebaseError, UseReauthenticateWitCredentialMutationVariables, TContext>, "mutationKey" | "mutationFn">}  options - Optional mutation options excluding "mutationKey" and "mutationFn".
+ * @returns {UseMutationResult<UserCredential, ReactNativeFirebase.NativeFirebaseError, UseReauthenticateWitCredentialMutationVariables, TContext>} A useMutation result object managing the loading, error, and result state of the re-authentication mutation.
  */
 export const useReauthenticateWitCredentialMutation = <TContext = unknown>(
     options: Omit<
         UseMutationOptions<
-            FirebaseAuthTypes.UserCredential,
+            UserCredential,
             ReactNativeFirebase.NativeFirebaseError,
             UseReauthenticateWitCredentialMutationVariables,
             TContext

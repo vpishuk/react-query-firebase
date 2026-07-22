@@ -7,7 +7,7 @@ import {
     setConsent,
     getAnalytics
 } from "@react-native-firebase/analytics";
-import { FirebaseRemoteConfigTypes, getRemoteConfig } from "@react-native-firebase/remote-config";
+import { RemoteConfigSettings, getRemoteConfig } from "@react-native-firebase/remote-config";
 import {
     connectFirestoreEmulator,
     getFirestore,
@@ -110,7 +110,7 @@ export type FirebaseContextProviderProps = PropsWithChildren & {
      * Configuration options for Firebase Remote Config Settings. {@link https://firebase.google.com/docs/reference/js/remote-config.remoteconfigsettings | Learn about the Firebase Remote COnfig Settings object}
      * @defaultValue `true`
      */
-    remoteConfigSettings?: FirebaseRemoteConfigTypes.ConfigSettings;
+    remoteConfigSettings?: RemoteConfigSettings;
     /**
      * Configuration options for Firebase Remote Config Defaults.
      */
@@ -227,7 +227,7 @@ export const FirebaseContextProvider: React.FC<FirebaseContextProviderProps> = (
         if (remoteConfigEnabled) {
             const localRemoteConfig = getRemoteConfig(internalFirebase);
             if (remoteConfigSettings) {
-                localRemoteConfig.settings.fetchTimeMillis = remoteConfigSettings.fetchTimeMillis;
+                localRemoteConfig.settings.fetchTimeoutMillis = remoteConfigSettings.fetchTimeoutMillis;
                 localRemoteConfig.settings.minimumFetchIntervalMillis = remoteConfigSettings.minimumFetchIntervalMillis;
                 localRemoteConfig.defaultConfig = remoteConfigDefaults;
             }

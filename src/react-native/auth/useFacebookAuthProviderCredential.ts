@@ -1,4 +1,4 @@
-import { FacebookAuthProvider, FirebaseAuthTypes } from "@react-native-firebase/auth";
+import { FacebookAuthProvider, AuthCredential } from "@react-native-firebase/auth";
 import { useCallback } from "react";
 
 type Credential = {
@@ -25,7 +25,7 @@ type Credential = {
  */
 
 export const useFacebookAuthProviderCredential = () => {
-    return useCallback((credential: Credential): FirebaseAuthTypes.AuthCredential => {
-        return FacebookAuthProvider.credential(credential.token, credential.nonce);
+    return useCallback((credential: Credential): AuthCredential => {
+        return FacebookAuthProvider.credential(credential.token, credential.nonce || "");
     }, []);
 };

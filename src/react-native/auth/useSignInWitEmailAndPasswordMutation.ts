@@ -1,5 +1,5 @@
 import { useMutation, UseMutationOptions } from "@tanstack/react-query";
-import { signInWithEmailAndPassword, FirebaseAuthTypes } from "@react-native-firebase/auth";
+import { signInWithEmailAndPassword, UserCredential } from "@react-native-firebase/auth";
 
 import { ReactNativeFirebase } from "@react-native-firebase/app";
 import { useAuth } from "./useAuth.js";
@@ -14,13 +14,13 @@ export type UseSignInWitEmailAndPasswordMutationVariables = {
  * Custom hook to perform a sign-in operation using email and password with Firebase Authentication.
  * It utilizes the `useMutation` hook to manage the asynchronous operation and its state.
  *
- * @param {Omit<UseMutationOptions<FirebaseAuthTypes.UserCredential, ReactNativeFirebase.NativeFirebaseError, UseSignInWitEmailAndPasswordMutationVariables, TContext>, 'mutationKey' | 'mutationFn'>} options - Options to configure the mutation, excluding 'mutationKey' and 'mutationFn'.
+ * @param {Omit<UseMutationOptions<UserCredential, ReactNativeFirebase.NativeFirebaseError, UseSignInWitEmailAndPasswordMutationVariables, TContext>, 'mutationKey' | 'mutationFn'>} options - Options to configure the mutation, excluding 'mutationKey' and 'mutationFn'.
  * @returns {MutationResult} A mutation object containing the result of the sign-in process and helper functions.
  */
 export const useSignInWitEmailAndPasswordMutation = <TContext = unknown>(
     options: Omit<
         UseMutationOptions<
-            FirebaseAuthTypes.UserCredential,
+            UserCredential,
             ReactNativeFirebase.NativeFirebaseError,
             UseSignInWitEmailAndPasswordMutationVariables,
             TContext
