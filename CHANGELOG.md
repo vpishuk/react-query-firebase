@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.8.0](https://github.com/vpishuk/react-query-firebase/compare/v3.7.1...v3.8.0) (2026-10-07)
+
+
+### Features
+
+* upgrades dependencies ([#243](https://github.com/vpishuk/react-query-firebase/issues/243)) ([ee88274](https://github.com/vpishuk/react-query-firebase/commit/ee88274c21bf44fed844a20a5403da2228787c6d))
+
 ## [3.7.1](https://github.com/vpishuk/react-query-firebase/compare/v3.7.0...v3.7.1) (2026-07-22)
 
 
