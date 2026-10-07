@@ -1,4 +1,4 @@
-import React, { PropsWithChildren, useEffect, useMemo, useState } from "react";
+import React, { PropsWithChildren, useEffect, useMemo } from "react";
 import { connectAuthEmulator, getAuth } from "@react-native-firebase/auth";
 import { getMessaging } from "@react-native-firebase/messaging";
 import {
@@ -8,12 +8,7 @@ import {
     getAnalytics
 } from "@react-native-firebase/analytics";
 import { RemoteConfigSettings, getRemoteConfig } from "@react-native-firebase/remote-config";
-import {
-    connectFirestoreEmulator,
-    getFirestore,
-    initializeFirestore,
-    FirestoreSettings
-} from "@react-native-firebase/firestore";
+import { connectFirestoreEmulator, initializeFirestore, FirestoreSettings } from "@react-native-firebase/firestore";
 import { ReactNativeFirebase, getApp } from "@react-native-firebase/app";
 import { FirebaseContext } from "./FirebaseContext.js";
 
@@ -165,7 +160,6 @@ export const FirebaseContextProvider: React.FC<FirebaseContextProviderProps> = (
     firestoreDBId = "(default)"
 }) => {
     const internalFirebase = useMemo(() => getApp(), []);
-    const [isFIrestoreReady, setIsFirestoreReady] = useState(false);
 
     useEffect(() => {
         setConsent(getAnalytics(internalFirebase), {
@@ -180,28 +174,19 @@ export const FirebaseContextProvider: React.FC<FirebaseContextProviderProps> = (
         });
     }, [consentSettings, internalFirebase]);
 
-    useEffect(() => {
-        initializeFirestore(internalFirebase, firestoreSettings || {}, firestoreDBId).then(() => {
-            setIsFirestoreReady(true);
-        });
-    }, [firestoreSettings, internalFirebase, firestoreDBId]);
-
     const internalFirestore = useMemo(() => {
-        if (firestoreEnabled && isFIrestoreReady) {
+        if (firestoreEnabled) {
+            const localFirestore = initializeFirestore(internalFirebase, firestoreSettings || {}, firestoreDBId);
+
             if (emulators?.firestore?.host && emulators?.firestore?.port) {
-                connectFirestoreEmulator(
-                    getFirestore(internalFirebase),
-                    emulators.firestore.host,
-                    emulators.firestore.port
-                );
+                connectFirestoreEmulator(localFirestore, emulators.firestore.host, emulators.firestore.port);
             }
 
-            const localFirestore = getFirestore(internalFirebase, firestoreDBId as string);
             return localFirestore;
         }
 
         return null;
-    }, [emulators, firestoreEnabled, internalFirebase, firestoreDBId, isFIrestoreReady]);
+    }, [firestoreSettings, emulators, firestoreEnabled, internalFirebase, firestoreDBId]);
 
     const internalAuth = useMemo(() => {
         if (authEnabled) {
@@ -243,10 +228,9 @@ export const FirebaseContextProvider: React.FC<FirebaseContextProviderProps> = (
             analytics: internalAnalytics,
             firestore: internalFirestore,
             remoteConfig: internalRemoteConfig,
-            messaging: getMessaging(internalFirebase),
-            isFIrestoreReady
+            messaging: getMessaging(internalFirebase)
         }),
-        [internalFirebase, internalAuth, internalAnalytics, internalFirestore, internalRemoteConfig, isFIrestoreReady]
+        [internalFirebase, internalAuth, internalAnalytics, internalFirestore, internalRemoteConfig]
     );
 
     useEffect(() => {

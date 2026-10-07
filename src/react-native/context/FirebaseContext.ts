@@ -13,7 +13,6 @@ export type FirebaseContextValue = {
     firebase: FirebaseApp;
     remoteConfig: RemoteConfig;
     firestore: Firestore;
-    isFIrestoreReady: boolean;
     messaging: Messaging;
 };
 
