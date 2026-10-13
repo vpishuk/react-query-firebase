@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.8.1](https://github.com/vpishuk/react-query-firebase/compare/v3.8.0...v3.8.1) (2026-10-13)
+
+
+### Miscellaneous Chores
+
+* upgrade database ([#247](https://github.com/vpishuk/react-query-firebase/issues/247)) ([3833e99](https://github.com/vpishuk/react-query-firebase/commit/3833e99f76c9f3f4797a64ab3e1291819808d6c2))
+
 ## [3.8.0](https://github.com/vpishuk/react-query-firebase/compare/v3.7.1...v3.8.0) (2026-10-07)
 
 
