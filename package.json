@@ -14,7 +14,7 @@
         "@react-native-firebase/messaging": "^26.x.x",
         "@react-native-firebase/remote-config": "^26.x.x",
         "@tanstack/react-query": "^5.x.x",
-        "firebase": "^11.x.x || ^12.x.x",
+        "firebase": "^11.x.x || ^12.x.x || ^13.x.x",
         "react": "^18.x.x || ^19.x.x"
     },
     "publishConfig": {
@@ -41,7 +41,7 @@
         "eslint-plugin-prettier": "^5.5.6",
         "eslint-plugin-react": "^7.37.5",
         "eslint-plugin-react-hooks": "^7.1.1",
-        "firebase": "^12.19.0",
+        "firebase": "^13.0.0",
         "husky": "^9.1.7",
         "lint-staged": "^17.1.1",
         "prettier": "^3.9.6",
